@@ -1,0 +1,63 @@
+<% form_for(@final_bill_cancel) do |f| %>
+  <%= f.error_messages %>
+<br /><br />
+  <div align="center" width="90%">
+  <table width="40%"  cellspacing="0" cellpadding="4">
+  <tr>
+    <td><%= f.label :mr_no %></td>
+    <td><%= f.text_field :mr_no, :size => "20" %></td>
+    <td><%= f.label :reg_no %></td>
+    <td><%= f.text_field :reg_no, :size => "20" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :patient_name %></td>
+    <td><%= f.text_field :patient_name, :size => "20" %></td>
+    <td><%= f.label :father_name %></td>
+    <td><%= f.text_field :father_name, :size => "20" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :floor %></td>
+    <td><%= f.text_field :floor, :size => "20" %></td>
+    <td><%= f.label :ward %></td>
+    <td><%= f.text_field :ward, :size => "20" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :room %></td>
+    <td><%= f.text_field :room, :size => "20" %></td>
+    <td><%= f.label :bed %></td>
+    <td><%= f.text_field :bed, :size => "20" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :final_bill_cancel %></td>
+    <td><%= f.text_field :final_bill_cancel, :size => "20" %></td>
+    <td><%= f.label :final_bill_amount %></td>
+    <td><%= f.text_field :final_bill_amount, :size => "20" %></td>
+  </tr></table>
+  <table border="1" cellspacing="0" width ="40%"><tr>
+     <th>Sno</th>
+    <th>Service name</th>
+    <th>Service code</th>
+    <th>Cost</th>
+    <th>Concession</th>
+    <th>Amount</th>
+  
+  <% f.fields_for :final_bill_cancel_service  do |c| %>
+  <tr>
+    
+    <td><%= c.text_field :sno,:size => "10", :style => "display:none" %></td>
+   
+    <td><%= c.text_field :service_name,:size => "20", :style => "display:none" %></td>
+    <td><%= c.text_field :service_code,:size => "20", :style => "display:none" %></td>
+    <td><%= c.text_field :cost,:size => "20", :style => "display:none" %></td>
+    <td><%= c.text_field :concession,:size => "20", :style => "display:none" %></td>
+    <td><%= c.text_field :amount,:size => "20", :style => "display:none" %></td>
+  </tr>
+  <% end %>
+ </table>
+  <br />
+    <%= f.submit 'Update' %>
+  <br />
+</div>
+<% end %>
+<br />
+<%= link_to 'Back', final_bill_cancels_path %>

@@ -1,0 +1,18 @@
+<br /><br />
+<table border=1 width="80%">
+	<tr>
+		<th>MR_Number</th>
+		<th>First Name</th>
+		<th>Father Name</th>
+		<th>Address</th>
+	</tr>
+<% @patientinformation.each do |patientinformation| %>
+	<tr>
+		<td><%=h patientinformation.mr_no %></td>
+		<td><%=h patientinformation.first_name %></td>
+		<td><%=h patientinformation.father_name %></td>
+		<td><%=h patientinformation.address %></td>
+		<td><%= link_to 'Show', :action => 'show', :id => @patientinformation.id %></td>
+	</tr>
+<% end %>
+</table>

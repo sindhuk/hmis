@@ -1,0 +1,40 @@
+<h3>Listing loantypemasters</h3>
+
+<br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Loantypecode</th>
+    <th>Loantypedescription</th>
+    <th>Interestrate</th>
+    <th>Interestpercentage</th>
+    <th>Maximumamount</th>
+    <th>Numberofinstallments</th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Destroy</th>
+  </tr>
+
+<% @loantypemasters.each do |loantypemaster| %>
+	<% if((loantypemaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h loantypemaster.loantypecode %></td>
+    <td class='<%= id %>'><%=h loantypemaster.loantypedescription %></td>
+    <td class='<%= id %>'><%=h loantypemaster.interestrate %></td>
+    <td class='<%= id %>'><%=h loantypemaster.interestpercentage %></td>
+    <td class='<%= id %>'><%=h loantypemaster.maximumamount %></td>
+    <td class='<%= id %>'><%=h loantypemaster.numberofinstallments %></td>
+    <td class='<%= id %>'><%= link_to 'Show', loantypemaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_loantypemaster_path(loantypemaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', loantypemaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New loantypemaster', new_loantypemaster_path %>

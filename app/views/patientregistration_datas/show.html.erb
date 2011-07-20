@@ -1,0 +1,81 @@
+
+<h3><font color="#015a84"><%=h @patientregistration_data.first_name %> Record</font></h3>
+<table align="center" border="1" cellspacing="0" cellpadding="6" >
+
+		<tr> 
+			<td>Registration ID</td> 
+			<td><%=h @patientregistration_data.reg_no %></td> 
+			<td>Reg.Date</td> 
+			<td><%=h @patientregistration_data.reg_date %></td> 
+		 
+			<td>Patient type</td> 
+			<td><%=h @patientregistration_data.patient_type %></td></tr>
+			<tr><td>Mrno</td> 
+			<td><%=h @patientregistration_data.mr_no %></td> 
+			<td>  First Name</td> 
+            <td><%=h @patientregistration_data.first_name %></td> 
+            <td>Lastname:</td> 
+            <td><%=h @patientregistration_data.last_name %></td>
+		     </tr> 
+		     <tr> 
+			<td>Date_of_birth</td> 
+			<td><%=h @patientregistration_data.date_of_birth %></td> 
+			<td>Gender</td> 
+			<td><%=h @patientregistration_data.gender %></td> 
+			<td>Age</td> 
+			<td><%=h @patientregistration_data.age %></td></tr> 
+			<tr>
+			<td>Marital Status</td> 
+			<td><%=h @patientregistration_data.marital_status %></td> 
+			<td>Father/Spousename</td> 
+			<td><%=h @patientregistration_data.father_name %></td> 
+			<td>Desease</td> 
+			<td><%=h @patientregistration_data.disease %></td> 
+		</tr> 
+		<tr> 
+			<td>Occupation</td> 
+			<td><%=h @patientregistration_data.occupation %></td> 
+			<td>Reg Fee</td> 
+			<td><%=h @patientregistration_data.reg_fee %></td> 
+			<td>Paymentmode</td>
+			<td><%=h @patientregistration_data.payment_mode %></td></tr>
+			<tr>
+			<td>Valid Period</td>
+			<td><%=h @patientregistration_data.valid_period %></td>
+			<td>Bankname</td>
+			<td><%=h @patientregistration_data.bank_name %></td>
+			<td>Chequenumber</td>
+			<td><%= @patientregistration_data.cheque_number %></td>
+		</tr>
+		<tr>
+			<td>Cardnumber </td>
+			<td><%=h @patientregistration_data.card_number %></td>
+			<td>Expirydate </td>
+			<td><%=h @patientregistration_data.expiry_date %></td>
+		     <td> Address1</td> 
+			<td><%=h @patientregistration_data.address1 %></td> </tr>
+			<tr>
+			<td>Address2</td> 
+			<td><%=h @patientregistration_data.address2 %></td> 
+			<td>City</td> 
+			<td><%=h @patientregistration_data.city %></td> 
+			<td>Country:</td> 
+			<td><%=h @patientregistration_data.country %></td> 
+		</tr> 
+		<tr> 
+			<td>State</td> 
+			<td><%= @patientregistration_data.state %></td> 
+			<td>Zipcode</td> 
+			<td><%= @patientregistration_data.zipcode %></td> 
+			<td>Phn No</td> 
+			<td><%= @patientregistration_data.phone_no  %></td></tr> 
+			<tr><td>Mobile No</td> 
+			<td><%= @patientregistration_data.mobile_no %></td> 
+     		<td>Fax</td> 
+			<td><%= @patientregistration_data.fax %></td> 
+			<td>Email-Id</td> 
+			<td><%= @patientregistration_data.email_id %></td> 
+		</tr></table>	   
+		<%= link_to 'Back', patientregistration_datas_path %>
+		
+	

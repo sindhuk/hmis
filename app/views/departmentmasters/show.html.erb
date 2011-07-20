@@ -1,0 +1,43 @@
+<h3>Details of Department</h3>
+<br/>
+<br/>
+<div align="center" width="100%">
+
+<table width="30%"  cellspacing="0" border="1" cellpadding="4">
+    <tr><td>
+   <b>Name</b></td>
+  <td> 
+  <%=h @departmentmaster.name %>
+  </td>
+  <tr/>
+
+ <tr><td>
+  <b>Code</b></td>
+  <td> 
+  <%=h @departmentmaster.code %>
+  </td>
+  <tr/>
+ <tr><td>
+  <b>Status</b></td>
+  <td> 
+  <%=h @departmentmaster.status %>
+  </td>
+  <tr/>
+
+ <tr><td>  <b>Hod</b></td>
+  <td> 
+  <%=h @departmentmaster.hod %>
+  </td>
+  <tr/>
+
+ <tr><td>
+  <b>Contact Number Of Hod</b></td>
+  <td> 
+  <%=h @departmentmaster.contact_number_of_hod %>
+  </td>
+  <tr/>
+  </table>
+  </div>
+  <br/>
+ <%= link_to 'Back', departmentmasters_path %> 
+  

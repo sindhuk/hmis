@@ -1,0 +1,29 @@
+<%= stylesheet_link_tag 'css' %>
+<div  align="center">
+<br/><br/><br/>
+<table cellspacing="3" cellpadding="4" >
+<font size="3" face="Calibri">
+  <tr>
+    <th>Patient name</th>
+    <th>Mr no</th>
+    <th>Doctor</th>
+    <th>Transfer to doctor</th>
+  </tr>
+
+<% @doctor_charges.each do |doctor_charge| %>
+  <tr>
+    <td><%=h doctor_charge.Patient_Name %></td>
+    <td><%=h doctor_charge.MR_No %></td>
+    <td><%=h doctor_charge.doctor %></td>
+    <td><%=h doctor_charge.Transfer_To_Doctor %></td>
+    <td><%= link_to 'Show', doctor_charge %></td>
+    <td><%= link_to 'Edit', edit_doctor_charge_path(doctor_charge) %></td>
+    <td><%= link_to 'Destroy', doctor_charge, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New ', new_doctor_charge_path %>
+</font>

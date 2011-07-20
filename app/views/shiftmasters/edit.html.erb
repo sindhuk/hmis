@@ -1,0 +1,38 @@
+<h3>New Shift</h3>
+<% form_for(@shiftmaster) do |f| %>
+  <%= f.error_messages %>
+  <div align="center" width="90%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr><td>
+    <%= f.label :shift_name %></td>
+  <td>
+    <%= f.select :name, [['Morning-Shift'],['Afternoon-Shift'],['Night-Shift']],{:include_blank => false},{:id => "shift", :onchange => "select_shift()"} %>
+  </td>  <tr/>
+  <tr><td>
+    <%= f.label :shift_code %></td>
+  <td>
+    <%= f.text_field :code, :id => "code" %>
+  </td>  <tr/>
+    <tr><td>
+    <%= f.label :form_time %></td>
+  <td>
+    <%= f.time_select :form_time %>
+   </td>  <tr/>
+  <tr><td>
+    <%= f.label :to_time %></td>
+  <td>
+    <%= f.time_select :to_time %>
+ </td>  <tr/>
+  <tr><td>
+    <%= f.label :description %></td>
+  <td>
+    <%= f.text_field :description %>
+ </td>  <tr/>
+  </table><br>
+  
+    <%= f.submit 'Update' %>
+ 
+<% end %>
+</div>
+
+<%= link_to 'Back', shiftmasters_path %>

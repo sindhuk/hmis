@@ -1,0 +1,2 @@
+module RefferalmastersHelper
+end

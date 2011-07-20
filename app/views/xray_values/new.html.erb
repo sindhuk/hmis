@@ -1,0 +1,56 @@
+<h1>New xray_value</h1>
+ 
+<% form_for(@xray_value) do |f| %>
+  <%= f.error_messages %>
+ <%= image_tag ("hea.jpg")  %><br>
+  <%= image_tag ("banner.jpg")  %>
+  <p>
+     <table> 
+			<tr>
+				<td><%= f.label :x_ray_name %> </td>
+				<td><%= f.text_field :x_ray_name %></td> 
+				<td><%= f.label :remark_1 %> </td>
+				<td><%= f.text_field :remark_1 %></td> 
+			</tr>
+			<tr>
+				<td> <%= f.label :remark_2 %> </td>
+				<td><%= f.text_field :remark_2 %> </td>
+				<td><%= f.label :remark_3 %> </td>
+				<td><%= f.text_field :remark_3 %></td> 
+			</tr>
+			<tr>
+				<td><%= f.label :remark_4 %></td>
+				<td><%= f.text_field :remark_4 %></td>
+				<td> <%= f.label :remark_5 %></td>
+				<td><%= f.text_field :remark_5 %></td>
+		    </tr>
+		    <tr>
+			   <td> <%= f.label :remark_6 %></td></td>
+			   <td> <%= f.text_field :remark_6 %></td>
+			   <td><%= f.label :remark_7 %></td>
+			   <td><%= f.text_field :remark_7 %></td>
+			</tr>
+			<tr>
+			    <td><%= f.label :remark_8 %></td>
+				<td><%= f.text_field :remark_8 %></td>
+				<td><%= f.label :remark_9 %></td>
+				<td><%= f.text_field :remark_9 %></td>
+			</tr>
+			<tr>
+				<td><%= f.label :remark_10 %></td>
+				<td><%= f.text_field :remark_10 %></td>
+			    <td><%= f.label :remark_11 %></td>
+				<td><%= f.text_field :remark_11 %></td>
+			</tr>
+            <tr>
+				<td><%= f.label :opinion %></td>
+				<td><%= f.text_field :opinion %>
+
+	   </tr></table>		
+    
+	</font>
+	<%= f.submit 'Create' %>
+  
+<% end %>
+
+<%= link_to 'Back', xray_values_path %>

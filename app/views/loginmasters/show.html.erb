@@ -1,0 +1,13 @@
+<p>
+  <b>Username:</b>
+  <%=h @loginmaster.user_name %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%=h @loginmaster.password %>
+</p>
+
+
+<%= link_to 'Edit', edit_loginmaster_path(@loginmaster) %> |
+<%= link_to 'Back', loginmasters_path %>

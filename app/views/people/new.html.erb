@@ -1,0 +1,45 @@
+<br /><br />
+<%= javascript_include_tag 'ezcalendar.js' %>
+<table align="center">
+<% form_for @person do |f| %>
+  <tr>
+	<td><label for="person_name">User Name</label></td>
+	<td><%= f.text_field :name, :size => 20 %></td>
+  </tr>
+  <tr>
+	<td><label for="person_firstname">First Name</label></td>
+	<td><%= f.text_field :firstname, :size => 20 %></td>
+  </tr>
+  <tr>
+	<td><label for="person_lastname">Last Name</label></td>
+	<td><%= f.text_field :lastname, :size => 20 %></td>
+  </tr>
+  <tr>
+	<td><label for="person_Displayname">Display Name</label></td>
+	<td><%= f.text_field :Displayname, :size => 20 %></td>
+  </tr>
+  <tr>
+	<td><label for="person_password">Password</label></td>
+	<td><%= f.password_field :password, :size => 20 %></td>
+  </tr>
+  <tr>
+	<td><label for="person_password_confirmation">Password Confirmation</label></td>
+	<td><%= f.password_field :password_confirmation, :size => 20 %></td>
+  </tr>
+  <tr>
+	<td><label for="person_expirydate">Expiry Date</label></td>
+	<td><%= f.password_field :expirydate, :size => 20 %><%= link_to image_tag ("cal.gif", :border=>0), "javascript: showCalendar('dob')"%></td>
+  </tr>
+  <tr>
+	<td><label for="person_profile">Profile</label></td>
+	<td><%= f.select :profile, Profilemaster.find(:all).collect{|p| [p.profile_name]} %></td>
+  </tr>
+  <tr>
+	<td>&nbsp;&nbsp;&nbsp;</td>
+	<td>&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+	<td colspan="3" align="center"><%= submit_tag "Create" %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,30 @@
+<h1>Listing consultationcharges</h1>
+
+<table>
+  <tr>
+    <tr><th>DoctorName</th><tr>
+    <tr><th>DoctorCode</th><tr>
+    <tr><th>Details</th><tr>
+    <tr><th>DoctorCharge</th><tr>
+	<tr><th>Ward</th><tr>
+	<th>Wardcost</th><tr>
+  </tr>
+
+<% @consultationcharges.each do |consultationcharge| %>
+  <tr>
+    <td><%=h consultationcharge.name %></td>
+    <td><%=h consultationcharge.code %></td>
+    <td><%=h consultationcharge.details %></td>
+    <td><%=h consultationcharge.charge %></td>
+	<td><%=h consultationcharge.ward %></td>
+	<td><%=h consultationcharge.cost %></td>
+    <td><%= link_to 'Show', consultationcharge %></td>
+    <td><%= link_to 'Edit', edit_consultationcharge_path(consultationcharge) %></td>
+    <td><%= link_to 'Destroy', consultationcharge, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New consultationcharge', new_consultationcharge_path %>

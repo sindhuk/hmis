@@ -1,0 +1,92 @@
+<h1>Listing usgtables</h1>
+
+<table>
+  <tr>
+    <th>Registration no</th>
+    <th>Billno</th>
+    <th>Mrno</th>
+    <th>Patientname</th>
+    <th>Test date</th>
+    <th>Liv</th>
+    <th>Liv1</th>
+    <th>Liv2</th>
+    <th>Gall</th>
+    <th>Gall1</th>
+    <th>Comm</th>
+    <th>Comm1</th>
+    <th>Port</th>
+    <th>Port1</th>
+    <th>Pan</th>
+    <th>Pan1</th>
+    <th>Sple</th>
+    <th>Sple1</th>
+    <th>Kidn</th>
+    <th>Kidn1</th>
+    <th>Kidn2</th>
+    <th>Rk</th>
+    <th>Lk</th>
+    <th>Both</th>
+    <th>Both1</th>
+    <th>Urin</th>
+    <th>Urin1</th>
+    <th>N</th>
+    <th>N1</th>
+    <th>Uter</th>
+    <th>Long</th>
+    <th>Ante</th>
+    <th>Tran</th>
+    <th>N3</th>
+    <th>Adne</th>
+    <th>Oth</th>
+    <th>Echo</th>
+  </tr>
+
+<% @usgtables.each do |usgtable| %>
+  <tr>
+    <td><%=h usgtable.registration_no %></td>
+    <td><%=h usgtable.bill_no %></td>
+    <td><%=h usgtable.mr_no %></td>
+    <td><%=h usgtable.patient_name %></td>
+    <td><%=h usgtable.test_date %></td>
+    <td><%=h usgtable.liv %></td>
+    <td><%=h usgtable.liv1 %></td>
+    <td><%=h usgtable.liv2 %></td>
+    <td><%=h usgtable.gall %></td>
+    <td><%=h usgtable.gall1 %></td>
+    <td><%=h usgtable.comm %></td>
+    <td><%=h usgtable.comm1 %></td>
+    <td><%=h usgtable.port %></td>
+    <td><%=h usgtable.port1 %></td>
+    <td><%=h usgtable.pan %></td>
+    <td><%=h usgtable.pan1 %></td>
+    <td><%=h usgtable.sple %></td>
+    <td><%=h usgtable.sple1 %></td>
+    <td><%=h usgtable.kidn %></td>
+    <td><%=h usgtable.kidn1 %></td>
+    <td><%=h usgtable.kidn2 %></td>
+    <td><%=h usgtable.rk %></td>
+    <td><%=h usgtable.lk %></td>
+    <td><%=h usgtable.both %></td>
+    <td><%=h usgtable.both1 %></td>
+    <td><%=h usgtable.urin %></td>
+    <td><%=h usgtable.urin1 %></td>
+    <td><%=h usgtable.n %></td>
+    <td><%=h usgtable.n1 %></td>
+    <td><%=h usgtable.uter %></td>
+    <td><%=h usgtable.long %></td>
+    <td><%=h usgtable.ante %></td>
+    <td><%=h usgtable.tran %></td>
+    <td><%=h usgtable.n3 %></td>
+    <td><%=h usgtable.adne %></td>
+    <td><%=h usgtable.oth %></td>
+    <td><%=h usgtable.echo %></td>
+    <td><%= link_to 'Show', usgtable %></td>
+    <td><%= link_to 'Edit', edit_usgtable_path(usgtable) %></td>
+    <td><%= link_to 'Destroy', usgtable, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New usgtable', new_usgtable_path %>

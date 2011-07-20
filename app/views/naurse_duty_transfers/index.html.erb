@@ -1,0 +1,25 @@
+<br/><br/>
+<div align="center">
+<table width="40%">
+  <tr>
+    <th>Emp code</th>
+    <th>Transfer to</th>
+    <th>Patient status</th>
+  </tr>
+
+<% @naurse_duty_transfers.each do |naurse_duty_transfer| %>
+  <tr>
+    <td><%=h naurse_duty_transfer.Emp_Code %></td>
+    <td><%=h naurse_duty_transfer.Transfer_to %></td>
+    <td><%=h naurse_duty_transfer.Patient_Status %></td>
+    <td><%= link_to 'Show', naurse_duty_transfer %></td>
+    <td><%= link_to 'Edit', edit_naurse_duty_transfer_path(naurse_duty_transfer) %></td>
+    <td><%= link_to 'Destroy', naurse_duty_transfer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+ 
+</table>
+
+<br/><br/>
+</div>
+<%= link_to 'New ', new_naurse_duty_transfer_path %>

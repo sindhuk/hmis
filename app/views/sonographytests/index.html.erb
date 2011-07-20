@@ -1,0 +1,138 @@
+<h1>Listing sonographytests</h1>
+
+<table>
+  <tr>
+    <th>Registration no</th>
+    <th>Mrno</th>
+    <th>Billno</th>
+    <th>Patientname</th>
+    <th>Test date</th>
+    <th>L size</th>
+    <th>L echotexture</th>
+    <th>Focal pathology</th>
+    <th>Ihbr</th>
+    <th>Pv</th>
+    <th>Cbd</th>
+    <th>G size</th>
+    <th>Wall thickness</th>
+    <th>Lumen</th>
+    <th>Lumen</th>
+    <th>P size</th>
+    <th>P shape</th>
+    <th>P echotexture</th>
+    <th>S size</th>
+    <th>S shape</th>
+    <th>S echotexture</th>
+    <th>K size rt</th>
+    <th>K size lt</th>
+    <th>K shape rt</th>
+    <th>K shape lt</th>
+    <th>K cortex rt</th>
+    <th>K cortex lt</th>
+    <th>K corticomedullaty differentiation rt</th>
+    <th>K corticomedullay defferentiation lt</th>
+    <th>K pcs rt</th>
+    <th>K pcs lt</th>
+    <th>K calculus rt</th>
+    <th>K calculus lt</th>
+    <th>Aorta</th>
+    <th>Ivc</th>
+    <th>Pre paraortic lymphadenopathy</th>
+    <th>Fluid in peritoneal cavity</th>
+    <th>Visualised bowel</th>
+    <th>U wall thickness</th>
+    <th>U calculus</th>
+    <th>Prevoid urinary vol</th>
+    <th>Postvoid urinary vol</th>
+    <th>Pr size</th>
+    <th>Pr echotexture</th>
+    <th>Pr capsule</th>
+    <th>U size</th>
+    <th>U position</th>
+    <th>U echotexture</th>
+    <th>U e cavity</th>
+    <th>U endometrium</th>
+    <th>O size rt</th>
+    <th>O size lt</th>
+    <th>O shape rt</th>
+    <th>O shape lt</th>
+    <th>O echotexture rt</th>
+    <th>O echotexture lt</th>
+    <th>O adenexal mass rt</th>
+    <th>O adenexal mass lt</th>
+    <th>Free fluid in pouch douglas</th>
+    <th>Impression</th>
+  </tr>
+
+<% @sonographytests.each do |sonographytest| %>
+  <tr>
+    <td><%=h sonographytest.registration_no %></td>
+    <td><%=h sonographytest.mr_no %></td>
+    <td><%=h sonographytest.bill_no %></td>
+    <td><%=h sonographytest.patient_name %></td>
+    <td><%=h sonographytest.test_date %></td>
+    <td><%=h sonographytest.l_size %></td>
+    <td><%=h sonographytest.l_echotexture %></td>
+    <td><%=h sonographytest.focal_pathology %></td>
+    <td><%=h sonographytest.ihbr %></td>
+    <td><%=h sonographytest.pv %></td>
+    <td><%=h sonographytest.cbd %></td>
+    <td><%=h sonographytest.g_size %></td>
+    <td><%=h sonographytest.wall_thickness %></td>
+    <td><%=h sonographytest.lumen %></td>
+    <td><%=h sonographytest.lumen %></td>
+    <td><%=h sonographytest.p_size %></td>
+    <td><%=h sonographytest.p_shape %></td>
+    <td><%=h sonographytest.p_echotexture %></td>
+    <td><%=h sonographytest.s_size %></td>
+    <td><%=h sonographytest.s_shape %></td>
+    <td><%=h sonographytest.s_echotexture %></td>
+    <td><%=h sonographytest.k_size_rt %></td>
+    <td><%=h sonographytest.k_size_lt %></td>
+    <td><%=h sonographytest.k_shape_rt %></td>
+    <td><%=h sonographytest.k_shape_lt %></td>
+    <td><%=h sonographytest.k_cortex_rt %></td>
+    <td><%=h sonographytest.k_cortex_lt %></td>
+    <td><%=h sonographytest.k_corticomedullaty_differentiation_rt %></td>
+    <td><%=h sonographytest.k_corticomedullay_defferentiation_lt %></td>
+    <td><%=h sonographytest.k_pcs_rt %></td>
+    <td><%=h sonographytest.k_pcs_lt %></td>
+    <td><%=h sonographytest.k_calculus_rt %></td>
+    <td><%=h sonographytest.k_calculus_lt %></td>
+    <td><%=h sonographytest.aorta %></td>
+    <td><%=h sonographytest.ivc %></td>
+    <td><%=h sonographytest.pre_paraortic_lymphadenopathy %></td>
+    <td><%=h sonographytest.fluid_in_peritoneal_cavity %></td>
+    <td><%=h sonographytest.visualised_bowel %></td>
+    <td><%=h sonographytest.u_wall_thickness %></td>
+    <td><%=h sonographytest.u_calculus %></td>
+    <td><%=h sonographytest.prevoid_urinary_vol %></td>
+    <td><%=h sonographytest.postvoid_urinary_vol %></td>
+    <td><%=h sonographytest.pr_size %></td>
+    <td><%=h sonographytest.pr_echotexture %></td>
+    <td><%=h sonographytest.pr_capsule %></td>
+    <td><%=h sonographytest.u_size %></td>
+    <td><%=h sonographytest.u_position %></td>
+    <td><%=h sonographytest.u_echotexture %></td>
+    <td><%=h sonographytest.u_e_cavity %></td>
+    <td><%=h sonographytest.u_endometrium %></td>
+    <td><%=h sonographytest.o_size_rt %></td>
+    <td><%=h sonographytest.o_size_lt %></td>
+    <td><%=h sonographytest.o_shape_rt %></td>
+    <td><%=h sonographytest.o_shape_lt %></td>
+    <td><%=h sonographytest.o_echotexture_rt %></td>
+    <td><%=h sonographytest.o_echotexture_lt %></td>
+    <td><%=h sonographytest.o_adenexal_mass_rt %></td>
+    <td><%=h sonographytest.o_adenexal_mass_lt %></td>
+    <td><%=h sonographytest.free_fluid_in_pouch_douglas %></td>
+    <td><%=h sonographytest.impression %></td>
+    <td><%= link_to 'Show', sonographytest %></td>
+    <td><%= link_to 'Edit', edit_sonographytest_path(sonographytest) %></td>
+    <td><%= link_to 'Destroy', sonographytest, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New sonographytest', new_sonographytest_path %>

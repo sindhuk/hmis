@@ -1,0 +1,2 @@
+module BankmastersHelper
+end

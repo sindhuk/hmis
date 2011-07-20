@@ -1,0 +1,41 @@
+<h3>Listing packagemasters</h3>
+
+<br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+  <tr>
+    <th>Packagename</th>
+    <th>Packagecode</th>
+    <th>Noofdays</th>
+    <th>Packagefromdate</th>
+    <th>Todate</th>
+    <th>Service</th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Destroy</th>
+  </tr>
+
+<% @packagemasters.each do |packagemaster| %>
+	<% if((packagemaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h packagemaster.name %></td>
+    <td class='<%= id %>'><%=h packagemaster.code %></td>
+    <td class='<%= id %>'><%=h packagemaster.no_of_days %></td>
+    <td class='<%= id %>'><%=h packagemaster.from_date %></td>
+    <td class='<%= id %>'><%=h packagemaster.to_date %></td>
+    <td class='<%= id %>'><%=h packagemaster.service %></td>
+    <td class='<%= id %>'><%= link_to 'Show', packagemaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_packagemaster_path(packagemaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', packagemaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New packagemaster', new_packagemaster_path %>

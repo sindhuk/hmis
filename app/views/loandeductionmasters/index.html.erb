@@ -1,0 +1,54 @@
+<h3>Listing loandeductionmasters</h3>
+
+<br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Month</th>
+    <th>Year</th>
+    <th>Branch</th>
+    <th>Categorycode</th>
+    <th>Categoryname</th>
+    <th>Employeecode</th>
+    <th>Employeename</th>
+    <th>Loanentrytypecode</th>
+    <th>Loanentrytypename</th>
+    <th>Installmentamount</th>
+    <th>Deductionamount</th>
+    <th>Loanbalanceamount</th>
+    <th>Remarks</th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Destroy</th>
+  </tr>
+
+<% @loandeductionmasters.each do |loandeductionmaster| %>
+	<% if((loandeductionmaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h loandeductionmaster.month %></td>
+    <td class='<%= id %>'><%=h loandeductionmaster.year %></td>
+    <td class='<%= id %>'><%=h loandeductionmaster.branch %></td>
+    <td class='<%= id %>'><%=h loandeductionmaster.category_code %></td>
+    <td class='<%= id %>'><%=h loandeductionmaster.category_name %></td>
+    <td class='<%= id %>'><%=h loandeductionmaster.employee_code %></td>
+    <td class='<%= id %>'><%=h loandeductionmaster.employee_name %></td>
+    <td class='<%= id %>'><%=h loandeductionmaster.loan_entry_type_code %></td>
+    <td class='<%= id %>'><%=h loandeductionmaster.loan_entry_type_name %></td>
+    <td class='<%= id %>'><%=h loandeductionmaster.installment_amount %></td>
+    <td class='<%= id %>'><%=h loandeductionmaster.deduction_amount %></td>
+    <td class='<%= id %>'><%=h loandeductionmaster.loan_balance_amount %></td>
+    <td class='<%= id %>'><%=h loandeductionmaster.remarks %></td>
+    <td class='<%= id %>'><%= link_to 'Show', loandeductionmaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_loandeductionmaster_path(loandeductionmaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', loandeductionmaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New loandeductionmaster', new_loandeductionmaster_path %>

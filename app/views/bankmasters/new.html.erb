@@ -1,0 +1,80 @@
+<h3>BankMaster</h3>
+<script type="application/javascript"> 
+	function selection_process(id)
+	{
+		var selObj = document.getElementById(id);
+		query1= selObj.options[selObj.selectedIndex].value
+		req = new Ajax.Request('/bankmasters/ajax_buildings/1', {
+			method: 'get',
+			parameters: { q: query1 },
+			onComplete: function(transport) {
+			processReqChange(transport);
+			}
+
+		}); // end ajax req
+							
+		function processReqChange(req) 
+		{
+			// request is complete
+			if (req.readyState == 4) 
+			{
+				var results = req.responseText;
+				var temp=new Array()
+				temp=results.split(",")
+				document.getElementById('country').value=temp[0]
+				document.getElementById('state').value=temp[1]
+			}
+		}
+	}
+</script> 
+<% form_for(@bankmaster) do |f| %>
+  <%= f.error_messages %>
+<br /><br />
+  <div align="center" width="90%">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+	<td><%= f.label :name %></td>
+    <td><%= f.text_field :name %></td>
+  <tr/>
+  <tr>
+	<td><%= f.label :code %></td>
+    <td><%= f.text_field :code %></td>
+  </tr>
+  <tr>
+	<td><%= f.label :branch %></td>
+    <td><%= f.text_field :branch %></td>
+  </tr>
+  <tr>
+	<td><%= f.label :address %></td>
+    <td><%= f.text_field :address %></td>
+  </tr>
+  
+	<tr>
+	<td><%= f.label :city %></td>
+    <td><%= select "bankmaster", "city", Citymaster.find(:all).collect {|p| [ p.name ] }, {:include_blank => false}, {:id => "city", :onchange => "selection_process(id)"} %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :state %></td>
+    <td><%= f.text_field:state, :id => "state" %></td>
+  </tr>
+  <tr>
+	<td><%= f.label :country %></td>
+     <td><%= f.text_field:country, :id => "country" %></td>
+  </tr>
+  <tr>
+	<td><%= f.label :phone_no %></td>
+    <td><%= f.text_field :phno %></td>
+  </tr>
+  <tr>
+	<td><%= f.label :mail %></td>
+    <td><%= f.text_field :mail %></td>
+  </tr>
+ 
+  
+</table>
+<br />
+<%= f.submit 'Create' %>
+</div>
+<% end %>
+<br/>
+<b><%= link_to "Show", bankmasters_path %></b>

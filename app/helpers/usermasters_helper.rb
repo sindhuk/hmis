@@ -1,0 +1,2 @@
+module UsermastersHelper
+end

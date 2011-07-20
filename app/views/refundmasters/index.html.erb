@@ -1,0 +1,58 @@
+<br /><br/>
+
+<table width="90%" cellpadding="2" cellspacing="0">
+  <tr bgcolor =" #378bf8" style="color:white">
+    <th>Ip general</th>
+    <th>Op bills</th>
+    <th>Osp bills</th>
+    <th>Bill no</th>
+    <th>Refund date</th>
+    <th>Mr no</th>
+    <th>Patient name</th>
+    <th>Status</th>
+    <th>Reg no</th>
+    <th>Admn no</th>
+    <th>Consultation doctor</th>
+    <th>Admn date</th>
+    
+   </tr>
+
+<% @refundmasters.each do |refundmaster| %>
+<% if((refundmaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %> 
+ <tr>
+    <td class='<%= id %>'><%=h refundmaster.ip_general %></td>
+    <td class='<%= id %>'><%=h refundmaster.op_bills %></td>
+    <td class='<%= id %>'><%=h refundmaster.osp_bills %></td>
+    <td class='<%= id %>'><%=h refundmaster.misc %></td>
+    <td class='<%= id %>'><%=h refundmaster.consult %></td>
+    <td class='<%= id %>'><%=h refundmaster.bill_no %></td>
+    <td class='<%= id %>'><%=h refundmaster.refund_date %></td>
+    <td class='<%= id %>'><%=h refundmaster.mr_no %></td>
+    <td class='<%= id %>'><%=h refundmaster.patient_name %></td>
+    <td class='<%= id %>'><%=h refundmaster.status %></td>
+    <td class='<%= id %>'><%=h refundmaster.reg_no %></td>
+    <td class='<%= id %>'><%=h refundmaster.admn_no %></td>
+    <td class='<%= id %>'><%=h refundmaster.consultation_doctor %></td>
+    <td class='<%= id %>'><%=h refundmaster.admn_date %></td>
+    <td class='<%= id %>'><%=h refundmaster.reffered_by %></td>
+	<% if @value[1]==49 %>
+	<td><%= link_to 'Show', refundmaster%></td>
+	<% end %>
+	<% if @value[2]==49 %>
+	<td><%= link_to 'Edit', edit_refundmaster_path(refundmaster)%></td>
+	<% end %>
+	<% if @value[3]==49 %>
+	<td><%= link_to 'Destroy', refundmaster, :confirm => 'Are you sure?', :method => :delete%></td>
+	<% end %>
+   </tr>
+<% end %>
+</table>
+
+<br />
+<% if @value[0]==49 %>
+ <%= link_to 'New refundmaster', new_refundmaster_path %>
+<% end %>

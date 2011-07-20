@@ -1,0 +1,31 @@
+<h3>Editing inventorylevel2master</h3>
+
+<% form_for(@inventorylevel2master) do |f| %>
+  <%= f.error_messages %>
+ <br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr><td>
+    <%= f.label :item_level1_code %></td>
+   <td><%= f.select :item_level1_code,  Inventorylevel1master.find(:all).collect {|p| [ p.item_level1]} %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :item_level2_code %></td>
+    <td><%= f.text_field :item_level2_code %></td>
+  </tr>
+  <tr><td>
+    <%= f.label :item_level2_name %></td>
+    <td><%= f.text_field :item_level2_name %></td>
+  </tr>
+  <tr><td>
+    <%= f.label :status %></td>
+   <td> <%= f.text_field :status %></td>
+  </tr>
+ </table>
+ <br />
+ <%= f.submit 'Update' %>
+</div> 
+  
+<% end %>
+
+<%= link_to 'Back', inventorylevel2masters_path %>

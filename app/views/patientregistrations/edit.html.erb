@@ -1,0 +1,20 @@
+<h1>Editing patientregistration</h1>
+
+<% form_for(@patientregistration) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :patient_type %><br />
+    <%= f.text_field :patient_type %>
+  </p>
+
+  <p>
+    <%= f.label :mr_no %><br />
+    <%= f.text_field :mr_no %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @patientregistration %> |
+<%= link_to 'Back', patientregistrations_path %>

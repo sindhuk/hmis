@@ -1,0 +1,42 @@
+<h3>New Itemmaster</h3>
+
+<% form_for(@itemmaster) do |f| %>
+  <%= f.error_messages %>
+ <br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr><td>
+    <%= f.label :item_level1_code %></td>
+    <td><%= f.select :item_level1_code,  Inventorylevel1master.find(:all).collect {|p| [ p.item_level1]} %></td></tr>
+  <tr><td>
+    <%= f.label :item_level2_code %></td>
+   <td> <%= f.select :item_level2_code,  Inventorylevel2master.find(:all).collect {|p| [ p.item_level2_code]} %>
+  </td></tr>
+  <tr><td>
+    <%= f.label :item_level3_code %></td>
+   <td> <%= f.select :item_level3_code,  Inventorylevel3master.find(:all).collect {|p| [ p.item_level3_code]} %>
+  </td></tr>
+  <tr><td>
+    <%= f.label :item_code %></td>
+    <td><%= f.text_field :item_code %>
+ </td></tr>
+ <tr><td>
+    <%= f.label :item_name %></td>
+    <td><%= f.text_field :item_name %>
+  </td></tr>
+  <tr><td>
+    <%= f.label :is_medical_item %></td>
+    <td><%= f.text_field :is_medical_item %>
+  </td></tr>
+  <tr><td>
+    <%= f.label :is_seasonable_item %></td>
+    <td><%= f.text_field :is_seasonable_item %>
+  </td></tr>
+  </table>
+	<br />
+    <%= f.submit 'Create' %>
+ </div>
+<% end %>
+
+
+<%= link_to 'Show', itemmasters_path %>

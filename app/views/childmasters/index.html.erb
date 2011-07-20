@@ -1,0 +1,28 @@
+<h1>Listing childmasters</h1>
+
+<table>
+  <tr>
+    <th>Profilemaster</th>
+    <th>List</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+<% id = params[:id] %>
+<% @childmasters.each do |childmaster| %>
+  <tr>
+    <td><%=h childmaster.new %></td>
+    <td><%=h r=childmaster.view %></td>
+    <td><%=h e=childmaster.edit %></td>
+    <td><%=h d=childmaster.remove %></td>
+    <td><%= link_to 'Show',childmaster %></td>
+    <td><%= link_to 'Edit', edit_childmaster_path(childmaster) %></td>
+    <td><%= link_to 'Destroy', "http://localhost:3000/#{@path}?pa=3" %></td>
+   </tr>
+  
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New childmaster', new_childmaster_path %>

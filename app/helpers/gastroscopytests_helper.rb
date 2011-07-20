@@ -1,0 +1,2 @@
+module GastroscopytestsHelper
+end

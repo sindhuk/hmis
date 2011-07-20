@@ -1,0 +1,51 @@
+
+<br /><br/>
+<table width="80%" cellpadding="2" cellspacing="0">
+  <tr bgcolor =" #378bf8" style="color:white">
+    <th>Billno</th>
+    <th>Mrno</th>
+    <th>Department</th>
+    <th>Doctor</th>
+    <th>Concession</th>
+    <th>Cref</th>
+    <th>Gross</th>
+    <th>Due</th>
+    <th>Dref</th>
+	<th colspan="3">Permissions</th>
+  </tr>
+
+<% @opbilling1s.each do |opbilling1| %>
+<% if((opbilling1.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %> 
+
+ <tr>
+	<td class='<%= id %>'><%=h opbilling1.bill_no %></td>
+    <td class='<%= id %>'><%=h opbilling1.mr_no %></td>
+    <td class='<%= id %>'><%=h opbilling1.department %></td>
+    <td class='<%= id %>'><%=h opbilling1.doctor %></td>
+    <td class='<%= id %>'><%=h opbilling1.concession %></td>
+    <td class='<%= id %>'><%=h opbilling1.c_ref %></td>
+    <td class='<%= id %>'><%=h opbilling1.gross %></td>
+    <td class='<%= id %>'><%=h opbilling1.due %></td>
+    <td class='<%= id %>'><%=h opbilling1.d_ref %></td>
+	
+	<% if @value[1]==49 %>
+    <td class='<%= id %>'><%= link_to 'Show', opbilling1 %></td>
+	<% end %>
+	<% if @value[2]==49 %>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_opbilling1_path(opbilling1) %></td>
+	<% end %>
+	<% if @value[3]==49 %>
+    <td class='<%= id %>'><%= link_to 'Destroy', opbilling1, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if @value[0]==49 %>
+<td class='<%= id %>'><%= link_to 'New', new_opbilling1_path %></td>
+<% end %>

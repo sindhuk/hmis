@@ -1,0 +1,94 @@
+<h1>New gastroscopytest</h1>
+
+<script type="text/javascript">
+    function check_val()
+	{
+		len=document.getElementById('reg').value
+		if(len.length==5)
+		{
+			window.location='http://localhost:3000/gastroscopytests/new?reg='+len
+		}	
+	}
+</script>
+
+<% form_for(@gastroscopytest) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :registration_no %><br />
+    <%= f.text_field :registration_no, :id => "reg", :onKeyUp => "check_val()"  %>
+  </p>
+  <p>
+    <%= f.label :bill_no %><br />
+    <%= f.text_field :bill_no %>
+  </p>
+  <p>
+    <%= f.label :mr_no %><br />
+    <%= f.text_field :mr_no %>
+  </p>
+  <p>
+    <%= f.label :patient_name %><br />
+    <%= f.text_field :patient_name %>
+  </p>
+  <p>
+    <%= f.label :test_date %><br />
+    <%= f.date_select :test_date %>
+  </p>
+  <p>
+    <%= f.label :esophgus %><br />
+    <%= f.text_field :esophgus %>
+  </p>
+  <p>
+    <%= f.label :fundus %><br />
+    <%= f.text_field :fundus %>
+  </p>
+  <p>
+    <%= f.label :corpus %><br />
+    <%= f.text_field :corpus %>
+  </p>
+  <p>
+    <%= f.label :antrum %><br />
+    <%= f.text_field :antrum %>
+  </p>
+  <p>
+    <%= f.label :blub %><br />
+    <%= f.text_field :blub %>
+  </p>
+  <p>
+    <%= f.label :firsr_part %><br />
+    <%= f.text_field :firsr_part %>
+  </p>
+  <p>
+    <%= f.label :second_part %><br />
+    <%= f.text_field :second_part %>
+  </p>
+  <p>
+    <%= f.label :biopsy %><br />
+    <%= f.text_field :biopsy %>
+  </p>
+  <p>
+    <%= f.label :opinion_first %><br />
+    <%= f.text_field :opinion_first %>
+  </p>
+  <p>
+    <%= f.label :pylorospasm %><br />
+    <%= f.text_field :pylorospasm %>
+  </p>
+  <p>
+    <%= f.label :biliaryreflux %><br />
+    <%= f.text_field :biliaryreflux %>
+  </p>
+  <p>
+    <%= f.label :guthypomotility %><br />
+    <%= f.text_field :guthypomotility %>
+  </p>
+  <p>
+    <%= f.label :opinion_second %><br />
+    <%= f.text_field :opinion_second %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', gastroscopytests_path %>

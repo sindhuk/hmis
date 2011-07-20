@@ -1,0 +1,42 @@
+<h1>Listing leaveentrymasters</h1>
+
+<br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Employeecode</th>
+    <th>Employeename</th>
+    <th>Leavetypecode</th>
+    <th>Leavetypename</th>
+    <th>Fromdate</th>
+    <th>Todate</th>
+    <th>Numberofdays</th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Destroy</th>
+  </tr>
+
+<% @leaveentrymasters.each do |leaveentrymaster| %>
+	<% if((leaveentrymaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h leaveentrymaster.employee_code %></td>
+    <td class='<%= id %>'><%=h leaveentrymaster.employee_name %></td>
+    <td class='<%= id %>'><%=h leaveentrymaster.leave_type_code %></td>
+    <td class='<%= id %>'><%=h leaveentrymaster.leave_type_name %></td>
+    <td class='<%= id %>'><%=h leaveentrymaster.from_date %></td>
+    <td class='<%= id %>'><%=h leaveentrymaster.to_date %></td>
+    <td class='<%= id %>'><%=h leaveentrymaster.number_of_days %></td>
+    <td class='<%= id %>'><%= link_to 'Show', leaveentrymaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_leaveentrymaster_path(leaveentrymaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', leaveentrymaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New leaveentrymaster', new_leaveentrymaster_path %>

@@ -1,0 +1,38 @@
+<br /><br />
+<div align="center">
+<table width="80%" cellpadding="2" cellspacing="0">
+  <tr bgcolor ="#378bf8" style="color:white">
+    <th>Service consultaion no</th>
+    <th>Service cancel date</th>
+    <th>Bill no</th>
+    <th>Bill date</th>
+    <th>Service name</th>
+    <th>Service code</th>
+    <th>Amount</th>
+	<th colspan="3">Permissions</th>
+  </tr>
+
+<% @opbillservices.each do |opbillservice| %>
+<% if((opbillservice.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h opbillservice.service_consultaion_no %></td>
+    <td class='<%= id %>'><%=h opbillservice.service_cancel_date %></td>
+    <td class='<%= id %>'><%=h opbillservice.bill_no %></td>
+    <td class='<%= id %>'><%=h opbillservice.bill_date %></td>
+    <td class='<%= id %>'><%=h opbillservice.service_name %></td>
+    <td class='<%= id %>'><%=h opbillservice.service_code %></td>
+    <td class='<%= id %>'><%=h opbillservice.amount %></td>
+    <td class='<%= id %>'><%= link_to 'Show', opbillservice %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_opbillservice_path(opbillservice) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', opbillservice, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %></table>
+</div>
+
+
+
+<%= link_to 'New opbillservice', new_opbillservice_path %>

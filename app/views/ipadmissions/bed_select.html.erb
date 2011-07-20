@@ -1,0 +1,21 @@
+<table align="center">
+  <tr bgcolor =" #1797c0" style="color:white">
+    <th>Room Id</th>
+    <th>Bed Name</th>
+	<th>Status</th>
+  </tr>
+<% @bedmasters.each do |bedmaster| %>
+  <% @i=bedmaster.status %>
+  <tr>
+    <td><%=h bedmaster.roommaster_id %></td>
+    <td><%=h bedmaster.bed_name %></td>
+	<% if @i==1 %>
+		<td> Available</td>
+	<% else %>
+		<td> Un Available</td>
+	<% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />

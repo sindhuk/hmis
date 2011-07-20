@@ -1,0 +1,44 @@
+<h1>Listing patientinformations</h1>
+
+<table>
+  <tr>
+    <th>Patientregistration</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Dob</th>
+    <th>Gender</th>
+    <th>Age</th>
+    <th>Maritalstatus</th>
+    <th>Fathername</th>
+    <th>Occupation</th>
+    <th>Disease</th>
+	<th>Paymentmode</th>
+	<th>ValidPeriod</th>
+    <th>Initialamount</th>
+  </tr>
+
+<% @patientinformations.each do |patientinformation| %>
+  <tr>
+    <td><%=h patientinformation.patient_registration_id %></td>
+    <td><%=h patientinformation.first_name %></td>
+    <td><%=h patientinformation.last_name %></td>
+    <td><%=h patientinformation.dob %></td>
+    <td><%=h patientinformation.gender %></td>
+    <td><%=h patientinformation.age %></td>
+    <td><%=h patientinformation.marital_status %></td>
+    <td><%=h patientinformation.father_name %></td>
+    <td><%=h patientinformation.occupation %></td>
+    <td><%=h patientinformation.disease %></td>
+	 <td><%=h patientinformation.payment_mode %></td>
+	 <td><%=h patientinformation.valid_period %></td>
+    <td><%=h patientinformation.initial_amount %></td>
+    <td><%= link_to 'Show', patientinformation %></td>
+    <td><%= link_to 'Edit', edit_patientinformation_path(patientinformation) %></td>
+    <td><%= link_to 'Destroy', patientinformation, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New patientinformation', new_patientinformation_path %>

@@ -1,0 +1,31 @@
+<p>
+  <b>Profilemaster:</b>
+  <%=h @childmaster.profilemaster_id %>
+</p>
+<p>
+    <%= f.label :forms %><br />
+    <%= f.text_field :forms %>
+  </p>
+<p>
+  <b>List:</b>
+  <%=h @childmaster.new %>
+</p>
+
+<p>
+  <b>View:</b>
+  <%=h @childmaster.view %>
+</p>
+
+<p>
+  <b>Edit:</b>
+  <%=h @childmaster.edit %>
+</p>
+
+<p>
+  <b>Delete:</b>
+  <%=h @childmaster.remove %>
+</p>
+
+
+<%= link_to 'Edit', edit_childmaster_path(@childmaster) %> |
+<%= link_to 'Back', childmasters_path %>

@@ -1,0 +1,50 @@
+<h1>Listing patient_fees</h1>
+
+<table>
+  <tr>
+    <th>Registration</th>
+    <th>Mrno</th>
+    <th>Billno</th>
+    <th>Patientname</th>
+    <th>Receipt date</th>
+    <th>F total fees</th>
+    <th>W total fees</th>
+    <th>Receipt name</th>
+    <th>Dignosios fees</th>
+    <th>Xray fees</th>
+    <th>Ecg fees</th>
+    <th>Lab test fees</th>
+    <th>Gastroscopy fees</th>
+    <th>Usg fees</th>
+    <th>Indoor injection fees</th>
+    <th>Colonoscopy fees</th>
+  </tr>
+
+<% @patient_fees.each do |patient_fee| %>
+  <tr>
+    <td><%=h patient_fee.registration_id %></td>
+    <td><%=h patient_fee.mr_no %></td>
+    <td><%=h patient_fee.bill_no %></td>
+    <td><%=h patient_fee.patient_name %></td>
+    <td><%=h patient_fee.receipt_date %></td>
+    <td><%=h patient_fee.f_total_fees %></td>
+    <td><%=h patient_fee.w_total_fees %></td>
+    <td><%=h patient_fee.receipt_name %></td>
+    <td><%=h patient_fee.dignosios_fees %></td>
+    <td><%=h patient_fee.xray_fees %></td>
+    <td><%=h patient_fee.ecg_fees %></td>
+    <td><%=h patient_fee.lab_test_fees %></td>
+    <td><%=h patient_fee.gastroscopy_fees %></td>
+    <td><%=h patient_fee.usg_fees %></td>
+    <td><%=h patient_fee.indoor_injection_fees %></td>
+    <td><%=h patient_fee.colonoscopy_fees %></td>
+    <td><%= link_to 'Show', patient_fee %></td>
+    <td><%= link_to 'Edit', edit_patient_fee_path(patient_fee) %></td>
+    <td><%= link_to 'Destroy', patient_fee, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New patient_fee', new_patient_fee_path %>

@@ -1,0 +1,92 @@
+<h3>New Doctor</h3>
+<script type="application/javascript"> 
+	function selection_process(id)
+	{
+		var selObj = document.getElementById(id);
+		query1= selObj.options[selObj.selectedIndex].value
+		req = new Ajax.Request('/bankmasters/ajax_buildings/1', {
+			method: 'get',
+			parameters: { q: query1 },
+			onComplete: function(transport) {
+			processReqChange(transport);
+			}
+
+		}); // end ajax req
+							
+		function processReqChange(req) 
+		{
+			// request is complete
+			if (req.readyState == 4) 
+			{
+				var results = req.responseText;
+				var temp=new Array()
+				temp=results.split(",")
+				document.getElementById('country').value=temp[0]
+				document.getElementById('state').value=temp[1]
+			}
+		}
+	}
+</script> 
+<% form_for(@doctormaster) do |f| %>
+  <%= f.error_messages %>
+<br /><br /><br />
+<div align="center" width="90%">
+<table width="80%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr><td>
+    <%= f.label :name %></td>
+    <td><%= f.text_field :name %></td>
+    <td><%= f.label :code %></td>
+    <td><%= f.text_field :code %></td>
+  </tr>
+  <tr><td>
+    <%= f.label :designation %></td>
+    <td><%= select "doctormaster", "designation", Designationmaster.find(:all).collect {|p| [ p.name] }, {:include_blank => false} %></td>
+    <td><%= f.label :department %></td>
+    <td><%= select "doctormaster", "department", Departmentmaster.find(:all).collect {|p| [ p.name] }, {:include_blank => false} %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :fee %></td>
+    <td><%= f.text_field :fee %></td>
+    <td><%= f.label :address %></td>
+    <td><%= f.text_field :address %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :city %></td>
+    <td><%= select "doctormaster", "city", Citymaster.find(:all).collect {|p| [ p.name] }, {:include_blank => false} %></td>
+    <td><%= f.label :state %></td>
+    <td><%= f.text_field :state, :id =>"state"%></td>
+  </tr>
+  <tr>
+    <td><%= f.label :country %></td>
+    <td><%= f.text_field :country, :id =>"country" %></td>
+  
+    <td><%= f.label :pincode %></td>
+    <td><%= f.text_field :pincode %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :mobile_no %></td>
+    <td><%= f.text_field :mobile_no %>
+  
+    <td><%= f.label :consulting_room %></td>
+    <td><%= f.text_field :consulting_room %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :consulting_type %></td>
+    <td><%= f.radio_button :consulting_type, :IP, :checked => true %>IP
+	<%= f.radio_button :consulting_type, :OP %>OP
+	<%= f.radio_button :consulting_type, :BOTH %>BOTH</td>
+  
+    <td><%= f.label :payment_type %></td>
+    <td><%= f.radio_button :payment_type, :Salary, :checked => true %>Salary
+	<%= f.radio_button :payment_type, :Percentage %>Percentage
+	<%= f.radio_button :payment_type, :BOTH %>BOTH</td>
+  </tr>
+  <tr>
+    
+  </table>
+  <br /><br />
+  <%= f.submit 'Create' %>
+</div> 
+<% end %>
+
+<%= link_to 'show', doctormasters_path %>

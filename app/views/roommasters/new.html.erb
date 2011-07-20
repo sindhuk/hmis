@@ -1,0 +1,42 @@
+<h3>New roommaster</h3>
+
+<% form_for(@roommaster) do |f| %>
+  <%= f.error_messages %>
+<br /><br /><br />
+<div align="center" width="90%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr><td>
+    <%= f.label :wardsection %>
+    <td><%= select "room_master", "wardsection", Wardmaster.find(:all).collect {|p| [ p.name] }, {:include_blank => true} %></td>
+
+  </tr>
+  <tr>
+    <td><%= f.label :wardmaster_id %></td>
+    <td><%= f.text_field :wardmaster_id%></td>
+  </tr>
+  <tr>
+    <td><%= f.label :room_entry %></td>
+    <td><%= f.text_field :room_entry %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :block %></td>
+    <td><%= f.text_field :block %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :level %></td>
+    <td><%= f.text_field :level %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :phoneextension %></td>
+    <td><%= f.text_field :phone_extension %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :noofbedsinroom %></td>
+    <td><%= f.text_field :no_of_beds_in_room %></td>
+  </tr>
+  </table>
+    <%= f.submit 'Create' %>
+ </div>
+<% end %>
+
+<%= link_to 'show', roommasters_path %>

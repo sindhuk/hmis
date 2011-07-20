@@ -1,0 +1,83 @@
+<h3>New goodsrecieptnotemaster</h3>
+
+<script type="text/javascript">
+	function checked_print(el,v2) 
+	{
+		if(el=="itemcode")
+		{
+			var hi=v2
+			var selObj = document.getElementById(el);
+			var value_glo= selObj.options[selObj.selectedIndex].index;
+			var temp=new Array()
+			temp=hi.split(",")
+			document.getElementById('itemname').value=temp[value_glo]
+		}
+	}
+</script>
+<% form_for(@goodsrecieptnotemaster) do |f| %>
+  <%= f.error_messages %>
+<br/><br/><br/>
+  <div align="center"  width="100%">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr><td>
+    <%= f.label :grn_number %></td>
+    <td><%= f.text_field :grn_number %>
+    <td><%= f.label :grn_date %></td>
+    <td><%= f.date_select :grn_date %>
+  </tr>
+  <tr>
+    <td><%= f.label :po_number %></td>
+    <td><%= f.select :po_number,  Purchaseordermaster.find(:all).collect {|p| [ p.po_number]} %></td>
+    <td><%= f.label :po_date %></td>
+    <td><%= f.date_select :po_date %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :vendor_code %></td>
+    <td><%= f.select :vendor_code,  Vendormaster.find(:all).collect {|p| [ p.vendor_code]} %></td>
+    <td><%= f.label :invoice_number %></td>
+    <td><%= f.text_field :invoice_number %></td>
+   </tr>
+  <tr> 
+	<td><%= f.label :invoice_date %></td>
+    <td><%= f.date_select :invoice_date %></td>
+    <td><%= f.label :stack_point_code %></td>
+    <td><%= f.select :stack_point_code,  Stockpointmaster.find(:all).collect {|p| [ p.stock_point_type]},{ :include_blank => false },{:id => "stackpointcode",:onchange => "checked_print(id)"}  %></td>
+  </tr>
+  <tr>  
+	<td> <%= f.label :satck_point_name %></td>
+    <td><%= f.text_field :satck_point_name, :id => "satckpointname" %></td>
+    <td><%= f.label :item_code %></td>
+    <td><%= f.select :item_code,  Itemmaster.find(:all).collect {|p| [ p.item_code]},{ :include_blank => false },{:id => "itemcode",:onchange => "checked_print(id)"}  %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :item_name %></td>
+    <td><%= f.text_field :item_name, :id => "itemname" %></td>
+    <td><%= f.label :batch_no %></td>
+    <td><%= f.text_field :batch_no %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :expiry_date %></td>
+    <td><%= f.text_field :expiry_date %></td>
+    <td><%= f.label :quantity %></td>
+    <td><%= f.text_field :quantity %></td>
+  </tr>
+  <tr>  
+	<td><%= f.label :purchase_rate %></td>
+    <td><%= f.text_field :purchase_rate %></td>
+    <td><%= f.label :purchase_amount %></td>
+    <td><%= f.text_field :purchase_amount %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :sale_rate %></td>
+    <td><%= f.text_field :sale_rate %></td>
+    <td><%= f.label :sale_amount %></td>
+    <td><%= f.text_field :sale_amount %></td>
+  </tr>
+  
+ </table>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', goodsrecieptnotemasters_path %>

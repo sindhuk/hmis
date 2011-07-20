@@ -1,0 +1,32 @@
+<h3>Listing holidaymasters</h3>
+<br /><br />
+<table width="70%" align="center" border="1" cellspacing="0">
+  <tr>
+    <th>Holidaycode</th>
+    <th>Holidayname</th>
+    <th>Date</th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Destroy</th>
+  </tr>
+
+<% @holidaymasters.each do |holidaymaster| %>
+	<% if((holidaymaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td><%=h holidaymaster.code %></td>
+    <td><%=h holidaymaster.name %></td>
+    <td><%=h holidaymaster.date %></td>
+    <td><%= link_to 'Show', holidaymaster %></td>
+    <td><%= link_to 'Edit', edit_holidaymaster_path(holidaymaster) %></td>
+    <td><%= link_to 'Destroy', holidaymaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New holidaymaster', new_holidaymaster_path %>

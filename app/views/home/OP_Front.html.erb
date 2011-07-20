@@ -1,0 +1,32 @@
+<head>
+<%= stylesheet_link_tag 'ajaxtabs' %>
+<%= javascript_include_tag :defaults %>
+<%= javascript_include_tag 'ajaxtabs.js' %>
+
+</head>
+<body bgcolor="#ecf3f7">
+<div id="pettabs" class="indentmenu">
+<ul>
+<li><a href="http://localhost:3000/Patientregistration_datas" rel="#iframe" class="selected">Registration</a></li>
+<li><a href="http://localhost:3000/consultationforms" rel="#iframe">Consultation</a></li>
+<li><a href="http://localhost:3000/opsearches" rel="#iframe">OP Enquiry</a></li>
+<li><a href="http://localhost:3000/duespagemasters" rel="#iframe">Investigation Billing</a></li>
+<li><a href="http://localhost:3000/refundmasters" rel="#iframe">Refunds</a></li>
+<li><a href="http://localhost:3000/opbillservices" rel="#iframe">OP Bill Cancellation</a></li>
+<li><a href="http://localhost:3000/Patientregistrations" rel="#iframe">Misc Billing</a></li>
+<li><a href="http://localhost:3000/opsearches" rel="#iframe">Consultats Enquiry</a></li>
+</ul>
+</div>
+<div id="petsdivcontainer" style="width:100%;">
+</div>
+
+
+<script type="text/javascript">
+
+var mypets=new ddajaxtabs("pettabs", "petsdivcontainer")
+mypets.setpersist(false)
+mypets.setselectedClassTarget("link")
+mypets.init()
+
+</script>
+</body>

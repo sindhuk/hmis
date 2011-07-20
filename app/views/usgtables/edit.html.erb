@@ -1,0 +1,160 @@
+<h1>Editing usgtable</h1>
+
+<% form_for(@usgtable) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :registration_no %><br />
+    <%= f.text_field :registration_no %>
+  </p>
+  <p>
+    <%= f.label :billno %><br />
+    <%= f.text_field :bill_no %>
+  </p>
+  <p>
+    <%= f.label :mrno %><br />
+    <%= f.text_field :mr_no %>
+  </p>
+  <p>
+    <%= f.label :patientname %><br />
+    <%= f.text_field :patient_name %>
+  </p>
+  <p>
+    <%= f.label :test_date %><br />
+    <%= f.date_select :test_date %>
+  </p>
+  <p>
+    <%= f.label :liv %><br />
+    <%= f.text_field :liv %>
+  </p>
+  <p>
+    <%= f.label :liv1 %><br />
+    <%= f.text_field :liv1 %>
+  </p>
+  <p>
+    <%= f.label :liv2 %><br />
+    <%= f.text_field :liv2 %>
+  </p>
+  <p>
+    <%= f.label :gall %><br />
+    <%= f.text_field :gall %>
+  </p>
+  <p>
+    <%= f.label :gall1 %><br />
+    <%= f.text_field :gall1 %>
+  </p>
+  <p>
+    <%= f.label :comm %><br />
+    <%= f.text_field :comm %>
+  </p>
+  <p>
+    <%= f.label :comm1 %><br />
+    <%= f.text_field :comm1 %>
+  </p>
+  <p>
+    <%= f.label :port %><br />
+    <%= f.text_field :port %>
+  </p>
+  <p>
+    <%= f.label :port1 %><br />
+    <%= f.text_field :port1 %>
+  </p>
+  <p>
+    <%= f.label :pan %><br />
+    <%= f.text_field :pan %>
+  </p>
+  <p>
+    <%= f.label :pan1 %><br />
+    <%= f.text_field :pan1 %>
+  </p>
+  <p>
+    <%= f.label :sple %><br />
+    <%= f.text_field :sple %>
+  </p>
+  <p>
+    <%= f.label :sple1 %><br />
+    <%= f.text_field :sple1 %>
+  </p>
+  <p>
+    <%= f.label :kidn %><br />
+    <%= f.text_field :kidn %>
+  </p>
+  <p>
+    <%= f.label :kidn1 %><br />
+    <%= f.text_field :kidn1 %>
+  </p>
+  <p>
+    <%= f.label :kidn2 %><br />
+    <%= f.text_field :kidn2 %>
+  </p>
+  <p>
+    <%= f.label :rk %><br />
+    <%= f.text_field :rk %>
+  </p>
+  <p>
+    <%= f.label :lk %><br />
+    <%= f.text_field :lk %>
+  </p>
+  <p>
+    <%= f.label :both %><br />
+    <%= f.text_field :both %>
+  </p>
+  <p>
+    <%= f.label :both1 %><br />
+    <%= f.text_field :both1 %>
+  </p>
+  <p>
+    <%= f.label :urin %><br />
+    <%= f.text_field :urin %>
+  </p>
+  <p>
+    <%= f.label :urin1 %><br />
+    <%= f.text_field :urin1 %>
+  </p>
+  <p>
+    <%= f.label :n %><br />
+    <%= f.text_field :n %>
+  </p>
+  <p>
+    <%= f.label :n1 %><br />
+    <%= f.text_field :n1 %>
+  </p>
+  <p>
+    <%= f.label :uter %><br />
+    <%= f.text_field :uter %>
+  </p>
+  <p>
+    <%= f.label :long %><br />
+    <%= f.text_field :long %>
+  </p>
+  <p>
+    <%= f.label :ante %><br />
+    <%= f.text_field :ante %>
+  </p>
+  <p>
+    <%= f.label :tran %><br />
+    <%= f.text_field :tran %>
+  </p>
+  <p>
+    <%= f.label :n3 %><br />
+    <%= f.text_field :n3 %>
+  </p>
+  <p>
+    <%= f.label :adne %><br />
+    <%= f.text_field :adne %>
+  </p>
+  <p>
+    <%= f.label :oth %><br />
+    <%= f.text_field :oth %>
+  </p>
+  <p>
+    <%= f.label :echo %><br />
+    <%= f.text_field :echo %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @usgtable %> |
+<%= link_to 'Back', usgtables_path %>

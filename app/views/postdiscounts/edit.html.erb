@@ -1,0 +1,56 @@
+<br/>
+<br/>
+<% form_for(@postdiscount) do |f| %>
+  <%= f.error_messages %>
+  <div align="center" width="100%">
+<table width="60%" cellpadding="4" border=1 cellspacing="0">
+  <tr><td>
+    <%= f.label :billingmode %></td>
+    <td><%= f.radio_button :billing_mode , "consultation", :checked =>true %>consultation
+		<%= f.radio_button :billing_mode , "opbilling" %>opbilling</td>
+    <td><%= f.label :Registration_no %></td>
+    <td><%= f.text_field :registration_no %></td>
+	</tr>
+	
+	<tr>
+    
+    <td><%= f.label :Mr_no %></td>
+    <td><%= f.text_field :mr_no %></td>
+	<td><%= f.label :bill_no %></td>
+    <td><%= f.text_field :bill_no %></td>
+	</tr>
+	
+	<tr>
+    
+    <td><%= f.label :patient_name %></td>
+    <td><%= f.text_field :patient_name %></td>
+	<td><%= f.label :gross %></td>
+    <td><%= f.text_field :gross %></td>
+	</tr>
+	
+  <tr>
+    <td><%= f.label :due %></td>
+    <td><%= f.text_field :due %></td>
+	<td><%= f.label :concession %></td>
+    <td><%= f.text_field :concession %></td>
+  </tr>
+  <tr>
+    
+    <td><%= f.label :reciept %></td>
+    <td><%= f.text_field :reciept %></td>
+	<td><%= f.label :refferedby %></td>
+    <td><%= f.text_field :reffered_by %></td>
+  </tr>
+  <tr>
+    
+    <td><%= f.label :postdiscount %></td>
+    <td><%= f.text_field :post_discount %></td>
+  </tr>
+  
+  </table>
+  <br /><br />
+    <%= f.submit 'Update' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', postdiscounts_path %>

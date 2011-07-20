@@ -1,0 +1,2 @@
+module LeavemastersHelper
+end

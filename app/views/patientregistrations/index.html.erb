@@ -1,0 +1,88 @@
+<script type="application/javascript"> 
+	
+	
+	function ajaxSearch(id) 
+	{
+		
+		if(id=="mrno")
+		{
+			var query=document.getElementById(id).value
+			
+			req = new Ajax.Request('/patientregistrations/mrno/1', {
+				method: 'get',
+				parameters: { q: query },
+				onComplete: function(transport) {
+				processReqChange(transport);
+				}
+			});
+		}
+		else
+		{
+			var query=document.getElementById('first').value
+			var query1=document.getElementById('father').value
+			var query2="";
+			if(query=="" || query1=="")
+			{
+				if(query=="")
+				{
+					req = new Ajax.Request('/patientregistrations/fathername/1', {
+						method: 'get',
+						parameters: { q: query1 },
+						onComplete: function(transport) {
+						processReqChange(transport);
+						}
+						});
+				}
+				else
+				{
+					req = new Ajax.Request('/patientregistrations/firstname/1', {
+						method: 'get',
+						parameters: { q: query },
+						onComplete: function(transport) {
+						processReqChange(transport);
+						}
+						});
+				}
+			}
+			else
+			{
+				req = new Ajax.Request('/patientregistrations/both_conditions/1', {
+					method: 'get',
+					parameters: { q1: query, q2: query1 },
+					onComplete: function(transport) {
+					processReqChange(transport);
+					}
+
+				});
+			}
+		}
+		function processReqChange(req) 
+		{
+			document.getElementById("table").innerHTML=req.responseText
+			
+		}
+	}	
+	
+</script> 
+<body bgcolor="#C2DFFF">
+<font size="3" face="Calibri">
+<div align="center">
+<table width="100%">
+<tr>
+	<td><label for="item_name">First Name   </label></td>
+	<td><input type=text id=first onkeyUp="ajaxSearch(id)"></td>
+	<td><label for="item_name">Father Name   </label></td>
+	<td><input type=text id=father onkeyUp="ajaxSearch(id)"></td>
+	</tr><tr>
+	<td><label for="item_name">MR Number   </label></td>
+	<td><input type=text id=mrno onkeyUp="ajaxSearch(id)"></td>
+	<td><label for="item_name">City </label></td>
+	<td><%= text_field_tag:city  %></td>
+</tr>
+
+</table>
+<div id="table" align="center">
+
+</div>
+</div>
+</body>

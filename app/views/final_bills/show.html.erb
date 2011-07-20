@@ -1,0 +1,129 @@
+ 
+ <br/>
+ <br/>
+ 
+ <div align="center" width="100%">
+		<table width="40%" cellpadding="6"  cellspacing="0"> 
+		 
+				<tr><td>
+				  <b>Mr no:</td><td>
+				  <%=h @final_bill.mr_no %>
+				</td><td>
+				  <b>Reg no:</b></td><td>
+				  <%=h @final_bill.reg_no %>
+				</td><td>
+				  <b>Patient name:</b></td><td>
+				  <%=h @final_bill.patient_name %>
+				</td>
+				</tr>
+
+				<tr><td>
+				  <b>Father name:</b></td><td>
+				  <%=h @final_bill.father_name %>
+				</td><td>
+				  <b>Floor:</b></td><td>
+				  <%=h @final_bill.floor %>
+				</td><td>
+				  <b>Ward:</b></td><td>
+				  <%=h @final_bill.ward %>
+				</td></tr>
+
+				<tr><td>
+				  <b>Room:</b></td><td>
+				  <%=h @final_bill.room %>
+				</td><td>
+				  <b>Bed:</b></td><td>
+				  <%=h @final_bill.bed %>
+				</td><td>
+				  <b>Final bill no:</b></td><td>
+				  <%=h @final_bill.final_bill_no %>
+				</td>
+				</tr>
+
+				<tr>
+				<% for final_service in @final_bill.final_service %>
+				<td>
+				  <b>Final bill:</b></td><td>
+				  <%=h final_service.final_bill_id %>
+				</td><td>
+				  <b>Sno:</b></td><td>
+				  <%=h final_service.sno %>
+				</td><td>
+				  <b>Service name:</b></td><td>
+				  <%=h final_service.service_name %>
+				</td></tr>
+
+				<tr><td>
+				  <b>Service code:</b></td><td>
+				  <%=h final_service.service_code %>
+				</td><td>
+				  <b>Services provided:</b></td><td>
+				  <%=h final_service.services_provided %>
+				</td><td>
+				  <b>Price:</b></td><td>
+				  <%=h final_service.price %>
+				</td>
+				</tr>
+
+				<tr><td>
+				  <b>Concession:</b></td><td>
+				  <%=h final_service.concession %>
+				</td><td>
+				  <b>Total amount:</b></td><td>
+				  <%=h final_service.total_amount %>
+				</td>
+				<% end %>
+				<td>
+				  <b>Gross:</b></td><td>
+				  <%=h @final_bill.gross %>
+				</td>
+				</tr>
+
+				<tr><td>
+				  <b>Advance:</b></td><td>
+				  <%=h @final_bill.advance %>
+				</td><td>
+				  <b>Due:</b></td><td>
+				  <%=h @final_bill.due %>
+				</td><td>
+				  <b>Concession:</b></td><td>
+				  <%=h @final_bill.concession %>
+				</td></tr>
+
+				<tr><td>
+				  <b>Department:</b></td><td>
+				  <%=h @final_bill.department %>
+				</td><td>
+				  <b>Employee:</b></td><td>
+				  <%=h @final_bill.employee %>
+				</td><td>
+				  <b>Reciept:</b></td><td>
+				  <%=h @final_bill.reciept %>
+				</td></tr>
+
+				<tr><td>
+				  <b>Payment mode:</b></td><td>
+				  <%=h @final_bill.payment_mode %>
+				</td><td>
+				  <b>Bank name:</b></td><td>
+				  <%=h @final_bill.bank_name %>
+				</td><td>
+				  <b>Acc no:</b></td><td>
+				  <%=h @final_bill.acc_no %>
+				</td></tr>
+
+				<tr><td>
+				  <b>Cheque no:</b></td><td>
+				  <%=h @final_bill.cheque_no %>
+				</td><td>
+				  <b>Card no:</b></td><td>
+				  <%=h @final_bill.card_no %>
+				</td><td>
+				  <b>Expiry date:</b></td><td>
+				  <%=h @final_bill.expiry_date %>
+				</td></tr>
+		</table>
+
+		<br/>
+</div>
+<%= link_to 'Back', final_bills_path %>

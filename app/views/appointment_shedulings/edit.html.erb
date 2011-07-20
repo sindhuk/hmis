@@ -1,0 +1,29 @@
+
+
+<% form_for(@appointment_sheduling) do |f| %>
+  <%= f.error_messages %><br><br>
+<div align="center">
+<table>
+	<tr>
+		<td><%= f.label :appointment_no %></td>
+		<td><%= f.text_field :appointment_no %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :appointment_date %></td>
+		<td> <%= f.text_field :appointment_date %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :time %></td>
+		<td> <%= f.text_field :time %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :doctor_name %></td>
+		<td>  <%= f.text_field :doctor_name %></td>
+	</tr>
+
+ </table>
+    <%= f.submit 'Update' %>
+
+<% end %>
+</div>
+<%= link_to 'Back', appointment_shedulings_path %>

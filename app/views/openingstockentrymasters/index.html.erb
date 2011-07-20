@@ -1,0 +1,48 @@
+<h3>Listing openingstockentrymasters</h3>
+
+<br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Itemcode</th>
+    <th>Itemname</th>
+    <th>Batchnumber</th>
+    <th>Expirydate</th>
+    <th>Quantity</th>
+    <th>Purchasedate</th>
+    <th>Purchaseamount</th>
+    <th>Salerate</th>
+    <th>Saleamount</th>
+    <th>Discountamount</th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Destroy</th>
+  </tr>
+
+<% @openingstockentrymasters.each do |openingstockentrymaster| %>
+	<% if((openingstockentrymaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h openingstockentrymaster.item_code %></td>
+    <td class='<%= id %>'><%=h openingstockentrymaster.item_name %></td>
+    <td class='<%= id %>'><%=h openingstockentrymaster.batch_number %></td>
+    <td class='<%= id %>'><%=h openingstockentrymaster.expiry_date %></td>
+    <td class='<%= id %>'><%=h openingstockentrymaster.quantity %></td>
+    <td class='<%= id %>'><%=h openingstockentrymaster.purchase_date %></td>
+    <td class='<%= id %>'><%=h openingstockentrymaster.purchase_amount %></td>
+    <td class='<%= id %>'><%=h openingstockentrymaster.sale_rate %></td>
+    <td class='<%= id %>'><%=h openingstockentrymaster.sale_amount %></td>
+    <td class='<%= id %>'><%=h openingstockentrymaster.discount_amount %></td>
+    <td class='<%= id %>'><%= link_to 'Show', openingstockentrymaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_openingstockentrymaster_path(openingstockentrymaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', openingstockentrymaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New openingstockentrymaster', new_openingstockentrymaster_path %>

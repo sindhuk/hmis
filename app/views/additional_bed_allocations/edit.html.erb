@@ -1,0 +1,64 @@
+
+<br /><br />
+  <div align="center" >
+<table width="60%" cellpadding="4" cellspacing="0"> 
+<% form_for(@additional_bed_allocation) do |f| %>
+  <%= f.error_messages %>
+  <tr><td><%= f.label :mr_no %></td><td>
+    <%= f.text_field :mr_no, :size => "20" %></td>
+	<td><%= f.label :reg_no %></td>
+	<td><%= f.text_field :reg_no, :size => "20"  %></td>  
+    <td><%= f.label :patient_name %></td>
+	<td><%= f.text_field :patient_name, :size => "20"  %>
+  </td></tr>
+    <tr><td>
+    <%= f.label :father_name %></td>
+	<td><%= f.text_field :father_name, :size => "20"  %>
+  </td><td>
+    <%= f.label :floor %></td>
+	<td>
+    <%= f.text_field :floor, :size => "20"  %>
+  </td>
+  <td>
+    <%= f.label :ward %></td><td>
+    <%= f.text_field :ward, :size => "20"  %>
+  </td>
+  </tr>
+  
+  <tr><td>
+    <%= f.label :room %></td><td>
+    <%= f.text_field :room, :size => "20"  %>
+  </td>
+  <td>
+    <%= f.label :bed %></td><td>
+    <%= f.text_field :bed, :size => "20"  %>
+  </td>
+  </tr>
+ <tr><td colspan="6"><font size="4" face="calibri" color="red">Additional Bed Allocation</td></tr>
+ 
+  <tr><td>
+    <%= f.label :floor %></td><td>
+    <%= f.text_field :a_floor, :size => "20"  %>
+  </td>
+   <td>
+    <%= f.label :ward %></td><td>
+    <%= f.text_field :a_ward, :size => "20"  %>
+  </td>
+  <td>
+    <%= f.label :room %></td><td>
+    <%= f.text_field :a_room, :size => "20"  %>
+  </td></tr>
+  <tr><td>
+    <%= f.label :bed %></td><td>
+    <%= f.text_field :a_bed, :size => "20"  %>
+  </td>
+  <td>
+    <%= f.label :charge_per_day %></td><td>
+    <%= f.text_field :charge_per_day, :size => "20"  %>
+  </td></tr>
+ </table>
+    <%= f.submit 'Update' %>
+  </div>
+<% end %>
+<br/>
+<%= link_to 'Show', additional_bed_allocations_path %>

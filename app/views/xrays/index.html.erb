@@ -1,0 +1,54 @@
+<h1>Listing xrays</h1>
+
+<table>
+  <tr>
+    <th>Registration</th>
+    <th>Mrno</th>
+    <th>Billno</th>
+    <th>Patientname</th>
+    <th>Test date</th>
+    <th>X ray name</th>
+    <th>Remark 1</th>
+    <th>Remark 2</th>
+    <th>Remark 3</th>
+    <th>Remark 4</th>
+    <th>Remark 5</th>
+    <th>Remark 6</th>
+    <th>Remark 7</th>
+    <th>Remark 8</th>
+    <th>Remark 9</th>
+    <th>Remark 10</th>
+    <th>Remark 11</th>
+    <th>Opinion</th>
+  </tr>
+
+<% @xrays.each do |xray| %>
+  <tr>
+    <td><%=h xray.registration_id %></td>
+    <td><%=h xray.mr_no %></td>
+    <td><%=h xray.bill_no %></td>
+    <td><%=h xray.patient_name %></td>
+    <td><%=h xray.test_date %></td>
+    <td><%=h xray.x_ray_name %></td>
+    <td><%=h xray.remark_1 %></td>
+    <td><%=h xray.remark_2 %></td>
+    <td><%=h xray.remark_3 %></td>
+    <td><%=h xray.remark_4 %></td>
+    <td><%=h xray.remark_5 %></td>
+    <td><%=h xray.remark_6 %></td>
+    <td><%=h xray.remark_7 %></td>
+    <td><%=h xray.remark_8 %></td>
+    <td><%=h xray.remark_9 %></td>
+    <td><%=h xray.remark_10 %></td>
+    <td><%=h xray.remark_11 %></td>
+    <td><%=h xray.opinion %></td>
+    <td><%= link_to 'Show', xray %></td>
+    <td><%= link_to 'Edit', edit_xray_path(xray) %></td>
+    <td><%= link_to 'Destroy', xray, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New xray', new_xray_path %>

@@ -1,0 +1,18 @@
+<br />
+<table align="center">
+<tr>
+  <td>Room id</td>
+  <td><%=h @bedmaster.roommaster_id %></td>
+</tr>
+
+<tr>
+  <td>Bed Name</td>
+  <td><%=h @bedmaster.bed_name %></td>
+</tr>
+<tr>
+  <td>Status</td>
+  <td><%=h @bedmaster.status %></td>
+</tr>
+</table>
+<%= link_to 'Edit', edit_bedmaster_path(@bedmaster) %> |
+<%= link_to 'Back', bedmasters_path %>

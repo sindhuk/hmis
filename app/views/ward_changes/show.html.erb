@@ -1,0 +1,21 @@
+<div align="center">
+<table><tr><td>
+  <b>Patient name:</b></td>
+  <td><%=h @ward_change.Patient_Name %></td>
+  <td><b>Mr no:</b></td>
+  <td><%=h @ward_change.MR_No %></td></tr>
+  <tr><td><b>Floor:</b></td>
+  <td><%=h @ward_change.floor %></td>
+  <td><b>Room:</b></td>
+  <td><%=h @ward_change.room %></td></tr>
+  <tr><td><b>Ward:</b></td>
+  <td><%=h @ward_change.ward %></td>
+  <td><b>T floor:</b></td>
+  <td><%=h @ward_change.T_Floor %></td></tr>
+  <tr><td><b>T room:</b></td>
+  <td><%=h @ward_change.T_Room %></td>
+  <td><b>T ward:</b></td>
+  <td><%=h @ward_change.T_Ward %></td></tr>
+</table>
+</div>
+<%= link_to 'Back', ward_changes_path %>

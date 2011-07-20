@@ -1,0 +1,72 @@
+<h3>Showing  inpatientdailyreport</h3>
+<div align="center">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+ <tr>
+  <td>Registrationid:</td>
+  <td><%=h @inpatientdailyreport.registration_id %></td>
+	  <td>Date:</td>
+  <td><%=h @inpatientdailyreport.date %></td>
+
+</tr><tr>
+  <td>Admissionid:</td>
+  <td><%=h @inpatientdailyreport.admission_id %>
+</td>
+
+
+  <td>Dateofappointment:</td>
+<td>  <%=h @inpatientdailyreport.date_of_appointment %>
+</td>
+
+</tr><tr>
+  <td>Firstname:</td>
+  <td><%=h @inpatientdailyreport.first_name %>
+</td>
+
+  <td>Lastname:</td>
+<td>  <%=h @inpatientdailyreport.last_name %>
+</td>
+
+</tr><tr>
+  <td>Gender:</td>
+  <td><%=h @inpatientdailyreport.gender %>
+</td>
+
+  <td>Age:</td>
+<td>  <%=h @inpatientdailyreport.age %>
+</td>
+
+</tr><tr>
+  <td>Doctor_name:</td>
+  <td><%=h @inpatientdailyreport.doctor_name %>
+</td>
+
+  <td>Time:</td>
+<td>  <%=h @inpatientdailyreport.time %>
+</td>
+
+</tr><tr>
+  <td>Watd_type:</td>
+  <td><%=h @inpatientdailyreport.watd_type %>
+</td>
+  <td>Ward_no:</td>
+  <td><%=h @inpatientdailyreport.ward_no %>
+</td>
+</tr><tr>
+  <td>Bed_no:</td>
+<td>  <%=h @inpatientdailyreport.bed_no %>
+</td>
+
+ <td>Prescription:</td>
+  <%=h @inpatientdailyreport.prescription %>
+</td>
+
+</tr><tr>
+  <td>Request_for_discharge:</td>
+ <td> <%=h @inpatientdailyreport.request_for_discharge %>
+</td></tr>
+</table>
+</div>
+
+
+
+<%= link_to 'Back', inpatientdailyreports_path %>

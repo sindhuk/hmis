@@ -1,0 +1,18 @@
+<p>
+  <b>User_name:</b>
+  <%=h @usermaster.user_name %>
+</p>
+
+<p>
+  <b>User_id:</b>
+  <%=h @usermaster.user_id %>
+</p>
+
+<p>
+  <b>Profile:</b>
+  <%=h @usermaster.profile %>
+</p>
+
+
+<%= link_to 'Edit', edit_usermaster_path(@usermaster) %> |
+<%= link_to 'Back', usermasters_path %>

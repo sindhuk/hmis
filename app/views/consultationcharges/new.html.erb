@@ -1,0 +1,72 @@
+<h1>New consultationcharge</h1>
+<script type="text/javascript">
+	function check_val(id)
+	{
+		if(id=="variable")
+		{
+			document.getElementById('ward').disabled=false
+			document.getElementById('cost').disabled=false
+		}
+		else
+		{
+			document.getElementById('ward').disabled=true
+			document.getElementById('cost').disabled=true
+		}
+	}
+	function checked_print(el,v2) 
+	{
+		var hi=v2
+		var selObj = document.getElementById(el);
+		var value_glo= selObj.options[selObj.selectedIndex].index;
+		var temp=new Array()
+		temp=hi.split(",")
+		document.getElementById('cost').value=temp[value_glo]
+	}
+	function verify()
+	{
+		if(document.getElementById('cost').disabled==true)
+		{
+			alert("hai");
+			document.getElementById('cost').disabled=false
+			document.getElementById('ward').disabled=false
+			
+			document.getElementById('cost').value=""
+		}
+	}
+</script>
+
+<% form_for(@consultationcharge) do |f| %>
+   <%= f.error_messages %>
+
+     <p>
+     <%= f.label :name %><br />
+	  <%= f.select :doctor_name ,Doctormaster.find(:all).collect {|p| [ p.name ] }, {:include_blank => false} %>	
+    </p>
+      <p>
+    <%= f.label :code %><br />
+    <%= select "consultationcharge", "doctor_code", Doctormaster.find(:all).collect {|p| [ p.code ] }, {:include_blank => false} %>
+    
+	</p>
+    <p>
+    <%= f.label :details %><br />
+    <%= f.text_field :details %>
+    </p>
+    <p>
+    <%= f.label :charge %><br />
+	<%= f.radio_button :doctor_charge, :BothFlat ,{:id => "flat", :checked => true, :onchange => "check_val(id)"}%>BothFlat
+	<%= f.radio_button :doctor_charge, :BothVariable, {:id => "variable", :onchange => "check_val(id)"} %>BothVariable
+	</p>
+	<p>
+    <%= f.label :ward %><br />
+    <%= f.select :ward, Wardmaster.find(:all).collect { |p| [p.name] },{:include_blank => true}, {:id => "ward", :disabled => "true",:onchange => "checked_print(id,'#{@ward}')"}%>
+  </p>
+  <p>
+    <%= f.label :ward_cost %><br />
+    <%= f.text_field :ward_cost, :id => "cost", :disabled => "true" %>
+  </p>
+    <p>
+    <%= f.submit 'Create' %>
+    </p>
+<% end %>
+
+<%= link_to 'Back', consultationcharges_path %>

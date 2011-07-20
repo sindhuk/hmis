@@ -1,0 +1,2 @@
+module IpDischargesHelper
+end

@@ -1,0 +1,37 @@
+<h3>New Packagemaster</h3>
+<% form_for(@packagemaster) do |f| %>
+  <%= f.error_messages %>
+
+  <br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+	<tr>
+	<td>Packagename</td>
+    <td><%= f.text_field :name %></td>
+	</tr>
+  <tr>
+	<td>  packagecode</td>
+    <td><%= f.text_field :code %></td>
+  </tr>
+	<tr>
+	<td>Numberofdays </td>
+    <td><%= f.text_field :no_of_days %></td>
+	</tr>
+  <tr>
+	<td>    packagefromdate</td>
+    <td><%= f.date_select :from_date %></td>
+  </tr>
+  <tr><td>todate </td>
+      <td><%= f.date_select :to_date %></td>
+</tr>
+  <tr>      
+	  <td>service </td>
+      <td><%= f.select :service, Servicemaster.find(:all).collect {|p| [p.name]} %></td>
+  </tr>
+  </table>
+  <br />
+  <%= f.submit 'Create' %>
+  </div>
+<% end %>
+<br />
+<%= link_to 'Show', packagemasters_path %>

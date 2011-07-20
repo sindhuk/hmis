@@ -1,0 +1,38 @@
+<p>
+  <b>Opbilling1:</b>
+  <%=h @testresult.opbilling1_id %>
+</p>
+
+<p>
+  <b>Sno:</b>
+  <%=h @testresult.s_no %>
+</p>
+
+<p>
+  <b>Testcode:</b>
+  <%=h @testresult.test_code %>
+</p>
+
+<p>
+  <b>Testname:</b>
+  <%=h @testresult.test_name %>
+</p>
+
+<p>
+  <b>Fee:</b>
+  <%=h @testresult.fee %>
+</p>
+
+<p>
+  <b>Concessin:</b>
+  <%=h @testresult.concessin %>
+</p>
+
+<p>
+  <b>Totalfee:</b>
+  <%=h @testresult.total_fee %>
+</p>
+
+
+<%= link_to 'Edit', edit_testresult_path(@testresult) %> |
+<%= link_to 'Back', testresults_path %>

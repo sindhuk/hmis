@@ -1,0 +1,30 @@
+<div align="center">
+<table width= "50%"cellpadding="4"><tr>
+  <td><b>Mr no:</b></td>
+   <td><%=h @medicine_page.MR_No %></td>
+   <td><b>Patient name:</b></td>
+   <td><%=h @medicine_page.Patient_Name %></td></tr>
+    <tr><td><b>Reg no:</b></td>
+   <td><%=h @medicine_page.Reg_No %></td>
+     <td><b>Medicines:</b></td>
+   <td><%=h @medicine_page.medicines %></td></tr>
+   <% for medicine_page in @medicine_page.medicine_list %>
+   <td><b>Si no:</b></td>
+  <td><%=h @medicine_list.Si_No %></td>
+  <td><b>Medicine name:</b></td>
+  <td><%=h @medicine_list.Medicine_Name %></td>
+  <td><b>Code:</b></td>
+  <td><%=h @medicine_list.code %></td>
+  <td><b>Batch no:</b></td>
+  <td><%=h @medicine_list.Batch_No %></td>
+  <td><b>Quantity:</b></td>
+  <td><%=h @medicine_list.quantity %></td>
+  <td><b>Rate:</b></td>
+  <td><%=h @medicine_list.rate %></td>
+  <td><b>Amount:</b></td>
+  <td><%=h @medicine_list.amount %></td>
+</table>
+<br/><br/>
+</div>
+
+<%= link_to 'Back', medicine_pages_path %>

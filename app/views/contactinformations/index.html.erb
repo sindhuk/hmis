@@ -1,0 +1,40 @@
+<h1>Listing contactinformations</h1>
+
+<table>
+  <tr>
+    <th>Patientregistration</th>
+    <th>Address1</th>
+    <th>Address2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Zipcode</th>
+    <th>Phnno</th>
+    <th>Mobileno</th>
+    <th>Faxno</th>
+    <th>Emailid</th>
+  </tr>
+
+<% @contactinformations.each do |contactinformation| %>
+  <tr>
+    <td><%=h contactinformation.patient_registration_id %></td>
+    <td><%=h contactinformation.address1 %></td>
+    <td><%=h contactinformation.address2 %></td>
+    <td><%=h contactinformation.city %></td>
+    <td><%=h contactinformation.state %></td>
+    <td><%=h contactinformation.country %></td>
+    <td><%=h contactinformation.zipcode %></td>
+    <td><%=h contactinformation.phn_no %></td>
+    <td><%=h contactinformation.mobile_no %></td>
+    <td><%=h contactinformation.fax_no %></td>
+    <td><%=h contactinformation.emailid %></td>
+    <td><%= link_to 'Show', contactinformation %></td>
+    <td><%= link_to 'Edit', edit_contactinformation_path(contactinformation) %></td>
+    <td><%= link_to 'Destroy', contactinformation, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New contactinformation', new_contactinformation_path %>

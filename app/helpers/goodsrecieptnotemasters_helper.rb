@@ -1,0 +1,2 @@
+module GoodsrecieptnotemastersHelper
+end

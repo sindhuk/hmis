@@ -1,0 +1,33 @@
+<h3>Listing Foodmaster</h3>
+<br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Itemname</th>
+    <th>Itemcode</th>
+    <th>Charge</th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Destroy</th>
+  </tr>
+
+<% @foodmasters.each do |foodmaster| %>
+	<% if((foodmaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h foodmaster.item_name %></td>
+    <td class='<%= id %>'><%=h foodmaster.item_code %></td>
+    <td class='<%= id %>'><%=h foodmaster.charge %></td>
+    <td class='<%= id %>'><%= link_to 'Show', foodmaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_foodmaster_path(foodmaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', foodmaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New foodmaster', new_foodmaster_path %>

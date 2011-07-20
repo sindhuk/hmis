@@ -1,0 +1,48 @@
+<h3>DesignationMaster</h3>
+<script type="text/javascript">
+	function checked_print(el,v2) 
+	{
+	if(el=="departmentname")
+		{
+		var hi=v2
+		var selObj = document.getElementById(el);
+		var value_glo= selObj.options[selObj.selectedIndex].index;
+		var temp=new Array()
+		temp=hi.split(",")
+		document.getElementById('deptcode').value=temp[value_glo]
+	}
+	}
+</script>
+<% form_for(@designationmaster) do |f| %>
+  <%= f.error_messages %>
+<br/><br/><br/>
+  <div align="center"  width="100%">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr><td>Name</td>
+    <td><%= f.text_field :name %>
+  </td>  
+
+    <td>Code </td>
+    <td><%= f.text_field :code %>
+ </td>  </tr>
+  
+    <tr><td>Status</td>
+    <td><%= f.text_field :status %>
+ </td>  
+
+    <td>Department_Name </td>
+    <td><%= f.select :name , Departmentmaster.find(:all).collect {|p| [p.name] },{ :include_blank => false },{ :id => "deptname", :onchange => "checked_print(id,'#{@deptname}')" } %>
+ </td>  </tr>
+ <tr><td>Department_Code</td>
+    <td><%= f.text_field :code, :id => "deptcode" %>
+</td>  </tr>
+  </table>
+<br>
+    <%= f.submit 'Create' %>
+
+
+</div> 
+<% end %>
+
+<%= link_to  'Back', departmentmasters_path %>
+

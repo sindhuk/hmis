@@ -1,0 +1,28 @@
+<h3>New FoodMaster</h3>
+<% form_for(@foodmaster) do |f| %>
+  <%= f.error_messages %>
+
+  <br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+    <tr>
+		<td><%= f.label :item_name %></td>
+		<td><%= f.text_field :item_name %></td>
+    </tr>
+    <tr>
+		<td><%= f.label :itemcode %></td>
+        <td><%= f.text_field :item_code %></td>
+	</tr>
+  <tr><td>
+    <%= f.label :charge %></td>
+    <td><%= f.text_field :charge %>
+  </td>  </tr>
+  
+ </table>
+  <br />
+  <%= f.submit 'Create' %>
+</div> 
+<% end %>
+
+<%= link_to 'Show', foodmasters_path %>
+

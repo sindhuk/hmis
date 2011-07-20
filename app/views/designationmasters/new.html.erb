@@ -1,0 +1,58 @@
+<h3>DesignationMaster</h3>
+<script type="text/javascript">
+	function checked_print(el) 
+	{
+		var selObj = document.getElementById(el);
+		var query1= selObj.options[selObj.selectedIndex].value
+		req = new Ajax.Request('/designationmasters/ajax_buildings/1', {
+				method: 'get',
+				parameters: { q: query1},
+				onComplete: function(transport) {
+				processReqChange(transport);
+			}
+
+		}); // end ajax req
+						
+		function processReqChange(req) 
+		{
+			// request is complete
+			if (req.readyState == 4) 
+			{
+				var results = req.responseText;
+				document.getElementById('deptcode').value=results;
+			}
+		}
+	}
+</script>
+<% form_for(@designationmaster) do |f| %>
+  <%= f.error_messages %>
+<br/><br/><br/>
+  <div align="center"  width="100%">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr><td>Name</td>
+    <td><%= f.text_field :name %>
+  </td>  
+
+    <td>Code </td>
+    <td><%= f.text_field :code %>
+ </td>  </tr>
+  
+    <tr><td>Status</td>
+    <td><%= f.text_field :status %>
+ </td>  
+
+    <td>Department_Name </td>
+    <td><%= f.select :department_name , Departmentmaster.find(:all).collect {|p| [p.name] },{ :include_blank => false },{ :id => "deptname", :onchange => "checked_print(id)" } %>
+ </td>  </tr>
+ <tr><td>Department_Code</td>
+    <td><%= f.text_field :department_code, :id => "deptcode" %>
+</td>  </tr>
+  </table>
+<br>
+    <%= f.submit 'Create' %>
+
+
+</div> 
+<% end %>
+
+<%= link_to 'Show', designationmasters_path %>

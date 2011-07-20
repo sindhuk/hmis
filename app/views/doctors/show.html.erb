@@ -1,0 +1,13 @@
+<p>
+  <b>Id:</b>
+  <%=h @doctor.id %>
+</p>
+
+<p>
+  <b>D name:</b>
+  <%=h @doctor.d_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
+<%= link_to 'Back', doctors_path %>

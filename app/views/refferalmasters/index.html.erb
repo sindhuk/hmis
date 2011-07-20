@@ -1,0 +1,52 @@
+<h3>Listing refferalmasters</h3>
+
+<br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Refdoctorname</th>
+    <th>Doctorcode</th>
+    <th>Consultingroom</th>
+    <th>Specialization</th>
+    <th>Designation</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Phnno</th>
+    <th>Pincode</th>
+    <th>Mailid</th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Destroy</th>
+  </tr>
+
+<% @refferalmasters.each do |refferalmaster| %>
+	<% if((refferalmaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h refferalmaster.refdoctorname %></td>
+    <td class='<%= id %>'><%=h refferalmaster.doctorcode %></td>
+    <td class='<%= id %>'><%=h refferalmaster.consultingroom %></td>
+    <td class='<%= id %>'><%=h refferalmaster.specialization %></td>
+    <td class='<%= id %>'><%=h refferalmaster.designation %></td>
+    <td class='<%= id %>'><%=h refferalmaster.address %></td>
+    <td class='<%= id %>'><%=h refferalmaster.city %></td>
+    <td class='<%= id %>'><%=h refferalmaster.state %></td>
+    <td class='<%= id %>'><%=h refferalmaster.country %></td>
+    <td class='<%= id %>'><%=h refferalmaster.phn_no %></td>
+    <td class='<%= id %>'><%=h refferalmaster.pincode %></td>
+    <td class='<%= id %>'><%=h refferalmaster.mail_id %></td>
+    <td class='<%= id %>'><%= link_to 'Show', refferalmaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_refferalmaster_path(refferalmaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', refferalmaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New refferalmaster', new_refferalmaster_path %>

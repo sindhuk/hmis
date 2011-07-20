@@ -1,0 +1,45 @@
+<h3>New loan payment</h3>
+
+<script type="text/javascript">
+	function checked_print(id,a) 
+	{
+			
+		var selObj = document.getElementById(id);
+		
+		var value_glo= selObj.options[selObj.selectedIndex].index;
+		
+		var temp=new Array()
+		temp=a.split(",")
+		
+		document.getElementById('name').value=temp[value_glo]
+		
+		}
+</script>
+<% form_for(@loanpaymentmaster) do |f| %>
+  <%= f.error_messages %>
+ 
+ <% @empname="" %>
+  <% ename=Employeemaster.find(:all).collect { |p| [p.name] } %>
+<% for i in 0...ename.length
+@empname<<ename[i].to_s
+@empname<<","
+end %>
+
+<div align="center" width="90%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+      <tr><td><%= f.label :employee_code %></td>
+    <td><%= f.select:employee_code, Employeemaster.find(:all).collect { |p| [p.code] }, {:include_blank => false },{:id => "employeecode",:onchange => "checked_print(id,'#{@empname}')"} %></td></tr>
+     <tr><td> <%= f.label :employee_name %><br /></td>
+    <td><%= f.text_field :employee_name, :id => "name" %></td></tr>
+    <tr><td><%= f.label :loan_amount %><br /></td>
+    <td><%= f.text_field :loan_amount, :id => "loanamount" %></td></tr>
+     <tr><td> <%= f.label :payment_mode %><br /></td>
+    <td><%= f.select(:payment_mode, [['Cash'],['Cheque']]) %></td></tr>
+    <tr> <td> <%= f.label :receipt_amount_payment %><br /></td>
+    <td><%= f.text_field :receipt_amount_payment %></td></tr></table>
+    <BR> <%= f.submit 'Create' %>
+  </div>
+<% end %>
+
+
+<tr><td><%= link_to 'show', loanpaymentmasters_path %></td></tr>

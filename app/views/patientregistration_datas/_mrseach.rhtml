@@ -1,0 +1,29 @@
+<table width="60%" cellpadding="2" cellspacing="0">
+  <tr bgcolor ="#378bf8" style="color:white">
+		<th>MR_Number</th>
+		<th>Registration Number </th>
+		<th>First Name</th>
+		<th>Father Name</th>
+		<th>Reg Date</th>
+		<th>Consultation No</th>
+		<th>City</th>
+	</tr>
+<% @patientinformation.each do |patientinformation| %>
+		<% @consultation = Consultationform.find_by_mr_no(patientinformation.mr_no) %>
+	<% if((patientinformation.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+    end %>
+	<tr>
+		<td class='<%= id %>'><%=h patientinformation.mr_no %></td>
+		<td class='<%= id %>'><%=h patientinformation.reg_no %></td>
+		<td class='<%= id %>'><%=h patientinformation.first_name %></td>
+		<td class='<%= id %>'><%=h patientinformation.father_name %></td>
+		<td class='<%= id %>'><%=h patientinformation.reg_date %></td>
+		<td class='<%= id %>'><%=h patientinformation.city %></td>
+		<td class='<%= id %>'><%=h @consultation.consultation_no%></td>
+		<td class='<%= id %>'><%= link_to 'Show', :controller => "consultationforms",:action => 'show', :id => @consultation.id %></td>
+	</tr>
+<% end %>
+</table>

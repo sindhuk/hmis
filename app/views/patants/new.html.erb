@@ -1,0 +1,19 @@
+<h1>New patant</h1>
+
+<% form_for(@patant) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :pname %><br />
+    <%= f.text_field :pname %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', patants_path %>

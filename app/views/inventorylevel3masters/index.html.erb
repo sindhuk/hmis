@@ -1,0 +1,38 @@
+<h3>Listing inventorylevel3masters</h3>
+
+<br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Itemlevel1code</th>
+    <th>Itemlevel2code</th>
+    <th>Itemlevel3code</th>
+    <th>Itemlevel3name</th>
+    <th>Status</th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Destroy</th>
+  </tr>
+
+<% @inventorylevel3masters.each do |inventorylevel3master| %>
+	<% if((inventorylevel3master.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h inventorylevel3master.item_level1_code %></td>
+    <td class='<%= id %>'><%=h inventorylevel3master.item_level2_code %></td>
+    <td class='<%= id %>'><%=h inventorylevel3master.item_level3_code %></td>
+    <td class='<%= id %>'><%=h inventorylevel3master.item_level3_name %></td>
+    <td class='<%= id %>'><%=h inventorylevel3master.status %></td>
+    <td class='<%= id %>'><%= link_to 'Show', inventorylevel3master %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_inventorylevel3master_path(inventorylevel3master) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', inventorylevel3master, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New inventorylevel3master', new_inventorylevel3master_path %>

@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag 'css' %>
+<font size="3" face="Calibri">
+<div  align="center">
+<br/><br/><br/>
+<table cellspacing="3" cellpadding="4" >
+  <tr><td><b>Patient name:</b></td>
+  <td><%=h @doctor_charge.Patient_Name %></td></tr>
+  <tr><td><b>Mr no:</b></td>
+  <td><%=h @doctor_charge.MR_No %></td></tr>
+  <tr><td><b>Doctor:</b></td>
+  <td><%=h @doctor_charge.doctor %></td></tr>
+  <tr><td><b>Transfer to doctor:</b></td>
+  <td><%=h @doctor_charge.Transfer_To_Doctor %></td></tr>
+</table>
+</div>
+
+
+<%= link_to 'Back', doctor_charges_path %>
+</font>

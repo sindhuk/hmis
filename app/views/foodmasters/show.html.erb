@@ -1,0 +1,22 @@
+<h3>Details Of Record </h3>
+<br /><br />
+<div align="center">
+  <table width="40%" cellspacing= "0" border="1" cellpadding="4">
+<tr>
+	<td>Itemname</td>
+	<td><%=h @foodmaster.item_name %>
+</td>  </tr>
+
+<tr><td>
+  Itemcode</td>
+  <td><%=h @foodmaster.item_code %>
+</td>  </tr>
+
+<tr><td>
+  Charge</td>
+  <td><%=h @foodmaster.charge %>
+</td>  </tr>
+</table>
+</div>
+<br />
+<%= link_to 'Back', foodmasters_path %>

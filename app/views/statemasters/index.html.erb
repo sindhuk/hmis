@@ -1,0 +1,34 @@
+<h3>Listing statemasters</h3>
+
+<br /><br /><br />
+<div align="center" >
+  <table width="70%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Country</th>
+    <th>Country name</th>
+    <th>Name</th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Destroy</th>
+  </tr>
+
+<% @statemasters.each do |statemaster| %>
+	<% if((statemaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h statemaster.countrymaster_id %></td>
+    <td class='<%= id %>'><%=h statemaster.country_name %></td>
+    <td class='<%= id %>'><%=h statemaster.name %></td>
+    <td class='<%= id %>'><%= link_to 'Show', statemaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_statemaster_path(statemaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', statemaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New statemaster', new_statemaster_path %>

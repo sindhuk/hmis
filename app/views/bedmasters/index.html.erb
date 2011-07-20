@@ -1,0 +1,22 @@
+<table align="center">
+  <tr>
+    <th>Room Id</th>
+    <th>Bed Name</th>
+	<th>Status</th>
+  </tr>
+
+<% @bedmasters.each do |bedmaster| %>
+  <tr>
+    <td><%=h bedmaster.roommaster_id %></td>
+    <td><%=h bedmaster.bed_name %></td>
+	<td><%=h bedmaster.status %></td>
+    <td><%= link_to 'Show', bedmaster %></td>
+    <td><%= link_to 'Edit', edit_bedmaster_path(bedmaster) %></td>
+    <td><%= link_to 'Destroy', bedmaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New bedmaster', new_bedmaster_path %>

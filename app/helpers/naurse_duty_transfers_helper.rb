@@ -1,0 +1,2 @@
+module NaurseDutyTransfersHelper
+end

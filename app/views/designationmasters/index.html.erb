@@ -1,0 +1,40 @@
+<h3>Listing designationmasters</h3>
+
+<br /><br /><br />
+<div align="center" >
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>DesignationName</th>
+    <th>DesignationCode</th>
+	<th>Status</th>
+	<th>DepartmentName</th>
+    <th>DepartmentCode</th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Destroy</th>
+	
+  </tr>
+
+<% @designationmasters.each do |designationmaster| %>
+ <% if((designationmaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+ <tr>
+    <td class='<%= id %>'><%=h designationmaster.name %></td>
+    <td class='<%= id %>'><%=h designationmaster.code %></td>
+	<td class='<%= id %>'><%=h designationmaster.status %></td>
+	<td class='<%= id %>'><%=h designationmaster.department_name %></td>
+    <td class='<%= id %>'><%=h designationmaster.department_code %></td>
+	
+    <td class='<%= id %>'><%= link_to 'Show', designationmaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_designationmaster_path(designationmaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', designationmaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New designationmaster', new_designationmaster_path %>

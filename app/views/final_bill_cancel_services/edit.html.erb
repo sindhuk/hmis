@@ -1,0 +1,40 @@
+<h1>Editing final_bill_cancel_service</h1>
+
+<% form_for(@final_bill_cancel_service) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :final_bill_cancel_id %><br />
+    <%= f.text_field :final_bill_cancel_id %>
+  </p>
+  <p>
+    <%= f.label :sno %><br />
+    <%= f.text_field :sno %>
+  </p>
+  <p>
+    <%= f.label :service_name %><br />
+    <%= f.text_field :service_name %>
+  </p>
+  <p>
+    <%= f.label :service_code %><br />
+    <%= f.text_field :service_code %>
+  </p>
+  <p>
+    <%= f.label :cost %><br />
+    <%= f.text_field :cost %>
+  </p>
+  <p>
+    <%= f.label :concession %><br />
+    <%= f.text_field :concession %>
+  </p>
+  <p>
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @final_bill_cancel_service %> |
+<%= link_to 'Back', final_bill_cancel_services_path %>

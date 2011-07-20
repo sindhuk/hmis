@@ -1,0 +1,51 @@
+
+<br/><br/>
+<div align="center">
+<table width="80%" cellpadding="2" cellspacing="0">
+  <tr bgcolor =" #378bf8" style="color:white">
+    <th>Mr no</th>
+    <th>Reg no</th>
+    <th>Patient name</th>
+    <th>Father name</th>
+    <th>Floor</th>
+    <th>Ward</th>
+    <th>Room</th>
+    <th>Bed</th>
+	<th>Approximate bill</th>
+    <th colspan="3">Permissions</th>
+  </tr>
+
+<% @approximate_bills.each do |approximate_bill| %>
+  <tr>
+    <td><%=h approximate_bill.mr_no %></td>
+    <td><%=h approximate_bill.reg_no %></td>
+    <td><%=h approximate_bill.patient_name %></td>
+    <td><%=h approximate_bill.father_name %></td>
+    <td><%=h approximate_bill.floor %></td>
+    <td><%=h approximate_bill.ward %></td>
+    <td><%=h approximate_bill.room %></td>
+    <td><%=h approximate_bill.bed %></td>
+	<% for approximate_service in approximate_bill.approximate_service %>
+	
+	<% end %>
+    <td><%=h approximate_bill.gross %></td>
+    <td><%=h approximate_bill.advance %></td>
+    <td><%=h approximate_bill.advance %></td>
+    <td><%=h approximate_bill.due %></td>
+	<% if @value[1]==49 %>
+    <td><%= link_to 'Show', approximate_bill %></td>
+	<% end %>
+	<% if @value[2]==49 %>
+    <td><%= link_to 'Edit', edit_approximate_bill_path(approximate_bill) %></td>
+	<% end %>
+	<% if @value[3]==49 %>
+    <td><%= link_to 'Destroy', approximate_bill, :confirm => 'Are you sure?', :method => :delete %></td>
+     <% end %>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+<% if @value[0]==49 %>
+<%= link_to 'New', new_approximate_bill_path%>
+<% end %>

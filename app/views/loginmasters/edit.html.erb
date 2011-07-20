@@ -1,0 +1,20 @@
+<h1>Editing loginmaster</h1>
+
+<% form_for(@loginmaster) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :user_name %><br />
+    <%= f.text_field :user_name %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @loginmaster %> |
+<%= link_to 'Back', loginmasters_path %>

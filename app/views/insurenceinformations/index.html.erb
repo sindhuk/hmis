@@ -1,0 +1,56 @@
+<h1>Listing insurenceinformations</h1>
+
+<table>
+  <tr>
+    <th>Patientregistration</th>
+    <th>Relativename</th>
+    <th>Contactno</th>
+    <th>Address</th>
+    <th>Relationship</th>
+    <th>Companyname</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Phnno</th>
+    <th>Insurencecompanyname</th>
+    <th>Insaddress</th>
+    <th>Inscity</th>
+    <th>Insstate</th>
+    <th>Policestation</th>
+    <th>Firno</th>
+    <th>Firaddress</th>
+    <th>Fircity</th>
+    <th>Firstate</th>
+  </tr>
+
+<% @insurenceinformations.each do |insurenceinformation| %>
+  <tr>
+    <td><%=h insurenceinformation.patient_registration_id %></td>
+    <td><%=h insurenceinformation.relative_name %></td>
+    <td><%=h insurenceinformation.contact_no %></td>
+    <td><%=h insurenceinformation.address %></td>
+    <td><%=h insurenceinformation.relationship %></td>
+    <td><%=h insurenceinformation.company_name %></td>
+    <td><%=h insurenceinformation.address %></td>
+    <td><%=h insurenceinformation.city %></td>
+    <td><%=h insurenceinformation.state %></td>
+    <td><%=h insurenceinformation.phn_no %></td>
+    <td><%=h insurenceinformation.insurence_company_name %></td>
+    <td><%=h insurenceinformation.ins_address %></td>
+    <td><%=h insurenceinformation.ins_city %></td>
+    <td><%=h insurenceinformation.ins_state %></td>
+    <td><%=h insurenceinformation.police_station %></td>
+    <td><%=h insurenceinformation.fir_no %></td>
+    <td><%=h insurenceinformation.fir_address %></td>
+    <td><%=h insurenceinformation.fir_city %></td>
+    <td><%=h insurenceinformation.fir_state %></td>
+    <td><%= link_to 'Show', insurenceinformation %></td>
+    <td><%= link_to 'Edit', edit_insurenceinformation_path(insurenceinformation) %></td>
+    <td><%= link_to 'Destroy', insurenceinformation, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New insurenceinformation', new_insurenceinformation_path %>

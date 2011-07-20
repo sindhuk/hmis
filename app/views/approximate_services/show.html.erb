@@ -1,0 +1,28 @@
+<p>
+  <b>Approximate bill:</b>
+  <%=h @approximate_service.approximate_bill_id %>
+</p>
+
+<p>
+  <b>Sno:</b>
+  <%=h @approximate_service.sno %>
+</p>
+
+<p>
+  <b>Service name:</b>
+  <%=h @approximate_service.service_name %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%=h @approximate_service.code %>
+</p>
+
+<p>
+  <b>Provided services:</b>
+  <%=h @approximate_service.provided_services %>
+</p>
+
+
+<%= link_to 'Edit', edit_approximate_service_path(@approximate_service) %> |
+<%= link_to 'Back', approximate_services_path %>

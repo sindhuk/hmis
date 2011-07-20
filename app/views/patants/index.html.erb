@@ -1,0 +1,22 @@
+<h1>Listing patants</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Pname</th>
+  </tr>
+
+<% @patants.each do |patant| %>
+  <tr>
+    <td><%=h patant.id %></td>
+    <td><%=h patant.pname %></td>
+    <td><%= link_to 'Show', patant %></td>
+    <td><%= link_to 'Edit', edit_patant_path(patant) %></td>
+    <td><%= link_to 'Destroy', patant, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New patant', new_patant_path %>

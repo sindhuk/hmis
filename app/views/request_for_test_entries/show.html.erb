@@ -1,0 +1,23 @@
+<p>
+  <b>Mr no:</b>
+  <%=h @request_for_test_entry.mr_no %>
+</p>
+
+<p>
+  <b>Patient name:</b>
+  <%=h @request_for_test_entry.patient_name %>
+</p>
+
+<p>
+  <b>Reg no:</b>
+  <%=h @request_for_test_entry.reg_no %>
+</p>
+
+<p>
+  <b>Tests:</b>
+  <%=h @request_for_test_entry.tests %>
+</p>
+
+
+<%= link_to 'Edit', edit_request_for_test_entry_path(@request_for_test_entry) %> |
+<%= link_to 'Back', request_for_test_entries_path %>

@@ -1,0 +1,83 @@
+<p>
+  <b>Registration:</b>
+  <%=h @patient_fee.registration_id %>
+</p>
+
+<p>
+  <b>Mrno:</b>
+  <%=h @patient_fee.mr_no %>
+</p>
+
+<p>
+  <b>Billno:</b>
+  <%=h @patient_fee.bill_no %>
+</p>
+
+<p>
+  <b>Patientname:</b>
+  <%=h @patient_fee.patient_name %>
+</p>
+
+<p>
+  <b>Receipt date:</b>
+  <%=h @patient_fee.receipt_date %>
+</p>
+
+<p>
+  <b>F total fees:</b>
+  <%=h @patient_fee.f_total_fees %>
+</p>
+
+<p>
+  <b>W total fees:</b>
+  <%=h @patient_fee.w_total_fees %>
+</p>
+
+<p>
+  <b>Receipt name:</b>
+  <%=h @patient_fee.receipt_name %>
+</p>
+
+<p>
+  <b>Dignosios fees:</b>
+  <%=h @patient_fee.dignosios_fees %>
+</p>
+
+<p>
+  <b>Xray fees:</b>
+  <%=h @patient_fee.xray_fees %>
+</p>
+
+<p>
+  <b>Ecg fees:</b>
+  <%=h @patient_fee.ecg_fees %>
+</p>
+
+<p>
+  <b>Lab test fees:</b>
+  <%=h @patient_fee.lab_test_fees %>
+</p>
+
+<p>
+  <b>Gastroscopy fees:</b>
+  <%=h @patient_fee.gastroscopy_fees %>
+</p>
+
+<p>
+  <b>Usg fees:</b>
+  <%=h @patient_fee.usg_fees %>
+</p>
+
+<p>
+  <b>Indoor injection fees:</b>
+  <%=h @patient_fee.indoor_injection_fees %>
+</p>
+
+<p>
+  <b>Colonoscopy fees:</b>
+  <%=h @patient_fee.colonoscopy_fees %>
+</p>
+
+
+<%= link_to 'Edit', edit_patient_fee_path(@patient_fee) %> |
+<%= link_to 'Back', patient_fees_path %>

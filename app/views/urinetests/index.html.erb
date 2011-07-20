@@ -1,0 +1,80 @@
+<h1>Listing urinetests</h1>
+
+<table>
+  <tr>
+    <th>Registration no</th>
+    <th>Billno</th>
+    <th>Mrno</th>
+    <th>Patientname</th>
+    <th>Test date</th>
+    <th>Appearence</th>
+    <th>Sp gravity</th>
+    <th>Reaction</th>
+    <th>Albumin</th>
+    <th>Sugar</th>
+    <th>Rbcs hpe</th>
+    <th>Wbcs hpf</th>
+    <th>Epith cells hpf</th>
+    <th>Crystails hpf</th>
+    <th>Cast hpf</th>
+    <th>Amorphous sediments</th>
+    <th>Spermatozoa</th>
+    <th>Others</th>
+    <th>Bile salt</th>
+    <th>Bile pigment</th>
+    <th>Urobillingogen</th>
+    <th>Acetone</th>
+    <th>Occult blood</th>
+    <th>Pku</th>
+    <th>Bece jones protein</th>
+    <th>Amino acid</th>
+    <th>Unary protein</th>
+    <th>Uary ketesteriod</th>
+    <th>Urinary vma</th>
+    <th>Totalvalue</th>
+    <th>Pregnect test</th>
+  </tr>
+
+<% @urinetests.each do |urinetest| %>
+  <tr>
+    <td><%=h urinetest.registration_no %></td>
+    <td><%=h urinetest.bill_no %></td>
+    <td><%=h urinetest.mr_no %></td>
+    <td><%=h urinetest.patient_name %></td>
+    <td><%=h urinetest.test_date %></td>
+    <td><%=h urinetest.appearence %></td>
+    <td><%=h urinetest.sp_gravity %></td>
+    <td><%=h urinetest.reaction %></td>
+    <td><%=h urinetest.albumin %></td>
+    <td><%=h urinetest.sugar %></td>
+    <td><%=h urinetest.rbcs_hpe %></td>
+    <td><%=h urinetest.wbcs_hpf %></td>
+    <td><%=h urinetest.epith_cells_hpf %></td>
+    <td><%=h urinetest.crystails_hpf %></td>
+    <td><%=h urinetest.cast_hpf %></td>
+    <td><%=h urinetest.amorphous_sediments %></td>
+    <td><%=h urinetest.spermatozoa %></td>
+    <td><%=h urinetest.others %></td>
+    <td><%=h urinetest.bile_salt %></td>
+    <td><%=h urinetest.bile_pigment %></td>
+    <td><%=h urinetest.urobillingogen %></td>
+    <td><%=h urinetest.acetone %></td>
+    <td><%=h urinetest.occult_blood %></td>
+    <td><%=h urinetest.pku %></td>
+    <td><%=h urinetest.bece_jones_protein %></td>
+    <td><%=h urinetest.amino_acid %></td>
+    <td><%=h urinetest.unary_protein %></td>
+    <td><%=h urinetest.uary_ketesteriod %></td>
+    <td><%=h urinetest.urinary_vma %></td>
+    <td><%=h urinetest.totalvalue %></td>
+    <td><%=h urinetest.pregnect_test %></td>
+    <td><%= link_to 'Show', urinetest %></td>
+    <td><%= link_to 'Edit', edit_urinetest_path(urinetest) %></td>
+    <td><%= link_to 'Destroy', urinetest, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New urinetest', new_urinetest_path %>

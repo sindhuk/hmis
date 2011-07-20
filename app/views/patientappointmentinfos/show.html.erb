@@ -1,0 +1,33 @@
+<p>
+  <b>Patientregistration:</b>
+  <%=h @patientappointmentinfo.patient_registration_id %>
+</p>
+
+<p>
+  <b>Appointmentid:</b>
+  <%=h @patientappointmentinfo.appointment_id %>
+</p>
+
+<p>
+  <b>Appontmentdate:</b>
+  <%=h @patientappointmentinfo.appontment_date %>
+</p>
+
+<p>
+  <b>Registrationid:</b>
+  <%=h @patientappointmentinfo.registration_id %>
+</p>
+
+<p>
+  <b>Doctorname:</b>
+  <%=h @patientappointmentinfo.doctor_name %>
+</p>
+
+<p>
+  <b>Departmentname:</b>
+  <%=h @patientappointmentinfo.department_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_patientappointmentinfo_path(@patientappointmentinfo) %> |
+<%= link_to 'Back', patientappointmentinfos_path %>

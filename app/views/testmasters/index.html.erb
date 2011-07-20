@@ -1,0 +1,32 @@
+<h3>Listing TestMaster</h3>
+<br /><br />
+<table width="20" align="center" border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Fee</th>
+	<th>Show</th>
+	 <th>Edit</th>
+	 <th>Del</th>
+  </tr>
+
+<% @testmasters.each do |testmaster| %>
+<% if((testmaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h testmaster.test_code %></td>
+    <td class='<%= id %>'><%=h testmaster.test_name %></td>
+    <td class='<%= id %>'><%=h testmaster.fee %></td>
+    <td class='<%= id %>'><%= link_to 'Show', testmaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_testmaster_path(testmaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', testmaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+
+<br/>
+<%= link_to 'New testmaster', new_testmaster_path %>

@@ -1,0 +1,73 @@
+<h1>New hospitalmaster</h1>
+<script type="application/javascript"> 
+	function selection_process(id)
+	{
+		var selObj = document.getElementById(id);
+		query1= selObj.options[selObj.selectedIndex].value
+		req = new Ajax.Request('/hospitalmasters/ajax_buildings/1', {
+			method: 'get',
+			parameters: { q: query1 },
+			onComplete: function(transport) {
+			processReqChange(transport);
+			}
+
+		}); // end ajax req
+							
+		function processReqChange(req) 
+		{
+			// request is complete
+			if (req.readyState == 4) 
+			{
+				var results = req.responseText;
+				var temp=new Array()
+				temp=results.split(",")
+				document.getElementById('country').value=temp[0]
+				document.getElementById('state').value=temp[1]
+			}
+		}
+	}
+</script> 
+<% form_for(@hospitalmaster) do |f| %>
+  <%= f.error_messages %>
+ <br /><br /><br />
+<div align="center">
+  <table>
+  <tr><td>
+    <%= f.label :hospitalname %></td>
+   <td> <%= f.text_field :name %></td>
+    <td> <%= f.label :hospitalcode %></td>
+    <td><%= f.text_field :code %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :hospitaladdress %></td>
+    <td><%= f.text_field :address %></td>
+    <td><%= f.label :city %></td>
+      <td><%= f.select :city, Citymaster.find(:all).collect {|p| [ p.name ] }, {:include_blank => false}, {:id => "city", :onchange => "selection_process(id)"} %></td>
+
+  </tr>
+  <tr>
+    <td><%= f.label :state %></td>
+    <td><%= f.text_field:state, :id => "state" %></td>
+    <td><%= f.label :country %></td>
+    <td><%= f.text_field:country, :id => "country" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :hospitallogo %></td>
+	<td>Upload Logo: <%= f.file_field :logo %></td>
+    <td> <%= f.label :hospitaltanno %></td>
+    <td><%= f.text_field :tan_no %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :hospitalvatno %></td>
+    <td><%= f.text_field :vat_no %></td>
+  </tr>
+  
+  </table>
+ <br /><br />
+ <%= f.submit 'Create' ,:multipart => true %>
+</div> 
+    
+  
+<% end %>
+
+<%= link_to 'Back', hospitalmasters_path %>

@@ -1,0 +1,45 @@
+<div align="center" width="90%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+<table align="center"><p>
+  <b>Po_number:</b>
+  <%=h @purchaseordermaster.po_number %>
+</p>
+
+<p>
+  <b>Po_date:</b>
+  <%=h @purchaseordermaster.po_date %>
+</p>
+
+<p>
+  <b>Vendor_code:</b>
+  <%=h @purchaseordermaster.vendor_code %>
+</p>
+
+<p>
+  <b>Vendor_name:</b>
+  <%=h @purchaseordermaster.vendor_name %>
+</p>
+
+<p>
+  <b>Vendor_contact_person:</b>
+  <%=h @purchaseordermaster.vendor_contact_person %>
+</p>
+
+<p>
+  <b>Item_code:</b>
+  <%=h @purchaseordermaster.item_code %>
+</p>
+
+<p>
+  <b>Item_name:</b>
+  <%=h @purchaseordermaster.item_name %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%=h @purchaseordermaster.quantity %>
+</p>
+
+
+<%= link_to 'Edit', edit_purchaseordermaster_path(@purchaseordermaster) %> |
+<%= link_to 'Back', purchaseordermasters_path %>

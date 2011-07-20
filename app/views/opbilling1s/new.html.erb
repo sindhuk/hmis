@@ -1,0 +1,360 @@
+<%= javascript_include_tag :defaults %>
+<%= stylesheet_link_tag 'css' %>
+<%= javascript_include_tag 'ezcalendar.js' %>
+<script type="text/javascript">
+	var total=0
+	var selectedid;
+	var query
+	var array1 = new Array("bill_no","c_date", "mrno","reg_no","name","occupation","rec_no");
+	function ajaxSearch(id) 
+	{
+		var selObj = document.getElementById(id);
+		query = selObj.options[selObj.selectedIndex].value
+		selObj.remove(selObj.selectedIndex)
+		selectedid=id
+		
+		ajax()
+	}
+	
+	function ajax()
+	{
+	
+		req = new Ajax.Request('/opbilling1s/ajax_buildings/1', 
+			{
+				method: 'get',
+				parameters: { q: query, type: selectedid },
+				onComplete: function(transport){
+					processReqChange(transport);
+					}
+			}); // end ajax req
+		function processReqChange(req) 
+		{
+			// request is complete
+			
+			if (req.readyState == 4) 
+			{
+			
+				var results = req.responseText;
+				var temp=new Array
+				temp=results.split(",")
+				if(selectedid=="dept")
+				{
+					document.getElementById('opbilling1_doctor').length=0
+					for(i=0;i<temp.length-1;i++)
+					{
+					var opt = document.createElement("option");
+					document.getElementById('opbilling1_doctor').options.add(opt);
+					opt.text=temp[i]
+					}
+				}
+				else if(selectedid=="service")
+				{
+					addRowToTable(query,results)
+				}
+				else 
+				{	
+					for(var i=0;i<array1.length;i++)
+					{
+						document.getElementById(array1[i]).value=temp[i]
+						document.getElementById(array1[i]).style.background="#FEF5CA"
+						document.getElementById(array1[i]).readOnly=true
+					}
+				}		
+				//addRowToTable(query,results)
+			} // end if req == 4
+		}
+	}
+	function addRowToTable(query,results)
+    {
+	  var tbl = document.getElementById('tblSample');
+	  var lastRow = tbl.rows.length;
+	  // if there's no header row in the table, then iteration = lastRow + 1
+	  var iteration = lastRow;
+	  var row = tbl.insertRow(lastRow);
+	  
+	  // left cell
+	  var cellLeft = row.insertCell(0);
+	  var textNode = document.createElement('input');
+	  textNode.type = 'text';
+	  textNode.value = iteration
+	  textNode.name = "sno";
+	  textNode.id = "sno";
+	  textNode.size = 5;
+	  cellLeft.appendChild(textNode);
+	  
+	  // right cell
+	  var cellRight1 = row.insertCell(1);
+	  var el1 = document.createElement('input');
+	  el1.type = 'text';
+	  el1.value = query
+	  el1.name = 'r'+iteration+'c'+1;
+	  el1.id = 'r'+iteration+'c'+1;
+	  el1.size = 20;
+	  cellRight1.appendChild(el1);
+	  
+	  var cellRight2 = row.insertCell(2);
+	  var el2 = document.createElement('input');
+	  el2.type = 'text';
+	  el2.value = results
+	  el2.name = 'r'+iteration+'c'+2;
+	  el2.id = 'r'+iteration+'c'+2;
+	  el2.size = 20;
+	  cellRight2.appendChild(el2);
+	  
+	  var cellRight3 = row.insertCell(3);
+	  var el3 = document.createElement('input');
+	  el3.type = 'text';
+	  el3.name = 'r'+iteration+'c'+3;
+	  el3.id = 'r'+iteration+'c'+3;
+	  el3.size = 20;
+	  el3.onkeyup = keyPressTest;
+	  cellRight3.appendChild(el3);
+	  
+	  var cellRight4 = row.insertCell(4);
+	  var el4 = document.createElement('input');
+	  el4.type = 'text';
+	  el4.name = 'r'+iteration+'c'+4;
+	  el4.id = 'r'+iteration+'c'+4;
+	  el4.size = 20;
+	  cellRight4.appendChild(el4);
+	}
+	var cal=new Array
+	var data=new Array
+	function keyPressTest(e,obj)
+	{
+		var key;
+		if(window.event) {
+			key = window.event.keyCode; 
+		}
+		else if(e.which) {
+			key = e.which;
+		}
+		var objId;
+		if (obj != null) {
+			objId = obj.id;
+		} else {
+			objId = this.id;
+		}
+		var cha=objId.charAt(1)
+		var fee=document.getElementById("r"+cha+"c2").value
+		var con=(fee-((fee/100)*document.getElementById(objId).value))
+		document.getElementById("r"+cha+"c4").value=con
+		if(window.event.keyCode==13)
+		{
+			var bool=0;
+			var i;
+			for(i=0;i<cal.length;i++)
+				if(cal[i]==cha)
+				{
+					bool=1;
+					break;
+				}
+			if(bool==0)
+			{
+				data[cal.length]=con;
+				cal[cal.length]=cha
+			}
+			else
+				data[i]=con;
+			total=0
+			for(j=0;j<cal.length;j++)
+				total=total+data[j];
+			document.getElementById("gross").value=total
+		}
+	}
+	
+	function checked_print(el,v2,v3) 
+	{
+		var selObj = document.getElementById(el);
+		var value_glo= selObj.options[selObj.selectedIndex].index;
+		var temp=new Array()
+		temp=v2.split(",")
+		document.getElementById('t'+el).value=temp[value_glo]
+		temp=v3.split(",")
+		document.getElementById('f'+el).value=temp[value_glo]
+	}
+	function divied(el,e)
+	{
+		var sub=e.substr(1,e.length)
+		var len=document.getElementById(e).value
+		var fee=document.getElementById('f'+sub).value
+		var con=(fee-((fee/100)*document.getElementById(e).value))
+		document.getElementById('to'+sub).value=con
+		
+	}
+	function checked_val(id)
+	{
+	
+		document.getElementById('bank').disabled=true
+		document.getElementById('cheqno').disabled=true
+		document.getElementById('cardno').disabled=true
+		document.getElementById('patientregistration_patientinformation_attributes_0_expiry_date_2i').disabled = true
+		document.getElementById('patientregistration_patientinformation_attributes_0_expiry_date_1i').disabled = true	
+		if(document.getElementById(el).value=="cheque")
+		{
+			document.getElementById('bank').disabled=false
+			document.getElementById('cheqno').disabled=false
+		}
+		else if (document.getElementById(id).value=="card")
+		{
+			document.getElementById('cardno').disabled=false
+			document.getElementById('patientregistration_patientinformation_attributes_0_expiry_date_2i').disabled = false
+			document.getElementById('patientregistration_patientinformation_attributes_0_expiry_date_1i').disabled = false
+			
+		}
+	}
+	function mrfun()
+	{
+		var mrval=document.getElementById('c_no').value
+		query=document.getElementById('c_no').value
+		selectedid="c_no"
+		ajax()
+		
+	}
+	function checkedval(id)
+	{
+			if(id=="button11")
+			{
+			
+			document.getElementById('bank').disabled=true
+			document.getElementById('cheqno').disabled=true
+			document.getElementById('cardno').disabled=true
+			document.getElementById('opbilling1_c_ref_2i').disabled = true
+			document.getElementById('opbilling1_c_ref_1i').disabled = true
+			}
+			else if(id=="button12")
+			{
+			document.getElementById('bank').disabled=false
+			document.getElementById('cheqno').disabled=false
+			document.getElementById('cardno').disabled=true
+			document.getElementById('opbilling1_c_ref_2i').disabled = true
+			document.getElementById('opbilling1_c_ref_1i').disabled = true
+			}
+			else if(id=="button13")
+			{
+			document.getElementById('bank').disabled=true
+			document.getElementById('cheqno').disabled=true
+			document.getElementById('cardno').disabled=false
+			document.getElementById('opbilling1_c_ref_2i').disabled = false
+			document.getElementById('opbilling1_c_ref_1i').disabled = false
+			}
+	}	
+	function searchConsultation_Number()
+	{
+		window.open('bed_select/1','open_window','dependent, width=640, height=480, left=0, top=0');
+	}	
+</script>
+<% form_for(@opbilling1) do |f| %>
+  <%= f.error_messages %>
+	
+	    
+		<div align="center" width="100%">
+		
+  <table>
+	<tr>
+		<td>Consultation No</td>
+		<td><%= f.text_field :consultation_no , :size => 20, :id => "c_no", :onKeyUp => "mrfun()" %>
+		<%= link_to image_tag ("images.jpg", :border=>0, :height => "12", :width => "18"),"javascript: searchConsultation_Number()"  %></td>
+		<td> <%= f.label :consultation_date %></td>
+		<td><%= f.text_field :consultation_date, :size => 20, :id => "c_date"   %></td>
+        <td> Bill No </td>
+		<td><%= f.text_field :bill_no, :size => 20, :id =>"bill_no"  %></td>
+	</tr>
+
+	<tr>	
+		<td><%= f.label :Bill_date %></td>
+		<td><%= f.text_field :bill_date, :size => 20, :id => "date"  %> <%= link_to image_tag ("cal.gif", :border=>0), "javascript: showCalendar('date')" %></td>
+		<td> Mr No</td>
+		<td><%= f.text_field :mr_no, :size => 20, :id => "mrno" %>
+		
+		<td>Reg No</td>
+		<td><%= f.text_field :reg_no, :size => 20 , :id => "reg_no" %></td>
+	</tr>
+	
+	<tr>
+		<td> <%= f.label :first_name %></td>
+		<td><%= f.text_field :first_name, :size => 20 , :id => "name" %></td>
+		<td> <%= f.label :occupation %></td>
+		<td><%= f.text_field :occupation, :size => 20 , :id => "occupation" %></td>
+		<td> <%= f.label :ref_source %></td>
+		<td><%= f.select :ref_source, [['Walkin'],['Doctor']] %></td>
+	</tr>	
+	
+	<tr>
+		<td> <%= f.label :department %></td>
+		<td><%= f.select :department, Doctormaster.find(:all).collect{|p| [p.department]}, {:include_blank => false}, {:id => "dept", :onchange => "ajaxSearch(id)"} %>
+		<td><%= f.label :doctor %><br />
+		<td><%= f.select :doctor, Doctormaster.find(:all).collect { |p| [p.name]}, {:include_blank => false}, :id => "opbilling1_doctor" %>
+		<td> <%= f.label :blood_group %></td>
+		<td><%= f.text_field :blood_group, :size => 20 , :id => "bgroup" %></td>
+	</tr>
+	
+	<tr>
+		<td> <%= f.label :contact_department %></td>
+		<td><%= f.text_field :contact_department, :size => 20  %></td>
+		<td>Services</td>
+		<td><%= f.select :services,Testmaster.find(:all).collect { |p| [p.test_name]}, {:include_blank => true}, {:id => "service", :onchange => "ajaxSearch(id)"} %></td><td></td></tr>
+	</table><br /><br/>
+  <table border="1" id="tblSample" width="50%" cellspacing="1" name ="tblSample" align="center" >
+  <tr>
+    <th width="10%">SNO</th>
+	<th width="10%">Service Name</th>
+	<th width="10%">Service Fee</th>
+	<th width="10%">Concession(%)</th>
+	<th width="10%">Amount</th>
+  </tr>
+</table><br>
+<br />
+	<div align="center" width="100%">
+  <table>
+	<tr>
+		<td> Receipt No </td> 
+		<td> <%= f.text_field :receipt_no, :id => "rec_no" , :size => 20  %></td> 
+		<td> <%= f.label :receipt_date %></td> 
+		<td> <%= f.date_select :receipt_date %></td> 
+		<td> <%= f.label :receipt_amount %></td> 
+		<td> <%= f.text_field :receipt_amount, :size => 20  %></td> 
+	</tr>
+	
+	<tr>
+		<td><%= f.label :gross_amount %></td>
+		<td><%= f.text_field :gross, :size => 20, :id => "gross"  %></td>
+		<td><%= f.label :concession %></td> 
+		<td> <%= f.text_field :concession, :size => 20  %></td> 
+	
+		<td><%= f.label :c_ref %></td> 
+		<td> <%= f.text_field :c_ref, :size => 20 %></td>
+		
+	</tr>
+		
+	<tr>
+		<td><%= f.label :due %></td>
+		<td><%= f.text_field :due, :size => 20  %></td>
+	   	<td><%= f.label :payment_mode %></td>
+		<td><%= f.radio_button :payment_mode, "cash", :checked => true, :id => "button11" , :onchange => "checkedval(id)" %>cash
+		<%= f.radio_button :payment_mode, "cheque", :id => "button12" ,:onchange => "checkedval(id)" %>cheque
+		<%= f.radio_button :payment_mode, "card", :id => "button13" ,:onchange => "checkedval(id)"%>card</td>
+			<td><%= f.label :bank_name %></td>
+			<td><%= f.text_field :c_ref ,{:disabled => "true", :size => 20  , :id => "bank"} %></td></tr>
+			<tr><td><%= f.label :cheque_number %></td>
+			<td><%= f.text_field :c_ref, {:disabled => "true", :size => 20  ,:id => "cheqno"} %></td>
+			<td><%= f.label :card_number %></td>
+			<td><%= f.text_field :c_ref, {:disabled => "true", :size => 20  ,:id => "cardno"}  %></td>
+			<td><%= f.label :expiry_date %></td>
+			<td><%= f.date_select :c_ref,:prompt => {:month => 'Month', :year => 'Year' },:discard_day => true,:start_year => 1995, :order => [:month,:year], :disabled => true %></td>
+	</tr>
+		
+	<tr>
+		<td><%= f.label :remarks %></td>
+		<td colspan="4"><%= f.text_area :remarks , :cols =>50, :rows =>3 %></td>
+	</tr>
+</table>
+</table>
+<br />
+ <%= f.submit 'Save' %>
+ <%= f.submit 'Reset',  :type => "reset" %>
+ <input type="button" value="print" onclick="window.print()">
+<% end %>
+</div></div>
+<%= link_to 'Show', opbilling1s_path %>
+ 

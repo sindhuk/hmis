@@ -1,0 +1,38 @@
+<h3>Listing parametersetupmasters</h3>
+<div align="center" width="90%">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+
+  <tr>
+    <th>Service</th>
+    <th>Parameter1</th>
+    <th>Minimum</th>
+	<th>Maximum</th>
+    <th>Parameter2</th>
+    <th>Min</th>
+	<th>Max</th>
+    <th>Units</th>
+	<th>Show</th>
+	 <th>Edit</th>
+	 <th>Destroy</th>
+  </tr>
+
+<% @parametersetupmasters.each do |parametersetupmaster| %>
+  <tr>
+    <td class='<%= id %>'><%=h parametersetupmaster.service %></td>
+    <td class='<%= id %>'><%=h parametersetupmaster.parameter1 %></td>
+    <td class='<%= id %>'><%=h parametersetupmaster.minimum %></td>
+	<td class='<%= id %>'><%=h parametersetupmaster.maximum %></td>
+    <td class='<%= id %>'><%=h parametersetupmaster.parameter2 %></td>
+    <td class='<%= id %>'><%=h parametersetupmaster.min %></td>
+	<td class='<%= id %>'><%=h parametersetupmaster.max %></td>
+    <td class='<%= id %>'><%=h parametersetupmaster.units %></td>
+    <td class='<%= id %>'><%= link_to 'Show', parametersetupmaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_parametersetupmaster_path(parametersetupmaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', parametersetupmaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New parametersetupmaster', new_parametersetupmaster_path %>

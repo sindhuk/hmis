@@ -1,0 +1,45 @@
+<%= stylesheet_link_tag 'css' %>
+<script type="text/javascript"> 
+<p>
+  <b>Ip service entry:</b>
+  <%=h @ip_service.ip_service_entry_id %>
+</p>
+
+<p>
+  <b>Sno:</b>
+  <%=h @ip_service.sno %>
+</p>
+
+<p>
+  <b>Service name:</b>
+  <%=h @ip_service.service_name %>
+</p>
+
+<p>
+  <b>Service code:</b>
+  <%=h @ip_service.service_code %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%=h @ip_service.quantity %>
+</p>
+
+<p>
+  <b>Rate:</b>
+  <%=h @ip_service.rate %>
+</p>
+
+<p>
+  <b>Concession:</b>
+  <%=h @ip_service.concession %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%=h @ip_service.amount %>
+</p>
+
+
+<%= link_to 'Edit', edit_ip_service_path(@ip_service) %> |
+<%= link_to 'Back', ip_services_path %>

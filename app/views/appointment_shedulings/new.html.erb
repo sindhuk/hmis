@@ -1,0 +1,35 @@
+
+
+<% form_for(@appointment_sheduling) do |f| %>
+  <%= f.error_messages %><br><br>
+<div align="center">
+<table>
+	<tr>
+		<td><%= f.label :appointment_no %></td>
+		<td><%= f.text_field :appointment_no, :size => 20 %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :appointment_date %></td>
+		<td> <%= f.text_field :appointment_date, :size => 20 %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :time %></td>
+		<td> <%= f.text_field :time, :size => 20 %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :doctor_name %></td>
+		<td>  <%= f.select :doctor_name, Doctormaster.find(:all).collect{ |p| [p.name]} %></td>
+	</tr>
+	<tr>
+		<td>&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><%= f.submit 'Create' %></td>
+	</tr>
+ </table>
+    
+
+<% end %>
+</div>
+<%= link_to 'Show', appointment_shedulings_path %>

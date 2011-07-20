@@ -1,0 +1,68 @@
+<div align="center" width="90%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+<script type="text/javascript">
+	function checked_print(el,v2) 
+	{
+		if(el=="vendorcode")
+		{
+			var hi=v2
+			var selObj = document.getElementById(el);
+			var value_glo= selObj.options[selObj.selectedIndex].index;
+			var temp=new Array()
+			temp=hi.split(",")
+			document.getElementById('vendorname').value=temp[value_glo]
+		}
+		else if(el=="itemcode")
+		{
+			var hi=v2
+			var selObj = document.getElementById(el);
+			var value_glo= selObj.options[selObj.selectedIndex].index;
+			var temp=new Array()
+			temp=hi.split(",")
+			document.getElementById('itemname').value=temp[value_glo]
+		}
+	}
+</script>
+<% form_for(@purchaseordermaster) do |f| %>
+  <%= f.error_messages %>
+<div align="center" width="100%">
+  <table width="60%">
+  <% @vname="" %>
+	<% vcode=Vendormaster.find(:all).collect { |p| [p.vendor_name] } %>
+	<% for i in 0...vcode.length
+		@vname<<vcode[i].to_s
+		@vname<<","
+	  end %>
+  <% @iname="" %>
+  <% icode=Itemmaster.find(:all).collect { |p| [p.item_name] } %>
+	<% for i in 0...icode.length
+		@iname<<icode[i].to_s
+		@iname<<","
+	  end %>
+<tr><td>Phnumber </td>
+    <td><%= f.text_field :po_number %></td>
+  <td>podate</td>
+    <td><%= f.date_select :po_date %></td>
+  </tr>
+  <tr><td>vendor_code</td>
+		<td><%= f.select :vendor_code,  Vendormaster.find(:all).collect {|p| [ p.vendor_code]},{ :include_blank => false },{:id => "vendorcode",:onchange => "checked_print(id,'#{@vname}')"} %></td>
+      <td>vendor_name</td>
+     <td><%= f.text_field :vendor_name,  :id => "vendorname" %></td>
+  </tr>
+  <tr><td>vendor_contact_person</td>
+    <td><%= f.text_field :vendor_contact_person %></td>
+     <td>item_code </td>
+    <td><%= f.select :item_code,  Itemmaster.find(:all).collect {|p| [ p.item_code]},{ :include_blank => false },{:id => "itemcode",:onchange => "checked_print(id,'#{@iname}')"}  %></td>
+  </tr>
+  <tr><td>item_name</td>
+    <td><%= f.text_field :item_name, :id => "itemname" %></td>
+     <td>quantity </td>
+    <td><%= f.text_field :quantity %></td>
+  </tr>
+  <tr><td>
+    <%= f.submit 'Update' %></td></tr>
+  </table>
+<% end %>
+
+<%= link_to 'show', @purchaseordermaster %>
+<%= link_to 'Back', purchaseordermasters_path %>

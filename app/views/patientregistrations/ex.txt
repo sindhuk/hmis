@@ -1,0 +1,43 @@
+</form>
+
+<%= image_tag("spinner.gif",
+              :align => "absmiddle",
+              :border => 0,
+              :id => "spinner",
+              :style =>"display: none;" ) %>
+
+
+<div id="table" align="center">
+
+</div>
+<%= observe_field(:first_name,  
+		 :frequency => 1,
+         :update => :table,
+         :before => "Element.show('spinner')",
+         :success => "Element.hide('spinner')",
+         :url => {:action => 'firstname'},
+         :with => 'first_name') %>
+
+<%= observe_field(:father_name,  
+		 :frequency => 1,
+         :update => :table,
+         :before => "Element.show('spinner')",
+         :success => "Element.hide('spinner')",
+         :url => {:action => 'fathername'},
+         :with => 'father_name') %>
+		 
+<%= observe_field(:mrno,  
+		 :frequency => 1,
+         :update => :table,
+         :before => "Element.show('spinner')",
+         :success => "Element.hide('spinner')",
+         :url => {:action => 'mrno'},
+         :with => 'mrno') %>
+
+<%= observe_field(:city,  
+		 :frequency => 1,
+         :update => :table,
+         :before => "Element.show('spinner')",
+         :success => "Element.hide('spinner')",
+         :url => {:action => 'city'},
+         :with => 'city') %>

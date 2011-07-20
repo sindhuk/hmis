@@ -1,0 +1,118 @@
+<h1>Listing bloodtests</h1>
+
+<table>
+  <tr>
+    <th>Registration no</th>
+    <th>Mrno</th>
+    <th>Billno</th>
+    <th>Patientname</th>
+    <th>Test date</th>
+    <th>Haemoglobin</th>
+    <th>Tlc</th>
+    <th>Neutrophils</th>
+    <th>Lymphocytes</th>
+    <th>Eosinophil</th>
+    <th>Monocytes</th>
+    <th>Basophils</th>
+    <th>Others</th>
+    <th>Esr</th>
+    <th>Peripheral blood film 1</th>
+    <th>Peripheral blood film 2</th>
+    <th>Haematocrit pcv</th>
+    <th>Total rbc</th>
+    <th>Platelets</th>
+    <th>Colour index</th>
+    <th>Mchc</th>
+    <th>Mcv</th>
+    <th>Mch</th>
+    <th>Tec</th>
+    <th>Vec</th>
+    <th>Paracytes</th>
+    <th>Blood grouping</th>
+    <th>Rh factor</th>
+    <th>Rh antibody tiler</th>
+    <th>Direct</th>
+    <th>Indirect</th>
+    <th>Plasma fibrinogen</th>
+    <th>Hiv</th>
+    <th>Hbsag</th>
+    <th>Widal</th>
+    <th>Foetal haemoglobin</th>
+    <th>Reticulocytes</th>
+    <th>Bleeding time min</th>
+    <th>Bleeding time sec</th>
+    <th>Cloting time min</th>
+    <th>Cloting time sec</th>
+    <th>Prothrombin time control</th>
+    <th>Secs patient 1</th>
+    <th>Secs patient 2</th>
+    <th>Pttk control</th>
+    <th>Haemolysis start from</th>
+    <th>Saline complete at</th>
+    <th>Clot retraction time crt</th>
+    <th>Le cells</th>
+    <th>Esr platelets</th>
+  </tr>
+
+<% @bloodtests.each do |bloodtest| %>
+  <tr>
+    <td><%=h bloodtest.registration_no %></td>
+    <td><%=h bloodtest.mrno %></td>
+    <td><%=h bloodtest.billno %></td>
+    <td><%=h bloodtest.patientname %></td>
+    <td><%=h bloodtest.test_date %></td>
+    <td><%=h bloodtest.haemoglobin %></td>
+    <td><%=h bloodtest.tlc %></td>
+    <td><%=h bloodtest.neutrophils %></td>
+    <td><%=h bloodtest.lymphocytes %></td>
+    <td><%=h bloodtest.eosinophil %></td>
+    <td><%=h bloodtest.monocytes %></td>
+    <td><%=h bloodtest.basophils %></td>
+    <td><%=h bloodtest.others %></td>
+    <td><%=h bloodtest.esr %></td>
+    <td><%=h bloodtest.peripheral_blood_film_1 %></td>
+    <td><%=h bloodtest.peripheral_blood_film_2 %></td>
+    <td><%=h bloodtest.haematocrit_pcv %></td>
+    <td><%=h bloodtest.total_rbc %></td>
+    <td><%=h bloodtest.platelets %></td>
+    <td><%=h bloodtest.colour_index %></td>
+    <td><%=h bloodtest.mchc %></td>
+    <td><%=h bloodtest.mcv %></td>
+    <td><%=h bloodtest.mch %></td>
+    <td><%=h bloodtest.tec %></td>
+    <td><%=h bloodtest.vec %></td>
+    <td><%=h bloodtest.paracytes %></td>
+    <td><%=h bloodtest.blood_grouping %></td>
+    <td><%=h bloodtest.rh_factor %></td>
+    <td><%=h bloodtest.rh_antibody_tiler %></td>
+    <td><%=h bloodtest.direct %></td>
+    <td><%=h bloodtest.indirect %></td>
+    <td><%=h bloodtest.plasma_fibrinogen %></td>
+    <td><%=h bloodtest.hiv %></td>
+    <td><%=h bloodtest.hbsag %></td>
+    <td><%=h bloodtest.widal %></td>
+    <td><%=h bloodtest.foetal_haemoglobin %></td>
+    <td><%=h bloodtest.reticulocytes %></td>
+    <td><%=h bloodtest.bleeding_time_min %></td>
+    <td><%=h bloodtest.bleeding_time_sec %></td>
+    <td><%=h bloodtest.cloting_time_min %></td>
+    <td><%=h bloodtest.cloting_time_sec %></td>
+    <td><%=h bloodtest.prothrombin_time_control %></td>
+    <td><%=h bloodtest.secs_patient_1 %></td>
+    <td><%=h bloodtest.secs_patient_2 %></td>
+    <td><%=h bloodtest.pttk_control %></td>
+    <td><%=h bloodtest.haemolysis_start_from %></td>
+    <td><%=h bloodtest.saline_complete_at %></td>
+    <td><%=h bloodtest.clot_retraction_time_crt %></td>
+    <td><%=h bloodtest.le_cells %></td>
+    <td><%=h bloodtest.esr_platelets %></td>
+    <td><%= link_to 'Show', bloodtest %></td>
+    <td><%= link_to 'Edit', edit_bloodtest_path(bloodtest) %></td>
+    <td><%= link_to 'Destroy', bloodtest, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New bloodtest', new_bloodtest_path %>

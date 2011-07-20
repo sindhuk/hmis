@@ -1,0 +1,27 @@
+<br /<br />
+<table width="80%" cellpadding="2" cellspacing="0">
+  <tr bgcolor =" #378bf8" style="color:white">
+    <th>Service cancel</th>
+    <th>Sno</th>
+    <th>Name</th>
+    <th>Code</th>
+    <th>Provided service</th>
+  </tr>
+
+<% @service_cancel_services.each do |service_cancel_service| %>
+  <tr>
+    <td><%=h service_cancel_service.service_cancel_id %></td>
+    <td><%=h service_cancel_service.sno %></td>
+    <td><%=h service_cancel_service.name %></td>
+    <td><%=h service_cancel_service.code %></td>
+    <td><%=h service_cancel_service.provided_service %></td>
+    <td><%= link_to 'Show', service_cancel_service %></td>
+    <td><%= link_to 'Edit', edit_service_cancel_service_path(service_cancel_service) %></td>
+    <td><%= link_to 'Destroy', service_cancel_service, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New service_cancel_service', new_service_cancel_service_path %>

@@ -1,0 +1,20 @@
+<h1>Listing forms_lists</h1>
+
+<table>
+  <tr>
+    <th>Form name</th>
+  </tr>
+
+<% @forms_lists.each do |forms_list| %>
+  <tr>
+    <td><%=h forms_list.form_name %></td>
+    <td><%= link_to 'Show', forms_list %></td>
+    <td><%= link_to 'Edit', edit_forms_list_path(forms_list) %></td>
+    <td><%= link_to 'Destroy', forms_list, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New forms_list', new_forms_list_path %>

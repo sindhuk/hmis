@@ -1,0 +1,64 @@
+<h1>Listing EmployeeMasters</h1>
+<br /><br /><br />
+<div align="center" >
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Employeename</th>
+    <th>Employeecode</th>
+    <th>Employeedesignation</th>
+    <th>Department</th>
+    <th>Employeepayment</th>
+    <th>Bank</th>
+    <th>Accno</th>
+    <th>Chequeno</th>
+	<th>Cardno</th>
+	<th>Expirydate</th>
+    <th>Employeetype</th>
+    <th>Employeeaddress</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Mobileno</th>
+    <th>Pincode</th>
+    <th>Emailid</th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Destroy</th>
+  </tr>
+
+<% @employeemasters.each do |employeemaster| %>
+  <% if((employeemaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+  
+    <td class='<%= id %>'><%=h employeemaster.name %></td>
+    <td class='<%= id %>'><%=h employeemaster.code %></td>
+    <td class='<%= id %>'><%=h employeemaster.designation %></td>
+    <td class='<%= id %>'><%=h employeemaster.department %></td>
+    <td class='<%= id %>'><%=h employeemaster.payment %></td>
+    <td class='<%= id %>'><%=h employeemaster.bank %></td>
+    <td class='<%= id %>'><%=h employeemaster.acc_no %></td>
+    <td class='<%= id %>'><%=h employeemaster.card_no %></td>
+	<td class='<%= id %>'><%=h employeemaster.cheque_no %></td>
+    <td class='<%= id %>'><%=h employeemaster.expiry_date %></td>
+	<td class='<%= id %>'><%=h employeemaster.type %></td>
+    <td class='<%= id %>'><%=h employeemaster.address %></td>
+    <td class='<%= id %>'><%=h employeemaster.city %></td>
+    <td class='<%= id %>'><%=h employeemaster.state %></td>
+    <td class='<%= id %>'><%=h employeemaster.country %></td>
+    <td class='<%= id %>'><%=h employeemaster.mobile_no %></td>
+    <td class='<%= id %>'><%=h employeemaster.pincode %></td>
+    <td class='<%= id %>'><%=h employeemaster.email_id %></td>
+    <td class='<%= id %>'><%= link_to 'Show', employeemaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_employeemaster_path(employeemaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', employeemaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New employeemaster', new_employeemaster_path %>

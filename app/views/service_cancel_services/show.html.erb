@@ -1,0 +1,28 @@
+<p>
+  <b>Service cancel:</b>
+  <%=h @service_cancel_service.service_cancel_id %>
+</p>
+
+<p>
+  <b>Sno:</b>
+  <%=h @service_cancel_service.sno %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @service_cancel_service.name %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%=h @service_cancel_service.code %>
+</p>
+
+<p>
+  <b>Provided service:</b>
+  <%=h @service_cancel_service.provided_service %>
+</p>
+
+
+<%= link_to 'Edit', edit_service_cancel_service_path(@service_cancel_service) %> |
+<%= link_to 'Back', service_cancel_services_path %>

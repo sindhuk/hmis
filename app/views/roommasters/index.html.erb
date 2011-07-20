@@ -1,0 +1,36 @@
+<h3>Listing roommasters</h3>
+<br /><br /><br />
+<div align="center" width="90%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+	<th>Wardsection</th>
+	<th>wardmaster_id</th>
+    <th>Roomentry</th>
+    <th>Block</th>
+    <th>Level</th>
+    <th>Phoneextension</th>
+    <th>Noofbedsinroom</th>
+	<th>Show</th>
+	 <th>Edit</th>
+	 <th>Destroy</th>
+  </tr>
+
+<% @roommasters.each do |roommaster| %>
+  <tr>
+    <td class='<%= id %>'><%=h roommaster.ward_section %></td>
+	<td class='<%= id %>'><%=h roommaster.wardmaster_id %></td>
+    <td class='<%= id %>'><%=h roommaster.room_entry %></td>
+    <td class='<%= id %>'><%=h roommaster.block %></td>
+    <td class='<%= id %>' ><%=h roommaster.level %></td>
+    <td class='<%= id %>'><%=h roommaster.phone_extension %></td>
+    <td class='<%= id %>'><%=h roommaster.no_of_beds_in_room %></td>
+    <td class='<%= id %>'><%= link_to 'Show', roommaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_roommaster_path(roommaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', roommaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New roommaster', new_roommaster_path %>

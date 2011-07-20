@@ -1,0 +1,94 @@
+<h1>New colonoscopytest</h1>
+
+<script type="text/javascript">
+    function check_val()
+	{
+		len=document.getElementById('reg').value
+		if(len.length==5)
+		{
+			window.location='http://localhost:3000/colonoscopytests/new?reg='+len
+		}	
+	}
+</script>
+
+<% form_for(@colonoscopytest) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :registration_no %><br />
+    <%= f.text_field :registration_no, :id => "reg", :onKeyUp => "check_val()"  %>
+  </p>
+  <p>
+    <%= f.label :mrno %><br />
+    <%= f.text_field :mr_no %>
+  </p>
+  <p>
+    <%= f.label :billno %><br />
+    <%= f.text_field :bill_no %>
+  </p>
+  <p>
+    <%= f.label :patientname %><br />
+    <%= f.text_field :patient_name %>
+  </p>
+  <p>
+    <%= f.label :test_date %><br />
+    <%= f.date_select :test_date %>
+  </p>
+  <p>
+    <%= f.label :anal_canal %><br />
+    <%= f.text_field :anal_canal %>
+  </p>
+  <p>
+    <%= f.label :rectum %><br />
+    <%= f.text_field :rectum %>
+  </p>
+  <p>
+    <%= f.label :sigmoid_colon %><br />
+    <%= f.text_field :sigmoid_colon %>
+  </p>
+  <p>
+    <%= f.label :descending_colon %><br />
+    <%= f.text_field :descending_colon %>
+  </p>
+  <p>
+    <%= f.label :splenic_flexure %><br />
+    <%= f.text_field :splenic_flexure %>
+  </p>
+  <p>
+    <%= f.label :transverese_colon %><br />
+    <%= f.text_field :transverese_colon %>
+  </p>
+  <p>
+    <%= f.label :hepatic_flexure %><br />
+    <%= f.text_field :hepatic_flexure %>
+  </p>
+  <p>
+    <%= f.label :ascending_colon %><br />
+    <%= f.text_field :ascending_colon %>
+  </p>
+  <p>
+    <%= f.label :caecum %><br />
+    <%= f.text_field :caecum %>
+  </p>
+  <p>
+    <%= f.label :terminal_ileum %><br />
+    <%= f.text_field :terminal_ileum %>
+  </p>
+  <p>
+    <%= f.label :biopsy %><br />
+    <%= f.text_field :biopsy %>
+  </p>
+  <p>
+    <%= f.label :opinion_1 %><br />
+    <%= f.text_field :opinion_1 %>
+  </p>
+  <p>
+    <%= f.label :opinion_2 %><br />
+    <%= f.text_field :opinion_2 %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', colonoscopytests_path %>

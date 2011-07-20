@@ -1,0 +1,89 @@
+<h3>New Loandeductionmaster</h3>
+
+<script type="text/javascript">
+	function checked_print(el,v2) 
+	{
+		if(el=="categoryname")
+		{
+			
+			var hi=v2
+			var selObj = document.getElementById(el);
+			var value_glo= selObj.options[selObj.selectedIndex].index;
+			var temp=new Array()
+			temp=hi.split(",")
+			document.getElementById('categorycode').value=temp[value_glo]
+		}
+		else if(el=="employeecode")
+		{
+			var hi=v2
+			var selObj = document.getElementById(el);
+			var value_glo= selObj.options[selObj.selectedIndex].index;
+			var temp=new Array()
+			temp=hi.split(",")
+			document.getElementById('empname').value=temp[value_glo]
+		}
+		else if(el=="loanentrytypename")
+		{
+			var hi=v2
+			var selObj = document.getElementById(el);
+			var value_glo= selObj.options[selObj.selectedIndex].index;
+			var temp=new Array()
+			temp=hi.split(",")
+			document.getElementById('loanname').value=temp[value_glo]
+		}
+		
+	}
+</script>
+<% form_for(@loandeductionmaster) do |f| %>
+  <%= f.error_messages %>
+  <br /><br />
+<div align="center">
+  <table width="60%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+		<td><%= f.label :month %></td>
+		<td><%= f.text_field :month %></td></tr>
+   <tr>	
+		<td><%= f.label :year %></td>
+		<td><%= f.text_field :year %></td></tr>
+    <tr>
+		<td><%= f.label :branch %></td>
+		<td><%= f.text_field :branch %></td></tr>
+
+	<tr>
+		<td> <%= f.label :category_code %></td>
+		<td><%= f.text_field :category_code, :id => "category_code" %></td></tr>
+    <tr> 
+		<td> <%= f.label :category_name %></td>
+		<td><%= select "loandeductionmaster","category_name", Categorymaster.find(:all).collect {|p| [p.name] },{ :include_blank => false },{:id => "categoryname",:onchange => "checked_print(id,'#{@cname}')"} %></td></tr>
+     <tr>
+		<td> <%= f.label :employee_code %></td>
+		<td><%= f.select:employee_code, Employeemaster.find(:all).collect { |p| [p.code] }, {:include_blank => false },{:id => "employeecode",:onchange => "checked_print(id,'#{@empname}')"} %></td></tr>
+    <tr>
+		<td> <%= f.label :employee_name %></td>
+		<td><%= f.text_field :employee_name, :id => "empname" %></td></tr>
+    <tr>
+		<td> <%= f.label :loan_entry_type_code %></td>
+		<td><%= f.text_field :loan_entry_type_code, :id => "loanname" %></td></tr>
+	<tr>
+		<td> <%= f.label :loan_entry_type_name %></td>
+		<td><%= f.select:loan_entry_type_name, Loantypemaster.find(:all).collect { |p| [p.loantypedescription] }, {:include_blank => false },{:id => "loanentrytypename", :onchange => "checked_print(id,'#{@lname}')"} %></td></tr>
+    
+    <tr>
+		<td> <%= f.label :installment_amount %></td>
+		<td><%= f.text_field :installment_amount %></td></tr>
+    <tr>
+		<td><%= f.label :deduction_amount %></td>
+		<td><%= f.text_field :deduction_amount %></td></tr>
+    <tr>
+		<td><%= f.label :loan_balance_amount %></td>
+		<td><%= f.text_field :loan_balance_amount %></td></tr>
+    <tr>
+		<td> <%= f.label :remarks %></td>
+		<td><%= f.text_field :remarks %></td></tr>
+	</table>
+	<br />
+    <%= f.submit 'Create' %>
+  </div>
+<% end %>
+<br />
+<%= link_to 'Show', loandeductionmasters_path %>

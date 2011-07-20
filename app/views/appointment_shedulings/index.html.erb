@@ -1,0 +1,32 @@
+<div align="center">
+<br><br>
+<table width="60%" cellpadding="2" cellspacing="0">
+  <tr bgcolor =" #378bf8" style="color:white">
+    <th>Appointment no</th>
+    <th>Appointment date</th>
+    <th>Time</th>
+    <th>Doctor name</th>
+	<th colspan="3">Permissions</th>	
+  </tr>
+
+<% @appointment_shedulings.each do |appointment_sheduling| %>
+<% if((appointment_sheduling.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %> 
+ <tr>
+    <td class='<%= id %>'><%=h appointment_sheduling.appointment_no %></td>
+    <td class='<%= id %>'><%=h appointment_sheduling.appointment_date %></td>
+    <td class='<%= id %>'><%=h appointment_sheduling.time %></td>
+    <td class='<%= id %>'><%=h appointment_sheduling.doctor_name %></td>
+    <td class='<%= id %>'><%= link_to 'Show', appointment_sheduling %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_appointment_sheduling_path(appointment_sheduling) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', appointment_sheduling, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+</div>
+
+<%= link_to 'New Appointment Sheduling', new_appointment_sheduling_path %>

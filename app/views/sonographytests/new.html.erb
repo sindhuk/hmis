@@ -1,0 +1,262 @@
+<h1>New sonographytest</h1>
+
+<script type="text/javascript">
+    function check_val()
+	{
+		len=document.getElementById('reg').value
+		if(len.length==5)
+		{
+			window.location='http://localhost:3000/sonographytests/new?reg='+len
+		}	
+	}
+</script>
+
+<% form_for(@sonographytest) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :registration_no %><br />
+    <%= f.text_field :registration_no, :id => "reg", :onKeyUp => "check_val()" %>
+  </p>
+  <p>
+    <%= f.label :mrno %><br />
+    <%= f.text_field :mr_no %>
+  </p>
+  <p>
+    <%= f.label :billno %><br />
+    <%= f.text_field :bill_no %>
+  </p>
+  <p>
+    <%= f.label :patientname %><br />
+    <%= f.text_field :patient_name %>
+  </p>
+  <p>
+    <%= f.label :test_date %><br />
+    <%= f.date_select :test_date %>
+  </p>
+  <p>
+    <%= f.label :l_size %><br />
+    <%= f.text_field :l_size %>
+  </p>
+  <p>
+    <%= f.label :l_echotexture %><br />
+    <%= f.text_field :l_echotexture %>
+  </p>
+  <p>
+    <%= f.label :focal_pathology %><br />
+    <%= f.text_field :focal_pathology %>
+  </p>
+  <p>
+    <%= f.label :ihbr %><br />
+    <%= f.text_field :ihbr %>
+  </p>
+  <p>
+    <%= f.label :pv %><br />
+    <%= f.text_field :pv %>
+  </p>
+  <p>
+    <%= f.label :cbd %><br />
+    <%= f.text_field :cbd %>
+  </p>
+  <p>
+    <%= f.label :g_size %><br />
+    <%= f.text_field :g_size %>
+  </p>
+  <p>
+    <%= f.label :wall_thickness %><br />
+    <%= f.text_field :wall_thickness %>
+  </p>
+  <p>
+    <%= f.label :lumen %><br />
+    <%= f.text_field :lumen %>
+  </p>
+  <p>
+    <%= f.label :lumen %><br />
+    <%= f.text_field :lumen %>
+  </p>
+  <p>
+    <%= f.label :p_size %><br />
+    <%= f.text_field :p_size %>
+  </p>
+  <p>
+    <%= f.label :p_shape %><br />
+    <%= f.text_field :p_shape %>
+  </p>
+  <p>
+    <%= f.label :p_echotexture %><br />
+    <%= f.text_field :p_echotexture %>
+  </p>
+  <p>
+    <%= f.label :s_size %><br />
+    <%= f.text_field :s_size %>
+  </p>
+  <p>
+    <%= f.label :s_shape %><br />
+    <%= f.text_field :s_shape %>
+  </p>
+  <p>
+    <%= f.label :s_echotexture %><br />
+    <%= f.text_field :s_echotexture %>
+  </p>
+  <p>
+    <%= f.label :k_size_rt %><br />
+    <%= f.text_field :k_size_rt %>
+  </p>
+  <p>
+    <%= f.label :k_size_lt %><br />
+    <%= f.text_field :k_size_lt %>
+  </p>
+  <p>
+    <%= f.label :k_shape_rt %><br />
+    <%= f.text_field :k_shape_rt %>
+  </p>
+  <p>
+    <%= f.label :k_shape_lt %><br />
+    <%= f.text_field :k_shape_lt %>
+  </p>
+  <p>
+    <%= f.label :k_cortex_rt %><br />
+    <%= f.text_field :k_cortex_rt %>
+  </p>
+  <p>
+    <%= f.label :k_cortex_lt %><br />
+    <%= f.text_field :k_cortex_lt %>
+  </p>
+  <p>
+    <%= f.label :k_corticomedullaty_differentiation_rt %><br />
+    <%= f.text_field :k_corticomedullaty_differentiation_rt %>
+  </p>
+  <p>
+    <%= f.label :k_corticomedullay_defferentiation_lt %><br />
+    <%= f.text_field :k_corticomedullay_defferentiation_lt %>
+  </p>
+  <p>
+    <%= f.label :k_pcs_rt %><br />
+    <%= f.text_field :k_pcs_rt %>
+  </p>
+  <p>
+    <%= f.label :k_pcs_lt %><br />
+    <%= f.text_field :k_pcs_lt %>
+  </p>
+  <p>
+    <%= f.label :k_calculus_rt %><br />
+    <%= f.text_field :k_calculus_rt %>
+  </p>
+  <p>
+    <%= f.label :k_calculus_lt %><br />
+    <%= f.text_field :k_calculus_lt %>
+  </p>
+  <p>
+    <%= f.label :aorta %><br />
+    <%= f.text_field :aorta %>
+  </p>
+  <p>
+    <%= f.label :ivc %><br />
+    <%= f.text_field :ivc %>
+  </p>
+  <p>
+    <%= f.label :pre_paraortic_lymphadenopathy %><br />
+    <%= f.text_field :pre_paraortic_lymphadenopathy %>
+  </p>
+  <p>
+    <%= f.label :fluid_in_peritoneal_cavity %><br />
+    <%= f.text_field :fluid_in_peritoneal_cavity %>
+  </p>
+  <p>
+    <%= f.label :visualised_bowel %><br />
+    <%= f.text_field :visualised_bowel %>
+  </p>
+  <p>
+    <%= f.label :u_wall_thickness %><br />
+    <%= f.text_field :u_wall_thickness %>
+  </p>
+  <p>
+    <%= f.label :u_calculus %><br />
+    <%= f.text_field :u_calculus %>
+  </p>
+  <p>
+    <%= f.label :prevoid_urinary_vol %><br />
+    <%= f.text_field :prevoid_urinary_vol %>
+  </p>
+  <p>
+    <%= f.label :postvoid_urinary_vol %><br />
+    <%= f.text_field :postvoid_urinary_vol %>
+  </p>
+  <p>
+    <%= f.label :pr_size %><br />
+    <%= f.text_field :pr_size %>
+  </p>
+  <p>
+    <%= f.label :pr_echotexture %><br />
+    <%= f.text_field :pr_echotexture %>
+  </p>
+  <p>
+    <%= f.label :pr_capsule %><br />
+    <%= f.text_field :pr_capsule %>
+  </p>
+  <p>
+    <%= f.label :u_size %><br />
+    <%= f.text_field :u_size %>
+  </p>
+  <p>
+    <%= f.label :u_position %><br />
+    <%= f.text_field :u_position %>
+  </p>
+  <p>
+    <%= f.label :u_echotexture %><br />
+    <%= f.text_field :u_echotexture %>
+  </p>
+  <p>
+    <%= f.label :u_e_cavity %><br />
+    <%= f.text_field :u_e_cavity %>
+  </p>
+  <p>
+    <%= f.label :u_endometrium %><br />
+    <%= f.text_field :u_endometrium %>
+  </p>
+  <p>
+    <%= f.label :o_size_rt %><br />
+    <%= f.text_field :o_size_rt %>
+  </p>
+  <p>
+    <%= f.label :o_size_lt %><br />
+    <%= f.text_field :o_size_lt %>
+  </p>
+  <p>
+    <%= f.label :o_shape_rt %><br />
+    <%= f.text_field :o_shape_rt %>
+  </p>
+  <p>
+    <%= f.label :o_shape_lt %><br />
+    <%= f.text_field :o_shape_lt %>
+  </p>
+  <p>
+    <%= f.label :o_echotexture_rt %><br />
+    <%= f.text_field :o_echotexture_rt %>
+  </p>
+  <p>
+    <%= f.label :o_echotexture_lt %><br />
+    <%= f.text_field :o_echotexture_lt %>
+  </p>
+  <p>
+    <%= f.label :o_adenexal_mass_rt %><br />
+    <%= f.text_field :o_adenexal_mass_rt %>
+  </p>
+  <p>
+    <%= f.label :o_adenexal_mass_lt %><br />
+    <%= f.text_field :o_adenexal_mass_lt %>
+  </p>
+  <p>
+    <%= f.label :free_fluid_in_pouch_douglas %><br />
+    <%= f.text_field :free_fluid_in_pouch_douglas %>
+  </p>
+  <p>
+    <%= f.label :impression %><br />
+    <%= f.text_field :impression %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', sonographytests_path %>

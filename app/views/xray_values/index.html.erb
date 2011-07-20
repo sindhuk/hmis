@@ -1,0 +1,44 @@
+<h1>Listing xray_values</h1>
+
+<table>
+  <tr>
+    <th>X ray name</th>
+    <th>Remark 1</th>
+    <th>Remark 2</th>
+    <th>Remark 3</th>
+    <th>Remark 4</th>
+    <th>Remark 5</th>
+    <th>Remark 6</th>
+    <th>Remark 7</th>
+    <th>Remark 8</th>
+    <th>Remark 9</th>
+    <th>Remark 10</th>
+    <th>Remark 11</th>
+    <th>Opinion</th>
+  </tr>
+
+<% @xray_values.each do |xray_value| %>
+  <tr>
+    <td><%=h xray_value.x_ray_name %></td>
+    <td><%=h xray_value.remark_1 %></td>
+    <td><%=h xray_value.remark_2 %></td>
+    <td><%=h xray_value.remark_3 %></td>
+    <td><%=h xray_value.remark_4 %></td>
+    <td><%=h xray_value.remark_5 %></td>
+    <td><%=h xray_value.remark_6 %></td>
+    <td><%=h xray_value.remark_7 %></td>
+    <td><%=h xray_value.remark_8 %></td>
+    <td><%=h xray_value.remark_9 %></td>
+    <td><%=h xray_value.remark_10 %></td>
+    <td><%=h xray_value.remark_11 %></td>
+    <td><%=h xray_value.opinion %></td>
+    <td><%= link_to 'Show', xray_value %></td>
+    <td><%= link_to 'Edit', edit_xray_value_path(xray_value) %></td>
+    <td><%= link_to 'Destroy', xray_value, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New xray_value', new_xray_value_path %>

@@ -1,0 +1,22 @@
+<table border=1 width="80%">
+	<tr>
+		<th>MR_Number</th>
+		<th>Registration Number </th>
+		<th>First Name</th>
+		<th>Father Name</th>
+		<th>Address</th>
+		<th>City</th>
+	</tr>
+<% @patientinformation.each do |patientinformation| %>
+	<tr>
+		<% @patient=Patientregistration.find_by_id(patientinformation.patientregistration_id) %>
+		<td><%=h @patient.mr_no %></td>
+		<td><%=h @patient.patientappointmentinfo[0].registration_id %></td>
+		<td><%=h @patient.patientinformation[0].first_name %></td>
+		<td><%=h @patient.patientinformation[0].father_name %></td>
+		<td><%=h @patient.contactinformation[0].address1 %></td>
+		<td><%=h @patient.contactinformation[0].city %></td>
+		<td><%= link_to 'Show', :action => 'show', :id => @patient.id %></td>
+    </tr>
+<% end %>
+</table>

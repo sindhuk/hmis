@@ -1,0 +1,36 @@
+
+<h3>Listing stockpoint</h3>
+	<div align="center" width="100%">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+			<tr>
+    <th>Department code</th>
+    <th>Department name</th>
+    <th>Stockpoint name</th>
+    <th>Stockpoint type</th>
+    <th>Status</th>
+	<th>Show</th>
+	 <th>Edit</th>
+	 <th>Delete</th>
+  </tr>
+
+<% @stockpointmasters.each do |stockpointmaster| %>
+<% if((stockpointmaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+         <td class='<%= id %>'><%=h stockpointmaster.department_code %></td>
+       <td class='<%= id %>'><%=h stockpointmaster.department_name %></td>
+       <td class='<%= id %>'><%=h stockpointmaster.stock_point_name %></td>
+       <td class='<%= id %>'><%=h stockpointmaster.stock_point_type %></td>
+       <td class='<%= id %>'><%=h stockpointmaster.status %></td>
+       <td class='<%= id %>'><%= link_to image_tag ("show1.png", :border=>0), stockpointmaster %></td>
+       <td class='<%= id %>'><%= link_to image_tag ("edit.jpg", :border=>0), edit_stockpointmaster_path(stockpointmaster) %></td>
+      <td class='<%= id %>'><%= link_to image_tag ("trash.png", :border=>0), stockpointmaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to image_tag ("New.gif", :border=>0), new_stockpointmaster_path %>
+
+

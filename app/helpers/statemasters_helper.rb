@@ -1,0 +1,2 @@
+module StatemastersHelper
+end

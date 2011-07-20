@@ -1,0 +1,82 @@
+<h1>Listing payroll_employeemasters</h1>
+
+<table>
+  <tr>
+    <th>Employee name</th>
+    <th>Category name</th>
+    <th>Category code</th>
+    <th>Depattment name</th>
+    <th>Department code</th>
+    <th>Designation name</th>
+    <th>Designation code</th>
+    <th>Employee code</th>
+    <th>Employee date of birth</th>
+    <th>Employee joining date</th>
+    <th>Repersting manager for the employee</th>
+    <th>Employeement type</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Salary type</th>
+    <th>Bank code</th>
+    <th>Bank name</th>
+    <th>Gross</th>
+    <th>Basic</th>
+    <th>Da</th>
+    <th>Hra</th>
+    <th>Conveyeney</th>
+    <th>Education</th>
+    <th>Medical</th>
+    <th>Professional tax</th>
+    <th>Eligible for provident found</th>
+    <th>Provident found</th>
+    <th>Employee pf</th>
+    <th>Esi</th>
+    <th>Tds</th>
+    <th>Hostel</th>
+    <th>Volantrypf</th>
+  </tr>
+
+<% @payroll_employeemasters.each do |payroll_employeemaster| %>
+  <tr>
+    <td><%=h payroll_employeemaster.employee_name %></td>
+    <td><%=h payroll_employeemaster.category_name %></td>
+    <td><%=h payroll_employeemaster.category_code %></td>
+    <td><%=h payroll_employeemaster.depattment_name %></td>
+    <td><%=h payroll_employeemaster.department_code %></td>
+    <td><%=h payroll_employeemaster.designation_name %></td>
+    <td><%=h payroll_employeemaster.designation_code %></td>
+    <td><%=h payroll_employeemaster.employee_code %></td>
+    <td><%=h payroll_employeemaster.employee_date_of_birth %></td>
+    <td><%=h payroll_employeemaster.employee_joining_date %></td>
+    <td><%=h payroll_employeemaster.repersting_manager_for_the_employee %></td>
+    <td><%=h payroll_employeemaster.employeement_type %></td>
+    <td><%=h payroll_employeemaster.start_date %></td>
+    <td><%=h payroll_employeemaster.end_date %></td>
+    <td><%=h payroll_employeemaster.salary_type %></td>
+    <td><%=h payroll_employeemaster.bank_code %></td>
+    <td><%=h payroll_employeemaster.bank_name %></td>
+    <td><%=h payroll_employeemaster.gross %></td>
+    <td><%=h payroll_employeemaster.basic %></td>
+    <td><%=h payroll_employeemaster.da %></td>
+    <td><%=h payroll_employeemaster.hra %></td>
+    <td><%=h payroll_employeemaster.conveyeney %></td>
+    <td><%=h payroll_employeemaster.education %></td>
+    <td><%=h payroll_employeemaster.medical %></td>
+    <td><%=h payroll_employeemaster.professional_tax %></td>
+    <td><%=h payroll_employeemaster.eligible_for_provident_found %></td>
+    <td><%=h payroll_employeemaster.provident_found %></td>
+    <td><%=h payroll_employeemaster.employee_pf %></td>
+    <td><%=h payroll_employeemaster.esi %></td>
+    <td><%=h payroll_employeemaster.tds %></td>
+    <td><%=h payroll_employeemaster.hostel %></td>
+    <td><%=h payroll_employeemaster.volantry_pf %></td>
+    <td><%= link_to 'Show', payroll_employeemaster %></td>
+    <td><%= link_to 'Edit', edit_payroll_employeemaster_path(payroll_employeemaster) %></td>
+    <td><%= link_to 'Destroy', payroll_employeemaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New payroll_employeemaster', new_payroll_employeemaster_path %>

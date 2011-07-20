@@ -1,0 +1,249 @@
+<h1>New payroll_employeemaster</h1>
+
+<script type="text/javascript">
+	
+	function checked_val(el)
+	{
+		if(el=="emptype")
+		{
+			if(document.getElementById(el).value=="contract")
+			{
+				document.getElementById('sdate').disabled=false
+				document.getElementById('edate').disabled=false
+			}
+			else
+			{
+				document.getElementById('sdate').disabled=true
+				document.getElementById('edate').disabled=true
+			}
+		}
+		else if(el=="salarytype")
+		{
+			if(document.getElementById(el).value=="Bank Acount")
+			{
+				document.getElementById('bcode').disabled=false
+				document.getElementById('bname').disabled=false
+			}
+			else
+			{
+				document.getElementById('bcode').disabled=true
+				document.getElementById('bname').disabled=true
+			}
+		}
+		else if(el=="eligible")
+		{
+			if(document.getElementById(el).checked)
+			{
+				document.getElementById('pf').disabled=false
+				document.getElementById('epf').disabled=false
+				document.getElementById('esi').disabled=false
+				document.getElementById('tds').disabled=false
+				document.getElementById('hostel').disabled=false
+				document.getElementById('vpf').disabled=false
+			}
+			else
+			{
+				document.getElementById('pf').disabled=true
+				document.getElementById('epf').disabled=true
+				document.getElementById('esi').disabled=true
+				document.getElementById('tds').disabled=true
+				document.getElementById('hostel').disabled=true
+				document.getElementById('vpf').disabled=true
+			}
+		}
+	}
+	function checked_print(el,v2) 
+	{
+		
+		if(el=="categoryname")
+		{
+			
+			var hi=v2
+			var selObj = document.getElementById(el);
+			var value_glo= selObj.options[selObj.selectedIndex].index;
+			var temp=new Array()
+			temp=hi.split(",")
+			document.getElementById('categorycode').value=temp[value_glo]
+		}
+		else if(el=="deptname")
+		{
+			var hi=v2
+			var selObj = document.getElementById(el);
+			var value_glo= selObj.options[selObj.selectedIndex].index;
+			var temp=new Array()
+			temp=hi.split(",")
+			document.getElementById('deptcode').value=temp[value_glo]
+		}
+		else if(el=="designationname")
+		{
+			var hi=v2
+			var selObj = document.getElementById(el);
+			var value_glo= selObj.options[selObj.selectedIndex].index;
+			var temp=new Array()
+			temp=hi.split(",")
+			document.getElementById('designationcode').value=temp[value_glo]
+		}
+		
+	}
+
+</script>
+<% form_for(@payroll_employeemaster) do |f| %>
+  <%= f.error_messages %>
+
+  <% @cname="" %>
+  <% @deptname="" %>
+  <% @designame="" %>
+	<% ccode=Categorymaster.find(:all).collect { |p| [p.code] } %>
+	<% for i in 0...ccode.length
+		@cname<<ccode[i].to_s
+		@cname<<","
+	  end %>
+	<% depcode=Departmentmaster.find(:all).collect { |p| [p.code] } %>
+	<% for i in 0...depcode.length
+		@deptname<<depcode[i].to_s
+		@deptname<<","
+	  end %>
+	<% descode=Designationmaster.find(:all).collect { |p| [p.code] } %>
+	<% for i in 0...descode.length
+		@designame<<descode[i].to_s
+		@designame<<","
+	  end %>
+  <p>
+    <%= f.label :employeename %><br />
+    <%= f.text_field :employee_name %>
+  </p>
+  <p>
+    <%= f.label :categoryname %><br />
+    <%= select "payroll_employeemaster","category_name", Categorymaster.find(:all).collect {|p| [p.name] },{ :include_blank => false },{:id => "categoryname",:onchange => "checked_print(id,'#{@cname}')"} %>
+  </p>
+  <p>
+    <%= f.label :categorycode %><br />
+    <%= f.text_field :category_code, :id => "categorycode" %>
+  </p>
+  <p>
+    <%= f.label :departmentname %><br />
+    <%= select :department_name, Departmentmaster.find(:all).collect {|p| [p.name] },{ :include_blank => false },{ :id => "deptname", :onchange => "checked_print(id,'#{@deptname}')" } %>
+  </p>
+  <p>
+    <%= f.label :departmentcode %><br />
+    <%= f.text_field :department_code, :id => "deptcode" %>
+  </p>
+  <p>
+    <%= f.label :designationname %><br />
+    <%= select "payroll_employeemaster","designation_name", Designationmaster.find(:all).collect {|p| [p.name] },{ :include_blank => false },{ :id => "designationname", :onchange => "checked_print(id,'#{@designame}')" } %>
+  </p>
+  <p>
+    <%= f.label :designationcode %><br />
+    <%= f.text_field :designation_code, :id => "designation_code" %>
+  </p>
+  <p>
+    <%= f.label :employeecode %><br />
+    <%= f.text_field :employee_code %>
+  </p>
+  <p>
+    <%= f.label :employeedateofbirth %><br />
+    <%= f.text_field :employee_date_of_birth %>
+  </p>
+  <p>
+    <%= f.label :employeejoiningdate %><br />
+    <%= f.text_field :employee_joining_date %>
+  </p>
+  <p>
+    <%= f.label :reperstingmanagerfortheemployee %><br />
+    <%= f.text_field :repersting_manager_for_the_employee %>
+  </p>
+  <p>
+    <%= f.label :employeementtype %><br />
+    <%= f.select :employeement_type, [['Perment'],['contract']],{ :include_blank => false}, {:id => "emptype",:onchange => "checked_val(id)" } %>
+  </p>
+  <p>
+    <%= f.label :startdate %><br />
+    <%= f.text_field :start_date, :id => "sdate", :disabled => "true" %>
+  </p>
+  <p>
+    <%= f.label :enddate %><br />
+    <%= f.text_field :end_date, :id => "edate", :disabled => "true" %>
+  </p>
+  <p>
+    <%= f.label :salarytype %><br />
+    <%= f.select(:salary_type,[['cash'],['Cheque'],['Bank Acount']],{ :include_blank => false}, {:id => "salarytype", :onchange => "checked_val(id)" }) %>
+  </p>
+  <p>
+    <%= f.label :bankcode %><br />
+    <%= f.text_field :bank_code,:id => "bcode", :disabled => "true" %>
+  </p>
+  <p>
+    <%= f.label :bankname %><br />
+    <%= f.text_field :bank_name,:id => "bname", :disabled => "true" %>
+  </p>
+  
+  <p>
+    <%= f.label :gross %><br />
+    <%= f.text_field :gross %>
+  </p>
+  <p>
+    <%= f.label :basic %><br />
+    <%= f.text_field :basic %>
+  </p>
+  Allowances<br />
+  -----------
+  <p>
+    <%= f.label :da %><br />
+    <%= f.text_field :da %>
+  </p>
+  <p>
+    <%= f.label :hra %><br />
+    <%= f.text_field :hra %>
+  </p>
+  <p>
+    <%= f.label :conveyeney %><br />
+    <%= f.text_field :conveyeney %>
+  </p>
+  <p>
+    <%= f.label :education %><br />
+    <%= f.text_field :education %>
+  </p>
+  <p>
+    <%= f.label :medical %><br />
+    <%= f.text_field :medical %>
+  </p>
+  Dednetions <br />
+  ----------
+  <p>
+    <%= f.label :professionaltax %><br />
+    <%= f.text_field :professional_tax %>
+  </p>
+  <p>
+    <%= f.label :eligibleforprovidentfound %><br />
+    <%= f.check_box :eligible_for_provident_found, :id => "eligible", :onchange => "checked_val(id)" %>
+  </p>
+  <p>
+    <%= f.label :providentfound %><br />
+    <%= f.text_field :provident_found, :id => "pf", :disabled => "true" %>
+  </p>
+  <p>
+    <%= f.label :employeepf %><br />
+    <%= f.text_field :employee_pf, :id => "epf", :disabled => "true" %>
+  </p>
+  <p>
+    <%= f.label :esi %><br />
+    <%= f.text_field :esi, :id => "esi", :disabled => "true" %>
+  </p>
+  <p>
+    <%= f.label :tds %><br />
+    <%= f.text_field :tds, :id => "tds", :disabled => "true" %>
+  </p>
+  <p>
+    <%= f.label :hostel %><br />
+    <%= f.text_field :hostel, :id => "hostel", :disabled => "true" %>
+  </p>
+  <p>
+    <%= f.label :volantrypf %><br />
+    <%= f.text_field :volantry_pf, :id => "vpf", :disabled => "true" %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', payroll_employeemasters_path %>

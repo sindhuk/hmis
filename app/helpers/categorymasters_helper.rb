@@ -1,0 +1,2 @@
+module CategorymastersHelper
+end

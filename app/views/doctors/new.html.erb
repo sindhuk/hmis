@@ -1,0 +1,19 @@
+<h1>New doctor</h1>
+
+<% form_for(@doctor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :d_name %><br />
+    <%= f.text_field :d_name %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', doctors_path %>

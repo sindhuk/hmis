@@ -1,0 +1,34 @@
+<h1>Listing final_services</h1>
+
+<table>
+  <tr>
+    <th>Final bill</th>
+    <th>Sno</th>
+    <th>Service name</th>
+    <th>Service code</th>
+    <th>Services provided</th>
+    <th>Price</th>
+    <th>Concession</th>
+    <th>Total amount</th>
+  </tr>
+
+<% @final_services.each do |final_service| %>
+  <tr>
+    <td><%=h final_service.final_bill_id %></td>
+    <td><%=h final_service.sno %></td>
+    <td><%=h final_service.service_name %></td>
+    <td><%=h final_service.service_code %></td>
+    <td><%=h final_service.services_provided %></td>
+    <td><%=h final_service.price %></td>
+    <td><%=h final_service.concession %></td>
+    <td><%=h final_service.total_amount %></td>
+    <td><%= link_to 'Show', final_service %></td>
+    <td><%= link_to 'Edit', edit_final_service_path(final_service) %></td>
+    <td><%= link_to 'Destroy', final_service, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New final_service', new_final_service_path %>

@@ -1,0 +1,38 @@
+<h3>Listing Departments </h3>
+<br/>
+<br/>
+<div align="center" width="100%">
+<table width="70%" cellpadding="4" border=1 cellspacing="0">
+  <tr>
+     <th>Department Name</th>
+    <th>Departmenr Code</th>
+	<th>Status</th>
+    <th>Department Hod</th>
+	<th>Contact Number Of Hod</th>
+	<th>Show</th>
+	 <th>Edit</th>
+	 <th>Del</th>
+  </tr>
+
+<% @departmentmasters.each do |departmentmaster| %>
+	<% if((departmentmaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h departmentmaster.name %></td>
+    <td class='<%= id %>'><%=h departmentmaster.code %></td>
+	<td class='<%= id %>'><%=h departmentmaster.status %></td>
+    <td class='<%= id %>'><%=h departmentmaster.hod %></td>
+	<td class='<%= id %>'><%=h departmentmaster.contact_number_of_hod %></td>
+    <td class='<%= id %>'><%= link_to 'Show', departmentmaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_departmentmaster_path(departmentmaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', departmentmaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New departmentmaster', new_departmentmaster_path %>

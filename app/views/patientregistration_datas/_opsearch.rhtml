@@ -1,0 +1,25 @@
+<table width="60%" cellpadding="2" cellspacing="0">
+  <tr bgcolor ="#378bf8" style="color:white">
+		<th>MR_Number</th>
+		<th>First Name</th>
+		<th>Bill No</th>
+		<th>Bill Date</th>
+		<th>Consultation No</th>
+		<th>City</th>
+	</tr>
+<% @opbilling.each do |opbilling| %>
+	<% if((opbilling.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+    end %>
+	<tr>
+		<td class='<%= id %>'><%=h opbilling.mr_no %></td>
+		<td class='<%= id %>'><%=h opbilling.first_name %></td>
+		<td class='<%= id %>'><%=h opbilling.bill_no %></td>
+		<td class='<%= id %>'><%=h opbilling.bill_date %></td>
+		<td class='<%= id %>'><%=h opbilling.city %></td>
+		<td class='<%= id %>'><%=h opbilling.consultation_no%></td>
+	</tr>
+<% end %>
+</table>

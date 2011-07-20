@@ -1,0 +1,48 @@
+<h1>Editing hospitalmaster</h1>
+
+<% form_for(@hospitalmaster) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :hospitalname %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :hospitalcode %><br />
+    <%= f.text_field :code %>
+  </p>
+  <p>
+    <%= f.label :hospitaladdress %><br />
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :city %><br />
+    <%= select "hospitalmaster", "city", Citymaster.find(:all).collect {|p| [ p.name ] }, {:include_blank => false} %>
+  </p>
+  <p>
+    <%= f.label :state %><br />
+    <%= select "hospitalmaster", "state", Statemaster.find(:all).collect {|p| [ p.name ] }, {:include_blank => false} %>
+  </p>
+  <p>
+    <%= f.label :country %><br />
+    <%= select "hospitalmaster", "country", Countrymaster.find(:all).collect {|p| [ p.name ] }, {:include_blank => false} %>
+  </p>
+  <p>
+    <%= f.label :hospitallogo %><br />
+    <%= f.file_field :logo %>
+  </p>
+  <p>
+    <%= f.label :hospitaltanno %><br />
+    <%= f.text_field :tan_no %>
+  </p>
+  <p>
+    <%= f.label :hospitalvatno %><br />
+    <%= f.text_field :vat_no %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @hospitalmaster %> |
+<%= link_to 'Back', hospitalmasters_path %>

@@ -1,0 +1,47 @@
+<h3>Editing Department </h3>
+<br/>
+<br/>
+<% form_for(@departmentmaster) do |f| %>
+  <%= f.error_messages %>
+<div align="center" width="100%">
+  <table width="50%" cellpadding="4" border=1 cellspacing="0">
+    <tr><td>
+    <%= f.label :Name %><br /></td>
+  <td> 
+    <%= f.text_field :name %>
+  </td>
+  <tr/>
+  <tr><td>
+    <%= f.label :Code %><br /></td>
+  <td> 
+    <%= f.text_field :code %>
+  </td>
+  <tr/>
+  <tr><td>
+    <%= f.label :Status %><br /></td>
+  <td> 
+    <%= f.text_field :status %>
+  </td>
+  <tr/>
+  <tr><td>
+    <%= f.label :Hod %><br /></td>
+  <td> 
+    <%= f.text_field :hod %>
+  </td>
+  <tr/>
+ <tr><td>
+    <%= f.label :Contact_Number_Of_Hod %><br /></td>
+  <td> 
+    <%= f.text_field :contact_number_of_hod %>
+  </td>
+  <tr/>
+  </table>
+ <br/>
+    <%= f.submit 'Update' %>
+  </div>
+ 
+
+<br/>
+
+<%= link_to 'Back', departmentmasters_path %>
+<% end %>

@@ -1,0 +1,17 @@
+<h3>Editing countrymaster</h3>
+<br/>
+<div align="center" width="90%">
+
+<% form_for(@countrymaster) do |f| %>
+  <%= f.error_messages %>
+
+  <table width="30%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+    <tr><td><%= f.label :name %></td>
+    <td><%= f.text_field :name %></td></tr>
+	</table>
+	<%= f.submit 'Update' %>
+ </div>
+ 
+<% end %>
+<br/>
+<%= link_to 'Back', countrymasters_path %>

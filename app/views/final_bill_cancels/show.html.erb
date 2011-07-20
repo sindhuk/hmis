@@ -1,0 +1,61 @@
+ <div align="center" width="100%">
+<table width="40%" > 
+ 
+  <tr>
+  <td>Mr no</td>
+  <td><%=h @final_bill_cancel.mr_no %></td>
+  <td>Reg no</td>
+  <td><%=h @final_bill_cancel.reg_no %></td></tr>
+  <tr><td>Patient name</td>
+  <td><%=h @final_bill_cancel.patient_name %></td>
+  <td>Father name</td>
+  <td><%=h @final_bill_cancel.father_name %></td>
+</tr>
+
+<tr>
+  <td>Floor</td>
+  <td><%=h @final_bill_cancel.floor %></td>
+  <td>Ward</td>
+  <td><%=h @final_bill_cancel.ward %></td>
+</tr>
+
+<tr>
+  <td>Room</td>
+  <td><%=h @final_bill_cancel.room %></td>
+  <td>Bed</td>
+  <td><%=h @final_bill_cancel.bed %></td>
+</tr>
+
+<tr>
+  <td>Final bill cancel</td>
+  <td><%=h @final_bill_cancel.final_bill_cancel %></td>
+  <td>Final bill amount</td>
+  <td><%=h @final_bill_cancel.final_bill_amount %></td>
+</tr>
+
+<% for final_bill_cancel_service in @final_bill_cancel.final_bill_cancel_service %>
+<tr>
+  <td>Sno</td>
+  <td><%=h final_bill_cancel_service.sno %></td>
+  <td>Service name</td>
+  <td><%=h final_bill_cancel_service.service_name %></td>
+</tr>
+
+<tr>
+  <td>Service code</td>
+  <td><%=h final_bill_cancel_service.service_code %></td>
+  <td>Cost</td>
+  <td><%=h final_bill_cancel_service.cost %></td>
+</tr>
+
+<tr>
+  <td>Concession</td>
+  <td><%=h final_bill_cancel_service.concession %></td>
+  <td>Amount</td>
+  <td><%=h final_bill_cancel_service.amount %></td>
+</tr>
+<% end %>
+</table>
+</div>
+<br />
+<%= link_to 'Back', final_bill_cancels_path %>

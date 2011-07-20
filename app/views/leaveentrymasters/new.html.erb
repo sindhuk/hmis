@@ -1,0 +1,105 @@
+<h3>New Leaveentrymaster</h3>
+
+<%= javascript_include_tag 'ezcalendar.js' %>
+<script type="text/javascript">
+
+
+
+
+	function checked_print(el,v2) 
+	{
+		if(el=="employeecode")
+		{
+		
+			var hi=v2
+			var selObj = document.getElementById(el);
+			var value_glo= selObj.options[selObj.selectedIndex].index;
+			var temp=new Array()
+			temp=hi.split(",")
+			document.getElementById('empname1').value=temp[value_glo]
+		}
+		else if(el=="leavetypecode")
+		{
+			var hi=v2
+			var selObj = document.getElementById(el);
+			var value_glo= selObj.options[selObj.selectedIndex].index;
+			var temp=new Array()
+			temp=hi.split(",")
+			document.getElementById('leavename').value=temp[value_glo]
+		}
+	}
+	function date()
+	{
+	var selObj = document.getElementById('from_date').value
+		
+		var selobj = document.getElementById('to_date').value
+			
+		var temp=new Array()
+		temp=selObj.split("/")
+		var y1=temp[0]
+		var m1=temp[1]
+		var d1=temp[2]
+		var temp1=new Array()
+		temp1=selobj.split("/")
+		var y2=temp1[0]
+		var m2=temp1[1]
+		var d2=temp1[2]
+		var result=0
+		if((y2>=y1)&&(m2>=m1)&&(d2>=d1))
+		{
+		result=d2-d1
+		}
+		else
+		{alert("plz enter the valid date")}
+		document.getElementById('date1').value=result
+	}
+</script>
+<% form_for(@leaveentrymaster) do |f| %>
+  <%= f.error_messages %>
+<% @empname="" %>
+<% @leavename="" %>
+<% ename=Employeemaster.find(:all).collect { |p| [p.name] } %>
+<% for i in 0...ename.length
+@empname<<ename[i].to_s
+@empname<<","
+end %>
+<% lname=Leavemaster.find(:all).collect { |p| [p.leave_type_name] } %>
+<% for i in 0...lname.length
+@leavename<<lname[i].to_s
+@leavename<<","
+end %>
+  <br /><br />
+<div align="center">
+  <table width="60%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+    <tr>
+	<td><%= f.label :employee_code %></td>
+    <td><%= f.select:employee_code, Employeemaster.find(:all).collect { |p| [p.code] }, {:include_blank => false },{:id => "employeecode",:onchange => "checked_print(id,'#{@empname}')"} %></td></tr>
+    <tr>
+	<td><%= f.label :employee_name %></td>
+    <td><%= f.text_field :employee_name, :id => "empname1" %></td></tr>
+     <tr>
+	 <td><%= f.label :leave_type_code %></td>
+     <td><%= f.select:leave_type_code, Leavemaster.find(:all).collect { |p| [p.leave_type_code] }, {:include_blank => false },{:id => "leavetypecode",:onchange => "checked_print(id,'#{@leavename}')"} %></td></tr>
+     <tr>
+	 <td> <%= f.label :leave_type_name %></td>
+    <td><%= f.text_field :leave_type_name, :id => "leavename" %></td></tr>
+    <tr>
+	<td><%= f.label :from_date %></td>
+   <td><%= f.text_field :from_date, :size => "20", :id => "from_date" %><%= link_to image_tag ("cal.gif", :border=>0), "javascript: showCalendar('from_date')" %></td>
+	</tr>
+    <tr>
+	<td><%= f.label :to_date %></td>
+     <td><%= f.text_field :to_date, :size => "20", :id => "to_date" %><%= link_to image_tag ("cal.gif", :border=>0), "javascript: showCalendar('to_date')" %>
+	<input type="button" value=ok onclick=date()></td>
+	</tr>
+    <tr>
+	<td><%= f.label :number_of_days %></td>
+    <td><%= f.text_field :number_of_days, :id =>"date1"  %></td></tr>
+</table>
+<br />
+    <%= f.submit 'Create' %>
+ </div> 
+<% end %>
+
+<br />
+<%= link_to 'Show', leaveentrymasters_path %>

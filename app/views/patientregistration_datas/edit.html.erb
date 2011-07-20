@@ -1,0 +1,216 @@
+<h1>Editing patientregistration_data</h1>
+
+<% form_for(@patientregistration_data) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :registration_id %><br />
+    <%= f.text_field :registration_id %>
+  </p>
+  <p>
+    <%= f.label :registration_date %><br />
+    <%= f.date_select :registration_date %>
+  </p>
+  <p>
+    <%= f.label :timo_of_appointment %><br />
+    <%= f.time_select :timo_of_appointment %>
+  </p>
+  <p>
+    <%= f.label :reffered_by_doctor %><br />
+    <%= f.text_field :reffered_by_doctor %>
+  </p>
+  <p>
+    <%= f.label :patient_type %><br />
+    <%= f.text_field :patient_type %>
+  </p>
+  <p>
+    <%= f.label :mr_no %><br />
+    <%= f.text_field :mr_no %>
+  </p>
+  <p>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :date_of_birth %><br />
+    <%= f.text_field :date_of_birth %>
+  </p>
+  <p>
+    <%= f.label :gender %><br />
+    <%= f.text_field :gender %>
+  </p>
+  <p>
+    <%= f.label :age %><br />
+    <%= f.text_field :age %>
+  </p>
+  <p>
+    <%= f.label :marital_status %><br />
+    <%= f.text_field :marital_status %>
+  </p>
+  <p>
+    <%= f.label :father_name %><br />
+    <%= f.text_field :father_name %>
+  </p>
+  <p>
+    <%= f.label :disease %><br />
+    <%= f.text_field :disease %>
+  </p>
+  <p>
+    <%= f.label :occupation %><br />
+    <%= f.text_field :occupation %>
+  </p>
+  <p>
+    <%= f.label :initial_amount %><br />
+    <%= f.text_field :initial_amount %>
+  </p>
+  <p>
+    <%= f.label :payment_mode %><br />
+    <%= f.text_field :payment_mode %>
+  </p>
+  <p>
+    <%= f.label :valid_period %><br />
+    <%= f.text_field :valid_period %>
+  </p>
+  <p>
+    <%= f.label :bank_name %><br />
+    <%= f.text_field :bank_name %>
+  </p>
+  <p>
+    <%= f.label :cheque_number %><br />
+    <%= f.text_field :cheque_number %>
+  </p>
+  <p>
+    <%= f.label :card_number %><br />
+    <%= f.text_field :card_number %>
+  </p>
+  <p>
+    <%= f.label :expiry_date %><br />
+    <%= f.date_select :expiry_date %>
+  </p>
+  <p>
+    <%= f.label :address1 %><br />
+    <%= f.text_area :address1 %>
+  </p>
+  <p>
+    <%= f.label :address2 %><br />
+    <%= f.text_area :address2 %>
+  </p>
+  <p>
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </p>
+  <p>
+    <%= f.label :country %><br />
+    <%= f.text_field :country %>
+  </p>
+  <p>
+    <%= f.label :zipcode %><br />
+    <%= f.text_field :zipcode %>
+  </p>
+  <p>
+    <%= f.label :phone_no %><br />
+    <%= f.text_field :phone_no %>
+  </p>
+  <p>
+    <%= f.label :mobile_no %><br />
+    <%= f.text_field :mobile_no %>
+  </p>
+  <p>
+    <%= f.label :fax %><br />
+    <%= f.text_field :fax %>
+  </p>
+  <p>
+    <%= f.label :email_id %><br />
+    <%= f.text_field :email_id %>
+  </p>
+  <p>
+    <%= f.label :relative_name %><br />
+    <%= f.text_field :relative_name %>
+  </p>
+  <p>
+    <%= f.label :relative_address %><br />
+    <%= f.text_area :relative_address %>
+  </p>
+  <p>
+    <%= f.label :contact_no %><br />
+    <%= f.text_field :contact_no %>
+  </p>
+  <p>
+    <%= f.label :relationship %><br />
+    <%= f.text_field :relationship %>
+  </p>
+  <p>
+    <%= f.label :company_name %><br />
+    <%= f.text_field :company_name %>
+  </p>
+  <p>
+    <%= f.label :company_address %><br />
+    <%= f.text_area :company_address %>
+  </p>
+  <p>
+    <%= f.label :company_city %><br />
+    <%= f.text_field :company_city %>
+  </p>
+  <p>
+    <%= f.label :company_state %><br />
+    <%= f.text_field :company_state %>
+  </p>
+  <p>
+    <%= f.label :company_ph_no %><br />
+    <%= f.text_field :company_ph_no %>
+  </p>
+  <p>
+    <%= f.label :insurance_name %><br />
+    <%= f.text_field :insurance_name %>
+  </p>
+  <p>
+    <%= f.label :insurance_company_name %><br />
+    <%= f.text_field :insurance_company_name %>
+  </p>
+  <p>
+    <%= f.label :insurance_company_address %><br />
+    <%= f.text_field :insurance_company_address %>
+  </p>
+  <p>
+    <%= f.label :insurance_company_city %><br />
+    <%= f.text_field :insurance_company_city %>
+  </p>
+  <p>
+    <%= f.label :insurance_company_state %><br />
+    <%= f.text_field :insurance_company_state %>
+  </p>
+  <p>
+    <%= f.label :police_station %><br />
+    <%= f.text_field :police_station %>
+  </p>
+  <p>
+    <%= f.label :fir_no %><br />
+    <%= f.text_field :fir_no %>
+  </p>
+  <p>
+    <%= f.label :fir_address %><br />
+    <%= f.text_field :fir_address %>
+  </p>
+  <p>
+    <%= f.label :fir_city %><br />
+    <%= f.text_field :fir_city %>
+  </p>
+  <p>
+    <%= f.label :fir_state %><br />
+    <%= f.text_field :fir_state %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @patientregistration_data %> |
+<%= link_to 'Back', patientregistration_datas_path %>

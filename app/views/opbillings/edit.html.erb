@@ -1,0 +1,68 @@
+<h1>Editing opbilling</h1>
+
+<% form_for(@opbilling) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :mr_no %><br />
+    <%= f.text_field :mr_no %>
+  </p>
+  <p>
+    <%= f.label :department %><br />
+    <%= f.text_field :department %>
+  </p>
+  <p>
+    <%= f.label :doctor %><br />
+    <%= f.text_field :doctor %>
+  </p>
+  <p>
+    <%= f.label :s_no %><br />
+    <%= f.text_field :s_no %>
+  </p>
+  <p>
+    <%= f.label :test_code %><br />
+    <%= f.text_field :test_code %>
+  </p>
+  <p>
+    <%= f.label :test_name %><br />
+    <%= f.text_field :test_name %>
+  </p>
+  <p>
+    <%= f.label :fee %><br />
+    <%= f.text_field :fee %>
+  </p>
+  <p>
+    <%= f.label :concession %><br />
+    <%= f.text_field :concession %>
+  </p>
+  <p>
+    <%= f.label :comments %><br />
+    <%= f.text_field :comments %>
+  </p>
+  <p>
+    <%= f.label :concession1 %><br />
+    <%= f.text_field :concession1 %>
+  </p>
+  <p>
+    <%= f.label :c_ref %><br />
+    <%= f.text_field :c_ref %>
+  </p>
+  <p>
+    <%= f.label :gross %><br />
+    <%= f.text_field :gross %>
+  </p>
+  <p>
+    <%= f.label :due %><br />
+    <%= f.text_field :due %>
+  </p>
+  <p>
+    <%= f.label :d_ref %><br />
+    <%= f.text_field :d_ref %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @opbilling %> |
+<%= link_to 'Back', opbillings_path %>

@@ -1,0 +1,57 @@
+</br></br></br>
+<div align="center" >
+<table><tr><td>Mr No:</td>
+			<td><%=h @ip_service_entry.mr_no %></td>
+            <td>Reg No:</td>
+				<td> <%=h @ip_service_entry.reg_no %></td>
+				<td>Service No:</td>
+				<td> <%=h @ip_service_entry.service_no %>
+   </td>
+ </tr><tr>
+  <td>Patient Name:</td>
+  	<td><%=h @ip_service_entry.patient_name %>
+</td>
+  <td>Doctor:</td>
+ 	<td> <%=h @ip_service_entry.doctor %>
+ 
+  <td>Company:</td>
+ 	<td> <%=h @ip_service_entry.company %>
+</tr><tr>
+  <td>Services:</td>
+ 	<td> <%=h @ip_service_entry.services %>
+</td></tr>
+<% for ip_service in @ip_service_entry.ip_service %>
+<tr>  <td>Sno:</td>
+ 	<td> <%=h ip_service.sno %>
+</td>
+<td>Service name:</td>
+<td><%=h ip_service.service_name %></td>
+<td>Service code:</td>
+ <td> <%=h ip_service.service_code %>
+</td></tr>
+<tr>
+  <td>Quantity:</td>
+  <td><%=h ip_service.quantity %>
+</td>
+   <td>Rate:</td>
+  <td><%=h ip_service.rate %>
+</td>
+  <td>Concession:</td>
+  <td><%=h ip_service.concession %>
+</td>
+</tr><tr>
+ <tr>
+  <td>Amount:</td>
+  <td><%=h ip_service.amount %></td></tr>
+</tr><tr>
+  <td>Grossamount:</td>
+  <td><%=h @ip_service_entry.grossamount %>
+</td>
+  <td>Concession:</td>
+  <td><%=h @ip_service_entry.concession %>
+</td>
+<td>Netamount:</td>
+  <td><%=h @ip_service_entry.netamount %>
+</tr></table>
+<% end %>
+<%= link_to 'Back', ip_service_entries_path %>

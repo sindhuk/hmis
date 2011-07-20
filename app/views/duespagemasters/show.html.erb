@@ -1,0 +1,69 @@
+ <br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+	<tr><td>Billing_mode</td>
+	<td> <%=h @duespagemaster.billing_mode %></td>
+	<td>Registration_no</td>
+	<td> <%=h @duespagemaster.registration_no %></td>
+	</tr>
+		
+	<tr><td>
+	Mrno:</td>
+	<td> <%=h @duespagemaster.mr_no %>
+	</td>  <td>
+	bill_no</td>
+	<td> <%=h @duespagemaster.bill_no %>
+	</td>  </tr>
+	
+	<tr><td>patient_name</td>
+	<td> <%=h @duespagemaster.patient_name %></td>
+	<td>gross</td>
+	<td> <%=h @duespagemaster.gross%></td>
+	</tr>
+	
+<tr><td>
+  Due:</td>
+ <td> <%=h @duespagemaster.due %>
+</td>  
+
+<td>
+  Concession:</td>
+ <td> <%=h @duespagemaster.concession %>
+</td>  </tr>
+
+<tr><td>
+  Refund:</td>
+ <td> <%=h @duespagemaster.refund %>
+</td>  
+
+<td>
+  Paymentmode:</td>
+ <td> <%=h @duespagemaster.payment_mode %>
+</td>  </tr>
+
+<tr><td>
+  Bankname:</td>
+ <td> <%=h @duespagemaster.bank_name %>
+</td>  
+<td>
+  Chequeno:</td>
+ <td> <%=h @duespagemaster.cheque_no %>
+</td>  </tr>
+
+<tr><td>
+  Cardno:</td>
+ <td> <%=h @duespagemaster.card_no %>
+</td>  
+
+<td>
+  Expirydate:</td>
+<td>  <%=h @duespagemaster.expiry_date %>
+</td>  </tr>
+
+
+</table>
+<%= link_to 'Edit', edit_duespagemaster_path(@duespagemaster) %> |
+
+<%= link_to 'Back', duespagemasters_path %>
+</div>
+

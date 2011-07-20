@@ -1,0 +1,41 @@
+<h3>Listing servicemasters</h3>
+<br /><br />
+<div align="center" width="90%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+
+  <tr>
+    <th>Service Name</th>
+    <th>Service Code</th>
+    <th>Service Group</th>
+        <th>Service Providing to</th>
+    <th>Charge</th>
+	<th>Ward</th>
+	<th>Cost</th>
+    <th>Doctor Percentage</th>
+    <th>Hospital Percentage</th>
+	<th>Show</th>
+	 <th>Edit</th>
+	 <th>Destroy</th>
+  </tr>
+
+<% @servicemasters.each do |servicemaster| %>
+  <tr>
+    <td class='<%= id %>'><%=h servicemaster.name %></td>
+    <td class='<%= id %>'><%=h servicemaster.code %></td>
+    <td class='<%= id %>'><%=h servicemaster.group %></td>
+    <td class='<%= id %>'><%=h servicemaster.providing_to %></td>
+    <td class='<%= id %>'><%=h servicemaster.charge %></td>
+	<td class='<%= id %>'><%=h servicemaster.ward %></td>
+	<td class='<%= id %>'><%=h servicemaster.cost %></td>
+    <td class='<%= id %>'><%=h servicemaster.doctor_percentage %></td>
+    <td class='<%= id %>'><%=h servicemaster.hospital_percentage %></td>
+    <td class='<%= id %>'><%= link_to 'Show', servicemaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_servicemaster_path(servicemaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', servicemaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+</div>
+<%= link_to 'New servicemaster', new_servicemaster_path %>

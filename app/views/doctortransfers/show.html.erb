@@ -1,0 +1,41 @@
+<%= stylesheet_link_tag 'css' %>
+<br /><br />
+ <div align="center" width="90%">
+  <table width="40%" cellspacing="0" cellpadding="4">
+<tr><td>
+  <b>Mr no</b></td><td>
+  <%=h @doctortransfer.mr_no %>
+</td></tr>
+<tr><td>
+  <b>Reg no</b></td><td>
+  <%=h @doctortransfer.reg_no %>
+</td></tr>
+<tr><td>
+  <b>Patient name</b></td><td>
+  <%=h @doctortransfer.patient_name %>
+</td></tr>
+
+<tr><td>
+  <b>Father name</b></td><td>
+  <%=h @doctortransfer.father_name %>
+</td></tr>
+
+<tr><td>
+  <b>Department name</b></td><td>
+  <%=h @doctortransfer.department_name %>
+</td></tr>
+
+<tr><td>
+  <b>Doctor</b></td><td>
+  <%=h @doctortransfer.doctor %>
+</td></tr>
+
+<tr><td>
+  <b>Transfer to doctor</b></td><td>
+  <%=h @doctortransfer.transfer_to_doctor %>
+</td></tr>
+</table>
+</div>
+
+
+<%= link_to 'Back', doctortransfers_path %>

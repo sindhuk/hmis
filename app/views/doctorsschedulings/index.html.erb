@@ -1,0 +1,31 @@
+<h1>Listing doctorsschedulings</h1>
+
+<table>
+  <tr>
+    <th>Departmentname</th>
+    <th>Doctorid</th>
+    <th>Doctorname</th>
+    <th>Date</th>
+    <th>Doctortype</th>
+    <th>Visitinghours</th>
+    
+  </tr>
+
+<% @doctorsschedulings.each do |doctorsscheduling| %>
+  <tr>
+    <td><%=h doctorsscheduling.department_name %></td>
+    <td><%=h doctorsscheduling.doctor_id %></td>
+    <td><%=h doctorsscheduling.doctor_name %></td>
+    <td><%=h doctorsscheduling.date %></td>
+    <td><%=h doctorsscheduling.doctor_type %></td>
+    
+    <td><%= link_to 'Show', doctorsscheduling %></td>
+    <td><%= link_to 'Edit', edit_doctorsscheduling_path(doctorsscheduling) %></td>
+    <td><%= link_to 'Destroy', doctorsscheduling, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New doctorsscheduling', new_doctorsscheduling_path %>

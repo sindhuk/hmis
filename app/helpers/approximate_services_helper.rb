@@ -1,0 +1,2 @@
+module ApproximateServicesHelper
+end

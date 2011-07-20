@@ -1,0 +1,33 @@
+<p>
+  <b>Doctorname:</b>
+  <%=h @consultationcharge.name %>
+</p>
+
+<p>
+  <b>Doctorcode:</b>
+  <%=h @consultationcharge.code %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%=h @consultationcharge.details %>
+</p>
+
+<p>
+  <b>Doctorcharge:</b>
+  <%=h @consultationcharge.charge %>
+</p>
+
+<p>
+  <b>Ward:</b>
+  <%=h @consultationcharge.ward %>
+</p>
+
+<p>
+  <b>Wardcost:</b>
+  <%=h @consultationcharge.cost %>
+</p>
+
+
+<%= link_to 'Edit', edit_consultationcharge_path(@consultationcharge) %> |
+<%= link_to 'Back', consultationcharges_path %>

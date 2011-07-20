@@ -1,0 +1,48 @@
+<p>
+  <b>Hospitalname:</b>
+  <%=h @hospitalmaster.name %>
+</p>
+
+<p>
+  <b>Hospitalcode:</b>
+  <%=h @hospitalmaster.code %>
+</p>
+
+<p>
+  <b>Hospitaladdress:</b>
+  <%=h @hospitalmaster.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @hospitalmaster.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @hospitalmaster.state %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%=h @hospitalmaster.country %>
+</p>
+
+<p>
+  <b>Hospitallogo:</b>
+  <%=h @hospitalmaster.logo %>
+</p>
+
+<p>
+  <b>Hospitaltanno:</b>
+  <%=h @hospitalmaster.tan_no %>
+</p>
+
+<p>
+  <b>Hospitalvatno:</b>
+  <%=h @hospitalmaster.vat_no %>
+</p>
+
+
+<%= link_to 'Edit', edit_hospitalmaster_path(@hospitalmaster) %> |
+<%= link_to 'Back', hospitalmasters_path %>

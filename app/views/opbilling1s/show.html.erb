@@ -1,0 +1,24 @@
+
+	<div align="center">
+	<table>
+<tr><td>
+  billno:</td>
+  <%=h @opbilling1.bill_no %>
+</td>
+
+<tr><td>
+  Mrno:</td>
+  <%=h @opbilling1.mr_no %>
+</td>
+
+Tests:</td>
+<table>
+<% for a in @opbilling1.testresult %>
+ <tr>
+  <td colspace="5"><%=h a.s_no %></td>
+  <td colspace="5"><%=h a.test_name %></td></tr>
+  <% end %>
+  </table>
+</table>
+</div>
+<%= link_to 'Back', opbilling1s_path %>

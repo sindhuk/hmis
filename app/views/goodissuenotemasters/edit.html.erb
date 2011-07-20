@@ -1,0 +1,80 @@
+<h3>Editing GoodissuenoteMaster</h3>
+
+<script type="text/javascript">
+	function checked_print(el,v2) 
+	{
+		if(el=="vendorcode")
+		{
+			var hi=v2
+			var selObj = document.getElementById(el);
+			var value_glo= selObj.options[selObj.selectedIndex].index;
+			var temp=new Array()
+			temp=hi.split(",")
+			document.getElementById('vendorname').value=temp[value_glo]
+		}
+		else if(el=="itemcode")
+		{
+			var hi=v2
+			var selObj = document.getElementById(el);
+			var value_glo= selObj.options[selObj.selectedIndex].index;
+			var temp=new Array()
+			temp=hi.split(",")
+			document.getElementById('itemname').value=temp[value_glo]
+		}
+	}
+</script>
+<% form_for(@goodissuenotemaster) do |f| %>
+  <%= f.error_messages %>
+<br /><br /><br />
+<div align="center">
+  <table width="80%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+	<td><%= f.label :from_stock_point_code %></td>
+    <td><%= f.text_field :from_stock_point_code %></td>
+	<td><%= f.label :from_stock_point_name %></td>
+    <td><%= f.text_field :from_stock_point_name %></td>
+ </tr>
+ <tr>
+	<td><%= f.label :to_stock_point_code %></td>
+    <td><%= f.text_field :to_stock_point_code %></td>
+    <td><%= f.label :to_stock_point_name %></td>
+    <td><%= f.text_field :to_stock_point_name %></td>
+  </tr>
+ <tr> 
+   <td><%= f.label :issuing_date %></td>
+    <td><%= f.date_select :issuing_date %></td>
+    <td><%= f.label :item_code %></td>
+    <td><%= f.select :item_code,  Itemmaster.find(:all).collect {|p| [ p.item_code]},{ :include_blank => false },{:id => "itemcode",:onchange => "checked_print(id,'#{@iname}')"}  %></td>
+   </tr>
+ <tr> 
+	<td><%= f.label :item_name %></td>
+    <td><%= f.text_field :item_name, :id => "itemname" %></td>
+    <td><%= f.label :batch_no %></td>
+    <td><%= f.text_field :batch_no %></td>
+   </tr>
+ <tr> 
+	<td><%= f.label :item_expity_date %></td>
+    <td><%= f.date_select :item_expity_date %></td>
+    <td><%= f.label :quantity %></td>
+    <td><%= f.text_field :quantity %></td>
+   </tr>
+ <tr>
+   <td><%= f.label :purchase_rate %></td>
+    <td><%= f.text_field :purchase_rate %></td>
+    <td><%= f.label :purchase_amount %></td>
+    <td><%= f.text_field :purchase_amount %></td>
+   </tr>
+ <tr>
+   <td><%= f.label :sale_rate %></td>
+    <td><%= f.text_field :sale_rate %></td>
+    <td><%= f.label :sale_amount %></td>
+    <td><%= f.text_field :sale_amount %></td>
+	</tr>
+  </table>
+ <br /><br />
+ <%= f.submit 'Update' %>
+</div> 
+  
+<% end %>
+
+<%= link_to 'Back', goodissuenotemasters_path %>

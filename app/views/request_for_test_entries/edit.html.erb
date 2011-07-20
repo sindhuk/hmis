@@ -1,0 +1,28 @@
+<h1>Editing request_for_test_entry</h1>
+
+<% form_for(@request_for_test_entry) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :mr_no %><br />
+    <%= f.text_field :mr_no %>
+  </p>
+  <p>
+    <%= f.label :patient_name %><br />
+    <%= f.text_field :patient_name %>
+  </p>
+  <p>
+    <%= f.label :reg_no %><br />
+    <%= f.text_field :reg_no %>
+  </p>
+  <p>
+    <%= f.label :tests %><br />
+    <%= f.text_field :tests %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @request_for_test_entry %> |
+<%= link_to 'Back', request_for_test_entries_path %>

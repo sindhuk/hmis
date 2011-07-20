@@ -1,0 +1,65 @@
+<br/><br/>
+ <div align="center" >
+<table width="60%" cellpadding="4" cellspacing="0"> <tr>
+ 
+<% form_for(@retain_bed) do |f| %>
+  <%= f.error_messages %>
+<tr><td colspan="4">Retain Bed</td></tr>
+  <tr><td>
+    <%= f.label :mr_no %></td>
+	<td><%= f.text_field :mr_no %></td>
+	<td><%= f.label :reg_no %></td>
+	<td><%= f.text_field :reg_no %></td>
+</tr>
+  
+  <tr>
+    <td><%= f.label :patient_name %></td>
+	<td><%= f.text_field :patient_name %></td>
+	<td><%= f.label :father_name %></td>
+	<td><%= f.text_field :father_name %></td>
+  </tr>
+  
+  <tr>
+  <td><%= f.label :floor %></td>
+  <td><%= f.text_field :floor %></td>
+  <td><%= f.label :ward %></td>
+  <td><%= f.text_field :ward %></td>
+  </tr>
+ 
+  <tr><td>
+    <%= f.label :room %></td><td>
+    <%= f.text_field :room %></td>
+	<td>
+    <%= f.label :bed %></td><td>
+    <%= f.text_field :bed %>
+  </td>
+  </tr>
+  
+  
+  <tr><td>Transfer Bed</td></tr>
+  <tr><td>
+    <%= f.label :transfer_floor %></td><td>
+    <%= f.text_field :transfer_floor %></td><td>
+    <%= f.label :transfer_ward %></td><td>
+    <%= f.text_field :transfer_ward %>
+   </td></tr>
+ 
+  <tr><td>
+    <%= f.label :transfer_room %></td><td>
+    <%= f.text_field :transfer_room %></td><td>
+	<%= f.label :transfer_bed %></td><td>
+    <%= f.text_field :transfer_bed %>
+  </td></tr>
+  
+  <tr><td>
+    <%= f.label :transfer_charge %></td><td>
+    <%= f.text_field :transfer_charge %>
+  </td></tr>
+  </table>
+  <br/>
+    <%= f.submit 'Update' %>
+  </div>
+<% end %>
+<br/>
+<%= link_to 'Back', retain_beds_path %>
+
