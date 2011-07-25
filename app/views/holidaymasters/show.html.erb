@@ -1,0 +1,21 @@
+ <h3>Details Of Record </h3>
+<br /><br />
+<div align="center">
+  <table width="40%" cellspacing= "0" border="1" >
+ <tr><td>Holidaycode</td>
+	 <td><%=h @holidaymaster.code %></td>
+ </tr>
+
+ <tr>
+	<td>Holidayname</td>
+    <td><%=h @holidaymaster.name %></td>
+ </tr>
+
+ <tr>
+	<td>Date</td>
+	<td><%=h @holidaymaster.date %></td>
+ </tr>
+  </table>
+ </div>
+ <br />
+<tr><td><%= link_to 'Back', holidaymasters_path %><td/>  <tr/>

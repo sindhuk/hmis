@@ -1,0 +1,101 @@
+
+<h3>Editing servicemaster</h3>
+
+<script type="text/javascript">
+	function check_val(id)
+	{
+		if(id=="variable")
+		{
+			document.getElementById('ward').disabled=false
+			document.getElementById('cost').disabled=false
+		}
+		else
+		{
+			document.getElementById('ward').disabled=true
+			document.getElementById('cost').disabled=true
+		}
+	}
+	function checked_print(el,v2) 
+	{
+		var hi=v2
+		var selObj = document.getElementById(el);
+		var value_glo= selObj.options[selObj.selectedIndex].index;
+		var temp=new Array()
+		temp=hi.split(",")
+		document.getElementById('cost').value=temp[value_glo]
+	}
+	function verify()
+	{
+		if(document.getElementById('cost').disabled==true)
+		{
+			
+			document.getElementById('cost').disabled=false
+			document.getElementById('ward').disabled=false
+			
+			document.getElementById('cost').value=""
+		}
+	}
+</script>
+<% form_for(@servicemaster) do |f| %>
+  <%= f.error_messages %>
+ <br /><br />
+<div align="center" width="90%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  
+  <tr><td>
+    <%= f.label :Name %></td>
+  <td>
+    <%= f.text_field :name %>
+ </td>  <tr/>
+<tr><td>
+    <%= f.label :Code %></td>
+  <td>
+    <%= f.select :code, Servicegroupmaster.find(:all).collect {|p| [ p.code ] }, {:include_blank => false} %>
+  </td>  <tr/>
+<tr><td>
+    <%= f.label :Group %></td>
+  <td>
+   <%= f.select :group, Servicegroupmaster.find(:all).collect {|p| [ p.name] }, {:include_blank => false} %>
+  </td>  <tr/>
+  
+  <tr><td>
+    <%= f.label :Providing_to %></td>
+  <td>
+    <%= f.radio_button :providing_to, :IP, :checked => true %>IP
+	<%= f.radio_button :providing_to, :OP %>OP
+	<%= f.radio_button :providing_to, :BOTH %>BOTH
+	 </td>  <tr/>
+ <tr><td>
+    <%= f.label :Charge %></td>
+  <td>
+    <%= f.radio_button :charge, :BothFlat ,{:id => "flat", :checked => true, :onchange => "check_val(id)"}%>BothFlat
+	<%= f.radio_button :charge, :BothVariable, {:id => "variable", :onchange => "check_val(id)"} %>BothVariable
+  </td>  <tr/>
+  <tr><td>
+    <%= f.label :Ward %></td>
+  <td>
+    <%= f.select :ward, Wardmaster.find(:all).collect { |p| [p.name] },{:include_blank => true}, {:id => "ward", :disabled => "true",:onchange => "checked_print(id,'#{@ward}')"}%>
+  </td>  <tr/>
+  <tr><td>
+    <%= f.label :Cost %></td>
+  <td>
+    <%= f.text_field :cost, :id => "Cost", :disabled => "true" %>
+  </td>  <tr/>
+  <tr><td>
+    <%= f.label :Doctor_Percentage %></td>
+  <td>
+    <%= f.text_field :doctor_percentage %>
+  </td>  <tr/>
+ <tr><td>
+    <%= f.label :Hospital_Percentage %></td>
+  <td>
+    <%= f.text_field :hospital_percentage %>
+  </td>  <tr/>
+<tr><td>
+    <%= f.submit 'update', :onclick => "verify()" %>
+  </td>  <tr/>
+<% end %>
+
+<tr><td>
+<%= link_to 'Show', @servicemaster %> 
+</td>  <tr/>

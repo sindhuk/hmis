@@ -1,0 +1,31 @@
+<h1>New service_cancel_service</h1>
+
+<% form_for(@service_cancel_service) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :service_cancel_id %><br />
+    <%= f.text_field :service_cancel_id %>
+  </p>
+  <p>
+    <%= f.label :sno %><br />
+    <%= f.text_field :sno %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </p>
+  <p>
+    <%= f.label :provided_service %><br />
+    <%= f.text_field :provided_service %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', service_cancel_services_path %>

@@ -1,0 +1,238 @@
+<h1>New bloodtest</h1>
+
+<script type="text/javascript">
+    function check_val()
+	{
+		len=document.getElementById('reg').value
+		if(len.length==5)
+		{
+			window.location='http://localhost:3000/bloodtests/new?reg='+len
+		}	
+	}
+</script>
+
+<% form_for(@bloodtest) do |f| %>
+  <%= f.error_messages %>
+
+  <table>
+  <tr>
+    <td><%= f.label :registration_no %></td>
+    <td><%= f.text_field :registration_no, :id => "reg", :onKeyUp => "check_val()" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :mrno %></td>
+    <td><%= f.text_field :mrno %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :billno %></td>
+    <td><%= f.text_field :billno %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :patientname %></td>
+    <td><%= f.text_field :patientname %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :test_date %></td>
+    <td><%= f.date_select :test_date %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :haemoglobin %></td>
+    <td><%= f.text_field :haemoglobin %>
+	<font size="3" color="red">( 13-15 GMS% )</font></td>
+  </tr>
+  <tr>
+    <td><%= f.label :tlc %></td>
+    <td><%= f.text_field :tlc %>
+	<font size="3" color="red">( 4500-10500 CELLS/CU MM )</font></td>
+  </tr>
+  <tr>
+    <td><%= f.label :neutrophils %></td>
+    <td><%= f.text_field :neutrophils %>
+	<font size="3" color="red">( DLC, 45-68% )</font></td>
+  </tr>
+  <tr>
+    <td><%= f.label :lymphocytes %></td>
+    <td><%= f.text_field :lymphocytes %>
+	<font size="3" color="red">( DLC, 25-45% )</font></td>
+  </tr>
+  <tr>
+    <td><%= f.label :eosinophil %></td>
+    <td><%= f.text_field :eosinophil %>
+	<font size="3" color="red">( DLC, 2-6% )</font></td>
+  </tr>
+  <tr>
+    <td><%= f.label :monocytes %></td>
+    <td><%= f.text_field :monocytes %>
+	<font size="3" color="red">( DLC, 1-4% )</font></td>
+  </tr>
+  <tr>
+    <td><%= f.label :basophils %></td>
+    <td><%= f.text_field :basophils %>
+	<font size="3" color="red">( DLC, 1-2% )</font></td>
+  </tr>
+  <tr>
+    <td><%= f.label :others %></td>
+    <td><%= f.text_field :others %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :esr %></td>
+    <td><%= f.text_field :esr %>
+	<font size="3" color="red">( 0-10 MM IST Hr )</font></td>
+  </tr>
+  <tr>
+    <td><%= f.label :peripheral_blood_film_1 %></td>
+    <td><%= f.text_field :peripheral_blood_film_1 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :peripheral_blood_film_2 %></td>
+    <td><%= f.text_field :peripheral_blood_film_2 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :haematocrit_pcv %></td>
+    <td><%= f.text_field :haematocrit_pcv %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :total_rbc %></td>
+    <td><%= f.text_field :total_rbc %>
+	<font size="3" color="red">( MIL/C.MM )</font></td>
+  </tr>
+  <tr>
+    <td><%= f.label :platelets %></td>
+    <td><%= f.text_field :platelets %>
+	<font size="3" color="red">( CU.MM )</font></td>
+  </tr>
+  <tr>
+    <td><%= f.label :colour_index %></td>
+    <td><%= f.text_field :colour_index %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :mchc %></td>
+    <td><%= f.text_field :mchc %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :mcv %></td>
+    <td><%= f.text_field :mcv %>
+	<font size="3" color="red">( FI )</font></td>
+  </tr>
+  <tr>
+    <td><%= f.label :mch %></td>
+    <td><%= f.text_field :mch %>
+	<font size="3" color="red">( PG )</font></td>
+  </tr>
+  <tr>
+    <td><%= f.label :tec %></td>
+    <td><%= f.text_field :tec %>
+	<font size="3" color="red">( CU.MM )</font></td>
+  </tr>
+  <tr>
+    <td><%= f.label :vec %></td>
+    <td><%= f.text_field :vec %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :paracytes %></td>
+    <td><%= f.text_field :paracytes %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :blood_grouping %></td>
+    <td><%= f.text_field :blood_grouping %></td>
+  </tr></td>
+  <tr>
+    <td><%= f.label :rh_factor %></td>
+    <td><%= f.text_field :rh_factor %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :rh_antibody_tiler %></td>
+    <td><%= f.text_field :rh_antibody_tiler %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :direct %></td>
+    <td><%= f.text_field :direct %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :indirect %></td>
+    <td><%= f.text_field :indirect %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :plasma_fibrinogen %></td>
+    <td><%= f.text_field :plasma_fibrinogen %>
+	<font size="3" color="red">( 150-400 mg% )</font></td>
+  </tr>
+  <tr>
+    <td><%= f.label :hiv %></td>
+    <td><%= f.text_field :hiv %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :hbsag %></td>
+    <td><%= f.text_field :hbsag %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :widal %></td>
+    <td><%= f.text_field :widal %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :foetal_haemoglobin %></td>
+    <td><%= f.text_field :foetal_haemoglobin %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :reticulocytes %></td>
+    <td><%= f.text_field :reticulocytes %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :bleeding_time_min %></td>
+    <td><%= f.text_field :bleeding_time_min %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :bleeding_time_sec %></td>
+    <td><%= f.text_field :bleeding_time_sec %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :cloting_time_min %></td>
+    <td><%= f.text_field :cloting_time_min %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :cloting_time_sec %></td>
+    <td><%= f.text_field :cloting_time_sec %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :prothrombin_time_control %></td>
+    <td><%= f.text_field :prothrombin_time_control %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :secs_patient_1 %></td>
+    <td><%= f.text_field :secs_patient_1 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :secs_patient_2 %></td>
+    <td><%= f.text_field :secs_patient_2 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :pttk_control %></td>
+    <td><%= f.text_field :pttk_control %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :haemolysis_start_from %></td>
+    <td><%= f.text_field :haemolysis_start_from %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :saline_complete_at %></td>
+    <td><%= f.text_field :saline_complete_at %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :clot_retraction_time_crt %></td>
+    <td><%= f.text_field :clot_retraction_time_crt %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :le_cells %></td>
+    <td><%= f.text_field :le_cells %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :esr_platelets %></td>
+    <td><%= f.text_field :esr_platelets %></td>
+  </tr>
+  <tr>
+    <td><%= f.submit 'Create' %>
+  </tr>
+  </table>
+<% end %>
+
+<%= link_to 'Back', bloodtests_path %>

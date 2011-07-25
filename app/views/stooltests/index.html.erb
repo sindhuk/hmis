@@ -1,0 +1,58 @@
+<h1>Listing stooltests</h1>
+
+<table>
+  <tr>
+    <th>Registration no</th>
+    <th>Billno</th>
+    <th>Mrno</th>
+    <th>Patientname</th>
+    <th>Testdate</th>
+    <th>Color</th>
+    <th>Consistency</th>
+    <th>Mucus</th>
+    <th>Blood</th>
+    <th>Wbchpf</th>
+    <th>Rbchpf</th>
+    <th>Mechrophages</th>
+    <th>Trophozoite</th>
+    <th>P ova</th>
+    <th>P cust</th>
+    <th>C ova</th>
+    <th>C cyst</th>
+    <th>Occult blood</th>
+    <th>Ph</th>
+    <th>Red sub</th>
+  </tr>
+
+<% @stooltests.each do |stooltest| %>
+  <tr>
+    <td><%=h stooltest.registration_no %></td>
+    <td><%=h stooltest.bill_no %></td>
+    <td><%=h stooltest.mr_no %></td>
+    <td><%=h stooltest.patient_name %></td>
+    <td><%=h stooltest.test_date %></td>
+    <td><%=h stooltest.color %></td>
+    <td><%=h stooltest.consistency %></td>
+    <td><%=h stooltest.mucus %></td>
+    <td><%=h stooltest.blood %></td>
+    <td><%=h stooltest.wbchpf %></td>
+    <td><%=h stooltest.rbchpf %></td>
+    <td><%=h stooltest.mechrophages %></td>
+    <td><%=h stooltest.trophozoite %></td>
+    <td><%=h stooltest.p_ova %></td>
+    <td><%=h stooltest.p_cust %></td>
+    <td><%=h stooltest.c_ova %></td>
+    <td><%=h stooltest.c_cyst %></td>
+    <td><%=h stooltest.occult_blood %></td>
+    <td><%=h stooltest.ph %></td>
+    <td><%=h stooltest.red_sub %></td>
+    <td><%= link_to 'Show', stooltest %></td>
+    <td><%= link_to 'Edit', edit_stooltest_path(stooltest) %></td>
+    <td><%= link_to 'Destroy', stooltest, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New stooltest', new_stooltest_path %>

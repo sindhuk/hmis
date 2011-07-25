@@ -1,0 +1,30 @@
+<h3>New Shift Masters</h3>
+<br /><br />
+<div align="center" width="90%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Shiftcode</th>
+    <th>Shiftname</th>
+    <th>Formtime</th>
+    <th>Totime</th>
+    <th>Description</th>
+	<th>Show</th>
+	 <th>Edit</th>
+	 <th>Delete</th>
+  </tr>
+
+<% @shiftmasters.each do |shiftmaster| %>
+  <tr>
+    <td class='<%= id %>'><%=h shiftmaster.code %></td>
+    <td class='<%= id %>'><%=h shiftmaster.name %></td>
+    <td class='<%= id %>'><%=h shiftmaster.form_time %></td>
+    <td class='<%= id %>'><%=h shiftmaster.to_time %></td>
+    <td class='<%= id %>'><%=h shiftmaster.description %></td>
+    <td class='<%= id %>'><%= link_to 'Show', shiftmaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_shiftmaster_path(shiftmaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', shiftmaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<%= link_to 'New shiftmaster', new_shiftmaster_path %>

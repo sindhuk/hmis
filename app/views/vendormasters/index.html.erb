@@ -1,0 +1,49 @@
+<h3>Listing Vendors</h3>
+<br/>
+<br/>
+<div align="center" width="100%">
+  <table width="60%">
+<table border="1" cellspacing="0" >
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Tin_no</th>
+    <th>Vat_no</th>
+    <th>Address</th>
+    <th>List_of_items_supplied</th>
+    <th>Contact_person</th>
+    <th>Email_id</th>
+    <th>Contact_num</th>
+    <th>Status</th>
+	<th>Show</th>
+	 <th>Edit</th>
+	 <th>Del</th>
+  </tr>
+
+<% @vendormasters.each do |vendormaster| %>
+<% if((statemaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h vendormaster.vendor_code %></td>
+    <td class='<%= id %>'><%=h vendormaster.vendor_name %></td>
+    <td class='<%= id %>'><%=h vendormaster.vendor_tin_no %></td>
+    <td class='<%= id %>'><%=h vendormaster.vat_no %></td>
+    <td class='<%= id %>'><%=h vendormaster.address %></td>
+    <td class='<%= id %>'><%=h vendormaster.list_of_items_supplied %></td>
+    <td class='<%= id %>'><%=h vendormaster.contact_person %></td>
+    <td class='<%= id %>'><%=h vendormaster.vendor_emailid %></td>
+    <td class='<%= id %>'><%=h vendormaster.contact_num %></td>
+    <td class='<%= id %>'><%=h vendormaster.status %></td>
+    <td class='<%= id %>'><%= link_to "show", vendormaster %></td>
+    <td class='<%= id %>'><%= link_to "edit", edit_vendormaster_path(vendormaster) %></td>
+    <td class='<%= id %>'><%= link_to "trash", vendormaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+ </table>
+ </div>
+<br/><br/>
+<%= link_to "Create New Vendor", new_vendormaster_path %>
+

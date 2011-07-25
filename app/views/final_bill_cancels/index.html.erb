@@ -1,0 +1,57 @@
+<br /><br />
+<div align="center" width="90%">
+<table width="80%" cellpadding="2" cellspacing="0">
+  <tr bgcolor =" #378bf8" style="color:white">
+    <th>Mr no</th>
+    <th>Reg no</th>
+    <th>Patient name</th>
+    <th>Father name</th>
+    <th>Floor</th>
+    <th>Ward</th>
+    <th>Room</th>
+    <th>Bed</th>
+    <th>Final bill cancel</th>
+    <th>Final bill amount</th>
+    <th colspan="3">Permissions</th>
+	
+  </tr>
+
+<% @final_bill_cancels.each do |final_bill_cancel| %>
+	<% if((final_bill_cancel.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h final_bill_cancel.mr_no %></td>
+    <td class='<%= id %>'><%=h final_bill_cancel.reg_no %></td>
+    <td class='<%= id %>'><%=h final_bill_cancel.patient_name %></td>
+    <td class='<%= id %>'><%=h final_bill_cancel.father_name %></td>
+    <td class='<%= id %>'><%=h final_bill_cancel.floor %></td>
+    <td class='<%= id %>'><%=h final_bill_cancel.ward %></td>
+    <td class='<%= id %>'><%=h final_bill_cancel.room %></td>
+    <td class='<%= id %>'><%=h final_bill_cancel.bed %></td>
+    <td class='<%= id %>'><%=h final_bill_cancel.final_bill_cancel %></td>
+    <td class='<%= id %>'><%=h final_bill_cancel.final_bill_amount %></td>
+	<% for final_bill_cancel_service in final_bill_cancel.final_bill_cancel_service %>
+	
+	<% end %>
+	
+	<% if @value[1]==49 %>
+    <td class='<%= id %>'><%= link_to 'Show', final_bill_cancel %></td>
+	<% end %>
+    <% if @value[2]==49 %>
+	<td class='<%= id %>'><%= link_to 'Edit', edit_final_bill_cancel_path(final_bill_cancel) %></td>
+	<% end %>
+    <% if @value[3]==49 %>
+	<td class='<%= id %>'><%= link_to 'Destroy', final_bill_cancel, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+<% if @value[0]==49 %>
+<%= link_to 'New', new_final_bill_cancel_path %>
+<% end %>

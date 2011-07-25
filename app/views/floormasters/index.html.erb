@@ -1,0 +1,22 @@
+<h1>Listing floormasters</h1>
+
+<table>
+  <tr>
+    <th>Floor no</th>
+    <th>Floor name</th>
+  </tr>
+
+<% @floormasters.each do |floormaster| %>
+  <tr>
+    <td><%=h floormaster.floor_no %></td>
+    <td><%=h floormaster.floor_name %></td>
+    <td><%= link_to 'Show', floormaster %></td>
+    <td><%= link_to 'Edit', edit_floormaster_path(floormaster) %></td>
+    <td><%= link_to 'Destroy', floormaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New floormaster', new_floormaster_path %>

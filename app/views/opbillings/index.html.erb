@@ -1,0 +1,46 @@
+<h1>Listing opbillings</h1>
+
+<table>
+  <tr>
+    <th>Mrno</th>
+    <th>Department</th>
+    <th>Doctor</th>
+    <th>Sno</th>
+    <th>Testcode</th>
+    <th>Testname</th>
+    <th>Fee</th>
+    <th>Concession</th>
+    <th>Comments</th>
+    <th>Concession1</th>
+    <th>Cref</th>
+    <th>Gross</th>
+    <th>Due</th>
+    <th>Dref</th>
+  </tr>
+
+<% @opbillings.each do |opbilling| %>
+  <tr>
+    <td><%=h opbilling.mr_no %></td>
+    <td><%=h opbilling.department %></td>
+    <td><%=h opbilling.doctor %></td>
+    <td><%=h opbilling.s_no %></td>
+    <td><%=h opbilling.test_code %></td>
+    <td><%=h opbilling.test_name %></td>
+    <td><%=h opbilling.fee %></td>
+    <td><%=h opbilling.concession %></td>
+    <td><%=h opbilling.comments %></td>
+    <td><%=h opbilling.concession1 %></td>
+    <td><%=h opbilling.c_ref %></td>
+    <td><%=h opbilling.gross %></td>
+    <td><%=h opbilling.due %></td>
+    <td><%=h opbilling.d_ref %></td>
+    <td><%= link_to 'Show', opbilling %></td>
+    <td><%= link_to 'Edit', edit_opbilling_path(opbilling) %></td>
+    <td><%= link_to 'Destroy', opbilling, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New opbilling', new_opbilling_path %>

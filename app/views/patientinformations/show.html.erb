@@ -1,0 +1,65 @@
+<p>
+  <b>Patient_registration:</b>
+  <%=h @patientinformation.patient_registration_id %>
+</p>
+
+<p>
+  <b>First_name:</b>
+  <%=h @patientinformation.first_name %>
+</p>
+
+<p>
+  <b>Last_name:</b>
+  <%=h @patientinformation.last_name %>
+</p>
+
+<p>
+  <b>Dob:</b>
+  <%=h @patientinformation.dob %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%=h @patientinformation.gender %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%=h @patientinformation.age %>
+</p>
+
+<p>
+  <b>Marital_status:</b>
+  <%=h @patientinformation.marital_status %>
+</p>
+
+<p>
+  <b>Father_name:</b>
+  <%=h @patientinformation.father_name %>
+</p>
+
+<p>
+  <b>Occupation:</b>
+  <%=h @patientinformation.occupation %>
+</p>
+
+<p>
+  <b>Disease:</b>
+  <%=h @patientinformation.disease %>
+</p>
+<p>
+  <b>Payment_mode:</b>
+  <%=h @patientinformation.payment_mode %>
+</p>
+<p>
+  <b>Valid_Period</b>
+  <%=h @patientinformation.valid_period %>
+</p>
+<p>
+  <b>Initial_amount:</b>
+  <%=h @patientinformation.initial_amount %>
+</p>
+
+
+<%= link_to 'Edit', edit_patientinformation_path(@patientinformation) %> |
+<%= link_to 'Back', patientinformations_path %>

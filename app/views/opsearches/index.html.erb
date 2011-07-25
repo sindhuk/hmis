@@ -1,0 +1,139 @@
+<script type="application/javascript"> 
+	
+	var selection_option="cons";
+	function select_radio(id)
+	{
+		selection_option=id
+	}
+	function ajaxSearch(id) 
+	{
+		var query;
+		var type=id;
+		if(id=="city")
+		{
+			if(document.getElementById('Pname').value=="" && document.getElementById('father').value=="")
+			{
+				type="city"
+				var selObj = document.getElementById(id);
+				query= selObj.options[selObj.selectedIndex].value	
+			}
+			else
+			{
+				if(document.getElementById('Pname').value=="" )
+				{
+					type="City_Father"
+					var selObj = document.getElementById(id);
+					query= selObj.options[selObj.selectedIndex].value+","+document.getElementById('father').value
+				}
+				else if(document.getElementById('father').value=="" )
+				{
+					type="City_Pname"
+					var selObj = document.getElementById(id);
+					query= selObj.options[selObj.selectedIndex].value+","+document.getElementById('Pname').value
+				}
+				else
+				{
+					type="City_Both"
+					var selObj = document.getElementById(id);
+					query= selObj.options[selObj.selectedIndex].value+","+document.getElementById('Pname').value+","+document.getElementById('father').value
+				}
+			}
+		}
+		else if(id=="Pname")
+		{
+			if(document.getElementById('father').value=="")
+			{
+				query= document.getElementById('Pname').value	
+			}
+			else
+			{
+				type="Pname_Father"
+				query=document.getElementById('Pname').value+","+document.getElementById('father').value
+			}
+		}
+		else if(id=="father")
+		{
+			if(document.getElementById('Pname').value=="")
+			{
+				query= document.getElementById('father').value	
+			}
+			else
+			{
+				type="Father_Pname"
+				query=document.getElementById('Pname').value+","+document.getElementById('father').value
+			}
+		}
+		else if(id=="gender")
+		{
+				var selObj = document.getElementById(id);
+				query= selObj.options[selObj.selectedIndex].value
+			
+		}
+		else
+			query=document.getElementById(id).value
+			req = new Ajax.Request('/opsearches/mrno/1', {
+				method: 'get',
+				parameters: { q: query, type :type, option :selection_option },
+				onComplete: function(transport) {
+				processReqChange(transport);
+				}
+			});
+		
+		function processReqChange(req) 
+		{
+			document.getElementById("table").innerHTML=req.responseText
+			
+		}
+	}	
+	
+</script> 
+<body bgcolor="#C2DFFF">
+<font size="3" face="Calibri">
+<br /><br />
+<div align="center">
+<table width="100%">
+<tr>
+	<td colspan="2" align="center"><input type="radio" name="button" value="Consultation" id="cons" checked=true onchange="select_radio(id)">Consultation</input>
+	<td colspan="2" align="center"><input type="radio" name="button" value="OP Bills" id="OP" onchange="select_radio(id)"/>OP Bills
+	<td colspan="2" align="center"><input type="radio" name="button" value="OSP Bills" id="OSP" onchange="select_radio(id)"/>OSP Bills
+</tr>
+<tr>
+	<td><label for="item_name">MR No   </label></td>
+	<td><input type=text id="mr" onkeyUp="ajaxSearch(id)"></td>
+	<td><label for="item_name">Bill No   </label></td>
+	<td><input type=text id=bill onkeyUp="ajaxSearch(id)"></td>
+	<td><label for="item_name">Reg No   </label></td>
+	<td><input type=text id="reg" onkeyUp="ajaxSearch(id)"></td>
+	<tr>
+	</tr>
+	<td><label for="item_name">Patient Name   </label></td>
+	<td><input type=text id="Pname" onkeyUp="ajaxSearch(id)"></td>
+	<td><label for="item_name">Father Name   </label></td>
+	<td><input type=text id="father" onkeyUp="ajaxSearch(id)"></td>
+	<td><label for="item_name">Consultant   </label></td>
+	<td><input type=text id="consultant" onkeyUp="ajaxSearch(id)"></td>
+	</tr><tr>
+	<td><label for="item_name">Gender   </label></td>
+	<td><select id="gender" onChange = "ajaxSearch(id)">
+		<option>----select---</option>
+		<option>Male</option>
+		<option>Female</option>
+		</select></td>
+	<td><label for="item_name">Mobile No   </label></td>
+	<td><input type=text id=mobile onkeyUp="ajaxSearch(id)"></td>
+	<td><label for="item_name">City </label></td>
+	<% @city=Citymaster.find(:all)  %>
+	<td><select id="city" onChange = "ajaxSearch(id)">
+		<% for i in 0...@city.length %>
+		<option><%= @city[i].name %></option>
+		<% end %>
+		</select>
+	</td>
+</tr>
+
+</table>
+<div id="table" align="center">
+
+</div>
+</div>
+</body>

@@ -1,0 +1,16 @@
+<h1>Editing forms_list</h1>
+
+<% form_for(@forms_list) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :form_name %><br />
+    <%= f.text_field :form_name %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @forms_list %> |
+<%= link_to 'Back', forms_lists_path %>

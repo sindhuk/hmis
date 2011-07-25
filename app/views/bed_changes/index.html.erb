@@ -1,0 +1,39 @@
+<br/><br/>
+<div align= "center">
+<table width="60%">
+  <tr>
+    <th>Patient name</th>
+    <th>Mr no</th>
+    <th>Floor</th>
+    <th>Ward</th>
+    <th>Room</th>
+    <th>Bed</th>
+    <th>T floor</th>
+    <th>T room</th>
+    <th>T ward</th>
+    <th>T bed</th>
+  </tr>
+
+<% @bed_changes.each do |bed_change| %>
+  <tr>
+    <td><%=h bed_change.Patient_Name %></td>
+    <td><%=h bed_change.MR_No %></td>
+    <td><%=h bed_change.floor %></td>
+    <td><%=h bed_change.ward %></td>
+    <td><%=h bed_change.room %></td>
+    <td><%=h bed_change.bed %></td>
+    <td><%=h bed_change.T_Floor %></td>
+    <td><%=h bed_change.T_Room %></td>
+    <td><%=h bed_change.T_Ward %></td>
+    <td><%=h bed_change.T_Bed %></td>
+    <td><%= link_to 'Show', bed_change %></td>
+    <td><%= link_to 'Edit', edit_bed_change_path(bed_change) %></td>
+    <td><%= link_to 'Destroy', bed_change, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+</div>
+<br/><br/>
+<%= link_to 'New ', new_bed_change_path %>

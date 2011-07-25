@@ -1,0 +1,25 @@
+<h3>Details Of Record </h3>
+<br /><br />
+<div align="center">
+  <table width="40%" cellspacing= "0" border="1" cellpadding="4">
+	<tr><td>
+	Loantypecode</td>
+  <td><%=h @loantypemaster.loantypecode %></td></tr>
+  <tr>
+	<td>Loantypedescription</td>
+	<td><%=h @loantypemaster.loantypedescription %></td>
+	</tr>
+	<tr>
+		<td>Interestrate</td>
+	<td><%=h @loantypemaster.interestrate %></td>
+	</tr><tr>
+  <td>Interestpercentage</td>
+  <td><%=h @loantypemaster.interestpercentage %></td></tr>
+ <tr><td>Maximumamount</td>
+  <td><%=h @loantypemaster.maximumamount %></td></tr>
+  <tr><td>Numberofinstallments</td>
+<td><%=h @loantypemaster.numberofinstallments %></td></tr>
+ </table>
+ </div>
+ <br />
+<%= link_to 'Back', loantypemasters_path %>

@@ -1,0 +1,35 @@
+<h1>New childmaster</h1>
+
+<% form_for(@childmaster) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :profilemaster_id %><br />
+    <%= f.text_field :profilemaster_id %>
+  </p>
+	<p>
+    <%= f.label :forms %><br />
+    <%= f.text_field :forms %>
+  </p>
+  <p>
+    <%= f.label :new %><br />
+    <%= f.text_field :new %>
+  </p>
+  <p>
+    <%= f.label :view %><br />
+    <%= f.text_field :view %>
+  </p>
+  <p>
+    <%= f.label :edit %><br />
+    <%= f.text_field :edit %>
+  </p>
+  <p>
+    <%= f.label :remove %><br />
+    <%= f.text_field :remove %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', childmasters_path %>

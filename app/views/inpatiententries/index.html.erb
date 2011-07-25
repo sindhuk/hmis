@@ -1,0 +1,48 @@
+<h1>Listing inpatiententries</h1>
+
+<table>
+  <tr>
+    <th>Consultationid</th>
+    <th>Date</th>
+    <th>Regisrationid</th>
+    <th>Regdatetime</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Dob</th>
+    <th>Gender</th>
+    <th>Age</th>
+    <th>Maritalstatus</th>
+    <th>Dapartmentname</th>
+    <th>Doctorname</th>
+    <th>Refferaldoctor</th>
+    <th>Prescription</th>
+    <th>Requestforward</th>
+  </tr>
+
+<% @inpatiententries.each do |inpatiententry| %>
+  <tr>
+    <td><%=h inpatiententry.consultation_id %></td>
+    <td><%=h inpatiententry.date %></td>
+    <td><%=h inpatiententry.regisration_id %></td>
+    <td><%=h inpatiententry.reg_date_time %></td>
+    <td><%=h inpatiententry.first_name %></td>
+    <td><%=h inpatiententry.last_name %></td>
+    <td><%=h inpatiententry.dob %></td>
+    <td><%=h inpatiententry.gender %></td>
+    <td><%=h inpatiententry.age %></td>
+    <td><%=h inpatiententry.marital_status %></td>
+    <td><%=h inpatiententry.dapartment_name %></td>
+    <td><%=h inpatiententry.doctor_name %></td>
+    <td><%=h inpatiententry.refferal_doctor %></td>
+    <td><%=h inpatiententry.prescription %></td>
+    <td><%=h inpatiententry.request_forward %></td>
+    <td><%= link_to 'Show', inpatiententry %></td>
+    <td><%= link_to 'Edit', edit_inpatiententry_path(inpatiententry) %></td>
+    <td><%= link_to 'Destroy', inpatiententry, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New inpatiententry', new_inpatiententry_path %>

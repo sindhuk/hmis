@@ -1,0 +1,33 @@
+<h3>New parametersetupmaster</h3>
+<div align="center" width="90%">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+<% form_for(@parametersetupmaster) do |f| %>
+  <%= f.error_messages %>
+
+  <tr><td>
+    <%= f.label :service %></td>
+    <td><%= f.select :service, Servicemaster.find(:all).collect {|p| [p.name]} %></td></tr>
+    <tr><td><%= f.label :parameter1 %></td>
+    <td><%= f.text_field :parameter1 %></td></tr>
+     <tr><td><%= f.label :minimum %></td>
+    <td><%= f.text_field :minimum %></td></tr>
+   <tr>  <td> <%= f.label :maximum %></td>
+    <td><%= f.text_field :maximum %></td></tr>
+    <tr><td> <%= f.label :parameter2 %></td>
+    <td><%= f.text_field :parameter2 %></td></tr>
+  
+    <tr><td><%= f.label :min %></td>
+    <td><%= f.text_field :min %></td></tr>
+   <tr>  <td> <%= f.label :max %></td>
+    <td><%= f.text_field :max %></td></tr>
+    <tr><td> <%= f.label :units %></td>
+    <td><%= f.text_field :units %></td></tr>
+	 </table>
+	 <br/><br/>
+     <%= f.submit 'Create' %>
+  <% end %>
+ 
+  </div>
+  
+
+<%= link_to 'Back', parametersetupmasters_path %>

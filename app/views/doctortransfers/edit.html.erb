@@ -1,0 +1,81 @@
+<%= javascript_include_tag :defaults %>
+<%= stylesheet_link_tag 'css' %>
+<script type="text/javascript"> 
+var query1=""
+	function ajaxSearch() 
+	{
+		 query1= document.getElementById('rno').value
+		 
+			if( query1.length==9 ) 
+						{
+						alert(query1)
+				Ajax_Code()
+			}
+	}
+		
+	//Ajax Code
+	function Ajax_Code()
+	{
+		req = new Ajax.Request('/ipadmissions/ajax_buildings/1', {
+			method: 'get',
+			parameters: { q: query1  },
+			onComplete: function(transport) {
+			processReqChange(transport);
+			}
+
+	}); 
+	function processReqChange(req) 
+		{
+			// request is complete
+			if (req.readyState == 4) 
+			{
+				var results = req.responseText;
+				alert(results)
+				var temp=new Array()
+				temp=results.split(",")
+				document.getElementById('name').value=temp[0]
+					document.getElementById('regno').value=temp[1]
+					document.getElementById('fname').value=temp[2]
+		}
+     }		
+	}
+</script>
+<br/><br/>
+  	<% form_for(@doctortransfer) do |f| %>
+	<%= f.error_messages %>
+	<div align="center">
+    <table width="30%" >
+     <tr><td>MR No
+     </td><td>
+    <%= f.text_field :mr_no, :size => "20",:id => "rno", :onKeyUp => "ajaxSearch()"  %>
+    </td>
+    <td>Reg No
+    </td><td>
+    <%= f.text_field :reg_no, :size => "20", :id =>"regno" %>
+  </td>
+ <tr><td>
+    <%= f.label :patient_name %></td><td>
+    <%= f.text_field :patient_name, :size => "20", :id =>"name" %>
+  </td>
+    	<td>Fathername<sup>*</sup></td> 
+		<td><%= f.text_field :father_name, :id => "fname", :size => "20" %>
+  </td></tr>
+  <tr><td>
+    <%= f.label :department_name %></td>
+    <td><%= f.select :department_name , Departmentmaster.find(:all).collect {|p| [p.name] }  %>
+ </td>
+  <td>
+    <%= f.label :doctor %></td><td>
+    <%= f.select :doctor , Doctormaster.find(:all).collect {|p| [p.name] } %>
+  </td>
+  <tr><td>
+    <%= f.label :transfer_to_doctor %></td><td>
+    <%= f.select :transfer_to_doctor , Doctormaster.find(:all).collect {|p| [p.name] }%>
+  </td></tr>
+ </table>
+ <br/>
+    <%= f.submit 'Update' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', doctortransfers_path %>

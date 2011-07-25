@@ -1,0 +1,43 @@
+<h3>Listing EmployeebankMaster</h3>
+<br /><br /><br />
+<div align="center" >
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Bankcode</th>
+    <th>Bankname</th>
+    <th>Branch</th>
+    <th>City</th>
+    <th>Address</th>
+    <th>Contactperson</th>
+    <th>Contactpersonmobileno</th>
+    <th>Accounttype</th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Destroy</th>
+  </tr>
+
+<% @employeebankmasters.each do |employeebankmaster| %>
+  <% if((employeebankmaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h employeebankmaster.bank_code %></td>
+    <td class='<%= id %>'><%=h employeebankmaster.bank_name %></td>
+    <td class='<%= id %>'><%=h employeebankmaster.branch %></td>
+    <td class='<%= id %>'><%=h employeebankmaster.city %></td>
+    <td class='<%= id %>'><%=h employeebankmaster.address %></td>
+    <td class='<%= id %>'><%=h employeebankmaster.contact_person %></td>
+    <td class='<%= id %>'><%=h employeebankmaster.contact_person_mobile_no %></td>
+    <td class='<%= id %>'><%=h employeebankmaster.account_type %></td>
+    <td class='<%= id %>'><%= link_to 'Show', employeebankmaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_employeebankmaster_path(employeebankmaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', employeebankmaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New employeebankmaster', new_employeebankmaster_path %>

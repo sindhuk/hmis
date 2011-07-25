@@ -1,0 +1,46 @@
+
+<br /><br />
+<div align="center" width="90%">
+<table width="80%" cellpadding="2" cellspacing="0">
+  <tr bgcolor =" #378bf8" style="color:white">
+    <th>Mr no</th>
+    <th>Patient name</th>
+    <th>Room</th>
+    <th>Bed</th>
+    <th>Final bill no</th>
+	<th>Sno</th>
+    <th>Total amount</th>
+    <th>Due</th>
+    <th>Payment mode</th>
+    <th colspan="3">Permissions</th>
+  </tr>
+
+<% @final_bills.each do |final_bill| %>
+<% if((final_bill.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h final_bill.mr_no %></td>
+    <td class='<%= id %>'><%=h final_bill.patient_name %></td>
+    <td class='<%= id %>'><%=h final_bill.room %></td>
+    <td class='<%= id %>'><%=h final_bill.bed %></td>
+    <td class='<%= id %>'><%=h final_bill.final_bill_no %></td>
+	<% for final_service in final_bill.final_service %>
+	<td class='<%= id %>'><%=h final_service.sno %></td>
+    <td class='<%= id %>'><%=h final_service.total_amount %></td>
+	<% end %>
+    <td class='<%= id %>'><%=h final_bill.due %></td>
+    <td class='<%= id %>'><%=h final_bill.payment_mode %></td>
+    <td class='<%= id %>'><%= link_to 'Show', final_bill %></td>
+	<td class='<%= id %>'><%= link_to 'Edit', edit_final_bill_path(final_bill) %></td>
+	<td class='<%= id %>'><%= link_to 'Destroy', final_bill, :confirm => 'Are you sure?', :method => :delete %></td>
+     
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New', new_final_bill_path %>

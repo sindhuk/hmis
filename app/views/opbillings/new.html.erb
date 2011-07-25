@@ -1,0 +1,213 @@
+<h1>New opbilling</h1>
+<script type="text/javascript">
+function checked_print(el,v2,v3) 
+	{
+		
+		if(el=="tcode")
+		{
+			
+			var hi=v2
+			var h2=v3
+			var selObj = document.getElementById(el);
+			var value_glo= selObj.options[selObj.selectedIndex].index;
+			var temp=new Array()
+			temp=hi.split(",")
+			document.getElementById('tname').value=temp[value_glo]
+			temp=h2.split(",")
+			document.getElementById('tfee').value=temp[value_glo]
+		}
+		if(el=="tcode1")
+		{
+			
+			var hi=v2
+			var h2=v3
+			var selObj = document.getElementById(el);
+			var value_glo= selObj.options[selObj.selectedIndex].index;
+			var temp=new Array()
+			temp=hi.split(",")
+			document.getElementById('tname').value=temp[value_glo]
+			temp=h2.split(",")
+			document.getElementById('tfee').value=temp[value_glo]
+		}
+		if(el=="tcode2")
+		{
+			
+			var hi=v2
+			var h2=v3
+			var selObj = document.getElementById(el);
+			var value_glo= selObj.options[selObj.selectedIndex].index;
+			var temp=new Array()
+			temp=hi.split(",")
+			document.getElementById('tname').value=temp[value_glo]
+			temp=h2.split(",")
+			document.getElementById('tfee').value=temp[value_glo]
+		}
+		else if(el=="department")
+		{
+			
+			var hi=v2
+			
+			var selObj = document.getElementById(el);
+			var value_glo= selObj.options[selObj.selectedIndex].index;
+			var temp=new Array()
+			temp=hi.split(",")
+			document.getElementById('docname').value=temp[value_glo]
+			
+		}
+	}
+</script>	
+<% form_for(@opbilling) do |f| %>
+	  <%= f.error_messages %>
+	  <% @tname="" %>
+	  <% @tfee="" %>
+	  <% @dname="" %>
+		<% ddname=Doctormaster.find(:all).collect { |p| [p.doctor_name] } %>
+		<% for i in 0...ddname.length
+		@dname<<ddname[i].to_s
+		@dname<<","
+	  end %>
+	<% ttname=Testmaster.find(:all).collect { |p| [p.test_name] } %>
+	<% for i in 0...ttname.length
+		@tname<<ttname[i].to_s
+		@tname<<","
+	  end %>
+	<% ttfee=Testmaster.find(:all).collect { |p| [p.fee] } %>
+	<% for i in 0...ttfee.length
+		@tfee<<ttfee[i].to_s
+		@tfee<<","
+	  end %>
+	  <% @tname1="" %>
+	  	  
+	<% ttname1=Testmaster.find(:all).collect { |p| [p.test_name] } %>
+	<% for i in 0...ttname.length
+		@tname1<<ttname1[i].to_s
+		@tname1<<","
+	  end %>
+	
+	  
+	  <% @tname2="" %>
+	  
+	  
+		
+	  
+	<% ttname2=Testmaster.find(:all).collect { |p| [p.test_name] } %>
+	<% for i in 0...ttname.length
+		@tname<<ttname[i].to_s
+		@tname<<","
+	  end %>
+	<% ttfee=Testmaster.find(:all).collect { |p| [p.fee] } %>
+	<% for i in 0...ttfee.length
+		@tfee<<ttfee[i].to_s
+		@tfee<<","
+	  end %>
+
+  <p>
+    <%= f.label :mr_no %><br />
+    <%= f.select :mr_no, Patientregistration.find(:all).collect{|p|[p.mr_no]} %>
+  </p>
+  <p>
+    <%= f.label :department %><br />
+    <%= select "opbilling","department", Doctormaster.find(:all).collect{|p| [p.doctor_department , p.doctor_fee] },{ :include_blank => false },{:id => "department", :onchange => "checked_print(id,'#{@dname}','#{@dfee}')"} %>
+  </p>
+  <p>
+    <%= f.label :doctor %><br />
+    <%= f.text_field :doctor, :id => "docname" %>
+  </p>
+  <p>
+    <%= f.label :s_no %><br />
+    <%= f.text_field :s_no %>
+  </p>
+  <p>
+    <%= f.label :test_code %><br />
+    <%= select "opbilling","testcode", Testmaster.find(:all).collect{|p| [p.test_code] },{ :include_blank => false },{:id => "tcode", :onchange => "checked_print(id,'#{@tname}','#{@tfee}')"} %>
+  </p>
+  <p>
+    <%= f.label :test_name %><br />
+    <%= f.text_field :test_name, :id => "tname" %>
+  </p>
+  <p>
+    <%= f.label :fee %><br />
+    <%= f.text_field :fee,:id => "tfee" %>
+  </p>
+  <p>
+    <%= f.label :concession %><br />
+    <%= f.text_field :concession %>
+  </p>
+  <p>
+    <%= f.label :comments %><br />
+    <%= f.text_field :comments %>
+  </p>
+  <p>
+    <%= f.label :s_no1 %><br />
+    <%= f.text_field :s_no1 %>
+  </p>
+  <p>
+    <%= f.label :test_code1%><br />
+    <%= select "opbilling","testcode1", Testmaster.find(:all).collect{|p| [p.test_code] },{ :include_blank => false },{:id => "tcode1", :onchange => "checked_print(id,'#{@tname}','#{@tfee}')"} %>
+  </p>
+  <p>
+    <%= f.label :test_name1 %><br />
+    <%= f.text_field :test_name1, :id => "tname1" %>
+  </p>
+  <p>
+    <%= f.label :fee1%><br />
+    <%= f.text_field :fee1,:id => "tfee1" %>
+  </p>
+  <p>
+    <%= f.label :concession1 %><br />
+    <%= f.text_field :concession1 %>
+  </p>
+  <p>
+    <%= f.label :comments1 %><br />
+    <%= f.text_field :comments1 %>
+  </p>
+  <p>
+    <%= f.label :s_no2 %><br />
+    <%= f.text_field :s_no2 %>
+  </p>
+  <p>
+    <%= f.label :test_code2 %><br />
+    <%= select "opbilling","testcode2", Testmaster.find(:all).collect{|p| [p.test_code] },{ :include_blank => false },{:id => "tcode2", :onchange => "checked_print(id,'#{@tname}','#{@tfee}')"} %>
+  </p>
+  <p>
+    <%= f.label :test_name2 %><br />
+    <%= f.text_field :test_name2, :id => "tname2" %>
+  </p>
+  <p>
+    <%= f.label :fee2 %><br />
+    <%= f.text_field :fee2,:id => "tfee2" %>
+  </p>
+  <p>
+    <%= f.label :concession2 %><br />
+    <%= f.text_field :concession2 %>
+  </p>
+  <p>
+    <%= f.label :comments2 %><br />
+    <%= f.text_field :comments2 %>
+  </p>
+  <p>
+    <%= f.label :concessionn %><br />
+    <%= f.text_field :concessionn %>
+  </p>
+  <p>
+    <%= f.label :c_ref %><br />
+    <%= f.text_field :c_ref %>
+  </p>
+  <p>
+    <%= f.label :gross %><br />
+    <%= f.text_field :gross %>
+  </p>
+  <p>
+    <%= f.label :due %><br />
+    <%= f.text_field :due %>
+  </p>
+  <p>
+    <%= f.label :d_ref %><br />
+    <%= f.text_field :d_ref %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', opbillings_path %>

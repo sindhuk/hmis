@@ -1,0 +1,20 @@
+<h1>Editing patant</h1>
+
+<% form_for(@patant) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :pname %><br />
+    <%= f.text_field :pname %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @patant %> |
+<%= link_to 'Back', patants_path %>

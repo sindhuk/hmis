@@ -1,0 +1,46 @@
+<%= stylesheet_link_tag 'css' %>
+
+<% form_for(@ipadvance) do |f| %>
+  <%= f.error_messages %>
+<br><br><br>
+		<div align="center" width="100%">
+  <table width="40%" cellspacing="0" cellpadding="4">
+		<tr>
+			<td>mr_no</td>
+			<td> <%= f.text_field :mr_no %></td>
+  			<td>reg_no </td>
+			<td> <%= f.text_field :reg_no %></td>
+		</tr>
+		<tr>
+			<td>patient_name </td>
+			<td><%= f.text_field :patient_name %></td>
+			<td>father_name</td>
+			<td><%= f.text_field :father_name %></td>
+		</tr>
+		<tr>
+			<td>floor</td>
+			<td><%= f.text_field :floor %> </td>
+			<td>ward </td>
+			<td><%= f.text_field :ward %></td>
+		</tr>
+		<tr>
+			<td>room </td>
+			<td><%= f.text_field :room %> </td>
+			<td>bed</td>
+			<td><%= f.text_field :bed %></td>
+		</tr>
+		<tr>
+			<td>gross_amount</td>
+			<td><%= f.text_field :gross_amount %></td>
+			<td>payment_mode</td>
+			<td><%= f.text_field :payment_mode %></td>
+		</tr>
+		<tr>
+			<td>already_paid_amount </td>
+			<td><%= f.text_field :already_paid_amount %></td>
+			</tr></table><br>
+    <%= f.submit 'Update' %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @ipadvance %>

@@ -1,0 +1,36 @@
+<h1>Listing hospitalmasters</h1>
+
+<table>
+  <tr>
+    <th>Hospitalname</th>
+    <th>Hospitalcode</th>
+    <th>Hospitaladdress</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Hospitallogo</th>
+    <th>Hospitaltanno</th>
+    <th>Hospitalvatno</th>
+  </tr>
+
+<% @hospitalmasters.each do |hospitalmaster| %>
+  <tr>
+    <td><%=h hospitalmaster.name %></td>
+    <td><%=h hospitalmaster.code %></td>
+    <td><%=h hospitalmaster.address %></td>
+    <td><%=h hospitalmaster.city %></td>
+    <td><%=h hospitalmaster.state %></td>
+    <td><%=h hospitalmaster.country %></td>
+    <td><%=h hospitalmaster.logo %></td>
+    <td><%=h hospitalmaster.tan_no %></td>
+    <td><%=h hospitalmaster.vat_no %></td>
+    <td><%= link_to 'Show', hospitalmaster %></td>
+    <td><%= link_to 'Edit', edit_hospitalmaster_path(hospitalmaster) %></td>
+    <td><%= link_to 'Destroy', hospitalmaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New hospitalmaster', new_hospitalmaster_path %>

@@ -1,0 +1,29 @@
+<%= stylesheet_link_tag 'css' %>
+<font size="3" face="Calibri">
+<div  align="center">
+<br/><br/><br/>
+<table cellspacing="3" cellpadding="4" >
+
+<% form_for(@doctor_charge) do |f| %>
+  <%= f.error_messages %>
+
+  <tr><td>
+    <%= f.label :Patient_Name %></td>
+    <td><%= f.text_field :Patient_Name, :size => "20" %></td>
+     <td><%= f.label :MR_No %></td>
+    <td><%= f.text_field :MR_No, :size => "20"%></td></tr>
+ 
+    <tr><td><%= f.label :doctor %></td>
+    <td><%= f.text_field :doctor,:size => "20" %></td>
+    <td><%= f.label :Transfer_To_Doctor %></td>
+    <td><%= f.text_field :Transfer_To_Doctor,:size => "20" %></td></tr>
+	</table>
+	<br/>
+  
+    <%= f.submit 'Update' %>
+  
+<% end %>
+</div>
+
+<%= link_to 'Back', doctor_charges_path %>
+</font>

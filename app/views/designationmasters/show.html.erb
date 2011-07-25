@@ -1,0 +1,32 @@
+ <h3>Showing DesignationMaster</h3>
+<br /><br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+<tr>
+  <td>DesignationName</td>
+ <td> <%=h @designationmaster.Name %>
+ </td>   
+
+   <td>
+  <td>DesignationCode</td>
+ <td> <%=h @designationmaster.code %>
+ </td>  </tr>
+
+  <tr> <td>
+ Status</td>
+  <td><%=h @designationmaster.status %>
+ </td>   
+
+   <td>
+   DepartmentName</td>
+ <td> <%=h @designationmaster.Department_name %>
+ </td>  </tr>
+
+  <tr> 
+  <td>DepartmentCode:</td>
+ <td> <%=h @designationmaster.Department_code %>
+ </td>  </tr>
+ </table>
+ </div>
+<%= link_to 'Back', designationmasters_path %>
+  

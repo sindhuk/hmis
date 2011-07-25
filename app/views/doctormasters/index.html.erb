@@ -1,0 +1,56 @@
+<h3>Listing doctormasters</h3>
+<br /><br />
+<div align="center" width="90%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Name</th>
+    <th>Code</th>
+    <th>Designation</th>
+    <th>Department</th>
+	<th>Fee</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Pincode</th>
+    <th>Mobileno</th>
+    <th>Consultingroom</th>
+    <th>Consultingtype</th>
+    <th>Paymenttype</th>
+	<th>Show</th>
+	 <th>Edit</th>
+	 <th>Destroy</th>
+  </tr>
+
+<% @doctormasters.each do |doctormaster| %>
+       <% if((doctormaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h doctormaster.name %></td>
+    <td class='<%= id %>'><%=h doctormaster.code %></td>
+    <td class='<%= id %>'><%=h doctormaster.designation %></td>
+    <td class='<%= id %>'><%=h doctormaster.department %></td>
+	<td class='<%= id %>'><%=h doctormaster.fee %></td>
+    <td class='<%= id %>'><%=h doctormaster.address %></td>
+    <td class='<%= id %>'><%=h doctormaster.city %></td>
+    <td class='<%= id %>'><%=h doctormaster.state %></td>
+    <td class='<%= id %>'><%=h doctormaster.country %></td>
+    <td class='<%= id %>'><%=h doctormaster.pincode %></td>
+    <td class='<%= id %>'><%=h doctormaster.mobile_no %></td>
+    <td class='<%= id %>'><%=h doctormaster.consulting_room %></td>
+    <td class='<%= id %>'><%=h doctormaster.consulting_type %></td>
+    <td class='<%= id %>'><%=h doctormaster.payment_type %></td>
+    <td class='<%= id %>'><%= link_to 'Show', doctormaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_doctormaster_path(doctormaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', doctormaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New doctormaster', new_doctormaster_path %>
+</div>

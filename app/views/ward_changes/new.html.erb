@@ -1,0 +1,71 @@
+<%= javascript_include_tag :defaults %>
+<script type="text/javascript"> 
+//Fill the fields In Based on the entering MR_NUMBER
+    var query1=""
+	function ajaxSearch() 
+	{
+		 query1= document.getElementById('rno').value
+		 
+			if( query1.length==9 ) 
+						{
+						
+				Ajax_Code()
+			}
+	}
+		
+	//Ajax Code
+	function Ajax_Code()
+	{
+		req = new Ajax.Request('/ipadmissions/ajax_buildings/1', {
+			method: 'get',
+			parameters: { q: query1  },
+			onComplete: function(transport) {
+			processReqChange(transport);
+			}
+
+	}); 
+	function processReqChange(req) 
+		{
+			// request is complete
+			if (req.readyState == 4) 
+			{
+				var results = req.responseText;
+				
+				var temp=new Array()
+				temp=results.split(",")
+				document.getElementById('name').value=temp[0]
+					document.getElementById('regno').value=temp[1]
+					document.getElementById('fname').value=temp[2]
+		}
+     }		
+	}
+	</script>
+<br/><br/><br/><br/>
+<div align="center">
+<% form_for(@ward_change) do |f| %>
+  <%= f.error_messages %>
+  <br/><br/>
+<table width="50%"><tr>
+      <tr><td><%= f.label :MR_No %></td>
+      <td><%= f.text_field :MR_No, :size => "20",:id => "rno", :onKeyUp => "ajaxSearch()" %></td>
+     <td><%= f.label :Patient_Name %><br /></td>
+    <td><%= f.text_field :Patient_Name, :size => "20", :id =>"name" %></td></tr>
+    
+    <tr><td><%= f.label :floor %></td>
+    <td><%= f.text_field :floor, :size => "20" %></td>
+   <td><%= f.label :room %></td>
+    <td><%= f.text_field :room, :size => "20" %></td></tr>
+    <tr><td><%= f.label :ward %></td>
+    <td><%= f.text_field :ward, :size => "20" %></td>
+    <td><%= f.label :T_Floor %></td>
+    <td><%= f.text_field :T_Floor, :size => "20" %></td></tr>
+     <tr><td><%= f.label :T_Room %></td>
+    <td><%= f.text_field :T_Room, :size => "20" %></td>
+    <td><%= f.label :T_Ward %></td>
+    <td><%= f.text_field :T_Ward, :size => "20" %></td></tr></table>
+    <br/>
+    <%= f.submit 'Create' %>
+  </div>
+<% end %>
+</table>
+<%= link_to 'Show', ward_changes_path %>

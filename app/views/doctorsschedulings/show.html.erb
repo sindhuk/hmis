@@ -1,0 +1,27 @@
+<p>
+  <b>Department_name:</b>
+  <%=h @doctorsscheduling.department_name %>
+</p>
+
+<p>
+  <b>Doctor_id:</b>
+  <%=h @doctorsscheduling.doctor_id %>
+</p>
+
+<p>
+  <b>Doctor_name:</b>
+  <%=h @doctorsscheduling.doctor_name %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%=h @doctorsscheduling.date %>
+</p>
+
+<p>
+  <b>Doctor_type:</b>
+  <%=h @doctorsscheduling.doctor_type %>
+</p>
+
+<%= link_to 'Edit', edit_doctorsscheduling_path(@doctorsscheduling) %> |
+<%= link_to 'Back', doctorsschedulings_path %>

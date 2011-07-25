@@ -1,0 +1,24 @@
+<h3>Details Of Record </h3>
+<br /><br />
+<div align="center">
+  <table width="40%" cellspacing= "0" border="1" cellpadding="4">
+  <tr><td>
+  Item_level1_code</td>
+  <td><%=h @itemmaster.item_level1_code %></td>
+
+  <tr><td>Item_level2_code</td>
+  <td><%=h @itemmaster.item_level2_code %></td></tr>
+  <tr><td>Item_level3_code:</td>
+  <td><%=h @itemmaster.item_level3_code %></td></tr>
+  <tr><td>Item_code</td>
+  <td><%=h @itemmaster.item_code %></td></tr>
+  <tr><td>Item_name</td>
+  <td><%=h @itemmaster.item_name %></td></tr>
+  <tr><td>Is_medical_item:</td>
+  <td><%=h @itemmaster.is_medical_item %></td></tr>
+  <tr><td>Is_seasonable_item</td>
+  <td><%=h @itemmaster.is_seasonable_item %></td></tr>
+</td></tr></table>
+
+</div>
+<%= link_to 'Back', itemmasters_path %>

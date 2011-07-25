@@ -1,0 +1,84 @@
+<h1>Listing patientappointmentregistrations</h1>
+
+<table>
+  <tr>
+    <th>Mrno</th>
+	<th>Patienttype</th>
+    <th>Appoinmentid</th>
+    <th>Appdate</th>
+    <th>Registrationid</th>
+    <th>Regdate</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Dob</th>
+    <th>Gender</th>
+    <th>Age</th>
+    <th>Maritalstatus</th>
+    <th>Fathername</th>
+    <th>Departmentname</th>
+    
+    <th>Occupation</th>
+    <th>Disease</th>
+	<th>Paymentmode</th>
+    <th>Initialamount</th>
+    <th>Address1</th>
+    <th>Address2</th>
+    <th>City</th>
+    <th>Country</th>
+    <th>State</th>
+    <th>Zipcode</th>
+    <th>Phnno</th>
+    <th>Mobileno</th>
+    <th>Faxno</th>
+    <th>Emailid</th>
+    <th>Doctorname</th>
+    <th>Departmentname</th>
+    <th>Dateofappoinment</th>
+    <th>Timeofappointment</th>
+  </tr>
+
+<% @patientappointmentregistrations.each do |patientappointmentregistration| %>
+  <tr>
+    <td><%=h patientappointmentregistration.mrno %></td>
+	<td><%=h patientappointmentregistration.patienttype %></td>
+    <td><%=h patientappointmentregistration.appoinmentid %></td>
+    <td><%=h patientappointmentregistration.appdate %></td>
+    <td><%=h patientappointmentregistration.registrationid %></td>
+    <td><%=h patientappointmentregistration.regdate %></td>
+    <td><%=h patientappointmentregistration.firstname %></td>
+    <td><%=h patientappointmentregistration.lastname %></td>
+    <td><%=h patientappointmentregistration.dob %></td>
+    <td><%=h patientappointmentregistration.gender %></td>
+    <td><%=h patientappointmentregistration.age %></td>
+    <td><%=h patientappointmentregistration.maritalstatus %></td>
+    <td><%=h patientappointmentregistration.fathername %></td>
+    <td><%=h patientappointmentregistration.departmentname %></td>
+   
+    <td><%=h patientappointmentregistration.occupation %></td>
+    <td><%=h patientappointmentregistration.disease %></td>
+	<td><%=h patientappointmentregistration.paymentmode %></td>
+    <td><%=h patientappointmentregistration.initialamount %></td>
+    <td><%=h patientappointmentregistration.address1 %></td>
+    <td><%=h patientappointmentregistration.address2 %></td>
+    <td><%=h patientappointmentregistration.city %></td>
+    <td><%=h patientappointmentregistration.country %></td>
+    <td><%=h patientappointmentregistration.state %></td>
+    <td><%=h patientappointmentregistration.zipcode %></td>
+    <td><%=h patientappointmentregistration.phnno %></td>
+    <td><%=h patientappointmentregistration.mobileno %></td>
+    <td><%=h patientappointmentregistration.faxno %></td>
+    <td><%=h patientappointmentregistration.emailid %></td>
+    <td><%=h patientappointmentregistration.doctorname %></td>
+    <td><%=h patientappointmentregistration.departmentname %></td>
+    <td><%=h patientappointmentregistration.dateofappoinment %></td>
+    <td><%=h patientappointmentregistration.timeofappointment %></td>
+    <td><%= link_to 'Show', patientappointmentregistration %></td>
+    <td><%= link_to 'Edit', edit_patientappointmentregistration_path(patientappointmentregistration) %></td>
+    <td><%= link_to 'Destroy', patientappointmentregistration, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New patientappointmentregistration', new_patientappointmentregistration_path %>

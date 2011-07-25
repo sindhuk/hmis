@@ -1,0 +1,24 @@
+<h3>New Servicegroupmaster</h3>
+<% form_for(@servicegroupmaster) do |f| %>
+  <%= f.error_messages %>
+ <br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+ <tr><td>
+    <%= f.label :Name %></td>
+  <td>
+    <%= f.text_field :name %>
+  </td>  <tr/>
+   <tr><td>
+    <%= f.label :Code %></td>
+  <td>
+    <%= f.text_field :code %>
+  </td>  <tr/>
+  </table>
+  <br />
+    <%= f.submit 'Create' %>
+  </div>
+<% end %>
+<br />
+<%= link_to 'Show', servicegroupmasters_path %>
+ 

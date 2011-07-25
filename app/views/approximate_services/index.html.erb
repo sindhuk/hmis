@@ -1,0 +1,28 @@
+<h1>Listing approximate_services</h1>
+
+<table>
+  <tr>
+    <th>Approximate bill</th>
+    <th>Sno</th>
+    <th>Service name</th>
+    <th>Code</th>
+    <th>Provided services</th>
+  </tr>
+
+<% @approximate_services.each do |approximate_service| %>
+  <tr>
+    <td><%=h approximate_service.approximate_bill_id %></td>
+    <td><%=h approximate_service.sno %></td>
+    <td><%=h approximate_service.service_name %></td>
+    <td><%=h approximate_service.code %></td>
+    <td><%=h approximate_service.provided_services %></td>
+    <td><%= link_to 'Show', approximate_service %></td>
+    <td><%= link_to 'Edit', edit_approximate_service_path(approximate_service) %></td>
+    <td><%= link_to 'Destroy', approximate_service, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New approximate_service', new_approximate_service_path %>

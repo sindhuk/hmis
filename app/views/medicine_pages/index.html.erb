@@ -1,0 +1,26 @@
+<div align="center">
+
+<table>
+  <tr>
+    <th>Mr no</th>
+    <th>Patient name</th>
+    <th>Reg no</th>
+    <th>Medicines</th>
+  </tr>
+
+<% @medicine_pages.each do |medicine_page| %>
+  <tr>
+    <td><%=h medicine_page.MR_No %></td>
+    <td><%=h medicine_page.Patient_Name %></td>
+    <td><%=h medicine_page.Reg_No %></td>
+    <td><%=h medicine_page.medicines %></td>
+    <td><%= link_to 'Show', medicine_page %></td>
+    <td><%= link_to 'Edit', edit_medicine_page_path(medicine_page) %></td>
+    <td><%= link_to 'Destroy', medicine_page, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br /><br />
+</div>
+<%= link_to 'New', new_medicine_page_path %>

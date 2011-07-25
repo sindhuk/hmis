@@ -1,0 +1,23 @@
+<p>
+  <b>Appointment_no:</b>
+  <%=h @appointmentregistration.appointment_no %>
+</p>
+
+<p>
+  <b>Doctors_name:</b>
+  <%=h @appointmentregistration.doctors_name %>
+</p>
+
+<p>
+  <b>Department_name:</b>
+  <%=h @appointmentregistration.department_name %>
+</p>
+
+<p>
+  <b>Select_date:</b>
+  <%=h @appointmentregistration.select_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_appointmentregistration_path(@appointmentregistration) %> |
+<%= link_to 'Back', appointmentregistrations_path %>

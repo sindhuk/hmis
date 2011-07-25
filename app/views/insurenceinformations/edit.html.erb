@@ -1,0 +1,88 @@
+<h1>Editing insurenceinformation</h1>
+
+<% form_for(@insurenceinformation) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :patient_registration_id %><br />
+    <%= f.text_field :patient_registration_id %>
+  </p>
+  <p>
+    <%= f.label :relative_name %><br />
+    <%= f.text_field :relative_name %>
+  </p>
+  <p>
+    <%= f.label :contact_no %><br />
+    <%= f.text_field :contact_no %>
+  </p>
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :relationship %><br />
+    <%= f.text_field :relationship %>
+  </p>
+  <p>
+    <%= f.label :company_name %><br />
+    <%= f.text_field :company_name %>
+  </p>
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </p>
+  <p>
+    <%= f.label :phn_no %><br />
+    <%= f.text_field :phn_no %>
+  </p>
+  <p>
+    <%= f.label :insurence_company_name %><br />
+    <%= f.text_field :insurence_company_name %>
+  </p>
+  <p>
+    <%= f.label :ins_address %><br />
+    <%= f.text_field :ins_address %>
+  </p>
+  <p>
+    <%= f.label :ins_city %><br />
+    <%= f.text_field :ins_city %>
+  </p>
+  <p>
+    <%= f.label :ins_state %><br />
+    <%= f.text_field :ins_state %>
+  </p>
+  <p>
+    <%= f.label :police_station %><br />
+    <%= f.text_field :police_station %>
+  </p>
+  <p>
+    <%= f.label :fir_no %><br />
+    <%= f.text_field :fir_no %>
+  </p>
+  <p>
+    <%= f.label :fir_address %><br />
+    <%= f.text_field :fir_address %>
+  </p>
+  <p>
+    <%= f.label :fir_city %><br />
+    <%= f.text_field :fir_city %>
+  </p>
+  <p>
+    <%= f.label :fir_state %><br />
+    <%= f.text_field :fir_state %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @insurenceinformation %> |
+<%= link_to 'Back', insurenceinformations_path %>

@@ -1,0 +1,19 @@
+<h3>Editing occupationmaster</h3>
+<br /><br />
+<div align="center" width="90%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+<% form_for(@occupationmaster) do |f| %>
+  <%= f.error_messages %>
+
+  <tr><td>
+    <%= f.label :name %></td>
+    <td><%= f.text_field :name %></td></tr>
+  <tr><td>
+    <%= f.label :node %></td>
+    <td><%= f.text_field :code %> </td></tr></table>
+  <%= f.submit 'Update' %>
+  <% end %>
+
+</div>
+
+<%= link_to 'Back', occupationmasters_path %></td></tr></table>

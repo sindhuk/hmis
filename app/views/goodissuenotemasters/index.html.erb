@@ -1,0 +1,55 @@
+<h3>Listing GoodissuenoteMaster</h3> 
+<br /><br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Fromstockpointcode</th>
+    <th>Fromstockpointname</th>
+    <th>Tostockpointcode</th>
+    <th>Tostockpointname</th>
+    <th>Issuingdate</th>
+    <th>Itemcode</th>
+    <th>Itemname</th>
+    <th>Batchno</th>
+    <th>Itemexpitydate</th>
+    <th>Quantity</th>
+    <th>Purchaserate</th>
+    <th>Purchaseamount</th>
+    <th>Salerate</th>
+    <th>Saleamount</th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Destroy</th>
+  </tr>
+
+<% @goodissuenotemasters.each do |goodissuenotemaster| %>
+  <% if((goodissuenotemaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h goodissuenotemaster.from_stock_point_code %></td>
+    <td class='<%= id %>'><%=h goodissuenotemaster.from_stock_point_name %></td>
+    <td class='<%= id %>'><%=h goodissuenotemaster.to_stock_point_code %></td>
+    <td class='<%= id %>'><%=h goodissuenotemaster.to_stock_point_name %></td>
+    <td class='<%= id %>'><%=h goodissuenotemaster.issuing_date %></td>
+    <td class='<%= id %>'><%=h goodissuenotemaster.item_code %></td>
+    <td class='<%= id %>'><%=h goodissuenotemaster.item_name %></td>
+    <td class='<%= id %>'><%=h goodissuenotemaster.batch_no %></td>
+    <td class='<%= id %>'><%=h goodissuenotemaster.item_expity_date %></td>
+    <td class='<%= id %>'><%=h goodissuenotemaster.quantity %></td>
+    <td class='<%= id %>'><%=h goodissuenotemaster.purchase_rate %></td>
+    <td class='<%= id %>'><%=h goodissuenotemaster.purchase_amount %></td>
+    <td class='<%= id %>'><%=h goodissuenotemaster.sale_rate %></td>
+    <td class='<%= id %>'><%=h goodissuenotemaster.sale_amount %></td>
+    <td class='<%= id %>'><%= link_to 'Show', goodissuenotemaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_goodissuenotemaster_path(goodissuenotemaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', goodissuenotemaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New goodissuenotemaster', new_goodissuenotemaster_path %>

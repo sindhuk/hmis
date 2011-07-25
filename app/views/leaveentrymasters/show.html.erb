@@ -1,0 +1,23 @@
+<h3>Details Of Record </h3>
+<br /><br />
+<div align="center">
+  <table width="40%" cellspacing= "0" border="1" cellpadding="4">
+<tr><td>
+  Employee_code</td>
+  <td><%=h @leaveentrymaster.employee_code %></td></td></tr>
+  <tr><td>Employee_name</td>
+  <td>h @leaveentrymaster.employee_name %></td></tr>
+  <tr><td>Leave_type_code</td>
+  <td><%=h @leaveentrymaster.leave_type_code %></td></tr>
+  <tr><td>Leave_type_name</td>
+  <td><%=h @leaveentrymaster.leave_type_name %></td></tr>
+  <tr><td>From_date</td>
+  <td><%=h @leaveentrymaster.from_date %></td></tr>
+  <tr><td>To_date</td>
+  <td><%=h @leaveentrymaster.to_date %></td></tr>
+  <tr><td>Number_of_days</td>
+  <td><%=h @leaveentrymaster.number_of_days %></td></tr>
+</table>
+</div>
+<br />
+<%= link_to 'Back', leaveentrymasters_path %>

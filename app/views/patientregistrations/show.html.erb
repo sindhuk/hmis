@@ -1,0 +1,193 @@
+<% form_for(@patientregistration) do |f| %>
+    <%= f.error_messages %>
+	<font size="3" face="Calibri">
+	<% for patientappointmentinfo in @patientregistration.patientappointmentinfo %>
+	<table width="998"   style="border-color:#FFF; "  cellspacing="0" cellpadding="3" border="1">
+		<tr>
+			<td style="color:#963;" COLSPAN="4"><h3> Patient Registration </h3></td>
+			
+		</tr>
+		<tr> 
+			<td>Registration ID</td> 
+			<td><%=h patientappointmentinfo.registration_id %></td> 
+			<td>Reg.Date</td> 
+			<td><%=h patientappointmentinfo.reg_date %></td> 
+		</tr> 
+		<tr> 
+			<td>Time Of Appointment</td> 
+			<td><%=h patientappointmentinfo.time_of_appointment %></td> 
+			<td>Referred By Doctor</td> 
+			<td><%=h patientappointmentinfo.reffered_by_doctor %></td> 
+		</tr> 
+	
+    <% end %>
+	<% for patientinformation in @patientregistration.patientinformation %>  
+		<tr>
+			<td style="color:#963;" COLSPAN="4"><h3>Patient Information</h3></td>
+		</tr> 
+		<tr> 
+			<td>Patient type</td> 
+			<td><%=h @patientregistration.patient_type %></td>
+			<td>Mrno</td> 
+			<td><%=h @patientregistration.mr_no %></td> 
+		</tr> 
+		<tr>
+			<td>  First Name</td> 
+            <td><%=h patientinformation.first_name %></td> 
+            <td>Lastname:</td> 
+            <td><%=h patientinformation.last_name %></td>
+		</tr> 
+		<tr> 
+			<td>DOB</td> 
+			<td><%=h patientinformation.dob %></td> 
+			<td>Gender</td> 
+			<td><%=h patientinformation.gender %></td> 
+		</tr> 
+		<tr> 
+			<td>Age</td> 
+			<td><%=h patientinformation.age %></td> 
+			<td>Marital Status</td> 
+			<td><%=h patientinformation.marital_status %></td> 
+		</tr> 
+		<tr> 
+			<td>Father/Spousename</td> 
+			<td><%=h patientinformation.father_name %></td> 
+			<td>Desease</td> 
+			<td><%=h patientinformation.disease %></td> 
+		</tr> 
+		<tr> 
+			<td>Occupation</td> 
+			<td><%=h patientinformation.occupation %></td> 
+			<td>Initial Amount</td> 
+			<td><%=h patientinformation.initial_amount %></td> 
+		</tr> 
+		<tr>
+			<td>Paymentmode</td>
+			<td><%=h patientinformation.payment_mode %></td>
+			<td>Valid Period</td>
+			<td><%=h patientinformation.valid_period %></td>
+		</tr>
+		<tr>
+			<td>Bankname</td>
+			<td><%=h patientinformation.bank_name %></td>
+			<td>Chequenumber</td>
+			<td><%= patientinformation.cheque_number %></td>
+		</tr>
+		<tr>
+			<td>Cardnumber </td>
+			<td><%=h patientinformation.card_number %></td>
+			<td>Expirydate </td>
+			<td><%=h patientinformation.expiry_date %></td>
+		</tr>
+	
+	<% end %>
+	<% for contactinformation in @patientregistration.contactinformation %>
+	<tr><td style="color:#963;" COLSPAN="4"><h3>Contact Information</h3></td></tr>
+		<tr> 
+			<td> Address1</td> 
+			<td><%=h contactinformation.address1 %></td> 
+			<td>Address2</td> 
+			<td><%=h contactinformation.address2 %></td> 
+		</tr> 
+		<tr> 
+			<td>City</td> 
+			<td><%=h contactinformation.city %></td> 
+			<td>Country:</td> 
+			<td><%=h contactinformation.country %></td> 
+		</tr> 
+		<tr> 
+			<td>State</td> 
+			<td><%= contactinformation.state %></td> 
+			<td>Zipcode</td> 
+			<td><%= contactinformation.zipcode %></td> 
+		</tr> 
+		<tr> 
+			<td>Phn No</td> 
+			<td><%= contactinformation.phn_no  %></td> 
+			<td>Mobile No</td> 
+			<td><%= contactinformation.mobile_no %></td> 
+     	</tr> 
+		<tr> 
+			<td>Fax</td> 
+			<td><%= contactinformation.fax_no %></td> 
+			<td>Email-Id</td> 
+			<td><%= contactinformation.emailid %></td> 
+		</tr>
+	<% end %>
+    <% for insurenceinformation in @patientregistration.insurenceinformation %>
+    <tr><td style="color:#963;" COLSPAN="4"><h3>Brought By</h3></td></tr> 
+		<tr> 
+			<td>Realative Name</td> 
+			<td><%=h insurenceinformation.relative_name %></td> 
+			<td>Address</td> 
+			<td><%=h insurenceinformation.address %></td> 
+		</tr> 
+	    <tr> 
+			<td>Contact No:</td> 
+			<td><%=h insurenceinformation.contact_no %></td> 
+			<td>Relationship:</td> 
+			<td><%=h insurenceinformation.relationship %></td>
+		</tr>  
+	<tr><td style="color:#963;" COLSPAN="4"><h3> Company By</h3></td></tr>
+		<tr> 
+			<td>Companyname</td>
+			<td><%=h insurenceinformation.company_name %></td>
+			<td>Aaddress</td>
+			<td><%=h insurenceinformation.address %></td> 
+		</tr> 
+	    <tr> 
+			<td>City</td>
+			<td><%=h insurenceinformation.city %></td>
+			<td>State </td>
+			<td><%=h insurenceinformation.state %></td>
+		</tr>  
+		<tr> 
+			<td> Phnno </td>
+			<td><%=h insurenceinformation.phn_no %></td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr> 
+	<tr><td style="color:#963;" COLSPAN="4"><h3> Insurance By </h3></td></tr>
+		<tr> 
+			<td>Companyname </td>
+			<td><%=h insurenceinformation.insurence_company_name %></td>
+			<td>Address</td>
+			<td><%=h insurenceinformation.ins_address %></td> 
+		</tr> 
+	    <tr> 
+			<td>City</td>
+			<td><%=h insurenceinformation.ins_city %></td>
+			<td>State</td>
+			<td><%=h insurenceinformation.ins_state %></td>
+		</tr>  
+	<tr><td style="color:#963;" COLSPAN="4"><h3> Police By </h3></td></tr> 
+		<tr> 
+			<td>Policestation </td>
+			<td><%=h insurenceinformation.police_station %></td>
+		  	<td>FIR No</td>
+			<td><%=h insurenceinformation.fir_no %></td> 
+		</tr> 
+	    <tr> 
+			<td>Address</td>
+			<td><%=h insurenceinformation.fir_address %></td>
+			<td>City</td>
+			<td><%=h insurenceinformation.fir_city %></td>
+		</tr>  
+		<tr>
+			<td>State</td>
+			<td><%=h insurenceinformation.fir_state %></td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr> 
+	</table> 
+	<% end %>
+	<table align="center" > 
+		<tr>
+			<td><%= link_to 'Back', patientregistrations_path %></td> 
+		</tr> 
+	</table> 
+	</font>
+	<div id="footer" align="center"> 
+		<font color="#006600"; style="font-size:12px;">All Copyrights Resrved to MediEaz</font> 
+	</div> 
+	<% end %>

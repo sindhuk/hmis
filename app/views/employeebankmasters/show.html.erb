@@ -1,0 +1,49 @@
+<h3>Showing EmployeebankMaster</h3>
+<br /><br /><br />
+<div align="center" >
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+  <td>Bankcode:</td>
+ <td> <%=h @employeebankmaster.bank_code %>
+  </td>   
+
+ <td>
+ Bankname:</td>
+ <td> <%=h @employeebankmaster.bank_name %>
+  </td>  </tr>
+
+<tr><td>
+  Branch:</td>
+ <td><%=h @employeebankmaster.branch %>
+  </td>   
+
+  <td>City:</td>
+  <td><%=h @employeebankmaster.city %>
+  </td>  </tr>
+
+<tr><td>
+  Address:</td>
+ <td> <%=h @employeebankmaster.address %>
+  </td>  
+
+ <td>
+   Contactperson:</td>
+ <td> <%=h @employeebankmaster.contact_person %>
+  </td>  </tr>
+
+<tr><td>
+   Contactpersonmobileno:</td>
+  <td><%=h @employeebankmaster.contact_person_mobile_no %>
+  </td>  
+
+ 
+  <td>Accounttype:</td>
+  <td><%=h @employeebankmaster.account_type %>
+  </td>  </tr>
+</table>
+ </div>
+
+   
+ 
+<%= link_to 'Back', employeebankmasters_path %>
+ 

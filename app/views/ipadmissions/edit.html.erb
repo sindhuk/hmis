@@ -1,0 +1,90 @@
+
+<script type="text/javascript"> 
+
+function checked_value()
+{
+var selObj = document.getElementById('adt');
+var query1= selObj.options[selObj.selectedIndex].value
+if(query1 == "GENERAL")
+{
+document.getElementById('accp').disabled=true
+document.getElementById('acct').disabled=true
+document.getElementById('aps').disabled=true
+document.getElementById('toa').disabled=true
+}
+else if(query1 == "MLC")
+{
+document.getElementById('accp').disabled=false
+document.getElementById('acct').disabled=false
+document.getElementById('aps').disabled=false
+document.getElementById('toa').disabled=false
+}
+}
+</script>
+<% form_for(@ipadmission) do |f| %>
+  <%= f.error_messages %><br><br>
+<div align="center" width="100%">
+	<table width="60%"  cellspacing="0" cellpadding="4">
+		<tr>
+			<td>Admission No</td>
+			<td><%= f.text_field :admission_no, :size => "20" %></td>
+			<td>Admission Date</td>
+			<td><%= f.text_field :admission_date, :size => "20"  %></td>
+	     	<td>Time</td>
+			<td><%= f.time_select :time, :size => "20"  %></td></tr>
+			<tr><td>Admission_type</td>
+			<td><%= f.select :admission_type, [['GENERAL'],['MLC']], {:include_blank => false},{:id =>"adt" , :onchange=> "checked_value()"} %></td>
+		    <td>Accident Place</td>
+			<td><%= f.text_field :accident_place, :size => "20" , :id => "accp", :disabled => "true" %></td>
+			<td>Accident Type </td>
+			<td><%= f.text_field :accident_type, :size => "20",  :id => "acct", :disabled => "true" %></td></tr>
+		
+		<tr>
+			<td>Authorised Police Station </td>
+			<td><%= f.text_field :authorised_police_station, :id => "aps" , :disabled => "true", :size => "20" %>  </td>
+			<td>Time_of_accident </td>
+			<td><%= f.text_field :time_of_accident, :id => "toa", :disabled => "true", :size => "20"  %>  </td>
+		 	<td>Mr No </td>
+			<td><%= f.text_field :mr_no, :size => "20"  %></td></tr>
+			<tr><td>Patient Name </td>
+			<td><%= f.text_field :patient_name, :size => "20"  %> </td>
+		    <td>Reg No </td>
+			<td><%= f.text_field :reg_no, :size => "20"  %></td>
+			<td>Father Name </td>
+			<td><%= f.text_field :father_name, :size => "20"  %></td>
+		</tr>
+		<tr>
+			<td>Department</td>
+			<td><%= f.select :department, Departmentmaster.find(:all).collect { |p| [ p.name ] } %>  </td>
+			<td>Doctor </td>
+			<td><%= f.select :department, Doctormaster.find(:all).collect { |p| [ p.name ] } %>  </td>
+			<td>Type </td>
+			<td><%= f.text_field :type, :size => "20"  %> </td>
+			</tr>
+		<tr>
+			<td>Floor </td>
+			<td><%= f.select :floor,Floormaster.find(:all).collect { |p| [ p.floor_name]}, :size => "20"  %></td>
+		
+			<td>Ward</td>
+			<td><%= f.select :ward, Wardmaster.find(:all).collect { |p| [ p.code ] } %>  </td>
+			<td>Room </td>
+			<td><%= f.select :room, Roommaster.find(:all).collect { |p| [ p.name ] } %>	  </td>
+			</tr>
+			<tr>
+			<td>Bed </td>
+			<td><%= f.text_field :bed, :size => "20"  %></td>
+			<td>Status</td>
+			<td><%= f.text_field :status, :size => "20"  %> </td>
+			<td>Attender Name</td>
+			<td><%= f.text_field :attender_name, :size => "20"  %></td></tr>
+			<tr><td>Mobile No</td>
+			<td><%= f.text_field :mobile_no, :size => "20"  %></td>
+			<td>Address </td>
+			<td><%= f.text_field :address, :size => "20"  %></td>
+		    </tr></table><br>
+		<%= f.submit 'Update' %>
+		</div>
+  
+<% end %>
+
+<%= link_to 'Back', ipadmissions_path %>

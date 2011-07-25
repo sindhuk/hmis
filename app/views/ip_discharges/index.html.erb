@@ -1,0 +1,43 @@
+<%= stylesheet_link_tag 'css' %>
+<br /><br />
+  <div align="center" width="100%">
+<table width="60%" cellpadding="2" cellspacing="0">
+  <tr bgcolor ="#378bf8" style="color:white">
+    <th>Mr no</th>
+    <th>Reg no</th>
+    <th>Patient name</th>
+    <th>Father name</th>
+    <th>Floor</th>
+    <th>Ward</th>
+    <th>Room</th>
+    <th>Bed</th>
+    <th colspan="3">Permissions</th>
+	
+  </tr>
+
+<% @ip_discharges.each do |ip_discharge| %>
+<% if((ip_discharge.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h ip_discharge.mr_no %></td>
+    <td class='<%= id %>'><%=h ip_discharge.reg_no %></td>
+    <td class='<%= id %>'><%=h ip_discharge.patient_name %></td>
+    <td class='<%= id %>'><%=h ip_discharge.father_name %></td>
+    <td class='<%= id %>'><%=h ip_discharge.floor %></td>
+    <td class='<%= id %>'><%=h ip_discharge.ward %></td>
+    <td class='<%= id %>'><%=h ip_discharge.room %></td>
+    <td class='<%= id %>'><%=h ip_discharge.bed %></td>
+    
+    <td class='<%= id %>'><%= link_to 'Show', ip_discharge %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_ip_discharge_path(ip_discharge) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', ip_discharge, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New ip_discharge', new_ip_discharge_path %>

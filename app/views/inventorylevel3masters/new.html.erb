@@ -1,0 +1,38 @@
+<h3>New inventorylevel3master</h3>
+<%= stylesheet_link_tag 'calendar' %>
+<%= javascript_include_tag 'calendar_us.js'%>
+<%= javascript_include_tag :defaults %>
+<% form_for(@inventorylevel3master) do |f| %>
+  <%= f.error_messages %>
+	 <br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr><td>
+    <%= f.label :item_level1_code %></td>
+   <td><%= f.select :item_level1_code,  Inventorylevel1master.find(:all).collect {|p| [ p.item_level1]} %></td>
+  </tr></td>
+  <tr><td>
+    <%= f.label :item_level2_code %></td>
+    <td><%= f.select :item_level2_code,  Inventorylevel2master.find(:all).collect {|p| [  p.item_level2_code ]} %></td>
+  </tr></td>
+  <tr><td>
+    <%= f.label :item_level3_code %></td>
+    <td><%= f.text_field :item_level3_code %></td>
+  </tr></td>
+  <tr><td>
+    <%= f.label :item_level3_name %></td>
+    <td><%= f.text_field :item_level3_name %></td>
+  </tr></td>
+  <tr><td>
+    <%= f.label :status %></td>
+    <td><%= f.text_field :status %></td>
+  </tr></td>
+  </table>
+  <br />
+  <%= f.submit 'Create' %>
+</div>
+	
+<% end %>
+
+	
+<%= link_to 'Show', inventorylevel3masters_path %>

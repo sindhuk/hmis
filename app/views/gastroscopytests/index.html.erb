@@ -1,0 +1,54 @@
+<h1>Listing gastroscopytests</h1>
+
+<table>
+  <tr>
+    <th>Registration no</th>
+    <th>Billno</th>
+    <th>Mrno</th>
+    <th>Patientname</th>
+    <th>Testdate</th>
+    <th>Esophgus</th>
+    <th>Fundus</th>
+    <th>Corpus</th>
+    <th>Antrum</th>
+    <th>Blub</th>
+    <th>Firsrpart</th>
+    <th>Secondpart</th>
+    <th>Biopsy</th>
+    <th>Opinionfirst</th>
+    <th>Pylorospasm</th>
+    <th>Biliaryreflux</th>
+    <th>Guthypomotility</th>
+    <th>Opinionsecond</th>
+  </tr>
+
+<% @gastroscopytests.each do |gastroscopytest| %>
+  <tr>
+    <td><%=h gastroscopytest.registration_no %></td>
+    <td><%=h gastroscopytest.bill_no %></td>
+    <td><%=h gastroscopytest.mr_no %></td>
+    <td><%=h gastroscopytest.patient_name %></td>
+    <td><%=h gastroscopytest.test_date %></td>
+    <td><%=h gastroscopytest.esophgus %></td>
+    <td><%=h gastroscopytest.fundus %></td>
+    <td><%=h gastroscopytest.corpus %></td>
+    <td><%=h gastroscopytest.antrum %></td>
+    <td><%=h gastroscopytest.blub %></td>
+    <td><%=h gastroscopytest.firsr_part %></td>
+    <td><%=h gastroscopytest.second_part %></td>
+    <td><%=h gastroscopytest.biopsy %></td>
+    <td><%=h gastroscopytest.opinion_first %></td>
+    <td><%=h gastroscopytest.pylorospasm %></td>
+    <td><%=h gastroscopytest.biliaryreflux %></td>
+    <td><%=h gastroscopytest.guthypomotility %></td>
+    <td><%=h gastroscopytest.opinion_second %></td>
+    <td><%= link_to 'Show', gastroscopytest %></td>
+    <td><%= link_to 'Edit', edit_gastroscopytest_path(gastroscopytest) %></td>
+    <td><%= link_to 'Destroy', gastroscopytest, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New gastroscopytest', new_gastroscopytest_path %>

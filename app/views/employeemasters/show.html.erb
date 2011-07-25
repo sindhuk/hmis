@@ -1,0 +1,92 @@
+<h3>Showing EmployeeMaster</h3>
+<div align="center">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+ <tr>
+   <td>Employeename:</td>
+  <td> <%=h @employeemaster.name %>
+</td>  
+
+
+  <td>Employeecode:</td>
+  <td><%=h @employeemaster.code %></td>
+  <tr/>
+
+ <tr><td>
+  Employeedesignation:</td>
+ <td> <%=h @employeemaster.designation %>
+</td>  
+
+ <td>
+ Department:</td>
+  <td> <%=h @employeemaster.department %> 
+</td>  <tr/>
+
+ <tr><td>
+  Employeepayment:</td>
+  <td><%=h @employeemaster.payment %>
+</td>  <tr/>
+
+ <tr>
+  <td>Bank:</td>
+ <td> <%=h @employeemaster.bank %>
+</td>  
+
+ 
+  <td>Accno:</td>
+ <td> <%=h @employeemaster.acc_no %>
+</td>  <tr/>
+
+ <tr><td>
+  Chequeno:</td>
+  <td><%=h @employeemaster.cheque_no %>
+</td> 
+ <td>
+  Cardno:</td>
+  <td> <%=h @employeemaster.card_no %>
+</td>  <tr/>
+ <tr>
+  <td>Expirydate:</td>
+   <td><%=h @employeemaster.expiry_date %>
+</td>  
+
+  <td>Employeetype:</td>
+ <td> <%=h @employeemaster.type %>
+</td>  <tr/>
+
+ <tr><td>
+ Employeeaddress:</td>
+  <td> <%=h @employeemaster.address %>
+</td>  
+
+ 
+  <td>City:</td>
+ <td> <%=h @employeemaster.city %>
+</td>  <tr/>
+
+ <tr><td>
+ State:</td>
+  <td> <%=h @employeemaster.state %>
+</td> 
+
+
+  <td>Country:</td>
+ <td> <%=h @employeemaster.country %>
+</td>  <tr/>
+
+ <tr>
+  <td>Mobileno:</td>
+  <td><%=h @employeemaster.mobile_no %></td>
+
+
+ 
+  <td>Pincode:</td>
+  <td><%=h @employeemaster.pincode %>
+</td>  <tr/>
+
+ <tr><td>
+  Emailid:</td>
+ <td> <%=h @employeemaster.email_id %>
+</td>  <tr/>
+
+ </table></div>
+<%= link_to 'Back', employeemasters_path %>

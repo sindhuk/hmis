@@ -1,0 +1,18 @@
+<p>
+  <b>Physician:</b>
+  <%=h @appointment.physician_id %>
+</p>
+
+<p>
+  <b>Patant:</b>
+  <%=h @appointment.patant_id %>
+</p>
+
+<p>
+  <b>Apdate:</b>
+  <%=h @appointment.apdate %>
+</p>
+
+
+<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+<%= link_to 'Back', appointments_path %>

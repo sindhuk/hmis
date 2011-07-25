@@ -1,0 +1,45 @@
+<%= stylesheet_link_tag 'css' %>
+<script type="text/javascript"> 
+
+<% form_for(@ip_service) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :ip_service_entry_id %><br />
+    <%= f.text_field :ip_service_entry_id %>
+  </p>
+  <p>
+    <%= f.label :sno %><br />
+    <%= f.text_field :sno %>
+  </p>
+  <p>
+    <%= f.label :service_name %><br />
+    <%= f.text_field :service_name %>
+  </p>
+  <p>
+    <%= f.label :service_code %><br />
+    <%= f.text_field :service_code %>
+  </p>
+  <p>
+    <%= f.label :quantity %><br />
+    <%= f.text_field :quantity %>
+  </p>
+  <p>
+    <%= f.label :rate %><br />
+    <%= f.text_field :rate %>
+  </p>
+  <p>
+    <%= f.label :concession %><br />
+    <%= f.text_field :concession %>
+  </p>
+  <p>
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @ip_service %> |
+<%= link_to 'Back', ip_services_path %>

@@ -1,0 +1,136 @@
+<h1>Editing urinetest</h1>
+
+<% form_for(@urinetest) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :registration_no %><br />
+    <%= f.text_field :registration_no %>
+  </p>
+  <p>
+    <%= f.label :bill_no %><br />
+    <%= f.text_field :bill_no %>
+  </p>
+  <p>
+    <%= f.label :mr_no %><br />
+    <%= f.text_field :mr_no %>
+  </p>
+  <p>
+    <%= f.label :patient_name %><br />
+    <%= f.text_field :patient_name %>
+  </p>
+  <p>
+    <%= f.label :test_date %><br />
+    <%= f.text_field :test_date %>
+  </p>
+  <p>
+    <%= f.label :appearence %><br />
+    <%= f.text_field :appearence %>
+  </p>
+  <p>
+    <%= f.label :sp_gravity %><br />
+    <%= f.text_field :sp_gravity %>
+  </p>
+  <p>
+    <%= f.label :reaction %><br />
+    <%= f.text_field :reaction %>
+  </p>
+  <p>
+    <%= f.label :albumin %><br />
+    <%= f.text_field :albumin %>
+  </p>
+  <p>
+    <%= f.label :sugar %><br />
+    <%= f.text_field :sugar %>
+  </p>
+  <p>
+    <%= f.label :rbcs_hpe %><br />
+    <%= f.text_field :rbcs_hpe %>
+  </p>
+  <p>
+    <%= f.label :wbcs_hpf %><br />
+    <%= f.text_field :wbcs_hpf %>
+  </p>
+  <p>
+    <%= f.label :epith_cells_hpf %><br />
+    <%= f.text_field :epith_cells_hpf %>
+  </p>
+  <p>
+    <%= f.label :crystails_hpf %><br />
+    <%= f.text_field :crystails_hpf %>
+  </p>
+  <p>
+    <%= f.label :cast_hpf %><br />
+    <%= f.text_field :cast_hpf %>
+  </p>
+  <p>
+    <%= f.label :amorphous_sediments %><br />
+    <%= f.text_field :amorphous_sediments %>
+  </p>
+  <p>
+    <%= f.label :spermatozoa %><br />
+    <%= f.text_field :spermatozoa %>
+  </p>
+  <p>
+    <%= f.label :others %><br />
+    <%= f.text_field :others %>
+  </p>
+  <p>
+    <%= f.label :bile_salt %><br />
+    <%= f.text_field :bile_salt %>
+  </p>
+  <p>
+    <%= f.label :bile_pigment %><br />
+    <%= f.text_field :bile_pigment %>
+  </p>
+  <p>
+    <%= f.label :urobillingogen %><br />
+    <%= f.text_field :urobillingogen %>
+  </p>
+  <p>
+    <%= f.label :acetone %><br />
+    <%= f.text_field :acetone %>
+  </p>
+  <p>
+    <%= f.label :occult_blood %><br />
+    <%= f.text_field :occult_blood %>
+  </p>
+  <p>
+    <%= f.label :pku %><br />
+    <%= f.text_field :pku %>
+  </p>
+  <p>
+    <%= f.label :bece_jones_protein %><br />
+    <%= f.text_field :bece_jones_protein %>
+  </p>
+  <p>
+    <%= f.label :amino_acid %><br />
+    <%= f.text_field :amino_acid %>
+  </p>
+  <p>
+    <%= f.label :unary_protein %><br />
+    <%= f.text_field :unary_protein %>
+  </p>
+  <p>
+    <%= f.label :uary_ketesteriod %><br />
+    <%= f.text_field :uary_ketesteriod %>
+  </p>
+  <p>
+    <%= f.label :urinary_vma %><br />
+    <%= f.text_field :urinary_vma %>
+  </p>
+  <p>
+    <%= f.label :totalvalue %><br />
+    <%= f.text_field :totalvalue %>
+  </p>
+  <p>
+    <%= f.label :pregnect_test %><br />
+    <%= f.text_field :pregnect_test %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @urinetest %> |
+<%= link_to 'Back', urinetests_path %>

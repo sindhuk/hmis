@@ -1,0 +1,64 @@
+<h1>Editing patientinformation</h1>
+
+<% form_for(@patientinformation) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :patientregistration_id %><br />
+    <%= f.text_field :patientregistration_id %>
+  </p>
+  <p>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :dob %><br />
+    <%= f.date_select :dob %>
+  </p>
+  <p>
+    <%= f.label :gender %><br />
+    <%= f.text_field :gender %>
+  </p>
+  <p>
+    <%= f.label :age %><br />
+    <%= f.text_field :age %>
+  </p>
+  <p>
+    <%= f.label :marital_status %><br />
+    <%= f.text_field :marital_status %>
+  </p>
+  <p>
+    <%= f.label :father_name %><br />
+    <%= f.text_field :father_name %>
+  </p>
+  <p>
+    <%= f.label :occupation %><br />
+    <%= f.text_field :occupation %>
+  </p>
+  <p>
+    <%= f.label :disease %><br />
+    <%= f.text_field :disease %>
+  </p>
+  <p>
+    <%= f.label :payment_mode %><br />
+    <%= f.text_field :payment_mode %>
+  </p>
+  <p>
+    <%= f.label :valid_period %><br />
+    <%= f.text_field :valid_period %>
+  </p>
+  <p>
+    <%= f.label :initial_amount %><br />
+    <%= f.text_field :initial_amount %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @patientinformation %> |
+<%= link_to 'Back', patientinformations_path %>

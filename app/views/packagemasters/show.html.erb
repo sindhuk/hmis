@@ -1,0 +1,38 @@
+<h3>Details Of Record </h3>
+<br /><br />
+<div align="center">
+  <table width="40%" cellspacing= "0" border="1" cellpadding="4">
+<tr>
+  <td>Packagename</td>
+  <td><%=h @packagemaster.name %></td>
+</tr>
+
+<tr>
+  <td>Packagecode</td>
+  <td><%=h @packagemaster.code %></td>
+</tr>
+
+<tr>
+  <td>Noofdays</td>
+  <td><%=h @packagemaster.no_of_days %></td>
+</tr>
+
+<tr>
+  <td>Packagefromdate</td>
+  <td><%=h @packagemaster.from_date %></td>
+</tr>
+
+<tr>
+  <td>Todate</td>
+  <td><%=h @packagemaster.to_date %></td>
+</tr>
+
+<tr>
+  <td>Service</td>
+  <td><%=h @packagemaster.service %></td>
+</tr>
+</table>
+</div>
+<br />
+
+<%= link_to 'Back', packagemasters_path %>

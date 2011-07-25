@@ -1,0 +1,44 @@
+<h3>Listing Wards</h3>
+<br/>
+<br/>
+<div align="center" width="100%">
+  <table width="60%">
+  <table width="20%"  cellspacing="0" border="1" cellpadding="4">
+  
+
+  <tr>
+     <th>floormaster_id</th>
+    <th>Name</th>
+    <th>Code</th>
+	<th>Cost</th>
+	<th>Status</th>
+    <th>Incharge</th>
+	<th>Show</th>
+	 <th>Edit</th>
+	 <th>Del</th>
+  </tr>
+
+<% @wardmasters.each do |wardmaster| %>
+<% if((wardmaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+		 end %>
+  <tr>
+  <td class='<%= id %>'><%=h wardmaster.floormaster_id %></td>
+    <td class='<%= id %>'><%=h wardmaster.name %></td>
+    <td class='<%= id %>'><%=h wardmaster.code %></td>
+	<td class='<%= id %>'><%=h wardmaster.cost %></td>
+	<td class='<%= id %>'><%=h wardmaster.status %></td>
+    <td class='<%= id %>'><%=h wardmaster.incharge %></td>
+    <td class='<%= id %>'><%= link_to "show", wardmaster %></td>
+    <td class='<%= id %>'><%= link_to "edit", edit_wardmaster_path(wardmaster) %></td>
+    <td class='<%= id %>'><%= link_to "trash", wardmaster, :confirm => 'Are you sure?', :method => :delete %></td>
+ 
+</tr>
+<% end %>
+</table>
+</div>
+
+<br/>
+<%= link_to 'Create New Ward', new_wardmaster_path %>

@@ -1,0 +1,41 @@
+<h3>Listing itemmasters</h3>
+<br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Itemlevel1code</th>
+    <th>Itemlevel2code</th>
+    <th>Itemlevel3code</th>
+    <th>Itemcode</th>
+    <th>Itemname</th>
+    <th>Ismedicalitem</th>
+    <th>Isseasonableitem</th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Destroy</th>
+  </tr>
+
+<% @itemmasters.each do |itemmaster| %>
+	<% if((itemmaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h itemmaster.item_level1_code %></td>
+    <td class='<%= id %>'><%=h itemmaster.item_level2_code %></td>
+    <td class='<%= id %>'><%=h itemmaster.item_level3_code %></td>
+    <td class='<%= id %>'><%=h itemmaster.item_code %></td>
+    <td class='<%= id %>'><%=h itemmaster.item_name %></td>
+    <td class='<%= id %>'><%=h itemmaster.is_medical_item %></td>
+    <td class='<%= id %>'><%=h itemmaster.is_seasonable_item %></td>
+    <td class='<%= id %>'><%= link_to 'Show', itemmaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_itemmaster_path(itemmaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', itemmaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New itemmaster', new_itemmaster_path %>

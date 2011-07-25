@@ -1,0 +1,32 @@
+<h1>Listing testresults</h1>
+
+<table>
+  <tr>
+    <th>Opbilling1</th>
+    <th>Sno</th>
+    <th>Testcode</th>
+    <th>Testname</th>
+    <th>Fee</th>
+    <th>Concessin</th>
+    <th>Totalfee</th>
+  </tr>
+
+<% @testresults.each do |testresult| %>
+  <tr>
+    <td><%=h testresult.opbilling1_id %></td>
+    <td><%=h testresult.s_no %></td>
+    <td><%=h testresult.test_code %></td>
+    <td><%=h testresult.test_name %></td>
+    <td><%=h testresult.fee %></td>
+    <td><%=h testresult.concessin %></td>
+    <td><%=h testresult.total_fee %></td>
+    <td><%= link_to 'Show', testresult %></td>
+    <td><%= link_to 'Edit', edit_testresult_path(testresult) %></td>
+    <td><%= link_to 'Destroy', testresult, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New testresult', new_testresult_path %>

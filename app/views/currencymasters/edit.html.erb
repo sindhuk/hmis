@@ -1,0 +1,22 @@
+<h3>Editing CurrencyMaster</h3>
+<div align="center" width="90%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+<% form_for(@currencymaster) do |f| %>
+  <%= f.error_messages %>
+ 
+		<tr><td> 
+		<%= f.label :name %></td>
+		<td><%= f.text_field :name %></td>
+		</tr>
+  <tr><td> 
+    <%= f.label :code %></td>
+    <td> <%= f.text_field :code %>
+ </td> </tr>  
+
+ </table>
+<br/>
+<%= f.submit 'Update' %>
+</div>
+<% end %>
+ <br/>
+<%= link_to 'Back', currencymasters_path %>

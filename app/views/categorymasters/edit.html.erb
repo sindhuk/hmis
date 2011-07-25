@@ -1,0 +1,27 @@
+<h3>Editing CategoryMaster</h3>
+<% form_for(@categorymaster) do |f| %>
+  <%= f.error_messages %>
+<br/><br/>
+  <div align="center"  width="100%">
+  <table width="20%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+	<td><%= f.label :code %></td>
+    <td><%= f.text_field :code %></td>
+  </tr>
+   <tr>
+	<td><%= f.label :name %></td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+	<td><%= f.label :status %></td>
+    <td><%= f.text_field :status %></td>
+  </tr>
+  <tr>
+  </table>
+  <br/><br/>
+  <%= f.submit 'Update' %>
+<% end %>
+</div>
+
+<%= link_to 'Back', categorymasters_path %>
+

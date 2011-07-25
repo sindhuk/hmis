@@ -1,0 +1,36 @@
+<div align="center" width="90%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+<tr>
+<td>
+Department_code</td>
+  <td> 
+  <%=h @stockpointmaster.department_code %>
+</td>  
+
+<td>
+  Department_name</td>
+  <td> 
+  <%=h @stockpointmaster.department_name %>
+</td>  </tr>
+
+<tr><td>
+ Stock_point_name</td>
+  <td> 
+  <%=h @stockpointmaster.stock_point_name %>
+</td>  </tr>
+
+<tr>
+  <td>Stock_point_type:</td>
+  <td> 
+  <%=h @stockpointmaster.stock_point_type %>
+</td>  </tr>
+
+<tr><td>
+  Status:</b></td>
+  <td> 
+  <%=h @stockpointmaster.status %>
+</td>  </tr>
+
+
+<table/></div>
+<%= link_to 'Back', citymasters_path %>

@@ -1,0 +1,2 @@
+module LoantypemastersHelper
+end

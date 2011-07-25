@@ -1,0 +1,20 @@
+<h1>Editing patent</h1>
+
+<% form_for(@patent) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :d_name %><br />
+    <%= f.text_field :d_name %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @patent %> |
+<%= link_to 'Back', patents_path %>

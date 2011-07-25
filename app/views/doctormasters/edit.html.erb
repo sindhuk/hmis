@@ -1,0 +1,76 @@
+<h3>Editing doctormaster</h3>
+
+<% form_for(@doctormaster) do |f| %>
+  <%= f.error_messages %>
+</td></td></td>
+<div align="center" width="90%">
+<table width="80%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr><td>Doctorname</td>
+    <td><%= f.text_field :doctorname %>
+  </td>
+  <td>
+    Doctorcode</td>
+    <td><%= f.text_field :doctorcode %>
+  </td>
+  </tr><tr>
+  <td>
+    Doctordesignation </td>
+    <td><%= select "doctormaster", "doctordesignation", Designationmaster.find(:all).collect {|p| [ p.name] }, {:include_blank => false} %></td>
+
+  <td>
+doctordepartment </td>
+      <td><%= select "doctormaster", "doctordepartment", Departmentmaster.find(:all).collect {|p| [ p.name] }, {:include_blank => false} %>
+  </td></tr>
+  
+   <td>
+    <%= f.label :doctorfee %></td>
+    <%= f.text_field :doctorfee %>
+  </td>
+  
+  <td>
+    <%= f.label :address %></td>
+    <%= f.text_field :address %>
+  </td>
+  <td>
+    <%= f.label :city %></td>
+    <%= select "doctormaster", "city", Citymaster.find(:all).collect {|p| [ p.cityname] }, {:include_blank => false} %>
+  </td>
+  <td>
+    <%= f.label :state %></td>
+    <%= select "doctormaster", "state", Statemaster.find(:all).collect {|p| [ p.statename] }, {:include_blank => false} %>
+  </td>
+  <td>
+    <%= f.label :country %></td>
+   <td> <%= select "doctormaster", "country", Countrymaster.find(:all).collect {|p| [ p.country] }, {:include_blank => false} %>
+  </td>
+  <td>
+    <%= f.label :pincode %></td>
+    <%= f.text_field :pincode %>
+  </td>
+  <td>
+    <%= f.label :mobileno %></td>
+    <%= f.text_field :mobile_no %>
+  </td>
+  <td>
+    <%= f.label :consultingroom %></td>
+    <%= f.text_field :consultingroom %>
+  </td>
+  <td>
+    <%= f.label :consultingtype %></td>
+    <%= f.radio_button :consultingtype, :IP, :checked => true %>IP
+	<%= f.radio_button :consultingtype, :OP %>OP
+	<%= f.radio_button :consultingtype, :BOTH %>BOTH
+  </td>
+  <td>
+    <%= f.label :paymenttype %></td>
+    <%= f.radio_button :paymenttype, :Salary, :checked => true %>Salary
+	<%= f.radio_button :paymenttype, :Percentage %>Percentage
+	<%= f.radio_button :paymenttype, :BOTH %>BOTH
+  </td>
+  <td>
+    <%= f.submit 'Update' %>
+  </td>
+<% end %>
+
+<%= link_to 'Show', @doctormaster %> |
+<%= link_to 'Back', doctormasters_path %>

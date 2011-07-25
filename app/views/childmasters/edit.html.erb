@@ -1,0 +1,32 @@
+<h1>Editing childmaster</h1>
+
+<% form_for(@childmaster) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :profilemaster_id %><br />
+    <%= f.text_field :profilemaster_id %>
+  </p>
+  <p>
+    <%= f.label :list %><br />
+    <%= f.text_field :list %>
+  </p>
+  <p>
+    <%= f.label :view %><br />
+    <%= f.text_field :view %>
+  </p>
+  <p>
+    <%= f.label :edit %><br />
+    <%= f.text_field :edit %>
+  </p>
+  <p>
+    <%= f.label :remove %><br />
+    <%= f.text_field :remove %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @childmaster %> |
+<%= link_to 'Back', childmasters_path %>

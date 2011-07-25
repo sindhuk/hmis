@@ -1,0 +1,63 @@
+<h1>Listing goodsrecieptnotemasters</h1>
+<br/><br/><br/>
+  <div align="center"  width="100%">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Grnnumber</th>
+    <th>Grndate</th>
+    <th>Ponumber</th>
+    <th>Podate</th>
+    <th>Vendorcode</th>
+    <th>Invoicenumber</th>
+    <th>Invoicedate</th>
+    <th>Stackpointcode</th>
+    <th>Satckpointname</th>
+    <th>Itemcode</th>
+    <th>Itemname</th>
+    <th>Batchno</th>
+    <th>Expirydate</th>
+    <th>Quantity</th>
+    <th>Purchaserate</th>
+    <th>Purchaseamount</th>
+    <th>Salerate</th>
+    <th>Saleamount</th>
+	<th>Show</th>
+	 <th>Edit</th>
+	 <th>Del</th>
+  </tr>
+
+<% @goodsrecieptnotemasters.each do |goodsrecieptnotemaster| %>
+     <% if((departmentmaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h goodsrecieptnotemaster.grn_number %></td>
+    <td class='<%= id %>'><%=h goodsrecieptnotemaster.grn_date %></td>
+    <td class='<%= id %>'><%=h goodsrecieptnotemaster.po_number %></td>
+    <td class='<%= id %>'><%=h goodsrecieptnotemaster.po_date %></td>
+    <td class='<%= id %>'><%=h goodsrecieptnotemaster.vendor_code %></td>
+    <td class='<%= id %>'><%=h goodsrecieptnotemaster.invoice_number %></td>
+    <td class='<%= id %>'><%=h goodsrecieptnotemaster.invoice_date %></td>
+    <td class='<%= id %>'><%=h goodsrecieptnotemaster.stack_point_code %></td>
+    <td class='<%= id %>'><%=h goodsrecieptnotemaster.satck_point_name %></td>
+    <td class='<%= id %>'><%=h goodsrecieptnotemaster.item_code %></td>
+    <td class='<%= id %>'><%=h goodsrecieptnotemaster.item_name %></td>
+    <td class='<%= id %>'><%=h goodsrecieptnotemaster.batch_no %></td>
+    <td class='<%= id %>'><%=h goodsrecieptnotemaster.expiry_date %></td>
+    <td class='<%= id %>'><%=h goodsrecieptnotemaster.quantity %></td>
+    <td class='<%= id %>'><%=h goodsrecieptnotemaster.purchase_rate %></td>
+    <td class='<%= id %>'><%=h goodsrecieptnotemaster.purchase_amount %></td>
+    <td class='<%= id %>'><%=h goodsrecieptnotemaster.sale_rate %></td>
+    <td class='<%= id %>'><%=h goodsrecieptnotemaster.sale_amount %></td>
+    <td class='<%= id %>'><%= link_to 'Show', goodsrecieptnotemaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_goodsrecieptnotemaster_path(goodsrecieptnotemaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', goodsrecieptnotemaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New goodsrecieptnotemaster', new_goodsrecieptnotemaster_path %>

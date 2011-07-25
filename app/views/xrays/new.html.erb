@@ -1,0 +1,77 @@
+<h1>New xray</h1>
+<script type="text/javascript">
+    function check_val()
+	{
+		len=document.getElementById('reg').value
+		if(len.length==5)
+		{
+			window.location='http://localhost:3000/xrays/new?reg='+len
+		}	
+	}
+</script>
+<% form_for(@xray) do |f| %>
+  <%= f.error_messages %>
+  <%= image_tag("hea.jpg") %><br>
+  <%= image_tag("banner.jpg") %>
+  <p>
+ <table>
+ <tr>
+    <td><%= f.label :registration_id %></td>
+    <td><%= f.text_field :registration_id, :id => "reg", :onKeyUp => "check_val()"  %></td>
+    <td><%= f.label :mr_no %></td>
+    <td><%= f.text_field :mr_no %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :bill_no %></td>
+    <td><%= f.text_field :bill_no %></td>
+    <td><%= f.label :patient_name %></td>
+    <td><%= f.text_field :patient_name %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :test_date %></td>
+    <td><%= f.date_select :test_date %></td>
+    <td><%= f.label :x_ray_name %></td>
+    <td><%= f.text_field :x_ray_name %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :remark_1 %></td>
+    <td><%= f.text_field :remark_1 %></td>
+    <td><%= f.label :remark_2 %></td>
+    <td><%= f.text_field :remark_2 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :remark_3 %></td>
+    <td><%= f.text_field :remark_3 %></td>
+    <td><%= f.label :remark_4 %></td>
+    <td><%= f.text_field :remark_4 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :remark_5 %></td>
+    <td><%= f.text_field :remark_5 %></td>
+    <td><%= f.label :remark_6 %></td>
+    <td><%= f.text_field :remark_6 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :remark_7 %></td>
+    <td><%= f.text_field :remark_7 %></td>
+    <td><%= f.label :remark_8 %><br /></td>
+    <td><%= f.text_field :remark_8 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :remark_9 %></td>
+    <td><%= f.text_field :remark_9 %></td>
+    <td><%= f.label :remark_10 %></td>
+    <td><%= f.text_field :remark_10 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :remark_11 %></td>
+    <td><%= f.text_field :remark_11 %></td>
+    <td><%= f.label :opinion %></td>
+    <td><%= f.text_field :opinion %></td>
+  </tr>
+  </table>
+    <%= f.submit 'Create' %>
+
+<% end %>
+
+<%= link_to 'Back', xrays_path %>

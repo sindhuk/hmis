@@ -1,0 +1,253 @@
+<%= stylesheet_link_tag 'css' %>
+<%= javascript_include_tag 'ezcalendar.js' %>
+<%= javascript_include_tag :defaults %>
+<script type="text/javascript">
+   	function check_val()
+	{
+			len=document.getElementById('mrno').value
+			if(len.length==5)
+			{
+				window.location='http://localhost:3000/consultationforms/new?mrno='+len
+			}	
+		
+	}
+	function checked_val(el)
+	{
+		
+		document.getElementById('bankname').disabled=true
+		document.getElementById('chequeno').disabled=true
+		document.getElementById('cardno').disabled=true
+		document.getElementById('consultationform_expiry_date_2i').disabled = true
+		document.getElementById('consultationform_expiry_date_1i').disabled = true	
+		if(document.getElementById(el).value=="cheque")
+		{
+			document.getElementById('bankname').disabled=false
+			document.getElementById('chequeno').disabled=false
+		}
+		else if (document.getElementById(el).value=="card")
+		{
+			document.getElementById('cardno').disabled=false
+			document.getElementById('consultationform_expiry_date_2i').disabled = false
+			document.getElementById('consultationform_expiry_date_1i').disabled = false
+			
+		}
+	}
+	function calculate()
+	{
+		var l,k,m,n;
+		m=parseInt(document.getElementById("fe").value);
+		l=parseInt(document.getElementById("conc").value);
+		var amount=m-(m*(l/100));
+		var reciept_amount=document.getElementById("reciept_amount").value
+		document.getElementById("rcpt").value=amount 
+		document.getElementById("du").value=amount-reciept_amount
+		
+	}
+	function checked_print(el,v2,v3) 
+	{
+		
+		if(el=="department")
+		{
+			
+			var hi=v2
+			var h2=v3
+			var selObj = document.getElementById(el);
+			var value_glo= selObj.options[selObj.selectedIndex].index;
+			var temp=new Array()
+			temp=hi.split(",")
+			document.getElementById('docname').value=temp[value_glo]
+			temp=h2.split(",")
+			document.getElementById('fe').value=temp[value_glo]
+		}
+		
+	}
+	function calculate_date()
+	{
+		today_date = new Date();
+		document.getElementById('date').value=today_date
+	}
+	function date_value()
+	{
+		var currentTime=new Date();
+		var month = currentTime.getMonth() + 1
+		var day = currentTime.getDate()
+		var year = currentTime.getFullYear()
+		var hours = currentTime.getHours()
+		var minutes = currentTime.getMinutes()
+		var date_string=day +"."+ month + "." + year+"      "+hours+":"+minutes
+		document.getElementById('consultation_date').value=date_string;
+		document.getElementById('receipt_date').value=date_string;
+	}
+	var selectedid;
+	var query
+	//var array1 = new Array("rno", "name","rec_no","bgroup");
+	function ajaxSearch(id) 
+	{
+		var selObj = document.getElementById(id);
+		query = selObj.options[selObj.selectedIndex].value
+		selectedid=id
+		ajax()
+	}
+	
+	function ajax()
+	{
+		req = new Ajax.Request('/consultationforms/ajax_buildings/1', 
+			{
+				method: 'get',
+				parameters: {q: query, type: selectedid},
+				onComplete: function(transport){
+					processReqChange(transport);
+					}
+			}); // end ajax req
+		function processReqChange(req) 
+		{
+			// request is complete
+			if (req.readyState == 4) 
+			{
+			
+				var results = req.responseText;
+				var temp=new Array
+				temp=results.split(",")
+				if(selectedid=="depart")
+				{
+				document.getElementById('docname').value=temp[0]
+				document.getElementById('fe').value=temp[1]
+				
+				}
+				else 
+				{	
+				 for(var i=0;i<array1.length;i++)
+				 {
+					document.getElementById(array1[i]).value=temp[i]
+					document.getElementById(array1[i]).style.background="#FEF5CA"
+					document.getElementById(array1[i]).readOnly=true
+				 }
+				}		
+				//addRowToTable(query,results)
+			} // end if req == 4
+		}
+	}	
+	function mrfun()
+	{
+		var mrval=document.getElementById('mr_no').value
+		if(mrval.length==9)
+		{
+			query=document.getElementById('mr_no').value
+			selectedid="mr_no"
+			ajax()
+		}
+	}
+	var array1=new Array("name","lname","fname","gender","age","address","consultation","val")
+	
+</script>
+<body onload="date_value()"> 
+<% form_for(@consultationform) do |f| %>
+  <%= f.error_messages %>
+<div  width="100%">
+<table align="center" width="90%" cellpadding="3" cellspacing="0">
+ 
+	<tr>
+		<td colspan="3"><font size="4" color="#963">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Consultation Information</font></td>
+	</tr>
+	<tr>
+		<td>MR No</td>
+		<td><%= f.text_field :mr_no, :id => "mr_no", :onKeyUp => "mrfun()", :size => 20 %></td>
+   		<td>Date</td>
+		<td><%= f.text_field :date_of_consultation , :id=>"consultation_date", :size => 20 %></td>
+   		<td><%= f.label :last_visit_date %></td>
+		<td><%= f.text_field :last_visit_date, :size => "20", :id => "date" %> <%= link_to image_tag ("cal.gif", :border=>0), "javascript: showCalendar('date')" %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :consultation_no %></td>
+		<td><%= f.text_field :consultation_no, :size => 20, :id => "consultation" %></td>
+		<td><%= f.label :first_name %></td>
+		<td><%= f.text_field :first_name, :size => 20, :id => "name" %></td>
+		<td><%= f.label :last_name %></td>
+		<td><%= f.text_field :last_name, :size => 20, :id=> "lname" %></td>
+	</tr>
+	<tr>	
+		<td><%= f.label :father_name %></td>
+		<td><%= f.text_field :father_name, :size => 20, :id => "fname" %></td>
+		<td><%= f.label :gender %></td>
+		<td><%= f.text_field :gender, :id => "gender"  %></td>
+	    <td> <%= f.label :age %></td>
+	    <td> <%= f.text_field :age, :size => 20, :id => "age" %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :address %></td>
+		<td><%= f.text_field :address, :size => 20, :id => "address" %></td>
+  		<td><%= f.label :department %></td>
+		<td><%= f.select :department, Doctormaster.find(:all).collect{|p| [p.department] },{ :include_blank => false },{:id => "depart", :onchange => "ajaxSearch(id)"} %></td>
+		<td><%= f.label :doctor_name %></td>
+		<td><%= f.text_field :doctor_name , :id => "docname", :size => 20%></td>
+	</tr>
+	<tr>	
+		<td><%= f.label :fee %></td>
+		<td><%= f.text_field :fee , :id => "fe", :size => 20%></td>
+	</tr>
+	
+	<tr>
+   		<td><%= f.label :cheif_complaint %></td>
+		<td colspan="6"><%= f.text_area :cheif_complaint , :cols => 55, :rows => 3%></td>
+	</tr>
+	<tr>
+		<td colspan="3"><font size="4" color="#963">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reciept Information</font></td>
+	</tr>
+	<tr>	
+		<td><%= f.label :receipt_no %></td>
+		<td><%= f.text_field :receipt_no, :size => 20, :id => "val" %></td>
+		<td><%= f.label :receipt_date %></td>
+		<td><%= f.text_field :receipt_date, :size => 20, :id => "receipt_date" %></td>
+		<td><%= f.label :receipt_amount %></td>
+		<td><%= f.text_field :receipt_amount, :size => 20, :id =>"reciept_amount" %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :payment_mode %></td>
+		<td><%= f.radio_button :payment_mode, "cash", :checked =>true, :id => "button1" , :onchange => "checked_val(id)" %>cash
+			<%= f.radio_button :payment_mode, "cheque", :id => "button2" ,:onchange => "checked_val(id)"%>cheque
+			<%= f.radio_button :payment_mode, "card", :id => "button3" ,:onchange => "checked_val(id)"%>card
+		</td>
+		<td><%= f.label :bank_name %></td>
+		<td><%= f.text_field :bank_name, {:disabled => "true" , :id => "bankname", :size => 20} %></td>
+		<td><%= f.label :cheque_no %></td>
+		<td><%= f.text_field :cheque_no, {:disabled => "true" ,:id => "chequeno", :size => 20} %></td>
+	</tr>
+	<tr> 
+		<td><%= f.label :card_number %></td>
+		<td><%= f.text_field :card_number, {:disabled => "true", :size => 20 ,:id => "cardno"}  %></td>
+		<td><%= f.label :expiry_date %></td>
+		<td><%= f.date_select :expiry_date, :prompt => {:month => 'Month', :year => 'Year' },:discard_day => true,:start_year => 2010, :order => [:month,:year], :disabled => true %></td>
+		<td><%= f.label :concession %></td>
+		<td><%= f.text_field :concession, :id => "conc", :size => 20, :onkeyUp => "calculate()" %></td>
+	</tr>
+	<tr> 
+		<td><%= f.label :ref %></td>
+		<td><%= f.select :ref,Employeemaster.find(:all).collect{|p| [p.name]} %></td>
+		<td><%= f.label :reciept %></td>
+		<td><%= f.text_field :reciept, :id => "rcpt" , :size => 20   %></td>
+		<td><%= f.label :due %></td>
+		<td><%= f.text_field :due, :id => "du", :size => 20 %></td>	
+	</tr>
+    <tr>	
+		<td>Doctor Ref</td>
+		<td><%= f.select :d_ref,Employeemaster.find(:all).collect{|p| [p.name]} %></td>
+	</tr>
+	
+    <tr>
+ 		<td><%= f.label :remarks %></td>
+		<td colspan="6"><%= f.text_area :remarks , :cols => 55, :rows => 3%></td>
+   </tr> 
+   
+</table>
+
+<br/>
+	<center><%= f.submit 'Save' %>
+	 <%= f.submit 'Reset',  :type => "reset" %></center>
+</div>  
+<% end %>
+
+<br/>
+<%= link_to 'Show', consultationforms_path %>
+
+</body>
+  

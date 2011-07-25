@@ -1,0 +1,52 @@
+
+<br/>
+<div align="center" width="100%">
+<table width="100%" cellpadding="2" cellspacing="0">
+  <tr bgcolor =" #378bf8" style="color:white">
+    <th>Consultaion No</th>
+	<th>Dateofconsultation</th>
+	<th>LastVisitDate</th>
+    <th>Mrno</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Fathername</th>
+    <th>Doctorname</th>
+    <th>receipt_no</th>
+	<th>receipt_date</th>
+	<th colspan="3">Permissions</th>
+  </tr>
+
+<% @consultationforms.each do |consultationform| %>
+<% if((consultationform.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+	<td class='<%= id %>'><%=h consultationform.consultation_no %></td>
+	<td class='<%= id %>'><%=h consultationform.date_of_consultation %></td>
+	<td class='<%= id %>'><%=h consultationform.last_visit_date %></td>
+    <td class='<%= id %>'><%=h consultationform.mr_no %></td>
+    <td class='<%= id %>'><%=h consultationform.first_name %></td>
+    <td class='<%= id %>'><%=h consultationform.last_name %></td>
+    <td class='<%= id %>'><%=h consultationform.father_name %></td>
+    <td class='<%= id %>'><%=h consultationform.department %></td>
+    <td class='<%= id %>'><%=h consultationform.receipt_no %></td>
+	<td class='<%= id %>'><%=h consultationform.receipt_date %></td>
+	<% if @value[1]==49 %>
+	<td class='<%= id %>'><%= link_to 'Show', consultationform%></td>
+	<% end %>
+	<% if @value[2]==49 %>
+	<td class='<%= id %>'><%= link_to 'Edit', edit_consultationform_path(consultationform)%></td>
+	<% end %>
+	<% if @value[3]==49 %>
+	<td class='<%= id %>'><%= link_to 'Destroy', consultationform, :confirm => 'Are you sure?', :method => :delete%></td>
+	<% end %>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+<% if @value[0]==49 %>
+ <%= link_to 'New', new_consultationform_path%></td>
+<% end %>

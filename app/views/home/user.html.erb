@@ -1,0 +1,27 @@
+<html>
+<head>
+</head>
+<body style=" margin:0 auto;overflow:hidden;" SCROLL="no">
+	<div id="flowernote" style="width:100%; height:7%; background-color:#507aaa; color:white; margin:0 auto;">
+		<div id="flowernote" style="position:absolute; left: 5px; top:20px; width:400px; height:30px; color:white; font-size :18px; font-face :Calibri; ">
+				Hospital Management System-MediEaz
+		</div>
+		<div id="flowernote" style="position:absolute; right: 5px; top:20px; width:450px; height:30px; color:white; font-size :18px; font-face :Calibri; ">
+			<%= @user_name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search <%= text_field("search", "sea", :size =>15) %>&nbsp;&nbsp;&nbsp;<%= link_to "Logout", @application_session, :style => "color :white", :method => :delete %>
+		</div>	
+	</div>
+	<div id="flowernote" style="position:absolute;  width:17%; height:90%; background-color:#DDDDDD; color:white; margin:0 auto;">
+		<iframe src="http://localhost:3000/home/user_home" style="width:100%; height:100%;background-color:#DDDDDD; margin:0 auto;overflow:auto; ">
+	</iframe>
+	</div>
+
+	<div id="flowernote2" style="position:absolute; left: 16%; width:84%; height:90%; background-color:#ecf3f7; color:white; margin:0 auto;">
+		<iframe id="home" scrolling="AUTO" style="width:100%; height:100%;background-color:#ecf3f7; margin:0 auto; marginwidth=0; marginheight=0; hspace=0;  ">
+			<%= image_tag ("Exleaz Background-best.jpg", :size => "1070x615") %>
+		</iframe>
+		<div id="flowernote2" style="position:absolute; width:100%; height:2%; background-color:white; color:green">
+			<center><font size=2 >All Copyrights&copy; Resrved to MediEaz</font></center> 
+		</div>
+	</div>
+</body>
+</html>

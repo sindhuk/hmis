@@ -1,0 +1,64 @@
+<h3>New Stock point</h3>
+
+<script type="text/javascript">
+
+
+	function checked_print(el,v2) 
+	{
+		var hi=v2
+		var selObj = document.getElementById(el);
+		var value_glo= selObj.options[selObj.selectedIndex].index;
+		var temp=new Array()
+		temp=hi.split(",")
+		document.getElementById('deptname').value=temp[value_glo]
+	}
+</script>
+<% form_for(@stockpointmaster) do |f| %>
+  <%= f.error_messages %>
+	<div align="center" width="100%">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+			<tr>
+  <% @deptname="" %>
+  <% depcode=Departmentmaster.find(:all).collect { |p| [p.name] } %>
+	<% for i in 0...depcode.length
+		@deptname<<depcode[i].to_s
+		@deptname<<","
+	  end %>
+  <tr><td>
+    <%= f.label :department_code %></td>
+  <td>
+    <%= select "stockpointmaster","department_code", Departmentmaster.find(:all).collect {|p| [p.code] },{ :include_blank => false },{ :id => "deptcode", :onchange => "checked_print(id,'#{@deptname}')" } %>
+  </td>  <tr/>
+  <tr><td>
+    <%= f.label :department_name %></td>
+  <td>
+    <%= f.text_field :department_name, :id => "deptname" %>
+  </td>  <tr/>
+  <tr><td>
+    <%= f.label :stock_point_name %></td>
+  <td>
+    <%= f.text_field :stock_point_name %>
+  </td>  <tr/>
+ <tr><td>
+    <%= f.label :stock_point_type %></td>
+  <td>
+    <%= f.text_field :stock_point_type %>
+  </td>  <tr/>
+  <tr><td>
+    <%= f.label :status %></td>
+  <td>
+    <%= f.text_field :status %>
+  </td>  <tr/></table>
+  <%= link_to_remote( "click here",
+                         :update => "time_div",
+                         :url =>{ :action => :say_when, :P => @parent.name }
+      
+       ) %>
+  <%= f.submit 'Create' %>
+  
+<% end %>
+
+
+</div>
+<%= link_to 'show', stockpointmasters_path %>
+

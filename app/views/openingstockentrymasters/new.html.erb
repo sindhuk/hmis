@@ -1,0 +1,60 @@
+<h3>New Openingstockentrymaster</h3>
+<script type="text/javascript">
+	function checked_print(el,v2) 
+	{
+		
+		var hi=v2
+		var selObj = document.getElementById(el);
+		var value_glo= selObj.options[selObj.selectedIndex].index;
+		var temp=new Array()
+		temp=hi.split(",")
+		document.getElementById('itemname').value=temp[value_glo]
+	}
+</script>
+<% form_for(@openingstockentrymaster) do |f| %>
+  <%= f.error_messages %>
+<br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+	  <% @iname="" %>
+  <% icode=Itemmaster.find(:all).collect { |p| [p.item_name] } %>
+	<% for i in 0...icode.length
+		@iname<<icode[i].to_s
+		@iname<<","
+	  end %>
+ <tr><td>item_code </td>
+    <td><%= f.select :item_code,  Itemmaster.find(:all).collect {|p| [ p.item_code]},{ :include_blank => false },{:id => "itemcode",:onchange => "checked_print(id,'#{@iname}')"}  %></td>
+  <td>   <%= f.label :item_name %></td>
+   <td><%= f.text_field :item_name, :id => "itemname" %></td>
+  </tr>
+  <tr>
+  <td>batch_number</td>
+    <td><%= f.text_field :batch_number %></td>
+	<td>expiry_date</td>
+    <td><%= f.date_select :expiry_date %></td>
+  </tr>
+  <tr>
+  <td>quantity</td>
+    <td><%= f.text_field :quantity %></td>
+ <td>purchase_date</td>
+    <td><%= f.date_select :purchase_date %></td>
+  </tr>
+  <tr><td>purchase_amount </td>
+    <td><%= f.text_field :purchase_amount %></td>
+     <td>sale_rate</td>
+    <td><%= f.text_field :sale_rate %></td>
+  </tr><tr><td>sale_amount</td>
+     <td><%= f.text_field :sale_amount %></td>
+     <td>discount_amount</td>
+     <td><%= f.text_field :discount_amount %></td>
+  </tr>
+ 
+ 
+</table>
+<br />
+<%= f.submit 'Create' %>
+
+</div>
+<% end %>
+<br />
+<%= link_to 'Show', openingstockentrymasters_path %>

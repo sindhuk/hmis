@@ -1,0 +1,107 @@
+<%= javascript_include_tag :defaults %>
+<script type="text/javascript"> 
+//Fill the fields In Based on the entering MR_NUMBER
+    var query1=""
+	function ajaxSearch() 
+	{
+		 query1= document.getElementById('rno').value
+		 
+			if( query1.length==9 ) 
+						{
+						alert(query1)
+				Ajax_Code()
+			}
+	}
+		
+	//Ajax Code
+	function Ajax_Code()
+	{
+		req = new Ajax.Request('/ipadmissions/ajax_buildings/1', {
+			method: 'get',
+			parameters: { q: query1  },
+			onComplete: function(transport) {
+			processReqChange(transport);
+			}
+
+	}); 
+	function processReqChange(req) 
+		{
+			// request is complete
+			if (req.readyState == 4) 
+			{
+				var results = req.responseText;
+				alert(results)
+				var temp=new Array()
+				temp=results.split(",")
+				document.getElementById('name').value=temp[0]
+					document.getElementById('regno').value=temp[1]
+					document.getElementById('fname').value=temp[2]
+		}
+     }		
+	}
+	</script>
+<br/><br/><br/><br/>
+
+ <div align="center" width="100%">
+<table width="60%" cellpadding="4" cellspacing="0"> <tr>
+ 
+<% form_for(@retain_bed) do |f| %>
+  <%= f.error_messages %>
+<tr><td colspan="4">Retain Bed</td></tr>
+  <tr><td>
+    <%= f.label :mr_no %></td>
+	<td><%= f.text_field :mr_no,:id => "rno", :onKeyUp => "ajaxSearch()" %></td>
+	<td><%= f.label :reg_no %></td>
+	<td><%= f.text_field :reg_no ,:id => "regno" %></td>
+</tr>
+  
+  <tr>
+    <td><%= f.label :patient_name %></td>
+	<td><%= f.text_field :patient_name,:id => "name" %></td>
+	<td><%= f.label :father_name %></td>
+	<td><%= f.text_field :father_name,:id => "fname" %></td>
+  </tr>
+  
+  <tr>
+  <td><%= f.label :floor %></td>
+  <td><%= f.text_field :floor %></td>
+  <td><%= f.label :ward %></td>
+  <td><%= f.text_field :ward %></td>
+  </tr>
+ 
+  <tr><td>
+    <%= f.label :room %></td><td>
+    <%= f.text_field :room %></td>
+	<td>
+    <%= f.label :bed %></td><td>
+    <%= f.text_field :bed %>
+  </td>
+  </tr>
+  
+  
+  <tr><td>Transfer Bed</td></tr>
+  <tr><td>
+    <%= f.label :transfer_floor %></td><td>
+    <%= f.text_field :transfer_floor %></td><td>
+    <%= f.label :transfer_ward %></td><td>
+    <%= f.text_field :transfer_ward %>
+   </td></tr>
+ 
+  <tr><td>
+    <%= f.label :transfer_room %></td><td>
+    <%= f.text_field :transfer_room %></td><td>
+	<%= f.label :transfer_bed %></td><td>
+    <%= f.text_field :transfer_bed %>
+  </td></tr>
+  
+  <tr><td>
+    <%= f.label :transfer_charge %></td><td>
+    <%= f.text_field :transfer_charge %>
+  </td></tr>
+  </table>
+  <br/>
+    <%= f.submit 'Save' %>
+  </div>
+<% end %>
+<br/>
+<%= link_to 'Show', retain_beds_path %>

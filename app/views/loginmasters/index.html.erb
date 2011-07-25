@@ -1,0 +1,22 @@
+<h1>Listing loginmasters</h1>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Password</th>
+  </tr>
+
+<% @loginmasters.each do |loginmaster| %>
+  <tr>
+    <td><%=h loginmaster.user_name %></td>
+    <td><%=h loginmaster.password %></td>
+    <td><%= link_to 'Show', loginmaster %></td>
+    <td><%= link_to 'Edit', edit_loginmaster_path(loginmaster) %></td>
+    <td><%= link_to 'Destroy', loginmaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New loginmaster', new_loginmaster_path %>

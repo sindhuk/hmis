@@ -1,0 +1,86 @@
+<h1>New patient_fee</h1>
+
+<script type="text/javascript">
+    function check_val()
+	{
+		len=document.getElementById('reg').value
+		if(len.length==5)
+		{
+			window.location='http://localhost:3000/patient_fees/new?reg='+len
+		}	
+	}
+</script>
+
+<% form_for(@patient_fee) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :registration_id %><br />
+    <%= f.text_field :registration_id, :id => "reg", :onKeyUp => "check_val()"  %>
+  </p>
+  <p>
+    <%= f.label :mrno %><br />
+    <%= f.text_field :mr_no %>
+  </p>
+  <p>
+    <%= f.label :billno %><br />
+    <%= f.text_field :bill_no %>
+  </p>
+  <p>
+    <%= f.label :patientname %><br />
+    <%= f.text_field :patient_name %>
+  </p>
+  <p>
+    <%= f.label :receipt_date %><br />
+    <%= f.date_select :receipt_date %>
+  </p>
+  <p>
+    <%= f.label :f_total_fees %><br />
+    <%= f.text_field :f_total_fees %>
+  </p>
+  <p>
+    <%= f.label :w_total_fees %><br />
+    <%= f.text_field :w_total_fees %>
+  </p>
+  <p>
+    <%= f.label :receipt_name %><br />
+    <%= f.text_field :receipt_name %>
+  </p>
+  <p>
+    <%= f.label :dignosios_fees %><br />
+    <%= f.text_field :dignosios_fees %>
+  </p>
+  <p>
+    <%= f.label :xray_fees %><br />
+    <%= f.text_field :xray_fees %>
+  </p>
+  <p>
+    <%= f.label :ecg_fees %><br />
+    <%= f.text_field :ecg_fees %>
+  </p>
+  <p>
+    <%= f.label :lab_test_fees %><br />
+    <%= f.text_field :lab_test_fees %>
+  </p>
+  <p>
+    <%= f.label :gastroscopy_fees %><br />
+    <%= f.text_field :gastroscopy_fees %>
+  </p>
+  <p>
+    <%= f.label :usg_fees %><br />
+    <%= f.text_field :usg_fees %>
+  </p>
+  <p>
+    <%= f.label :indoor_injection_fees %><br />
+    <%= f.text_field :indoor_injection_fees %>
+  </p>
+  <p>
+    <%= f.label :colonoscopy_fees %><br />
+    <%= f.text_field :colonoscopy_fees %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', patient_fees_path %>

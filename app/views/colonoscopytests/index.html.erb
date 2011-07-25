@@ -1,0 +1,54 @@
+<h1>Listing colonoscopytests</h1>
+
+<table>
+  <tr>
+    <th>Registration no</th>
+    <th>Mrno</th>
+    <th>Billno</th>
+    <th>Patientname</th>
+    <th>Test date</th>
+    <th>Anal canal</th>
+    <th>Rectum</th>
+    <th>Sigmoid colon</th>
+    <th>Descending colon</th>
+    <th>Splenic flexure</th>
+    <th>Transverese colon</th>
+    <th>Hepatic flexure</th>
+    <th>Ascending colon</th>
+    <th>Caecum</th>
+    <th>Terminal ileum</th>
+    <th>Biopsy</th>
+    <th>Opinion 1</th>
+    <th>Opinion 2</th>
+  </tr>
+
+<% @colonoscopytests.each do |colonoscopytest| %>
+  <tr>
+    <td><%=h colonoscopytest.registration_no %></td>
+    <td><%=h colonoscopytest.mr_no %></td>
+    <td><%=h colonoscopytest.bill_no %></td>
+    <td><%=h colonoscopytest.patient_name %></td>
+    <td><%=h colonoscopytest.test_date %></td>
+    <td><%=h colonoscopytest.anal_canal %></td>
+    <td><%=h colonoscopytest.rectum %></td>
+    <td><%=h colonoscopytest.sigmoid_colon %></td>
+    <td><%=h colonoscopytest.descending_colon %></td>
+    <td><%=h colonoscopytest.splenic_flexure %></td>
+    <td><%=h colonoscopytest.transverese_colon %></td>
+    <td><%=h colonoscopytest.hepatic_flexure %></td>
+    <td><%=h colonoscopytest.ascending_colon %></td>
+    <td><%=h colonoscopytest.caecum %></td>
+    <td><%=h colonoscopytest.terminal_ileum %></td>
+    <td><%=h colonoscopytest.biopsy %></td>
+    <td><%=h colonoscopytest.opinion_1 %></td>
+    <td><%=h colonoscopytest.opinion_2 %></td>
+    <td><%= link_to 'Show', colonoscopytest %></td>
+    <td><%= link_to 'Edit', edit_colonoscopytest_path(colonoscopytest) %></td>
+    <td><%= link_to 'Destroy', colonoscopytest, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New colonoscopytest', new_colonoscopytest_path %>

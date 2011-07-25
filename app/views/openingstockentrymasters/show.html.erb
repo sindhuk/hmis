@@ -1,0 +1,56 @@
+<h3>Details Of Record </h3>
+<br /><br />
+<div align="center">
+  <table width="40%" cellspacing= "0" border="1" cellpadding="4">
+<tr> <td>Item_code</td>
+  <td><%=h @openingstockentrymaster.item_code %></td>
+
+</tr>
+<tr>
+  <td>Item_name</td>
+  <td><%=h @openingstockentrymaster.item_name %></td>
+</tr>
+
+<tr>
+  <td>Batch_number</td>
+  <td><%=h @openingstockentrymaster.batch_number %></td>
+</tr>
+
+<tr>
+  <td>Expiry_date</td>
+  <td><%=h @openingstockentrymaster.expiry_date %></td>
+</tr>
+
+<tr>
+  <td>Quantity</td>
+  <td><%=h @openingstockentrymaster.quantity %></td>
+</tr>
+
+<tr>
+  <td>Purchase_date</td>
+  <td><%=h @openingstockentrymaster.purchase_date %></td>
+</tr>
+
+<tr>
+  <td>Purchase_amount</td>
+  <td><%=h @openingstockentrymaster.purchase_amount %></td>
+</tr>
+
+<tr>
+  <td>Sale_rate</td>
+  <td><%=h @openingstockentrymaster.sale_rate %></td>
+</tr>
+
+<tr>
+  <td>Sale_amount</td>
+  <td><%=h @openingstockentrymaster.sale_amount %></td>
+</tr>
+
+<tr>
+  <td>Discount_amount</td>
+  <td><%=h @openingstockentrymaster.discount_amount %></td>
+</tr>
+</table>
+</div>
+<br />
+<%= link_to 'Back', openingstockentrymasters_path %>

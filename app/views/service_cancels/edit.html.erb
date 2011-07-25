@@ -1,0 +1,57 @@
+<% form_for(@ip_service_entry) do |f| %>
+  <%= f.error_messages %>
+</br></br></br>
+<div align="center" >
+<table  cellspacing="0" cellpadding="4">
+	         <tr>
+		 	 <td>Mr No </td>
+			 <td><%= f.text_field :mr_no, :size => "20" %></td>
+			 <td>Reg No </td>
+			 <td><%= f.text_field :reg_no, :size => "20" %></td>
+             <td>Service No </td>
+			 <td><%= f.text_field :service_no, :size => "20" %></td></tr>
+			 <tr><td>Patient_name</td>
+			 <td><%= f.text_field :patient_name , :size => "20"%> </td>
+             <td>Doctor</td>
+			 <td><%= f.text_field :doctor, :size => "20" %></td>
+			 <td>Company </td>
+			 <td><%= f.text_field :company, :size => "20" %></td></tr>
+			 <tr><td>Free</td>
+			 <td><%= f.text_field :free, :size => "20" %></td>
+             </tr></table>	
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th>Sno</th>
+    <th>Service name</th>
+    <th>Service code</th>
+    <th>Quantity</th>
+    <th>Rate</th>
+    <th>Concession</th>
+    <th>Amount</th>
+  </tr>		 
+   <% f.fields_for :ip_service do |s| %>
+  	<tr>
+    <td><%= s.text_field :sno, :size => "10", :style => "display:none"%></td>
+    <td><%= s.text_field :service_name,:id => "sname", :style => "display:none" %></td>
+	<td><%= s.text_field :service_code,:id => "scode", :style => "display:none" %></td>
+    <td><%= s.text_field :quantity,:id => "qnty", :style => "display:none" %></td>
+	<td><%= s.text_field :rate,:id => "rate", :style => "display:none" %></td>
+	<td><%= s.text_field :concession, :id => "con", :style => "display:none" %></td>
+	<td><%= s.text_field :amount, :id => "amt", :style => "display:none" %></td>
+     <% end %>
+	</tr></table>
+	<table><tr>	
+			<td>Grossamount </td>
+			<td><%= f.text_field :grossamount, :size => "20" %>
+         	<td>Concession</td>
+			<td><%= f.text_field :concession, :size => "20" %></td>
+			<td>Netamount </td>
+			<td><%= f.text_field :netamount, :size => "20" %> </td>
+         </tr></table><br>
+ 
+    <%= f.submit 'Update' %>
+ </div>
+<% end %>
+
+<%= link_to 'Show', @service_cancel %> |
+<%= link_to 'Back', service_cancels_path %>

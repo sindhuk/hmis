@@ -1,0 +1,37 @@
+<h3>Showing Shift</h3>
+<div align="center" width="90%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr><td>
+  <b>Shiftcode:</b></td>
+  <td> 
+  <%=h @shiftmaster.code %>
+</td>  <tr/>
+
+<tr><td>
+  <b>Shiftname:</b></td>
+  <td> 
+  <%=h @shiftmaster.name %>
+</td>  <tr/>
+
+<tr><td>
+  <b>Formtime:</b></td>
+  <td> 
+  <%=h @shiftmaster.form_time %>
+</td>  <tr/>
+
+<tr><td>
+  <b>Totime:</b></td>
+  <td> 
+  <%=h @shiftmaster.to_time %>
+</td>  <tr/>
+
+<tr><td>
+  <b>Description:</b></td>
+  <td> 
+  <%=h @shiftmaster.description %>
+</td>  <tr/>
+</table>
+</div>
+
+<%= link_to 'Back', shiftmasters_path %>
+

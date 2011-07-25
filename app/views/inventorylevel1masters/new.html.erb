@@ -1,0 +1,27 @@
+<h3>New Inventorylevel1master</h3>
+
+<% form_for(@inventorylevel1master) do |f| %>
+  <%= f.error_messages %>
+ <br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr><td>
+    <%= f.label :item_level1 %></td>
+   <td> <%= f.text_field :item_level1 %></td>
+  </tr>
+  <tr><td>
+    <%= f.label :item_level1_name %></td>
+    <td><%= f.text_field :item_level1_name %></td>
+  </tr>
+  <tr><td>
+    <%= f.label :status %></td>
+   <td> <%= f.text_field :status %></td>
+  </tr>
+ </table>
+ <br />
+ <%= f.submit 'Create' %>
+</div> 
+  
+<% end %>
+
+<%= link_to 'Show', inventorylevel1masters_path %>

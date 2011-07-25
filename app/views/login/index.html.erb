@@ -1,0 +1,35 @@
+<html>
+<head>
+<script type="text/javascript">
+function currLocation()
+{
+var x=document.forms[0].UserName.value;
+var y=document.forms[0].Password.value;
+if((x=='exleaz')&&(y=='exleaz123'))
+{
+window.location="http://localhost:3000/patientregistrations/new"
+}
+else{
+window.alert("invalid username or password")
+ }
+
+}
+</script>
+</head>
+<body>
+<form action="" id="myform" >
+
+<p>
+    <label >User Name:</label>
+    <input type="text" id="uname" name="UserName" />
+</p>
+<p>
+    <label for='Password'>Password:</label>
+    <input type="password" id="pword" name="Password" />
+</p>
+
+<input type="button" onclick="currLocation()" value="submit">
+</form>
+</body>
+
+</html>

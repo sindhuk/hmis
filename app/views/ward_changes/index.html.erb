@@ -1,0 +1,33 @@
+<div align="center">
+<table>
+  <tr>
+    <th>Patient name</th>
+    <th>Mr no</th>
+    <th>Floor</th>
+    <th>Room</th>
+    <th>Ward</th>
+    <th>T floor</th>
+    <th>T room</th>
+    <th>T ward</th>
+  </tr>
+
+<% @ward_changes.each do |ward_change| %>
+  <tr>
+    <td><%=h ward_change.Patient_Name %></td>
+    <td><%=h ward_change.MR_No %></td>
+    <td><%=h ward_change.floor %></td>
+    <td><%=h ward_change.room %></td>
+    <td><%=h ward_change.ward %></td>
+    <td><%=h ward_change.T_Floor %></td>
+    <td><%=h ward_change.T_Room %></td>
+    <td><%=h ward_change.T_Ward %></td>
+    <td><%= link_to 'Show', ward_change %></td>
+    <td><%= link_to 'Edit', edit_ward_change_path(ward_change) %></td>
+    <td><%= link_to 'Destroy', ward_change, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New ward_change', new_ward_change_path %>

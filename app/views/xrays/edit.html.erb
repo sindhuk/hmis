@@ -1,0 +1,84 @@
+<h1>Editing xray</h1>
+
+<% form_for(@xray) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :registration_id %><br />
+    <%= f.text_field :registration_id %>
+  </p>
+  <p>
+    <%= f.label :mr_no %><br />
+    <%= f.text_field :mr_no %>
+  </p>
+  <p>
+    <%= f.label :bill_no %><br />
+    <%= f.text_field :bill_no %>
+  </p>
+  <p>
+    <%= f.label :patient_name %><br />
+    <%= f.text_field :patient_name %>
+  </p>
+  <p>
+    <%= f.label :test_date %><br />
+    <%= f.date_select :test_date %>
+  </p>
+  <p>
+    <%= f.label :x_ray_name %><br />
+    <%= f.text_field :x_ray_name %>
+  </p>
+  <p>
+    <%= f.label :remark_1 %><br />
+    <%= f.text_field :remark_1 %>
+  </p>
+  <p>
+    <%= f.label :remark_2 %><br />
+    <%= f.text_field :remark_2 %>
+  </p>
+  <p>
+    <%= f.label :remark_3 %><br />
+    <%= f.text_field :remark_3 %>
+  </p>
+  <p>
+    <%= f.label :remark_4 %><br />
+    <%= f.text_field :remark_4 %>
+  </p>
+  <p>
+    <%= f.label :remark_5 %><br />
+    <%= f.text_field :remark_5 %>
+  </p>
+  <p>
+    <%= f.label :remark_6 %><br />
+    <%= f.text_field :remark_6 %>
+  </p>
+  <p>
+    <%= f.label :remark_7 %><br />
+    <%= f.text_field :remark_7 %>
+  </p>
+  <p>
+    <%= f.label :remark_8 %><br />
+    <%= f.text_field :remark_8 %>
+  </p>
+  <p>
+    <%= f.label :remark_9 %><br />
+    <%= f.text_field :remark_9 %>
+  </p>
+  <p>
+    <%= f.label :remark_10 %><br />
+    <%= f.text_field :remark_10 %>
+  </p>
+  <p>
+    <%= f.label :remark_11 %><br />
+    <%= f.text_field :remark_11 %>
+  </p>
+  <p>
+    <%= f.label :opinion %><br />
+    <%= f.text_field :opinion %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @xray %> |
+<%= link_to 'Back', xrays_path %>

@@ -1,0 +1,51 @@
+<h3>Listing BankMaster</h3>
+<br /><br />
+<div align="center" width="90%">
+
+<table width="60%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr  bgcolor="#378bf8" style="color:white">
+   <th >Name</th>
+    <th>Code</th>
+    <th>Branch</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Phoneno</th>
+    <th>Mail</th>
+	<th>Show</th>
+	 <th>Edit</th>
+	 <th>Destroy</th>
+  </tr>
+
+<% @bankmasters.each do |bankmaster| %>
+   <% if((bankmaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h bankmaster.name %></td>
+    <td class='<%= id %>'><%=h bankmaster.code %></td>
+    <td class='<%= id %>'><%=h bankmaster.branch %></td>
+    <td class='<%= id %>'><%=h bankmaster.address %></td>
+    <td class='<%= id %>'><%=h bankmaster.city %></td>
+    <td class='<%= id %>'><%=h bankmaster.state %></td>
+    <td class='<%= id %>'><%=h bankmaster.country %></td>
+    <td class='<%= id %>'><%=h bankmaster.phno %></td>
+    <td class='<%= id %>'><%=h bankmaster.mail %></td>
+    <td class='<%= id %>'><%= link_to  'show', bankmaster %></td>
+	
+	<td class='<%= id %>'><%= link_to 'edit', edit_bankmaster_path(bankmaster) %>
+
+    <td class='<%= id %>'><%= link_to 'destroy',  bankmaster,:confirm => 'Are you sure?', :method => :delete %>
+  </td></tr>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+<%= link_to image_tag("dispaly.png", :size => "134x36"), new_bankmaster_path  %>
+<%= link_to image_tag("display2.png", :size => "134x36"), new_bankmaster_path  %>
+<%= link_to image_tag("display3.png", :size => "134x36"), new_bankmaster_path  %>
+<%= link_to image_tag("display4.png", :size => "100x30"), new_bankmaster_path  %>

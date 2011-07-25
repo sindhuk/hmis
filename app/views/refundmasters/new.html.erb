@@ -1,0 +1,205 @@
+<%= stylesheet_link_tag 'css' %>
+<%= javascript_include_tag 'ezcalendar.js' %>
+<%= javascript_include_tag :defaults %>
+<script type="application/javascript"> 
+	var array1=new Array("reg","name","dob","age","refund")
+	var today_day=0
+	var today_month=0
+	var today_year=0
+	function date11()
+	{
+	
+		var	now = new Date();
+		today_year = parseInt(now.getYear())+1900
+		today_month = parseInt(now.getMonth())+1
+		today_day = (parseInt(now.getDate()))
+		result= today_day+"/"+today_month+"/"+today_year 
+		document.getElementById('redate1').value=result
+		
+	}
+		
+        function checkedval(id)
+	{
+	
+		if(id=="button11")
+		{
+		document.getElementById('bank').disabled=true
+		document.getElementById('cheqno').disabled=true
+		}
+		else
+		{
+			document.getElementById('bank').disabled=false
+			document.getElementById('cheqno').disabled=false
+		}
+		
+	}
+	function calculate_age()
+	{
+		var dt=document.getElementById('dob').value
+		var temp=new Array
+		temp=dt.split("/")
+		var birth_day=parseInt(temp[0])
+		var birth_month=parseInt(temp[1])
+		var birth_year=parseInt(temp[2])
+		today_date = new Date();
+		today_year = today_date.getYear();
+		today_month = today_date.getMonth();
+		today_day = today_date.getDate();
+	
+	age = (today_year + 1900) - birth_year;
+		
+		if ( today_month < (birth_month - 1))
+		{
+			age--;
+		}
+		if (((birth_month - 1) == today_month) && (today_day < birth_day))
+		{ 
+			age--;
+		}
+			if (age > 1900)
+			{
+			age -= 1900;
+			}
+			document.getElementById('age').value=age
+	}
+		var selection_type
+	var query1;
+	function ajaxSearch(id)
+	{
+		var selObj = document.getElementById(id);
+		query1= selObj.options[selObj.selectedIndex].value
+		alert(query1)
+	 	selection_type=id
+		ajax()
+	}
+	function ajax()
+	{
+	 	req = new Ajax.Request('/refundmasters/ajax_buildings/1', 
+			{
+				method: 'get',
+				parameters: {q: query1, type: selection_type },
+				onComplete: function(transport){
+					processReqChange(transport);
+					}
+			}); // end ajax req
+		function processReqChange(req) 
+		{ 
+			// request is complete
+			
+			if (req.readyState == 4) 
+			{
+				var results = req.responseText;
+				alert(results)
+				 var temp=new Array
+				temp=results.split(",")
+				if(selection_type=="dept")
+				{
+					document.getElementById('opbilling1_doctor').length=0
+					for(i=0;i<temp.length-1;i++)
+					{
+					var opt = document.createElement("option");
+					document.getElementById("opbilling1_doctor").options.add(opt);
+					opt.text=temp[i]
+					}
+				}
+				
+				else if(selection_type=="mrno")
+				{
+					for(i=0;i<array1.length;i++)
+					{
+					document.getElementById(array1[i]).value=temp[i]
+					
+					}
+				}	
+			}	
+		}	
+	}	
+	function mrfun()
+	{
+		var mrval=document.getElementById('mrno').value
+		if(mrval.length==9)
+		{
+			query1=document.getElementById('mrno').value
+			selection_type="mrno"
+			ajax()
+		}
+	}
+	
+</script>
+<% form_for(@refundmaster) do |f| %>
+  <%= f.error_messages %>
+  <br /><br />
+  <font size="3" face= "Calibri">
+<div align="center">
+	<table>
+		
+		<tr>
+			<td>Refund No</td>
+			<td><%= f.text_field :refund_no, :size => "20", :id => "refund" %></td>
+			<td>Bill No</td>
+			<td><%= f.text_field :bill_no, :size => "20" %></td>
+			<td><%= f.label :refund_date %></td>
+			<td><%= f.text_field :refund_date, :size => "20", :id => "redate1"  %></td>
+		</tr>
+			
+		<tr>
+			<td>MR No</td>
+			<td><%= f.text_field :mr_no, :size => "20", :id => "mrno", :onKeyUp => "mrfun()" %></td>
+			<td><%= f.label :patient_name %></td>
+			<td><%= f.text_field :patient_name, :size => "20", :id =>"name" %></td>
+			<td><%= f.label :status %></td>
+			<td><%= f.text_field :status, :size => "20" %></td>
+		</tr>
+		
+		<tr>
+			<td><%= f.label :reg_No %></td>
+			<td><%= f.text_field :reg_no, :size => "20", :id => "reg" %></td>
+			<td><%= f.label :reffered_by %></td>
+			<td><%= f.select :reffered_by, Departmentmaster.find(:all).collect{|p| [p.name]}, {:include_blank => false, :size => "20"}, {:id => "dept", :onchange => "ajaxSearch(id)"} %></td><td></td>
+			<td> <%= f.select :reffered_by, Doctormaster.find(:all).collect { |p| [p.name]}, {:include_blank => false}, :id => "opbilling1_doctor" %></td>
+		</tr>	
+	
+		<tr>
+			<td>Admission No</td>
+			<td><%= f.text_field :admn_no, :size => "20" %></td>
+			<td><%= f.label :consultation_doctor %></td>
+			<td><%= f.text_field :consultation_doctor, :size => "20" %></td>
+			<td><%= f.label :admn_date %></td>
+			<td><%= f.date_select :admn_date, :size => "20" %></td>
+		</tr>
+		
+		<tr>
+			<td><%= f.label :gross_amount %></td>
+			<td><%= f.text_field :gross_amount, :size => "20" %></td>
+			<td><%= f.label :net_amount %></td>
+			<td><%= f.text_field :net_amount, :size => "20" %></td>
+			<td><%= f.label :due_amount %></td>
+			<td><%= f.text_field :due_amount, :size => "20" %></td>
+		</tr>	
+		
+		<tr>
+			<td><%= f.label :refund %></td>
+			<td><%= f.text_field :refund, :size => "20" %></td>
+			<td><%= f.label :paid_to %></td>
+			<td><%= f.text_field :paid_to, :size => "20" %></td>
+		</tr>
+		
+		<tr>
+			<td><%= f.label :payment_mode %></td>
+			<td><%= f.radio_button :payment_mode, "cash", :checked => true, :id => "button11" , :onchange => "checkedval(id)" %>cash
+			<%= f.radio_button :payment_mode, "cheque", :id => "button12" ,:onchange => "checkedval(id)" %>cheque</td>
+			<td>bank_name </td>
+			<td><%= f.text_field :op_bills, :size => "20", :disabled => true, :id => "bank" %></td>
+			<td>cheque_number </td>
+			<td><%= f.text_field :osp_bills, :size => "20",:disabled => true,:id => "cheqno"%></td>
+		</tr>
+		<tr>
+			<td><%= f.label :remarks %></td>
+		<td><%= f.text_area :remarks , :cols => 20, :rows => 5 %></td>
+		</tr></table>	
+    <%= f.submit 'Create' %>
+ 
+<% end %>
+</div>
+</font>
+<%= link_to 'Show', refundmasters_path %>

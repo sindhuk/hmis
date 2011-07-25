@@ -1,0 +1,32 @@
+<h1>Editing approximate_service</h1>
+
+<% form_for(@approximate_service) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :approximate_bill_id %><br />
+    <%= f.text_field :approximate_bill_id %>
+  </p>
+  <p>
+    <%= f.label :sno %><br />
+    <%= f.text_field :sno %>
+  </p>
+  <p>
+    <%= f.label :service_name %><br />
+    <%= f.text_field :service_name %>
+  </p>
+  <p>
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </p>
+  <p>
+    <%= f.label :provided_services %><br />
+    <%= f.text_field :provided_services %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @approximate_service %> |
+<%= link_to 'Back', approximate_services_path %>

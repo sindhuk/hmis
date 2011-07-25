@@ -1,0 +1,67 @@
+<h3>Creating New Vendor</h3>
+
+<% form_for(@vendormaster) do |f| %>
+  <%= f.error_messages %>
+  <br /><br />
+<div align="center" width="100%">
+  <table width="70%" cellpadding="4" border=1 cellspacing="0">
+	
+  <tr><td>
+    <%= f.label :vendor_code %></td>
+  <td><%= f.text_field :vendor_code %></td>
+  <td><%= f.label :vendor_name %></td>
+  <td>    <%= f.text_field :vendor_name %>
+ </td>  <tr/>
+ 
+   
+  <tr>
+  <td> <%= f.label :vendor_tin_no %></td>
+  <td> <%= f.text_field :vendor_tin_no %></td> 
+  <td><%= f.label :vat_no %></td>
+  <td><%= f.text_field :vat_no %> </td> 
+  <tr/>
+  
+  <tr>
+  <td>
+    <%= f.label :address %></td>
+  <td>
+    <%= f.text_field :address %>
+  </td> 
+<td><%= f.label :list_of_items_supplied %></td>
+  <td>
+    <%= f.select :list_of_items_supplied,  Inventorylevel3master.find(:all).collect {|p| [  p.item_level3_name ]} %> </td> 
+  <tr/>
+  
+    
+ 
+  <tr><td>
+    <%= f.label :contact_person %></td>
+  <td>
+    <%= f.text_field :contact_person %>
+  </td> 
+  <td><%= f.label :vendor_emailid %></td>
+  <td>
+    <%= f.text_field :vendor_emailid %>
+  </td>  <tr/>
+
+  
+  <tr><td>
+    <%= f.label :contact_num %></td>
+  <td>
+    <%= f.text_field :contact_num %>
+  </td>  
+  <td>
+    <%= f.label :status %></td>
+  <td>
+    <%= f.text_field :status %>
+  </td>  
+  <tr/>
+ 
+  </table>
+  <br /><br />
+    <%= f.submit 'Create' %> 
+ </div >
+
+<% end %>
+<br/>
+<%= link_to "Show", vendormasters_path %>

@@ -1,0 +1,29 @@
+<h3>Creating Test Master</h3>
+
+<% form_for(@testmaster) do |f| %>
+  <%= f.error_messages %>
+  <br/>
+  <br/>
+<div align="center">
+  <table width="20%" cellpadding="4" border=1 cellspacing="0">
+		<tr>
+		<td>Code </td>
+    <td><%= f.text_field :test_code %></td>
+  <tr>
+ <td>Name </td>
+    <td><%= f.text_field :test_name %></td>
+  </tr>
+  <tr>
+    <td>Fee</td>
+    <td><%= f.text_field :fee %></td>
+     </tr>
+ </table>
+ <br/>
+	<%= f.submit 'Create' %>
+	</div>
+ 
+	<% end %>
+	
+	
+<%= link_to 'Show', testmasters_path %>
+ 

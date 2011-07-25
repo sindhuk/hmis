@@ -1,0 +1,28 @@
+<h1>Editing appointmentregistration</h1>
+
+<% form_for(@appointmentregistration) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :appointment_no %><br />
+    <%= f.text_field :appointment_no %>
+  </p>
+  <p>
+    <%= f.label :doctors_name %><br />
+    <%= f.select :doctors_name, Doctormaster.find(:all).collection {|p| [ p.doctor_name ] } %>
+  </p>
+  <p>
+    <%= f.label :department_name %><br />
+    <%= f.text_field :department_name %>
+  </p>
+  <p>
+    <%= f.label :select_date %><br />
+    <%= f.date_select :select_date %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+
+<%= link_to 'Back', appointmentregistrations_path %>

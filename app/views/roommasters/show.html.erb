@@ -1,0 +1,40 @@
+<h3>Details of Record</h3>
+<br /><br /><br />
+<div align="center" width="90%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+<tr>
+  <td>Wardsection:</td>
+  <td><%=h @roommaster.ward_section %></td>
+</tr>
+<tr>
+    <td>wardmaster_id </td>
+    <td><%= h @roommaster.wardmaster_id %></td>
+  </tr>
+<tr>
+  <td>Roomentry:</td>
+  <td><%=h @roommaster.room_entry %></td>
+</tr>
+
+<tr>
+  <td>Block:</td>
+  <td><%=h @roommaster.block %></td>
+</tr>
+
+<tr>
+  <td>Level:</td>
+  <td><%=h @roommaster.level %></td>
+</tr>
+
+<tr>
+  <td>Phoneextension:</td>
+  <td><%=h @roommaster.phone_extension %></td>
+</tr>
+
+<tr>
+  <td>Noofbedsinroom:</td>
+  <td><%=h @roommaster.no_of_beds_in_room %></td>
+</tr>
+</table>
+<br/><br/>
+</div>
+<%= link_to 'Back', roommasters_path %>

@@ -1,0 +1,37 @@
+<h3>Details of Ward</h3>
+<br/>
+<br/>
+<div align="center" width="100%">
+  <table width="20%"  cellspacing="0" border="1" cellpadding="4">
+      <tr><td>
+  <b>Floormaster_id</b></td>  
+  <td><%=h @wardmaster.floormaster_id %>
+</td>  </tr>
+	<tr><td>
+  <b>Name:</b></td>  
+  <td><%=h @wardmaster.name %>
+</td>  </tr>
+
+ <tr><td>
+  <b>Code:</b></td>
+  <td><%=h @wardmaster.code %>
+</td>  </tr>
+ <tr><td>
+  <b>Cost:</b></td>
+  <td><%=h @wardmaster.cost %>
+</td>  </tr>
+
+	<tr><td>
+  <b>Status</b></td>
+  <td><%=h @wardmaster.status %>
+</td>  </tr>
+ <tr><td>
+  <b>Incharge:</b></td>
+  <td><%=h @wardmaster.incharge %>
+</td>  </tr>
+
+ </table>
+ 
+ </div>
+<br/>
+ <%= link_to "Back", wardmasters_path %>

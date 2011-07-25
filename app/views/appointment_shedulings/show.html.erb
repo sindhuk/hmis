@@ -1,0 +1,26 @@
+<div align="center">
+<table>
+<tr><td>
+   Appointment no:</td>
+ <td> <%=h @appointment_sheduling.appointment_no %>
+</td>
+</tr>
+<tr><td>
+   Appointment date:</td>
+ <td> <%=h @appointment_sheduling.appointment_date %>
+</td>
+</tr>
+<tr><td>
+   Time:</td>
+<td>  <%=h @appointment_sheduling.time %>
+</td>
+</tr>
+<tr><td>
+   Doctor name:</td>
+  <td><%=h @appointment_sheduling.doctor_name %>
+</td>
+</tr>
+</table>
+</div>
+
+<%= link_to 'Back', appointment_shedulings_path %>

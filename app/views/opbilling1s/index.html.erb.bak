@@ -1,0 +1,43 @@
+
+<br /><br/>
+<table>
+  <tr>
+    <th>Billno</th>
+    <th>Mrno</th>
+    <th>Department</th>
+    <th>Doctor</th>
+    <th>Concession</th>
+    <th>Cref</th>
+    <th>Gross</th>
+    <th>Due</th>
+    <th>Dref</th>
+  </tr>
+
+<% @opbilling1s.each do |opbilling1| %>
+  <tr>
+    <td><%=h opbilling1.mr_no %></td>
+    <td><%=h opbilling1.department %></td>
+    <td><%=h opbilling1.doctor %></td>
+    <td><%=h opbilling1.concession %></td>
+    <td><%=h opbilling1.c_ref %></td>
+    <td><%=h opbilling1.gross %></td>
+    <td><%=h opbilling1.due %></td>
+    <td><%=h opbilling1.d_ref %></td>
+	
+	<% if @value[1]==49 %>
+    <td><%= link_to 'Show', opbilling1 %></td>
+	<% end %>
+	<% if @value[2]==49 %>
+    <td><%= link_to 'Edit', edit_opbilling1_path(opbilling1) %></td>
+	<% end %>
+	<% if @value[3]==49 %>
+    <td><%= link_to 'Destroy', opbilling1, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if @value[0]==49 %>
+<td><%= link_to 'New', new_opbilling1_path %></td>
+<% end %>

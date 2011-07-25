@@ -1,0 +1,43 @@
+<p>
+  <b>Final bill:</b>
+  <%=h @final_service.final_bill_id %>
+</p>
+
+<p>
+  <b>Sno:</b>
+  <%=h @final_service.sno %>
+</p>
+
+<p>
+  <b>Service name:</b>
+  <%=h @final_service.service_name %>
+</p>
+
+<p>
+  <b>Service code:</b>
+  <%=h @final_service.service_code %>
+</p>
+
+<p>
+  <b>Services provided:</b>
+  <%=h @final_service.services_provided %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%=h @final_service.price %>
+</p>
+
+<p>
+  <b>Concession:</b>
+  <%=h @final_service.concession %>
+</p>
+
+<p>
+  <b>Total amount:</b>
+  <%=h @final_service.total_amount %>
+</p>
+
+
+<%= link_to 'Edit', edit_final_service_path(@final_service) %> |
+<%= link_to 'Back', final_services_path %>

@@ -1,0 +1,29 @@
+<h3>Editing loantypemaster</h3>
+
+
+<% form_for(@loantypemaster) do |f| %>
+  <%= f.error_messages %>
+
+ <br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+    <tr><td><%= f.label :loantypecode %></td>
+    <td><%= f.text_field :loantypecode %></td></tr>
+    <tr> <td><%= f.label :loantypedescription %></td>
+    <td><%= f.text_field :loantypedescription %></td></tr>
+    <tr><td><%= f.label :interestrate %></td>
+    <td><%= f.text_field :interestrate %></td></tr>
+    <tr> <td><%= f.label :interestpercentage %></td>
+    <td><%= f.text_field :interestpercentage %></td></tr>
+    <tr> <td> <%= f.label :maximumamount %></td>
+    <td><%= f.text_field :maximumamount %></td></tr>
+   <tr> <td><%= f.label :numberofinstallments %></td>
+    <td><%= f.text_field :numberofinstallments %></td></tr>
+</table>
+<br />
+   <%= f.submit 'Update' %>
+ </div> 
+<% end %>
+<br />
+
+<%= link_to 'Back', loantypemasters_path %>

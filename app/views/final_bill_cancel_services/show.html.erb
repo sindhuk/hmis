@@ -1,0 +1,38 @@
+<p>
+  <b>Final bill cancel:</b>
+  <%=h @final_bill_cancel_service.final_bill_cancel_id %>
+</p>
+
+<p>
+  <b>Sno:</b>
+  <%=h @final_bill_cancel_service.sno %>
+</p>
+
+<p>
+  <b>Service name:</b>
+  <%=h @final_bill_cancel_service.service_name %>
+</p>
+
+<p>
+  <b>Service code:</b>
+  <%=h @final_bill_cancel_service.service_code %>
+</p>
+
+<p>
+  <b>Cost:</b>
+  <%=h @final_bill_cancel_service.cost %>
+</p>
+
+<p>
+  <b>Concession:</b>
+  <%=h @final_bill_cancel_service.concession %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%=h @final_bill_cancel_service.amount %>
+</p>
+
+
+<%= link_to 'Edit', edit_final_bill_cancel_service_path(@final_bill_cancel_service) %> |
+<%= link_to 'Back', final_bill_cancel_services_path %>

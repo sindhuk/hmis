@@ -1,0 +1,2 @@
+module ShiftmastersHelper
+end

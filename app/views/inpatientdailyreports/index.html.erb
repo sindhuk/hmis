@@ -1,0 +1,57 @@
+<h1>Listing inpatientdailyreports</h1>
+<br /><br /><br />
+<div align="center" >
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Registrationid</th>
+    <th>Date</th>
+    <th>Admissionid</th>
+    <th>Dateofappointment</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Gender</th>
+    <th>Age</th>
+    <th>Doctorname</th>
+    <th>Time</th>
+    <th>Watdtype</th>
+    <th>Wardno</th>
+    <th>Bedno</th>
+    <th>Prescription</th>
+    <th>Requestfordischarge</th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Destroy</th>
+  </tr>
+
+<% @inpatientdailyreports.each do |inpatientdailyreport| %>
+  <% if((inpatientdailyreport.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h inpatientdailyreport.registration_id %></td>
+    <td class='<%= id %>'><%=h inpatientdailyreport.date %></td>
+    <td class='<%= id %>'><%=h inpatientdailyreport.admission_id %></td>
+    <td class='<%= id %>'><%=h inpatientdailyreport.date_of_appointment %></td>
+    <td class='<%= id %>'><%=h inpatientdailyreport.first_name %></td>
+    <td class='<%= id %>'><%=h inpatientdailyreport.last_name %></td>
+    <td class='<%= id %>'><%=h inpatientdailyreport.gender %></td>
+    <td class='<%= id %>'><%=h inpatientdailyreport.age %></td>
+    <td class='<%= id %>'><%=h inpatientdailyreport.doctor_name %></td>
+    <td class='<%= id %>'><%=h inpatientdailyreport.time %></td>
+    <td class='<%= id %>'><%=h inpatientdailyreport.watd_type %></td>
+    <td class='<%= id %>'><%=h inpatientdailyreport.ward_no %></td>
+    <td class='<%= id %>'><%=h inpatientdailyreport.bed_no %></td>
+    <td class='<%= id %>'><%=h inpatientdailyreport.prescription %></td>
+    <td class='<%= id %>'><%=h inpatientdailyreport.request_for_discharge %></td>
+    <td class='<%= id %>'><%= link_to 'Show', inpatientdailyreport %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_inpatientdailyreport_path(inpatientdailyreport) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', inpatientdailyreport, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New inpatientdailyreport', new_inpatientdailyreport_path %>

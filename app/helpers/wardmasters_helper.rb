@@ -1,0 +1,2 @@
+module WardmastersHelper
+end

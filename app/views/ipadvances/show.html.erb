@@ -1,0 +1,61 @@
+<%= stylesheet_link_tag 'css' %>
+<div align="center">
+<table width="40%"  cellspacing="0" cellpadding="4">
+<tr>
+<td> Mr no:</td>
+<td>  <%=h @ipadvance.mr_no %>
+</td>
+
+<td>
+   Reg no:</td>
+  <td><%=h @ipadvance.reg_no %>
+</td>
+</tr><tr>
+<td>
+   Patient name:</td>
+  <td><%=h @ipadvance.patient_name %>
+</td>
+
+<td>
+   Father name:</td>
+  <td><%=h @ipadvance.father_name %>
+</td>
+</tr><tr>
+<td>
+   Floor:</td>
+  <td><%=h @ipadvance.floor %>
+</td>
+
+<td>
+   Ward:</td>
+  <td><%=h @ipadvance.ward %>
+</td>
+</tr><tr>
+<td>
+   Room:</td>
+  <td><%=h @ipadvance.room %>
+</td>
+
+<td>
+   Bed:</td>
+  <td><%=h @ipadvance.bed %>
+</td>
+</tr><tr>
+<td>
+   Gross amount:</td>
+  <td><%=h @ipadvance.gross_amount %>
+</td>
+
+<td>
+   Payment mode:</td>
+  <td><%=h @ipadvance.payment_mode %>
+</td></tr>
+<tr>
+<td>
+   Already paid amount:</td>
+  <td><%=h @ipadvance.already_paid_amount %>
+</td>
+</tr></table></div>
+
+
+<%= link_to 'Back', ipadvances_path %>

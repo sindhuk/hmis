@@ -1,0 +1,212 @@
+<h1>Editing bloodtest</h1>
+
+<% form_for(@bloodtest) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :registration_no %><br />
+    <%= f.text_field :registration_no %>
+  </p>
+  <p>
+    <%= f.label :mrno %><br />
+    <%= f.text_field :mrno %>
+  </p>
+  <p>
+    <%= f.label :billno %><br />
+    <%= f.text_field :billno %>
+  </p>
+  <p>
+    <%= f.label :patientname %><br />
+    <%= f.text_field :patientname %>
+  </p>
+  <p>
+    <%= f.label :test_date %><br />
+    <%= f.date_select :test_date %>
+  </p>
+  <p>
+    <%= f.label :haemoglobin %><br />
+    <%= f.text_field :haemoglobin %>
+  </p>
+  <p>
+    <%= f.label :tlc %><br />
+    <%= f.text_field :tlc %>
+  </p>
+  <p>
+    <%= f.label :neutrophils %><br />
+    <%= f.text_field :neutrophils %>
+  </p>
+  <p>
+    <%= f.label :lymphocytes %><br />
+    <%= f.text_field :lymphocytes %>
+  </p>
+  <p>
+    <%= f.label :eosinophil %><br />
+    <%= f.text_field :eosinophil %>
+  </p>
+  <p>
+    <%= f.label :monocytes %><br />
+    <%= f.text_field :monocytes %>
+  </p>
+  <p>
+    <%= f.label :basophils %><br />
+    <%= f.text_field :basophils %>
+  </p>
+  <p>
+    <%= f.label :others %><br />
+    <%= f.text_field :others %>
+  </p>
+  <p>
+    <%= f.label :esr %><br />
+    <%= f.text_field :esr %>
+  </p>
+  <p>
+    <%= f.label :peripheral_blood_film_1 %><br />
+    <%= f.text_field :peripheral_blood_film_1 %>
+  </p>
+  <p>
+    <%= f.label :peripheral_blood_film_2 %><br />
+    <%= f.text_field :peripheral_blood_film_2 %>
+  </p>
+  <p>
+    <%= f.label :haematocrit_pcv %><br />
+    <%= f.text_field :haematocrit_pcv %>
+  </p>
+  <p>
+    <%= f.label :total_rbc %><br />
+    <%= f.text_field :total_rbc %>
+  </p>
+  <p>
+    <%= f.label :platelets %><br />
+    <%= f.text_field :platelets %>
+  </p>
+  <p>
+    <%= f.label :colour_index %><br />
+    <%= f.text_field :colour_index %>
+  </p>
+  <p>
+    <%= f.label :mchc %><br />
+    <%= f.text_field :mchc %>
+  </p>
+  <p>
+    <%= f.label :mcv %><br />
+    <%= f.text_field :mcv %>
+  </p>
+  <p>
+    <%= f.label :mch %><br />
+    <%= f.text_field :mch %>
+  </p>
+  <p>
+    <%= f.label :tec %><br />
+    <%= f.text_field :tec %>
+  </p>
+  <p>
+    <%= f.label :vec %><br />
+    <%= f.text_field :vec %>
+  </p>
+  <p>
+    <%= f.label :paracytes %><br />
+    <%= f.text_field :paracytes %>
+  </p>
+  <p>
+    <%= f.label :blood_grouping %><br />
+    <%= f.text_field :blood_grouping %>
+  </p>
+  <p>
+    <%= f.label :rh_factor %><br />
+    <%= f.text_field :rh_factor %>
+  </p>
+  <p>
+    <%= f.label :rh_antibody_tiler %><br />
+    <%= f.text_field :rh_antibody_tiler %>
+  </p>
+  <p>
+    <%= f.label :direct %><br />
+    <%= f.text_field :direct %>
+  </p>
+  <p>
+    <%= f.label :indirect %><br />
+    <%= f.text_field :indirect %>
+  </p>
+  <p>
+    <%= f.label :plasma_fibrinogen %><br />
+    <%= f.text_field :plasma_fibrinogen %>
+  </p>
+  <p>
+    <%= f.label :hiv %><br />
+    <%= f.text_field :hiv %>
+  </p>
+  <p>
+    <%= f.label :hbsag %><br />
+    <%= f.text_field :hbsag %>
+  </p>
+  <p>
+    <%= f.label :widal %><br />
+    <%= f.text_field :widal %>
+  </p>
+  <p>
+    <%= f.label :foetal_haemoglobin %><br />
+    <%= f.text_field :foetal_haemoglobin %>
+  </p>
+  <p>
+    <%= f.label :reticulocytes %><br />
+    <%= f.text_field :reticulocytes %>
+  </p>
+  <p>
+    <%= f.label :bleeding_time_min %><br />
+    <%= f.text_field :bleeding_time_min %>
+  </p>
+  <p>
+    <%= f.label :bleeding_time_sec %><br />
+    <%= f.text_field :bleeding_time_sec %>
+  </p>
+  <p>
+    <%= f.label :cloting_time_min %><br />
+    <%= f.text_field :cloting_time_min %>
+  </p>
+  <p>
+    <%= f.label :cloting_time_sec %><br />
+    <%= f.text_field :cloting_time_sec %>
+  </p>
+  <p>
+    <%= f.label :prothrombin_time_control %><br />
+    <%= f.text_field :prothrombin_time_control %>
+  </p>
+  <p>
+    <%= f.label :secs_patient_1 %><br />
+    <%= f.text_field :secs_patient_1 %>
+  </p>
+  <p>
+    <%= f.label :secs_patient_2 %><br />
+    <%= f.text_field :secs_patient_2 %>
+  </p>
+  <p>
+    <%= f.label :pttk_control %><br />
+    <%= f.text_field :pttk_control %>
+  </p>
+  <p>
+    <%= f.label :haemolysis_start_from %><br />
+    <%= f.text_field :haemolysis_start_from %>
+  </p>
+  <p>
+    <%= f.label :saline_complete_at %><br />
+    <%= f.text_field :saline_complete_at %>
+  </p>
+  <p>
+    <%= f.label :clot_retraction_time_crt %><br />
+    <%= f.text_field :clot_retraction_time_crt %>
+  </p>
+  <p>
+    <%= f.label :le_cells %><br />
+    <%= f.text_field :le_cells %>
+  </p>
+  <p>
+    <%= f.label :esr_platelets %><br />
+    <%= f.text_field :esr_platelets %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @bloodtest %> |
+<%= link_to 'Back', bloodtests_path %>

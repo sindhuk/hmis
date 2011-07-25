@@ -1,0 +1,38 @@
+<div align="center">
+
+<% form_for(@medicine_page) do |f| %>
+  <%= f.error_messages %>
+
+ <table width= "50%"cellpadding="4"><tr><td>
+    <%= f.label :MR_No %></td>
+    <td><%= f.text_field :MR_No, :size => "20" %></td><br>
+    <td><%= f.label :Patient_Name %></td>
+    <td><%= f.text_field :Patient_Name, :size => "20" %></td></tr>
+    <tr><td><%= f.label :Reg_No %></td>
+    <td><%= f.text_field :Reg_No, :size => "20" %></td>
+    <td><%= f.label :medicines %></td>
+    <td><%= f.text_field :medicines %></td></tr>
+	<% f.fields_for(@medicine_list) do |m| %>
+	 
+		<tr><td><%= m.label :Si_No %></td>
+		<td><%= m.text_field :Si_No %></td>
+	 	<td><%= m.label :Medicine_Name %></td>
+		<td><%= m.text_field :Medicine_Name %></td></tr>
+	    <tr><td><%= m.label :code %></td>
+		<td><%= m.text_field :code %></td>
+	  	<td><%= m.label :Batch_No %></td>
+		<td><%= m.text_field :Batch_No %></td></tr>
+	  	<tr><td><%= m.label :quantity %></td>
+		<td><%= m.text_field :quantity %></td>
+	  	<td><%= m.label :rate %></td>
+		<td><%= m.text_field :rate %></td></tr>
+	  	<tr><td><%= m.label :amount %></td>
+		<td><%= m.text_field :amount %></td></tr>
+	    <% end %>
+		</table>
+	<br/><br/>
+    <td><%= f.submit 'Update' %>
+    <% end %>
+</div>
+
+<%= link_to 'Back', medicine_pages_path %>

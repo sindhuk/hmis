@@ -1,0 +1,90 @@
+<h3>New refferalmaster</h3>
+
+<script type="text/javascript">
+	function checked_print(el,v2,v3,v4) 
+	{
+		var hi=v2
+		var selObj = document.getElementById(el);
+		var value_glo= selObj.options[selObj.selectedIndex].index;
+		var temp=new Array()
+		temp=hi.split(",")
+		document.getElementById('name').value=temp[value_glo]
+		hi=v3
+		temp=hi.split(",")
+		document.getElementById('desig').value=temp[value_glo]
+		hi=v4
+		temp=hi.split(",")
+		document.getElementById('address').value=temp[value_glo]
+	}
+
+</script>
+<% form_for(@refferalmaster) do |f| %>
+  <%= f.error_messages %>
+
+  <% @dname="" %>
+  <% @spe="" %>
+  <% @designame="" %>
+  <% @address="" %>
+	<% dcode=Doctormaster.find(:all).collect { |p| [p.name] } %>
+	<% for i in 0...dcode.length
+		@dname<<dcode[i].to_s
+		@dname<<","
+	  end %>
+	
+	<% descode=Doctormaster.find(:all).collect { |p| [p.designation] } %>
+	<% for i in 0...descode.length
+		@designame<<descode[i].to_s
+		@designame<<","
+	  end %>
+	<% addr=Doctormaster.find(:all).collect { |p| [p.address] } %>
+	<% for i in 0...addr.length
+		@address<<addr[i].to_s
+		@address<<","
+	  end %>
+	   <br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <td><%= f.label :doctorcode %></td>
+    <td><%= f.select :doctor_code, Doctormaster.find(:all).collect { |p| [p.code] },{ :include_blank => false },{:id => "doctorcode",:onchange => "checked_print(id,'#{@dname}','#{@designame}','#{@address}')"} %></td>
+    <td><%= f.label :refdoctorname %></td>
+    <td><%= f.text_field :ref_doctor_name, :id => "name" %></td>
+  </tr>
+  
+  <tr>
+    <td><%= f.label :consultingroom %></td>
+    <td><%= f.text_field :consulting_room %></td>
+    <td><%= f.label :specialization %></td>
+    <td><%= f.text_field :specialization, :id => "spe" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :designation %></td>
+    <td><%= f.text_field :designation, :id => "desig" %></td>
+    <td><%= f.label :address %></td>
+    <td><%= f.text_field :address, :id => "address" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :city %></td>
+    <td><%= f.select :city, Citymaster.find(:all).collect { |p| [p.name] } %></td>
+    <td><%= f.label :state %></td>
+    <td><%= f.select :state, Statemaster.find(:all).collect { |p| [p.name] } %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :country %></td>
+    <td><%= f.select :country, Countrymaster.find(:all).collect { |p| [p.name] } %></td>
+    <td><%= f.label :phnno %></td>
+    <td><%= f.text_field :phn_no %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :pincode %></td>
+    <td><%= f.text_field :pincode %></td>
+    <td><%= f.label :mailid %></td>
+    <td><%= f.text_field :mail_id %></td>
+  </tr>
+ </table>
+ <br />
+    <%= f.submit 'Create' %>
+  </div>
+<% end %>
+<br />
+<%= link_to 'Show', refferalmasters_path %>

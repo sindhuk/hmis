@@ -1,0 +1,2 @@
+module ConsultationchargesHelper
+end

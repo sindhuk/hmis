@@ -1,0 +1,59 @@
+<h1>New request_for_test_entry</h1>
+
+<% form_for(@request_for_test_entry) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :mr_no %><br />
+    <%= f.text_field :mr_no %>
+  </p>
+  <p>
+    <%= f.label :patient_name %><br />
+    <%= f.text_field :patient_name %>
+  </p>
+  <p>
+    <%= f.label :reg_no %><br />
+    <%= f.text_field :reg_no %>
+  </p>
+  <p>
+    <%= f.label :tests %><br />
+    <%= f.text_field :tests %>
+  </p>
+  <% f.fields_for(@request_for_test_service) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :request_for_test_entry_id %><br />
+    <%= f.text_field :request_for_test_entry_id %>
+  </p>
+  <p>
+    <%= f.label :si_no %><br />
+    <%= f.text_field :si_no %>
+  </p>
+  <p>
+    <%= f.label :test_name %><br />
+    <%= f.text_field :test_name %>
+  </p>
+  <p>
+    <%= f.label :test_code %><br />
+    <%= f.text_field :test_code %>
+  </p>
+  <p>
+    <%= f.label :fee %><br />
+    <%= f.text_field :fee %>
+  </p>
+  <p>
+    <%= f.label :concession %><br />
+    <%= f.text_field :concession %>
+  </p>
+  <p>
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </p>
+  <% end %>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', request_for_test_entries_path %>

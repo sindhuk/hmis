@@ -1,0 +1,55 @@
+
+<br/>
+<br/>
+<div align="center" width="100%">
+ <table width="60%"  cellspacing="0" border="1" cellpadding="4">
+  <tr><td> <b/>Billing_mode</td>
+	<td> <%=h @postdiscount.billing_mode %></td>
+	<td><b/>Registration_no</td>
+	<td> <%=h @postdiscount.registration_no %></td>
+	</tr>
+	
+  <tr><td>
+	<b/>Mrno</td>
+	<td> <%=h @postdiscount.mr_no %>
+	</td>  <td>
+	<b/>bill_no</td>
+	<td> <%=h @postdiscount.bill_no %>
+	</td>  </tr>
+	
+	<tr><td><b/>patient_name</td>
+	<td> <%=h @postdiscount.patient_name %></td>
+	<td><b/>gross</td>
+	<td> <%=h @postdiscount.gross%></td>
+	</tr>
+<tr><td>
+  <b>Due</b></td>
+  <td> 
+  <%=h @postdiscount.due %>
+</td>
+
+<td>
+  <b>Concession</b></td>
+  <td> 
+  <%=h @postdiscount.concession %>
+</td></tr>
+
+<tr><td>
+  <b>Reciept</b></td>
+  <td> 
+  <%=h @postdiscount.reciept %>
+</td>
+<td>
+  <b>Refferedby</b></td>
+  <td> 
+  <%=h @postdiscount.reffered_by %>
+</td></tr>
+
+<tr><td>
+  <b>Postdiscount</b></td>
+  <td> 
+  <%=h @postdiscount.post_discount %>
+</td></tr>
+</table>
+</div>
+<%= link_to 'Back', postdiscounts_path %>

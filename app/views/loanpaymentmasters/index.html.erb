@@ -1,0 +1,30 @@
+<h3>Listing loanpaymentmasters</h3>
+<br /><br />
+<div align="center" width="90%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+
+  <tr>
+    <th>Employeecode</th>
+    <th>Employeename</th>
+    <th>Loanamount</th>
+    <th>Paymentmode</th>
+    <th>Receiptamountpayment</th>
+  </tr>
+
+<% @loanpaymentmasters.each do |loanpaymentmaster| %>
+  <tr>
+    <td class='<%= id %>'><%=h loanpaymentmaster.employee_code %></td>
+    <td class='<%= id %>'><%=h loanpaymentmaster.employee_name %></td>
+    <td class='<%= id %>'><%=h loanpaymentmaster.loan_amount %></td>
+    <td class='<%= id %>'><%=h loanpaymentmaster.payment_mode %></td>
+    <td class='<%= id %>'><%=h loanpaymentmaster.receipt_amount_payment %></td>
+    <td class='<%= id %>'><%= link_to 'Show', loanpaymentmaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_loanpaymentmaster_path(loanpaymentmaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', loanpaymentmaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New loanpaymentmaster', new_loanpaymentmaster_path %>

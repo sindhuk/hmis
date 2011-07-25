@@ -1,0 +1,60 @@
+
+</br></br></br>
+
+<div align="center" >
+<table width="80%" cellpadding="2" cellspacing="0">
+  <tr bgcolor =" #378bf8" style="color:white">
+    <th>Mr no</th>
+    <th>Reg no</th>
+    <th>Service no</th>
+    <th>Patient name</th>
+    <th>Doctor</th>
+    <th>Company</th>
+    <th>services</th>
+	<th colspan="3">Permissions</th>
+  </tr>
+
+<% @ip_service_entries.each do |ip_service_entry| %>
+  <% if((ip_service_entry.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h ip_service_entry.mr_no %></td>
+    <td class='<%= id %>'><%=h ip_service_entry.reg_no %></td>
+    <td class='<%= id %>'><%=h ip_service_entry.service_no %></td>
+    <td class='<%= id %>'><%=h ip_service_entry.patient_name %></td>
+    <td class='<%= id %>'><%=h ip_service_entry.doctor %></td>
+    <td class='<%= id %>'><%=h ip_service_entry.company %></td>
+    <td class='<%= id %>'><%=h ip_service_entry.services %></td>
+	<% for ip_service in ip_service_entry.ip_service %>
+	<td class='<%= id %>'><%=h ip_service.sno %></td>
+    <td class='<%= id %>'><%=h ip_service.service_name %></td>
+    <td class='<%= id %>'><%=h ip_service.service_code %></td>
+    <td class='<%= id %>'><%=h ip_service.quantity %></td>
+    <td class='<%= id %>'><%=h ip_service.rate %></td>
+    <td class='<%= id %>'><%=h ip_service.concession %></td>
+    <td class='<%= id %>'><%=h ip_service.amount %></td>
+	<% end %>
+    <td class='<%= id %>'><%=h ip_service_entry.grossamount %></td>
+    <td class='<%= id %>'><%=h ip_service_entry.concession %></td>
+    <td class='<%= id %>'><%=h ip_service_entry.netamount %></td>
+	
+	<% if @value[1]==49 %>
+    <td class='<%= id %>'><%= link_to 'Show', ip_service_entry %></td>
+	<% end %>
+    <% if @value[2]==49 %>
+	<td class='<%= id %>'><%= link_to 'Edit', edit_ip_service_entry_path(ip_service_entry) %></td>
+    <% end %>
+	<% if @value[3]==49 %>
+	<td class='<%= id %>'><%= link_to 'Destroy', ip_service_entry, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+<% if @value[0]==49 %>
+<td><%= link_to 'New', new_ip_service_entry_path %></td>
+<% end %>

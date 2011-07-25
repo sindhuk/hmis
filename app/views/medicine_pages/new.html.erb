@@ -1,0 +1,263 @@
+<%= javascript_include_tag :defaults %>
+<script type="text/javascript"> 
+//Fill the fields In Based on the entering MR_NUMBER
+    var query1=""
+	function ajaxSearch_value() 
+	{
+		 query1= document.getElementById('rno').value
+		 
+			if( query1.length==9 ) 
+						{
+						
+				Ajax_Code()
+			}
+	}
+		
+	//Ajax Code
+	function Ajax_Code()
+	{
+		req = new Ajax.Request('/medicine_pages/ajax_buildings/1', {
+			method: 'get',
+			parameters: { q: query1  },
+			onComplete: function(transport) {
+			processReqChange(transport);
+			}
+
+	 }); 
+	 function processReqChange(req) 
+		{
+			// request is complete
+			if (req.readyState == 4) 
+			{
+				var results = req.responseText;
+				
+				var temp=new Array()
+				temp=results.split(",")
+				document.getElementById('name').value=temp[0]
+					document.getElementById('regno').value=temp[1]
+					document.getElementById('fname').value=temp[2]
+		}
+     }		
+	}
+	//creating a row in a table code starts here
+	function store_values()
+	{
+		var tbl = document.getElementById('tblSample');
+		var lastRow = tbl.rows.length;
+		var medicinename=""
+		var code=""
+		var batchno=""
+		var quantity=0
+		var rate=0
+		var amount=0
+		
+		for(i=0;i<lastRow-1;i++)
+		{
+			medicinenames=document.getElementById("r"+(i+1)+"c1").value+","+code
+			code=document.getElementById("r"+(i+1)+"c2").value+","+batchno
+			batchno=parseInt(document.getElementById("r"+(i+1)+"c3").value)+quantity
+			quantity=parseInt(document.getElementById("r"+(i+1)+"c4").value)+rate
+			rate=parseInt(document.getElementById("r"+(i+1)+"c5").value)+amount
+			amount=parseInt(document.getElementById("r"+(i+1)+"c5").value)+amount
+			
+		}
+		document.getElementById("name").value=medicinenames
+		document.getElementById("code").value=code
+		document.getElementById("bno").value=batchno
+		document.getElementById("qntity").value=quantity
+		document.getElementById("rate").value=rate
+		document.getElementById("amt").value=amount
+		
+		
+		document.getElementById('name').style.display='block'
+		document.getElementById('code').style.display='block'
+		document.getElementById('bno').style.display='block'
+		document.getElementById('qntity').style.display='block'
+		document.getElementById('rate').style.display='block'
+		document.getElementById('amt').style.display='block'
+		
+	}
+	var selectedid;
+	var query
+	var array1 = new Array("rno", "name","rec_no","bgroup");
+	function ajaxSearch(id) 
+	{
+		var selObj = document.getElementById('medicine');
+		query = selObj.options[selObj.selectedIndex].value
+		
+		ajax()
+	}
+	
+	function ajax()
+	{
+	
+		req = new Ajax.Request('/medicine_pages/ajax_buildings1/1', 
+			{
+				method: 'get',
+				parameters: { q: query },
+				onComplete: function(transport){
+					processReqChange(transport);
+					}
+			}); // end ajax req
+		function processReqChange(req) 
+		{
+			// request is complete
+			
+			if (req.readyState == 4) 
+			{
+			
+				var results = req.responseText;
+				var temp=new Array()
+				temp=results.split(",")
+				 
+				alert(results)
+				addRowToTable(query,temp)
+			} // end if req == 4
+		}
+	}
+	function addRowToTable(query,temp)
+    {
+	  var tbl = document.getElementById('mtable');
+	  var lastRow = tbl.rows.length;
+	  // if there's no header row in the table, then iteration = lastRow + 1
+	  var iteration = lastRow;
+	  var row = tbl.insertRow(lastRow);
+	  
+	  // left cell
+	  var cellLeft = row.insertCell(0);
+	  var textNode = document.createTextNode(iteration);
+	  cellLeft.appendChild(textNode);
+	  
+	  // right cell
+	  var cellRight1 = row.insertCell(1);
+	  var el1 = document.createElement('input');
+	  el1.type = 'text';
+	  el1.value = temp[0]
+	  el1.name = 'r'+iteration+'c'+1;
+	  el1.id = 'r'+iteration+'c'+1;
+	  el1.size = 20;
+	  cellRight1.appendChild(el1);
+	  
+	  var cellRight2 = row.insertCell(2);
+	  var el2 = document.createElement('input');
+	  el2.type = 'text';
+	  el2.value = temp[1]
+	  el2.name = 'r'+iteration+'c'+2;
+	  el2.id = 'r'+iteration+'c'+2;
+	  el2.size = 20;
+	  cellRight2.appendChild(el2);
+	  
+	  var cellRight3 = row.insertCell(3);
+	  var el3 = document.createElement('input');
+	  el3.type = 'text';
+	  el3.value = temp[2]
+	  el3.name = 'r'+iteration+'c'+3;
+	  el3.id = 'r'+iteration+'c'+3;
+	  el3.size = 20;
+	  el3.onkeyup = keyPressTest;
+	  cellRight3.appendChild(el3);
+	  
+	  var cellRight4 = row.insertCell(4);
+	  var el4 = document.createElement('input');
+	  el4.type = 'text';
+	  el4.value = temp[3]
+	  el4.name = 'r'+iteration+'c'+4;
+	  el4.id = 'r'+iteration+'c'+4;
+	  el4.size = 20;
+	  el4.onkeyup = keyPressTest;
+	  cellRight4.appendChild(el4);
+	  
+	  var cellRight5 = row.insertCell(5);
+	  var el5 = document.createElement('input');
+	  el5.type = 'text';
+	  el5.value = temp[4]
+	  el5.name = 'r'+iteration+'c'+5;
+	  el5.id = 'r'+iteration+'c'+5;
+	  el5.size = 20;
+	  el5.onkeyup = keyPressTest;
+	  cellRight5.appendChild(el5);
+	  
+	  var cellRight6 = row.insertCell(6);
+	  var el6 = document.createElement('input');
+	  el6.type = 'text';
+	  el6.value = temp[5]
+	  el6.name = 'r'+iteration+'c'+6;
+	  el6.id = 'r'+iteration+'c'+6;
+	  el6.size = 20;
+	  el6.onkeyup = keyPressTest;
+	  cellRight6.appendChild(el6);
+	 
+	 
+	}
+	function keyPressTest(e,obj)
+	{
+		var key;
+		if(window.event) {
+			key = window.event.keyCode; 
+		}
+		else if(e.which) {
+			key = e.which;
+		}
+		var objId;
+		if (obj != null) {
+			objId = obj.id;
+		} else {
+			objId = this.id;
+		}
+		var cha=objId.charAt(1)
+		var fee=document.getElementById("r"+cha+"c3").value
+		var con=(fee-((fee/100)*document.getElementById(objId).value))
+		document.getElementById("r"+cha+"c5").value=con
+	}
+	</script>
+<br/><br/><br/><br/>
+<div align="center">
+
+<% form_for(@medicine_page) do |f| %>
+  <%= f.error_messages %>
+
+ <table width= "50%"cellpadding="4" ><tr><td>
+    <%= f.label :MR_No %></td>
+    <td><%= f.text_field :MR_No, :size => "20",:id => "rno", :onKeyUp => "ajaxSearch_value() " %></td><br>
+    <td><%= f.label :Patient_Name %></td>
+    <td><%= f.text_field :Patient_Name, :size => "20",:id => "name" %></td></tr>
+    <tr><td><%= f.label :Reg_No %></td>
+    <td><%= f.text_field :Reg_No, :size => "20",:id => "regno" %></td>
+    <td><%= f.label :medicines %></td>
+    <td><%= f.select :medicines,Medicinemaster.find(:all).collect{|p| [p.name]}, {:include_blank =>true},{:id => "medicine", :onchange=>"ajaxSearch(id)"} %></td></tr></table>
+	<table border="1" cellspacing="0" width="50%" id = "mtable">
+  <tr>
+    <th>Si no</th>
+    <th>Medicine name</th>
+    <th>Code</th>
+    <th>Batch no</th>
+    <th>Quantity</th>
+    <th>Rate</th>
+    <th>Amount</th>
+  </tr>
+  </table>
+  <table>
+	<% f.fields_for(@medicine_list) do |m| %>
+	 <tr>
+		<td><%= m.text_field :Si_No, :size => "10", :style => "display:none", :id =>"sno", :onclick =>"ajaxSearch(id) " %></td>
+	 	
+		<td><%= m.text_field :Medicine_Name, :size => "20", :style => "display:none" , :id=>"name"%></td>
+	    
+		<td><%= m.text_field :code, :size => "20", :style => "display:none", :id=>"code" %></td>
+	  	
+		<td><%= m.text_field :Batch_No, :size => "20", :style => "display:none", :id=>"bno" %></td>
+	  	
+		<td><%= m.text_field :quantity, :size => "20", :style => "display:none", :id=>"qntity" %></td>
+	  	
+		<td><%= m.text_field :rate, :size => "20", :style => "display:none", :id=>"rate" %></td>
+	  	
+		<td><%= m.text_field :amount, :size => "20", :style => "display:none", :id=>"amt" %></td></tr>
+	    <% end %>
+		</table>
+	<br/><br/>
+    <%= f.submit 'create' %>
+    
+ 
+<% end %>
+</div>
+<%= link_to 'Back', medicine_pages_path %>

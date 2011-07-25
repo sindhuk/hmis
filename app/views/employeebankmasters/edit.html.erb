@@ -1,0 +1,39 @@
+<h3>EmployeebankMaster</h3>
+<% form_for(@employeebankmaster) do |f| %>
+  <%= f.error_messages %>
+ <br /><br /><br />
+<div align="center" >
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+			
+		    <td> Bankcode </td>
+		    <td> <%= f.text_field :bank_code %></td>
+			<td>Bankname</td>
+			<td><%= f.text_field :bank_name %></td>
+     </tr>
+     <tr>
+            <td>  Branch </td>
+            <td>  <%= select "employeebankmaster","branch", Bankmaster.find(:all).collect {|p| [p.branch] },{:include_blank => false } %></td>
+            <td>  City </td>
+            <td>  <%= select "employeebankmaster","city", Bankmaster.find(:all).collect {|p| [p.city] },{:include_blank => false } %></td>
+     </tr>
+     <tr>     
+	        <td> Address </td>
+            <td><%= select "employeebankmaster","address", Bankmaster.find(:all).collect {|p| [p.address] },{:include_blank => false } %></td>
+            <td>  Contactperson </td>
+            <td><%= f.text_field :contact_person %></td>
+     </tr>
+     <tr>
+	        <td>Contactpersonmobileno </td>
+            <td><%= f.text_field :contact_person_mobile_no %></td>
+            <td>Accounttype </td>
+            <td><%= f.select(:account_type, [['Saving'],['Current']]) %></td>
+     </tr>
+  </table><br><br>
+    <%= f.submit 'Update' %>
+    </div>
+<% end %>
+
+<%= link_to 'Show', employeebankmasters_path %>
+ 
+  

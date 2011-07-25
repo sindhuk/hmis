@@ -1,0 +1,36 @@
+<h1>Editing consultationcharge</h1>
+
+<% form_for(@consultationcharge) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :code %><br />
+    <%= select "consultationcharge", "code", Doctormaster.find(:all).collect {|p| [ p.code, p.name ] }, {:include_blank => false} %>
+  </p>
+  <p>
+    <%= f.label :details %><br />
+    <%= f.text_field :details %>
+  </p>
+  <p>
+    <%= f.label :charge %><br />
+    <%= f.text_field :charge %>
+  </p>
+  <p>
+    <%= f.label :ward %><br />
+    <%= f.select :ward, Wardmaster.find(:all).collect { |p| [p.name] },{:include_blank => true}, {:id => "ward", :disabled => "true",:onchange => "checked_print(id,'#{@ward}')"}%>
+  </p>
+  <p>
+    <%= f.label :cost %><br />
+    <%= f.text_field :cost, :id => "cost", :disabled => "true" %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @consultationcharge %> |
+<%= link_to 'Back', consultationcharges_path %>

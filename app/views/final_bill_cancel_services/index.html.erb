@@ -1,0 +1,32 @@
+<h1>Listing final_bill_cancel_services</h1>
+
+<table>
+  <tr>
+    <th>Final bill cancel</th>
+    <th>Sno</th>
+    <th>Service name</th>
+    <th>Service code</th>
+    <th>Cost</th>
+    <th>Concession</th>
+    <th>Amount</th>
+  </tr>
+
+<% @final_bill_cancel_services.each do |final_bill_cancel_service| %>
+  <tr>
+    <td><%=h final_bill_cancel_service.final_bill_cancel_id %></td>
+    <td><%=h final_bill_cancel_service.sno %></td>
+    <td><%=h final_bill_cancel_service.service_name %></td>
+    <td><%=h final_bill_cancel_service.service_code %></td>
+    <td><%=h final_bill_cancel_service.cost %></td>
+    <td><%=h final_bill_cancel_service.concession %></td>
+    <td><%=h final_bill_cancel_service.amount %></td>
+    <td><%= link_to 'Show', final_bill_cancel_service %></td>
+    <td><%= link_to 'Edit', edit_final_bill_cancel_service_path(final_bill_cancel_service) %></td>
+    <td><%= link_to 'Destroy', final_bill_cancel_service, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New final_bill_cancel_service', new_final_bill_cancel_service_path %>

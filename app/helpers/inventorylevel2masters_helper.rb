@@ -1,0 +1,2 @@
+module Inventorylevel2mastersHelper
+end

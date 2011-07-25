@@ -1,0 +1,101 @@
+<%= stylesheet_link_tag 'css' %>
+<br/><br/>
+  <div align="center" width="100%">
+<table width="40%" > <tr>
+ 
+<% form_for(@ip_discharge) do |f| %>
+  <%= f.error_messages %>
+
+  <tr><td>
+    <%= f.label :mr_no %></td>
+	<td>
+    <%= f.text_field :mr_no, :size => "20" %>
+  </td>
+  <td>
+    <%= f.label :reg_no %></td><td>
+    <%= f.text_field :reg_no, :size => "20" %>
+  </td>
+  </tr>
+  
+  <tr>
+  <td>
+    <%= f.label :patient_name %></td>
+	<td>
+    <%= f.text_field :patient_name, :size => "20" %>
+  </td>
+  <td>
+    <%= f.label :father_name %></td>
+	<td>
+    <%= f.text_field :father_name, :size => "20" %>
+  </td>
+  </tr>
+ 
+  <tr>
+  <td>
+    <%= f.label :floor %></td>
+	<td>
+    <%= f.text_field :floor, :size => "20" %>
+  </td>
+  <td>
+    <%= f.label :ward %></td><td>
+    <%= f.text_field :ward, :size => "20" %>
+  </td>
+  </tr>
+  
+  <tr>
+  <td>
+    <%= f.label :room %></td>
+	<td>
+    <%= f.text_field :room, :size => "20" %>
+  </td>
+  <td>
+    <%= f.label :bed %></td><td>
+    <%= f.text_field :bed, :size => "20" %>
+  </td>
+  </tr>
+  
+  <tr>
+  <td>
+    <%= f.label :discharge_date %></td>
+	<td>
+    <%= f.text_field :discharge_date, :size => "20" %>
+  </td>
+  <td>
+    <%= f.label :time %></td><td>
+    <%= f.text_field :time, :size => "20" %>
+  </td>
+  </tr>
+ 
+  <tr>
+  <td>
+    <%= f.label :discharge_doctor %></td>
+	<td>
+    <%= f.text_field :discharge_doctor, :size => "20" %>
+  </td>
+  <td>
+    <%= f.label :status %></td>
+    
+	<td><%= f.select :status, [['---Select---'],['Cured'],['expired']],{:include_blank => false} %>
+						
+  </td>
+  </tr>
+  
+  <tr>
+  <td>
+    <%= f.label :new_review_date %></td>
+	<td>
+    <%= f.text_field :new_review_date, :size => "20" %>
+  </td>
+  <td>
+    <%= f.label :remarks %></td><td>
+    <%= f.text_field :remarks, :size => "20" %>
+  </td>
+  </tr>
+  
+  </table>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @ip_discharge %> |
+<%= link_to 'Back', ip_discharges_path %>

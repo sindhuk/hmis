@@ -1,0 +1,34 @@
+<h3>Listing purchaseordermasters</h3>
+<div align="center" width="90%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Ponumber</th>
+    <th>Podate</th>
+    <th>Vendorcode</th>
+    <th>Vendorname</th>
+    <th>Vendorcontactperson</th>
+    <th>Itemcode</th>
+    <th>Itemname</th>
+    <th>Quantity</th>
+  </tr>
+
+<% @purchaseordermasters.each do |purchaseordermaster| %>
+  <tr>
+    <td><%=h purchaseordermaster.po_number %></td>
+    <td><%=h purchaseordermaster.po_date %></td>
+    <td><%=h purchaseordermaster.vendor_code %></td>
+    <td><%=h purchaseordermaster.vendor_name %></td>
+    <td><%=h purchaseordermaster.vendor_contact_person %></td>
+    <td><%=h purchaseordermaster.item_code %></td>
+    <td><%=h purchaseordermaster.item_name %></td>
+    <td><%=h purchaseordermaster.quantity %></td>
+    <td><%= link_to 'Show', purchaseordermaster %></td>
+    <td><%= link_to 'Edit', edit_purchaseordermaster_path(purchaseordermaster) %></td>
+    <td><%= link_to 'Destroy', purchaseordermaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New purchaseordermaster', new_purchaseordermaster_path %>

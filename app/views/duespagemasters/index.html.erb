@@ -1,0 +1,40 @@
+<br /><br /><br />
+<div align="center">
+ <table width="60%" cellpadding="2" cellspacing="0">
+  <tr bgcolor =" #378bf8" style="color:white">
+  <th>Billing_mode</th>
+    <th>Mrno</th>
+	<th>Bill_no</th>
+	<th>patient_name</th>
+	<th colspan="3">Permissions</th>
+</tr>
+
+<% @duespagemasters.each do |duespagemaster| %>
+  <% if((duespagemaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h duespagemaster.billing_mode %></td>
+    <td class='<%= id %>'><%=h duespagemaster.mr_no %></td>
+	<td class='<%= id %>'><%=h duespagemaster.bill_no %></td>
+	<td class='<%= id %>'><%=h duespagemaster.patient_name %></td>
+	
+	<% if @value[1]==49 %>
+    <td class='<%= id %>'><%= link_to 'Show', duespagemaster%></td>
+	<% end %>
+	<% if @value[2]==49 %>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_duespagemaster_path(duespagemaster) %></td>
+	<% end %>
+	<% if @value[3]==49 %>
+    <td class='<%= id %>'><%= link_to 'Destroy', duespagemaster, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% end %>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+<% if @value[0]==49 %>
+<td><%= link_to 'New', new_duespagemaster_path %></td>
+<% end %>

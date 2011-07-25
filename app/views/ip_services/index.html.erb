@@ -1,0 +1,35 @@
+<%= stylesheet_link_tag 'css' %>
+<script type="text/javascript"> 
+<table width="80%" cellpadding="2" cellspacing="0">
+  <tr bgcolor =" #378bf8" style="color:white">
+    <th>Ip service entry</th>
+    <th>Sno</th>
+    <th>Service name</th>
+    <th>Service code</th>
+    <th>Quantity</th>
+    <th>Rate</th>
+    <th>Concession</th>
+    <th>Amount</th>
+	<th colspan="3">Permissions</th>
+  </tr>
+
+<% @ip_services.each do |ip_service| %>
+  <tr>
+    <td><%=h ip_service.ip_service_entry_id %></td>
+    <td><%=h ip_service.sno %></td>
+    <td><%=h ip_service.service_name %></td>
+    <td><%=h ip_service.service_code %></td>
+    <td><%=h ip_service.quantity %></td>
+    <td><%=h ip_service.rate %></td>
+    <td><%=h ip_service.concession %></td>
+    <td><%=h ip_service.amount %></td>
+    <td><%= link_to 'Show', ip_service %></td>
+    <td><%= link_to 'Edit', edit_ip_service_path(ip_service) %></td>
+    <td><%= link_to 'Destroy', ip_service, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ip_service', new_ip_service_path %>

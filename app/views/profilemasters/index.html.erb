@@ -1,0 +1,24 @@
+<center><font size="4"><%= link_to 'New Profile', new_profilemaster_path %></font></center>
+<br /><br />
+<table >
+      <tr bgcolor =" #1797c0">
+	 <th>S.No</th>
+    <th>Profilename</th>
+	<th colspan="3">Permissions</th>
+     </tr>
+
+    <% @profilemasters.each do |profilemaster| %>
+		<% if((profilemaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+	end %>
+     <tr>
+	 <td class='<%= id %>'><%=h profilemaster.id %></td>
+    <td class='<%= id %>'><%=h profilemaster.profile_name %></td>
+    <td class='<%= id %>'><%= link_to 'Show', profilemaster %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_profilemaster_path(profilemaster) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', profilemaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

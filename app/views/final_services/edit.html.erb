@@ -1,0 +1,44 @@
+<h1>Editing final_service</h1>
+
+<% form_for(@final_service) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :final_bill_id %><br />
+    <%= f.text_field :final_bill_id %>
+  </p>
+  <p>
+    <%= f.label :sno %><br />
+    <%= f.text_field :sno %>
+  </p>
+  <p>
+    <%= f.label :service_name %><br />
+    <%= f.text_field :service_name %>
+  </p>
+  <p>
+    <%= f.label :service_code %><br />
+    <%= f.text_field :service_code %>
+  </p>
+  <p>
+    <%= f.label :services_provided %><br />
+    <%= f.text_field :services_provided %>
+  </p>
+  <p>
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </p>
+  <p>
+    <%= f.label :concession %><br />
+    <%= f.text_field :concession %>
+  </p>
+  <p>
+    <%= f.label :total_amount %><br />
+    <%= f.text_field :total_amount %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @final_service %> |
+<%= link_to 'Back', final_services_path %>

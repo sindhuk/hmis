@@ -1,0 +1,60 @@
+<h3> inpatientdailyreport</h3>
+
+<% form_for(@inpatientdailyreport) do |f| %>
+  <%= f.error_messages %>
+	<div align="center" width="100%">
+	<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+		<tr>
+				<td>Registration_id </td>
+				<td><%= f.text_field :registration_id %></td>
+				<td>Date</td>
+				<td><%= f.date_select :date %></td>
+		</tr>
+		<tr>
+				<td>Admission_id</td>
+				<td><%= f.text_field :admission_id %></td>
+				<td>Date_of_appointment</td>
+				<td><%= f.date_select :date_of_appointment %></td>
+		</tr>
+		<tr>
+				<td>first_name</td>
+				<td><%= f.text_field :first_name %></td>
+				<td>Last_name</td>
+				<td><%= f.text_field :last_name %></td>
+		<tr>
+		</tr>
+				<td>Gender </td>
+				<td><%= f.collection_select :gender, Inpatientdailyreport::GENDERS,:to_s,:to_s,:include_blank =>true %></td>
+				<td>Age</td>
+				<td><%= f.text_field :age %></td>
+		</tr>
+		<tr>
+				<td>Dotor_name</td>
+				<td><%= f.text_field :doctor_name %></td>
+				<td>Time</td>
+				<td><%= f.time_select :time %></td>
+		</tr>
+		<tr>
+				<td>Ward_type</td>
+				<td><%= f.select :watd_type, Wardmaster.find(:all).collect{|p| [p.ward_name]} %></td>
+				<td>Ward_no </td>
+				<td><%= f.text_field :ward_no %></td>
+		</tr>
+		<tr>
+				<td>Bed_no</td>
+				<td><%= f.text_field :bed_no %></td>
+				<td>Prescription</td>
+				<td><%= f.text_field :prescription %></td>
+		</tr>
+		<tr>
+				<td>Request_for_discharge</td>
+				<td><%= f.radio_button :request_for_discharge, "Yes", :checked => true %>Yes
+				<%= f.radio_button :request_for_discharge, "No" %>No</td>
+		</tr>
+		</table>
+		<%= f.submit 'create' %>
+ 
+<% end %>
+
+</div>
+<%= link_to 'Back', inpatientdailyreports_path %>

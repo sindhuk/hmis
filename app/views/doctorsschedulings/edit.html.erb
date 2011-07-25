@@ -1,0 +1,40 @@
+<h1>Editing doctorsscheduling</h1>
+
+<% form_for(@doctorsscheduling) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :department_name %><br />
+    <%= f.select :department_name , Doctormaster.find(:all).collect{|p|[ p.doctor_department ] } %>
+  </p>
+  <p>
+    <%= f.label :doctor_id %><br />
+    <%= f.select :doctor_id , Doctormaster.find(:all).collect{|p|[p.doctor_code ] } %>
+  </p>
+  <p>
+    <%= f.label :doctor_name %><br />
+    <%= f.text_field :doctor_name %>
+  </p>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </p>
+  <p>
+    <%= f.label :doctor_type %><br />
+    <%= f.text_field :doctor_type %>
+  
+   	<%= f.radio_button :doctor_type, "morningshift", :checked =>true %>06-14 <br>
+	Evening Shift:<br>
+    <%= f.radio_button :doctor_type, "eveningshift"%>14-22<br>
+	Night Shift:<br>
+	<%= f.radio_button :doctor_type, "nightshift" %>22-06<br>
+	General Shift:<br>
+    <%= f.radio_button :doctor_type, "generalshift"%>09-08
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @doctorsscheduling %> |
+<%= link_to 'Back', doctorsschedulings_path %>

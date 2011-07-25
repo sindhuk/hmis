@@ -1,0 +1,20 @@
+<h1>Editing floormaster</h1>
+
+<% form_for(@floormaster) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :floor_no %><br />
+    <%= f.text_field :floor_no %>
+  </p>
+  <p>
+    <%= f.label :floor_name %><br />
+    <%= f.text_field :floor_name %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @floormaster %> |
+<%= link_to 'Back', floormasters_path %>

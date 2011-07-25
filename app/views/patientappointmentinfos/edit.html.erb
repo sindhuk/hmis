@@ -1,0 +1,36 @@
+<h1>Editing patientappointmentinfo</h1>
+
+<% form_for(@patientappointmentinfo) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :patient_registration_id %><br />
+    <%= f.text_field :patient_registration_id %>
+  </p>
+  <p>
+    <%= f.label :appointment_id %><br />
+    <%= f.text_field :appointment_id %>
+  </p>
+  <p>
+    <%= f.label :appontment_date %><br />
+    <%= f.date_select :appontment_date %>
+  </p>
+  <p>
+    <%= f.label :registration_id %><br />
+    <%= f.text_field :registration_id %>
+  </p>
+  <p>
+    <%= f.label :doctor_name %><br />
+    <%= f.text_field :doctor_name %>
+  </p>
+  <p>
+    <%= f.label :department_name %><br />
+    <%= f.text_field :department_name %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @patientappointmentinfo %> |
+<%= link_to 'Back', patientappointmentinfos_path %>

@@ -1,0 +1,31 @@
+<p>
+  <b>Profilename:</b>
+  <%=h @profilemaster.profile_name %>
+</p>
+
+<table cellpadding=10>
+	<tr>
+		<th>Forms</th>
+		<th>New</th>
+		<th>Show</th>
+		<th>Edit</th>
+		<th>Destroy</th>
+	</tr>
+<% for childmaster in @profilemaster.childmaster %>
+ <tr>
+  <td colspace="5"><%=h childmaster.forms %></td>
+  <td colspace="5"><%=h childmaster.new %></td>
+  <td colspace="5"><%=h childmaster.view %></td>
+  <td colspace="5"><%=h childmaster.edit %></td>
+  <td colspace="5"><%=h childmaster.remove %></td>
+  <td><%= link_to 'show', 'http://localhost:3000/countrymasters' %></td>
+ <td><%= link_to 'Edit', edit_profilemaster_path(@profilemaster) %> </td>
+<td><%= link_to 'Back', profilemasters_path %></td>
+ </tr>
+ <tr></tr>
+<% end %>
+</table>
+
+
+<%= link_to 'Edit', edit_profilemaster_path(@profilemaster) %> |
+<%= link_to 'Back', profilemasters_path %>

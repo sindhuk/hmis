@@ -1,0 +1,38 @@
+<%= error_messages_for :session %>
+
+<div style="position:absolute; left: 270px; width:725px; height:655px; font-size :18px; font-face :Calibri; border :1px solid gray; background-color:white;">
+	<div id="flowernote" style="position:absolute; width:725px; height:78px; font-size :18px; font-face :Calibri;background-color:#507aaa">
+		<br />
+		<center>Login</center>
+		
+	</div>
+	<div id="flowernote" style="position:absolute; padding :20px 20px;top:80px; width:310px; height:110px; font-size :17px; font-face :Calibri; background-color:#FFFFCC">
+	<% form_for @session do |f| %>
+	<table>
+	<tr>
+		<td><label for="session_name">User Name</label></td>
+		<td><%= f.text_field :name %><br /></td>
+	</tr>
+	<tr>
+		<td><label for="session_password">Password</label></td>
+		<td><%= f.password_field :password %><br /></td>
+    </tr>
+	<tr>
+		<td colspan="2" align="center"><%= submit_tag "login" %></td>
+    </tr>
+	</table>
+  <% end %>
+  </div>	
+  <div style="position:absolute; top:230px; width:350px; height:400px; padding :2px; font-size :17px; font-face :Calibri;background-color:white;">
+	<p style="text-align:justify;"> MediEaz is the First Cloud based Hospital Management System in INDIA. MediEaz is a Hospital Management System that enables seamless exchange of health information leading to efficiency and increased reach for your business, enabling enhanced patient care.
+		MediEaz The MediEaz software has been designed after extensive study and research into the various aspect of Hospital functionality. Our products are designed to support all the major features required by a Hospital and are designed with a modular architecture which allows a high level of scalability and flexibility for the end user.</p>
+  </div>
+  <div style="position:relative; left: 365px; top:80px; width:355px; height:520px; padding :2px; font-size :17px; font-face :Calibri; background-color:white; ">
+	<p style="text-align:justify;">
+		Exleaz is an innovative customer-centric Product Development and IT solutions provider that create innovative products and solutions to “Create Exceptional Business Value" to our customers. We offer wide range of services including Consulting and Application Management with operations spread across UK and INDIA.  Exleaz Consulting (INDIA) Pvt Limited is wholly-owned subsidiary of Exleaz Consulting Limited, UK.</p>
+		<p style="text-align:justify;">We offer the following Solutions.</p>
+		<li>Cloud CRM (Salesforce.com)</li>
+		<li style="text-align:justify;">Enterprise Resource Planning and Business Intelligence (SAP)</lt>
+		<li style="text-align:justify;">Hospital Management System (MediEaz  Our Product) solutions Our “Flexible Delivery, Execution and Pricing (DEP) Model” enables the right talent on demand and flexible delivery to achieve the growth of your business demands. This model enables better client intimacy, speed of delivery and local account management, with which we can combine offshore delivery teams to improve time-to-market and reduce cost.</li>
+  </div>
+</div>

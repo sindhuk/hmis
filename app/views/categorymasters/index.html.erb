@@ -1,0 +1,36 @@
+<h3>Listing CategoryMaster</h3>
+<br/><br/>
+<div align="center" width="90%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+     <th>Code</th>
+     <th>Name</th>
+     <th>Status</th>
+	 <th>Show</th>
+	 <th>Edit</th>
+	 <th>Destroy</th>
+  </tr>
+
+<% @categorymasters.each do |categorymaster| %>
+      <% if((categorymaster.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h categorymaster.code %></td>
+    <td class='<%= id %>'><%=h categorymaster.name %></td>
+    <td class='<%= id %>'><%=h categorymaster.status %></td>
+    <td class='<%= id %>'><%= link_to 'show', categorymaster %></td>
+	
+	<td class='<%= id %>'><%= link_to 'edit' , edit_categorymaster_path(categorymaster) %>
+
+    <td class='<%= id %>'><%= link_to 'destroy',  categorymaster, :confirm => 'Are you sure?', :method => :delete %>
+  </td></tr>
+<% end %>
+</table>
+</div>
+<br />
+<%= link_to 'new categorymaster', new_categorymaster_path  %>
+
+

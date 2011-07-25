@@ -1,0 +1,41 @@
+<h1>Editing testresult</h1>
+
+<% form_for(@testresult) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :opbilling1_id %><br />
+    <%= f.text_field :opbilling1_id %>
+  </p>
+  <p>
+    <%= f.label :s_no %><br />
+    <%= f.text_field :s_no %>
+  </p>
+  <p>
+    <%= f.label :test_code %><br />
+    <%= f.text_field :test_code %>
+  </p>
+  <p>
+    <%= f.label :test_name %><br />
+    <%= f.text_field :test_name %>
+  </p>
+  <p>
+    <%= f.label :fee %><br />
+    <%= f.text_field :fee %>
+  </p>
+  <p>
+    <%= f.label :concessin %><br />
+    <%= f.text_field :concessin %>
+  </p>
+  <p>
+    <%= f.label :total_fee %><br />
+    <%= f.text_field :total_fee %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+
+
+<%= link_to 'Back', testresults_path %>

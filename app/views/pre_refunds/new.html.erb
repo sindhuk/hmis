@@ -1,0 +1,136 @@
+<%= javascript_include_tag :defaults %>
+<script type="text/javascript"> 
+//Fill the fields In Based on the entering MR_NUMBER
+    var query1=""
+	var fill_values=new Array("regno","name","fname","floor","ward","room","bed")
+	function ajaxSearch() 
+	{
+		 query1= document.getElementById('rno').value
+		 
+			if( query1.length==9 ) 
+						{
+						alert(query1)
+				Ajax_Code()
+			}
+	}
+		
+	//Ajax Code
+	function Ajax_Code()
+	{
+		req = new Ajax.Request('/pre_refunds/ajax_buildings/1', {
+			method: 'get',
+			parameters: { q: query1  },
+			onComplete: function(transport) {
+			processReqChange(transport);
+			}
+
+	}); 
+	function processReqChange(req) 
+		{
+			// request is complete
+			if (req.readyState == 4) 
+			{
+				var results = req.responseText;
+				alert(results)
+				var temp=new Array()
+				temp=results.split(",")
+				for(var i=0;i<fill_values.length;i++)
+				{
+						document.getElementById(fill_values[i]).value=temp[i]
+						document.getElementById(fill_values[i]).style.background="#FEF5CA"
+						document.getElementById(fill_values[i]).readOnly=true
+				}
+		}
+     }		
+	}
+	</script>
+
+<div align="center" >
+<br/><br/>
+	<table width="40%" cellspacing="0" cellpadding="2">
+<script type="text/javascript">
+  function checked_val(el)
+{
+	if(document.getElementById(el).value=="cash"){
+	document.getElementById('bank').disabled=true
+	document.getElementById('acc').disabled=true
+	document.getElementById('cheque').disabled=true
+	document.getElementById('card').disabled=true
+	document.getElementById('exp').disabled=true
+	}
+	else if(document.getElementById(el).value=="cheque")
+	{
+	document.getElementById('bank').disabled=false
+	document.getElementById('acc').disabled=false
+	document.getElementById('cheque').disabled=false
+	document.getElementById('card').disabled=true
+	document.getElementById('exp').disabled=true
+	}
+	else if (document.getElementById(el).value=="card")
+	{
+	document.getElementById('bank').disabled=true
+	document.getElementById('acc').disabled=true
+	document.getElementById('cheque').disabled=true
+	document.getElementById('card').disabled=false
+	document.getElementById('exp').disabled=false
+	}
+}
+</script>
+<% form_for(@pre_refund) do |f| %>
+  <%= f.error_messages %>
+
+  <tr><td>MR No</td>
+    <td><%= f.text_field :mr_no, :size => "20",:id => "rno", :onKeyUp => "ajaxSearch()"  %></td>
+   <td>Reg No</td>
+   <td> <%= f.text_field :reg_no, :size => "20",:id => "regno"  %></td></tr>
+ <tr>
+    <td><%= f.label :patient_name %></td>
+    <td><%= f.text_field :patient_name, :size => "20",:id => "name"  %></td>
+ 
+    <td><%= f.label :father_name %></td>
+    <td><%= f.text_field :father_name, :size => "20",:id => "fname"  %></td></tr>
+  <tr>
+    <td><%= f.label :floor %></td>
+    <td><%= f.text_field :floor, :size => "20" , :id =>"floor" %></td>
+  
+    <td><%= f.label :ward %></td>
+    <td><%= f.text_field :ward, :size => "20", :id =>"ward"  %></td></tr>
+  <tr>
+    <td><%= f.label :room %></td>
+    <td><%= f.text_field :room, :size => "20", :id =>"room"  %></td>
+  
+    <td><%= f.label :bed %></td>
+    <td><%= f.text_field :bed, :size => "20", :id =>"bed"  %></td></tr>
+  <tr>
+    <td><%= f.label :advance_amount %></td>
+    <td><%= f.text_field :advance_amount, :size => "20"  %></td>
+  
+    <td><%= f.label :refund %></td>
+    <td><%= f.text_field :refund, :size => "20"  %></td></tr>
+ <tr>
+    <td><%= f.label :payment_type %></td>
+    <td><%= f.radio_button :payment_type, "cash", :checked =>true, :id => "button1" , :onchange => "checked_val(id)" %>cash
+				<%= f.radio_button :payment_type, "cheque", :id => "button2" ,:onchange => "checked_val(id)"%>cheque
+				<%= f.radio_button :payment_type, "card", :id => "button3" ,:onchange => "checked_val(id)"%>card</td></tr>
+  <tr>
+    <td><%= f.label :bank_name %></td>
+    <td><%= f.text_field :bank_name, {:disabled => "true" , :id => "bank", :size => "20"}  %></td>
+  
+    <td><%= f.label :acc_no %></td>
+    <td><%= f.text_field :acc_no , {:disabled => "true" , :id => "acc", :size => "20"}  %></td></tr>
+  <tr>
+    <td><%= f.label :cheque_no %></td>
+    <td><%= f.text_field :cheque_no , {:disabled => "true" , :id => "cheque", :size => "20"}  %></td>
+ 
+    <td><%= f.label :card_no %></td>
+    <td><%= f.text_field :card_no, {:disabled => "true" , :id => "card", :size => "20" } %></td></tr>
+  <tr>
+    <td><%= f.label :expiry_date %></td>
+    <td><%= f.text_field :expiry_date, {:disabled => "true" , :id => "exp", :size => "20"}  %></td></tr>
+  </table>
+  <br/><br/>
+    <%= f.submit 'Create' %>
+  </div>
+<% end %>
+
+<%= link_to 'show', pre_refunds_path %>

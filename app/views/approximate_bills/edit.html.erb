@@ -1,0 +1,59 @@
+</br></br></br>
+<div align="center" >
+<table  cellspacing="0" cellpadding="6" width= "60%">
+
+<% form_for(@approximate_bill) do |f| %>
+  <%= f.error_messages %>
+
+  <tr><td>
+    <%= f.label :mr_no %></td>
+    <td><%= f.text_field :mr_no, :size => "20" %></td>
+    <td><%= f.label :reg_no %></td>
+    <td><%= f.text_field :reg_no, :size => "20" %></td>
+    <td> <%= f.label :patient_name %></td>
+    <td><%= f.text_field :patient_name, :size => "20" %></td></tr>
+    <tr><td><%= f.label :father_name %></td>
+    <td><%= f.text_field :father_name, :size => "20" %></td>
+    <td><%= f.label :floor %></td>
+    <td><%= f.text_field :floor, :size => "20" %></td>
+    <td><%= f.label :ward %></td>
+    <td><%= f.text_field :ward, :size => "20" %></td></tr>
+    <tr><td><%= f.label :room %></td>
+    <td><%= f.text_field :room, :size => "20" %></td>
+    <td><%= f.label :bed %></td>
+    <td><%= f.text_field :bed, :size => "20" %></td></tr>
+	<br/><br/></table>
+	<table border="1" cellspacing="0" cellpadding="4" width="40%">
+     <tr>
+	 <th>Sno</th>
+    <th>Service name</th>
+    <th>Code</th>
+    <th>Provided services</th>
+    </tr>
+    <% f.fields_for :approximate_service do |a| %>
+    <tr>
+    <td><%= a.text_field :sno, :size => "10", :style => "display:none" %></td>
+    <td><%= a.text_field :service_name, :size => "20", :style => "display:none" %></td>
+    <td><%= a.text_field :code, :size => "20", :style => "display:none" %></td>
+    <td><%= a.text_field :provided_services, :size => "20", :style => "display:none" %></td>
+	</tr>
+ <% end %>
+ 
+ </table>
+ <br/><br/>
+ <table  cellspacing="0" cellpadding="4" width="50%"><tr>
+     <td><%= f.label :gross %></td>
+     <td><%= f.text_field :gross, :size => "20" %></td>
+      <td><%= f.label :advance %></td>
+     <td><%= f.text_field :advance, :size => "20" %></td>
+      
+      <td><%= f.label :due %></td>
+     <td><%= f.text_field :due, :size => "20" %></td></tr></table>
+	 <br/><br/>
+ 
+    <%= f.submit 'Update' %>
+  
+<% end %>
+</div>
+
+<%= link_to 'Back', approximate_bills_path %>

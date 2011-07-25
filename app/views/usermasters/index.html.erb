@@ -1,0 +1,24 @@
+<h1>Listing usermasters</h1>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Userid</th>
+    <th>Profile</th>
+  </tr>
+
+<% @usermasters.each do |usermaster| %>
+  <tr>
+    <td><%=h usermaster.user_name %></td>
+    <td><%=h usermaster.user_id %></td>
+    <td><%=h usermaster.profile %></td>
+    <td><%= link_to 'Show', usermaster %></td>
+    <td><%= link_to 'Edit', edit_usermaster_path(usermaster) %></td>
+    <td><%= link_to 'Destroy', usermaster, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New usermaster', new_usermaster_path %>

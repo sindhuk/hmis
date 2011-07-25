@@ -1,0 +1,41 @@
+</br></br></br>
+<div align="center" >
+<table  cellspacing="0" cellpadding="6" width= "60%">
+  <tr><td><b>Mr no:</b></td>
+  <td><%=h @approximate_bill.mr_no %></td>
+  <td><b>Reg no:</b></td>
+  <td><%=h @approximate_bill.reg_no %></td>
+  <td><b>Patient name:</b></td>
+  <td><%=h @approximate_bill.patient_name %></td></tr>
+  <tr><td><b>Father name:</b></td>
+  <td><%=h @approximate_bill.father_name %></td>
+  <td><b>Floor:</b></td>
+  <td><%=h @approximate_bill.floor %></td>
+  <td><b>Ward:</b></td>
+  <td><%=h @approximate_bill.ward %></td></tr>
+  <tr><td><b>Room:</b></td>
+  <td><%=h @approximate_bill.room %></td>
+  <td><b>Bed:</b></td>
+  <td><%=h @approximate_bill.bed %></td></tr>
+<% for approximate_service in @approximate_bill.approximate_service %>
+
+  <tr>
+  <td><b>Sno:</b></td>
+  <td><%=h approximate_service.sno %></td>
+  <td><b>Service name:</b></td>
+  <td><%=h approximate_service.service_name %></td>
+  <td><b>Code:</b></td>
+  <td><%=h approximate_service.code %></td></tr>
+  <tr><td><b>Provided services:</b></td>
+  <td><%=h approximate_service.provided_services %></td>
+
+<% end %>
+<td>
+  <b>Gross:</b></td>
+  <td><%=h @approximate_bill.gross %></td>
+  <td><b>Advance:</b></td>
+  <td><%=h @approximate_bill.advance %></td></tr>
+  <tr><td><b>Due:</b></td>
+  <td><%=h @approximate_bill.due %></td></tr>
+  </table></div>
+<%= link_to 'Back', approximate_bills_path %>

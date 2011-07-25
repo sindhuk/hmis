@@ -1,0 +1,32 @@
+<%= stylesheet_link_tag 'css' %>
+<table><tr><td>
+  <b>Mr no:</b></td>
+  <td><%=h @ip_discharge.mr_no %></td>
+  <td><b>Reg no:</b></td>
+  <td><%=h @ip_discharge.reg_no %></td></tr>
+  <tr><td><b>Patient name:</b></td>
+  <td><%=h @ip_discharge.patient_name %></td>
+  <td><b>Father name:</b></td>
+  <td><%=h @ip_discharge.father_name %></td></tr>
+  <tr><td><b>Floor:</b></td>
+  <td><%=h @ip_discharge.floor %></td>
+  <td><b>Ward:</b></td>
+  <td><%=h @ip_discharge.ward %></td></tr>
+  <tr><td><b>Room:</b></td>
+  <td><%=h @ip_discharge.room %></td>
+  <td> <b>Bed:</b></td>
+  <td><%=h @ip_discharge.bed %></td></tr>
+  <tr><td><b>Discharge date:</b></td>
+  <td><%=h @ip_discharge.discharge_date %></td>
+  <td><b>Time:</b></td>
+  <td><%=h @ip_discharge.time %></td></tr>
+  <tr><td><b>Discharge doctor:</b></td>
+  <td><%=h @ip_discharge.discharge_doctor %></td>
+  <td><b>Status:</b></td>
+  <td><%=h @ip_discharge.status %></td></tr>
+  <tr><td><b>New review date:</b></td>
+  <td><%=h @ip_discharge.new_review_date %></td>
+  <td><b>Remarks:</b></td>
+  <td><%=h @ip_discharge.remarks %></td></tr>
+<%= link_to 'Edit', edit_ip_discharge_path(@ip_discharge) %> |
+<%= link_to 'Back', ip_discharges_path %>

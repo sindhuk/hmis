@@ -1,0 +1,64 @@
+<html>
+<head>
+<%= stylesheet_link_tag 'style' %>
+<%= javascript_include_tag :defaults %>
+<%= javascript_include_tag 'jquery', 'jquery-js', 'jquery.delayed-observer', 'application' %>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#root ul").each(function() {$(this).css("display", "none");});
+		$("#root .category").click(function() {
+			var childid = "#" + $(this).attr("childid");
+			if ($(childid).css("display") == "none") {$(childid).css("display", "block");}
+			else {$(childid).css("display", "none");}
+			
+			
+		});
+	});
+</script>
+</head>
+<body style=" margin:0 auto;overflow:hidden;" SCROLL="no">
+	<div id="flowernote" style="width:100%; height:8%; background-color:#507aaa; color:white; margin:0 auto;">
+		<div id="flowernote" style="position:absolute; left: 5px; top:20px; width:400px; height:30px; color:white; font-size :18px; font-face :Calibri; ">
+				Hospital Management System-MediEaz
+		</div>
+		<div id="flowernote" style="position:absolute; right: 5px; top:20px; width:400px; height:30px; color:white; font-size :18px; font-face :Calibri; ">
+			<%= @user_name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search <%= text_field("search", "sea", :size =>15) %>&nbsp;&nbsp;&nbsp;<%= link_to "Logout", @application_session, :style => "color :white", :method => :delete %>
+		</div>	
+	</div>
+	<div style="position:absolute; overflow:auto; width:17%; top:50px; height:90%; background-color:#DDDDDD; color:white;">
+		<ul id="root" class="menu">
+    	<li>
+		<a href='javascript:void(0);' childid = 'c_12' class='cat_close category' ><%= image_tag ("Button_Images/mas.png", :size => "210x40") %></a>		
+        </li>
+	 <ul id='c_12'>
+		<% @master.each do |master| %>
+	    <li>
+            	<a href="http://localhost:3000/<%= master.master_name %>/new" TARGET='home'><%= master.master_name %></a>
+            </li>
+			<% end %>
+       	</ul>
+		<li>
+        	<a HREF='javascript:void(0);' childid = 'c_1' class='cat_close category' TARGET='home'><%= image_tag ("Button_Images/manage.png", :size => "210x40") %></font></a>
+        </li>
+		<ul id='c_1'>
+        	<li>
+            		<a href="http://localhost:3000/people" TARGET='home'><%= image_tag ("Button_Images/users.png", :size => "159x26") %></a></br>
+					<a href="http://localhost:3000/profilemasters" TARGET='home'><%= image_tag ("Button_Images/profiles.png", :size => "159x26") %></a></br>
+					<a href="http://localhost:3000/home/IP_Front" TARGET='home'><%= image_tag ("Button_Images/login-history.png", :size => "159x26") %></a>
+            </li>
+       	</ul>
+        <li>
+        	<a HREF='javascript:void(0);' class='cat_close category' TARGET='home'><%= image_tag ("Button_Images/report.png", :size => "210x40") %></font></a>
+        </li>
+	</div>
+
+	<div style="position:absolute; left: 16%; width:84%; top:48px; height:90%; background-color:#CCC; color:white; margin:0;">
+		<iframe src="http://localhost:3000/home/footer" id="home" scrolling="AUTO" style="width:100%; height:100%;background-color:white; margin:0 auto; marginwidth=0; marginheight=0; hspace=0;  ">
+			<%= image_tag ("Exleaz.jpg", :size => "1040x550") %>
+		</iframe>
+		<div style="position:absolute; width:100%; height:2%; background-color:white; color:green">
+			<center><font size=2 face="Calibri">All Copyrights&copy; Reserved to Exleaz Consulting(India) Private Limited</font></center> 
+		</div>
+	</div>
+</body>
+</html>

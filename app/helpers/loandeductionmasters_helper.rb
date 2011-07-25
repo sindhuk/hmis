@@ -1,0 +1,2 @@
+module LoandeductionmastersHelper
+end

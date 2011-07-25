@@ -1,0 +1,141 @@
+<h1>Editing patientappointmentregistration</h1>
+
+<% form_for(@patientappointmentregistration) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :mrno %><br />
+    <%= f.text_field :mrno %> 
+  </p>
+  <%= f.label :patienttype %><br />
+    <%= f.collection_select :patienttype, Patientappointmentregistration::PATIENTTYPES,:to_s,:to_s,:include_blank =>true %>
+  </p>
+  <p>
+    <%= f.label :appointmentid %><br />
+    <%= f.text_field :appoinmentid %> 
+  </p>
+  <p>
+    <%= f.label :appdate %><br />
+    <%= f.date_select :appdate %>
+  </p>
+  <p>
+    <%= f.label :registrationid %><br />
+    <%= f.text_field :registrationid %>
+  </p>
+  <p>
+    <%= f.label :regdate %><br />
+    <%= f.date_select :regdate %>
+  </p>
+  <p>
+    <%= f.label :firstname %><br />
+    <%= f.text_field :firstname %>
+  </p>
+  <p>
+    <%= f.label :lastname %><br />
+    <%= f.text_field :lastname %>
+  </p>
+  <p>
+    <%= f.label :dob %><br />
+    <%= f.date_select :dob %>
+  </p>
+  <p>
+    <%= f.label :gender %><br />
+    <%= f.collection_select :gender, Patientappointmentregistration::GENDERS,:to_s,:to_s,:include_blank =>true %>
+  </p>
+  <p>
+    <%= f.label :age %><br />
+    <%= f.text_field :age %>
+  </p>
+  <p>
+    <%= f.label :maritalstatus %><br />
+   <%= f.collection_select :maritalstatus, Patientappointmentregistration::MARITALSTATUSES,:to_s,:to_s,:include_blank =>true %>
+  </p>
+  <p>
+    <%= f.label :fathername %><br />
+    <%= f.text_field :fathername %>
+  </p>
+  <p>
+    <%= f.label :departmentname %><br />
+    <%= f.select :departmentname, Departmentmaster.find(:all).collect{|p| [p.departmentname]} %>
+  </p>
+  
+  <p>
+    <%= f.label :occupation %><br />
+    <%= f.select :occupation,Occupationmaster.find(:all).collect{|p|[p.occupationname]} %>
+  </p>
+  <p>
+    <%= f.label :disease %><br />
+    <%= f.text_field :disease %>
+  </p>
+  
+  <p>
+    <%= f.label :paymentmode %><br />
+    <%= f.text_field :paymentmode %>
+  </p>
+  <p>
+    <%= f.label :initialamount %><br />
+    <%= f.text_field :initialamount %>
+  </p>
+  <p>
+    <%= f.label :address1 %><br />
+    <%= f.text_field :address1 %>
+  </p>
+  <p>
+    <%= f.label :address2 %><br />
+    <%= f.text_field :address2 %>
+  </p>
+  <p>
+    <%= f.label :city %><br />
+    <%= f.select :city,Citymaster.find(:all).collect{|p|[p.cityname]} %>
+  </p>
+  <p>
+    <%= f.label :country %><br />
+    <%= f.select :country,Countrymaster.find(:all).collect{|p|[p.countryname]} %>
+  </p>
+  <p>
+    <%= f.label :state %><br />
+    <%= f.select :state,Statemaster.find(:all).collect{|p|[p.statename]} %>
+  </p>
+  <p>
+    <%= f.label :zipcode %><br />
+    <%= f.text_field :zipcode %>
+  </p>
+  <p>
+    <%= f.label :phnno %><br />
+    <%= f.text_field :phnno %>
+  </p>
+  <p>
+    <%= f.label :mobileno %><br />
+    <%= f.text_field :mobileno %>
+  </p>
+  <p>
+    <%= f.label :faxno %><br />
+    <%= f.text_field :faxno %>
+  </p>
+  <p>
+    <%= f.label :emailid %><br />
+    <%= f.text_field :emailid %>
+  </p>
+  <p>
+    <%= f.label :doctorname %><br />
+    <%= f.select :departmentname, Doctormaster.find(:all).collect{|p| [p.doctorname]} %>
+  </p>
+  <p>
+    <%= f.label :departmentname %><br />
+   <%= f.select :departmentname, Departmentmaster.find(:all).collect{|p| [p.departmentname]} %>
+  </p>
+  <p>
+    <%= f.label :dateofappoinment %><br />
+    <%= f.date_select :dateofappoinment %>
+  </p>
+  <p>
+    <%= f.label :timeofappointment %><br />
+    <%= f.time_select :timeofappointment %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @patientappointmentregistration %> |
+<%= link_to 'Back', patientappointmentregistrations_path %>

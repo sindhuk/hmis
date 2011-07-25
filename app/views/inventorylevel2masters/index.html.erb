@@ -1,0 +1,35 @@
+<h3>Listing inventorylevel2masters</h3>
+<br /><br />
+<div align="center">
+  <table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr>
+    <th>Itemlevel1code</th>
+    <th>Itemlevel2code</th>
+    <th>Itemlevel2name</th>
+    <th>Status</th>
+	<th>Show</th>
+	<th>Edit</th>
+	<th>Destroy</th>
+  </tr>
+
+<% @inventorylevel2masters.each do |inventorylevel2master| %>
+	<% if((inventorylevel2master.id % 2)==0) 
+		id="datacellone"
+	else
+		id="datacelltwo"
+  end %>
+  <tr>
+    <td class='<%= id %>'><%=h inventorylevel2master.item_level1_code %></td>
+    <td class='<%= id %>'><%=h inventorylevel2master.item_level2_code %></td>
+    <td class='<%= id %>'><%=h inventorylevel2master.item_level2_name %></td>
+    <td class='<%= id %>'><%=h inventorylevel2master.status %></td>
+    <td class='<%= id %>'><%= link_to 'Show', inventorylevel2master %></td>
+    <td class='<%= id %>'><%= link_to 'Edit', edit_inventorylevel2master_path(inventorylevel2master) %></td>
+    <td class='<%= id %>'><%= link_to 'Destroy', inventorylevel2master, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New inventorylevel2master', new_inventorylevel2master_path %>

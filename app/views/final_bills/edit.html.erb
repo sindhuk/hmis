@@ -1,0 +1,123 @@
+<br/><br/>
+  <div align="center" width="100%">
+		<table width="40%" cellpadding="4" cellspacing="0"> 
+
+			<% form_for(@final_bill) do |f| %>
+			<%= f.error_messages %>
+
+			  <tr>
+				<td><%= f.label :mr_no %></td>
+				<td><%= f.text_field :mr_no, :size => "20" %></td>
+			  
+				<td><%= f.label :reg_no %></td>
+				<td><%= f.text_field :reg_no, :size => "20" %></td>
+			  
+				<td><%= f.label :patient_name %></td>
+				<td><%= f.text_field :patient_name, :size => "20" %></td>
+			  </tr>
+		  
+			  <tr>
+				<td><%= f.label :father_name %></td>
+				<td><%= f.text_field :father_name, :size => "20" %></td>
+			  
+				<td><%= f.label :floor %></td>
+				<td><%= f.text_field :floor, :size => "20" %></td>
+			  
+				<td><%= f.label :ward %></td>
+				<td><%= f.text_field :ward, :size => "20" %></td>
+			  </tr>
+		  
+			  <tr>
+				<td><%= f.label :room %></td>
+				<td><%= f.text_field :room, :size => "20" %></td>
+			  
+				<td><%= f.label :bed %></td>
+				<td><%= f.text_field :bed, :size => "20" %></td>
+			  
+				<td><%= f.label :final_bill_no %></td>
+				<td><%= f.text_field :final_bill_no, :size => "20" %></td>
+			  </tr>
+	</table>
+	<br/><br/>
+<table border="1" cellspacing="0" cellpadding="4">
+  <tr>
+	<th>Final Bill id</th>
+    <th>Sno</th>
+    <th>Service name</th>
+    <th>Service code</th>
+    <th>Provided Services</th>
+	<th>Price</th>
+	<th>concession</th>
+	<th>Total Amount</th>
+  </tr>		 
+			
+	<% f.fields_for :final_service  do |k| %>
+		  
+	<tr>
+		<td><%= k.text_field :final_bill_id , :size => "10", :style => "display:none" %></td>
+	  	<td><%= k.text_field :sno, :size => "10", :style => "display:none" %></td>
+	 	<td><%= k.text_field :service_name, :size => "10", :style => "display:none" %></td>
+	  	<td><%= k.text_field :service_code, :size => "10", :style => "display:none" %></td>
+	  	<td><%= k.text_field :services_provided, :size => "10", :style => "display:none" %> </td>
+	  	<td><%= k.text_field :price, :size => "10", :style => "display:none" %> </td>
+		<td><%= k.text_field :concession, :size => "10", :style => "display:none"%> </td>
+		<td><%= k.text_field :total_amount, :size => "10", :style => "display:none" %> </td>
+    </tr>
+</table> 
+		<% end %>
+		<br/><br/>
+		
+<table width="40%" cellpadding="4" cellspacing="0">  
+		<% form_for(@final_bill) do |f| %>
+			  <tr>
+				<td><%= f.label :gross %></td>
+				<td><%= f.text_field :gross, :size => "20" %> </td>
+			  
+				<td><%= f.label :advance %></td>
+				<td><%= f.text_field :advance, :size => "20" %> </td>
+			  
+				<td><%= f.label :due %></td>
+				<td><%= f.text_field :due, :size => "20" %> </td>	
+			  </tr>
+				
+			  <tr>
+				<td><%= f.label :concession %></td>
+				<td><%= f.text_field :concession, :size => "20" %></td>
+			  
+				<td><%= f.label :department %></td>
+				<td><%= f.text_field :department, :size => "20" %> </td>
+			  
+				<td><%= f.label :employee %></td>
+				<td><%= f.text_field :employee, :size => "20" %> </td>
+			  </tr>
+			  
+			  <tr>
+				<td><%= f.label :payment_mode %></td>
+				<td><%= f.text_field :payment_mode, :size => "20" %></td>
+			  
+				<td><%= f.label :bank_name %></td>
+				<td><%= f.text_field :bank_name, :size => "20" %> </td>
+			  
+				<td><%= f.label :acc_no %></td>
+				<td><%= f.text_field :acc_no, :size => "20" %></td>
+			  </tr>
+		  
+			  <tr>
+				<td><%= f.label :cheque_no %></td>
+				<td><%= f.text_field :cheque_no, :size => "20" %></td>
+			  
+				<td><%= f.label :card_no %></td>
+				<td><%= f.text_field :card_no, :size => "20" %></td>
+			  
+				<td><%= f.label :expiry_date %></td>
+				<td><%= f.text_field :expiry_date, :size => "20" %></td>
+			  </tr>
+  
+		</table>
+			<%= f.submit 'Update' %>
+			</div>
+  <% end %>
+  
+<% end %>
+<br/>
+<%= link_to 'Back', final_bills_path %>   

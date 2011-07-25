@@ -1,0 +1,26 @@
+<br />
+
+<table>
+  <tr>
+    <th>Mr no</th>
+    <th>Patient name</th>
+    <th>Reg no</th>
+    <th>Tests</th>
+  </tr>
+
+<% @request_for_test_entries.each do |request_for_test_entry| %>
+  <tr>
+    <td><%=h request_for_test_entry.mr_no %></td>
+    <td><%=h request_for_test_entry.patient_name %></td>
+    <td><%=h request_for_test_entry.reg_no %></td>
+    <td><%=h request_for_test_entry.tests %></td>
+    <td><%= link_to 'Show', request_for_test_entry %></td>
+    <td><%= link_to 'Edit', edit_request_for_test_entry_path(request_for_test_entry) %></td>
+    <td><%= link_to 'Destroy', request_for_test_entry, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New  Test Entry', new_request_for_test_entry_path %>

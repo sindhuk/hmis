@@ -1,0 +1,73 @@
+<h1>Editing inpatiententry</h1>
+
+<% form_for(@inpatiententry) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :consultation_id %><br />
+    <%= f.text_field :consultation_id %>
+  </p>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </p>
+  <p>
+    <%= f.label :reg_isration_id %><br />
+    <%= f.text_field :reg_isration_id %>
+  </p>
+  <p>
+    <%= f.label :reg_date_time %><br />
+    <%= f.datetime_select :reg_date_time %>
+  </p>
+  <p>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :dob %><br />
+    <%= f.date_select :dob %>
+  </p>
+  <p>
+    <%= f.label :gender %><br />
+    <%= f.collection_select :gender, Inpatiententry::GENDERS,:to_s,:to_s,:include_blank => true %>
+  </p>
+  <p>
+    <%= f.label :age %><br />
+    <%= f.text_field :age %>
+  </p>
+  <p>
+    <%= f.label :marital_status %><br />
+   <%= f.collection_select :marital_status, Inpatiententry::MARITALSTATUSES,:to_s,:to_s,:include_blank => true %>
+  
+  </p>
+  <p>
+    <%= f.label :department_name %><br />
+    <%= f.select :department_name, Departmentmaster.find(:all).collect{|p| [p.department_name]} %>
+  </p>
+  <p>
+    <%= f.label :doctor_name %><br />
+   <%= f.select :department_name, Doctormaster.find(:all).collect{|p| [p.doctor_name]} %>
+  </p>
+  <p>
+    <%= f.label :refferal_doctor %><br />
+    <%= f.text_field :refferal_doctor %>
+  </p>
+  <p>
+    <%= f.label :prescription %><br />
+    <%= f.text_area :prescription %>
+  </p>
+  <p>
+    <%= f.label :request_forward %><br />
+    <%= f.text_field :request_forward %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @inpatiententry %> |
+<%= link_to 'Back', inpatiententries_path %>

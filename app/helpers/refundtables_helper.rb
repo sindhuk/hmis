@@ -1,0 +1,2 @@
+module RefundtablesHelper
+end

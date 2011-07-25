@@ -1,0 +1,92 @@
+<h1>Editing stooltest</h1>
+
+<% form_for(@stooltest) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :registration_no %><br />
+    <%= f.text_field :registration_no %>
+  </p>
+  <p>
+    <%= f.label :bill_no %><br />
+    <%= f.text_field :bill_no %>
+  </p>
+  <p>
+    <%= f.label :mr_no %><br />
+    <%= f.text_field :mr_no %>
+  </p>
+  <p>
+    <%= f.label :patient_name %><br />
+    <%= f.text_field :patient_name %>
+  </p>
+  <p>
+    <%= f.label :test_date %><br />
+    <%= f.text_field :test_date %>
+  </p>
+  <p>
+    <%= f.label :color %><br />
+    <%= f.text_field :color %>
+  </p>
+  <p>
+    <%= f.label :consistency %><br />
+    <%= f.text_field :consistency %>
+  </p>
+  <p>
+    <%= f.label :mucus %><br />
+    <%= f.text_field :mucus %>
+  </p>
+  <p>
+    <%= f.label :blood %><br />
+    <%= f.text_field :blood %>
+  </p>
+  <p>
+    <%= f.label :wbchpf %><br />
+    <%= f.text_field :wbchpf %>
+  </p>
+  <p>
+    <%= f.label :rbchpf %><br />
+    <%= f.text_field :rbchpf %>
+  </p>
+  <p>
+    <%= f.label :mechrophages %><br />
+    <%= f.text_field :mechrophages %>
+  </p>
+  <p>
+    <%= f.label :trophozoite %><br />
+    <%= f.text_field :trophozoite %>
+  </p>
+  <p>
+    <%= f.label :p_ova %><br />
+    <%= f.text_field :p_ova %>
+  </p>
+  <p>
+    <%= f.label :p_cust %><br />
+    <%= f.text_field :p_cust %>
+  </p>
+  <p>
+    <%= f.label :c_ova %><br />
+    <%= f.text_field :c_ova %>
+  </p>
+  <p>
+    <%= f.label :c_cyst %><br />
+    <%= f.text_field :c_cyst %>
+  </p>
+  <p>
+    <%= f.label :occult_blood %><br />
+    <%= f.text_field :occult_blood %>
+  </p>
+  <p>
+    <%= f.label :ph %><br />
+    <%= f.text_field :ph %>
+  </p>
+  <p>
+    <%= f.label :red_sub %><br />
+    <%= f.text_field :red_sub %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @stooltest %> |
+<%= link_to 'Back', stooltests_path %>

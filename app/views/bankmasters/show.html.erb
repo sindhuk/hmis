@@ -1,0 +1,50 @@
+<h3>Showing BankMaster</h3>
+<div align="center" width="100%">
+<table width="40%" style="border:#966 solid 1px;border-color:#FFF0; " border="1" cellspacing="0" cellpadding="4">
+  <tr><td><b>Bankname</b></td>
+  <td><%=h @bankmaster.name %></td></tr>
+ <tr><td>
+  <b>Bankcode</b></td>
+  <td><%=h @bankmaster.code %>
+</td></tr>
+
+ <tr><td>
+  <b>Branch</b></td>
+  <td><%=h @bankmaster.branch %>
+</td></tr>
+
+ <tr><td>
+  <b>Address</b><td>
+  <%=h @bankmaster.address %>
+</td></tr>
+
+ <tr><td>
+  <b>City</b></td>
+  <td><%=h @bankmaster.city %>
+</td></tr>
+
+ <tr><td>  
+ <b>State</b></td>
+  <td><%=h @bankmaster.state %>
+</td></tr>
+
+ <tr><td>
+  <b>Country</b></td>
+  <td><%=h @bankmaster.country %>
+</td></tr>
+
+ <tr><td>
+  <b>Bank_phoneno:</b></td>
+  <td><%=h @bankmaster.phno %>
+</td></tr>
+
+ <tr><td>
+  <b>Bank_mail:</b></td>
+  <td><%=h @bankmaster.mail %>
+</td></tr>
+
+ 
+ </table>
+ </div>
+<br />
+ <%= link_to "Back", bankmasters_path%>

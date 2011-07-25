@@ -1,0 +1,39 @@
+<head>
+<%= stylesheet_link_tag 'ajaxtabs' %>
+<%= javascript_include_tag :defaults %>
+<%= javascript_include_tag 'ajaxtabs.js' %>
+
+</head>
+<body bgcolor="#ecf3f7">
+<div id="pettabs" class="indentmenu">
+<ul>
+<li><a href="http://localhost:3000/Patientregistration_datas" rel="#iframe" class="selected">Registration</a></li>
+<li><a href="http://localhost:3000/ipadmissions" rel="#iframe">Admission</a></li>
+<li><a href="http://localhost:3000/ip_service_entries" rel="#iframe">Services</a></li>
+<li><a href="http://localhost:3000/doctortransfers" rel="#iframe">Doctor<br />Transfer</a></li>
+<li><a href="http://localhost:3000/service_cancels" rel="#iframe">Service<br />Cancel</a></li>
+<li><a href="http://localhost:3000/ipadvances" rel="#iframe">Advances</a></li>
+<li><a href="http://localhost:3000/labresults" rel="#iframe">Lab<br />Results</a></li>
+<li><a href="http://localhost:3000/pre_refunds" rel="#iframe">Pre<br />Refunds</a></li>
+<li><a href="http://localhost:3000/approximate_bills" rel="#iframe">Approximate<br />Bill</a></li>
+<li><a href="http://localhost:3000/additional_bed_allocations" rel="#iframe">Bed<br />Allocation</a></li>
+<li><a href="http://localhost:3000/retain_beds" rel="#iframe" >Retain<br />Bed</a></li>
+<li><a href="http://localhost:3000/final_bills" rel="#iframe">Final<br />Bill</a></li>
+<li><a href="http://localhost:3000/final_bill_cancels" rel="#iframe">FinalBill<br />Cancel</a></li>
+<li><a href="http://localhost:3000/ip_discharges" rel="#iframe">Discharge</a></li>
+
+</ul>
+</div>
+<div id="petsdivcontainer" style="width:100%;">
+</div>
+
+
+<script type="text/javascript">
+
+var mypets=new ddajaxtabs("pettabs", "petsdivcontainer")
+mypets.setpersist(false)
+mypets.setselectedClassTarget("link")
+mypets.init()
+
+</script>
+</body>
