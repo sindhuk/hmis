@@ -1,0 +1,78 @@
+<br/>
+<h3><font color="#015a84">Editing <%=h @bankmaster.name %> Record</font></h3>
+
+<script type="application/javascript"> 
+	function selection_process(id)
+	{
+		var selObj = document.getElementById(id);
+		query1= selObj.options[selObj.selectedIndex].value
+		req = new Ajax.Request('/bankmasters/ajax_buildings/1', {
+			method: 'get',
+			parameters: { q: query1 },
+			onComplete: function(transport) {
+			processReqChange(transport);
+			}
+            }); // end ajax req
+        	function processReqChange(req) 
+		 {
+			// request is complete
+			if (req.readyState == 4) 
+			{
+				var results = req.responseText;
+				var temp=new Array()
+				temp=results.split(",")
+				document.getElementById('country').value=temp[0]
+				document.getElementById('state').value=temp[1]
+			}
+		}
+	}
+</script> 
+
+<% form_for(@bankmaster) do |f| %>
+<%= f.error_messages %>
+
+<div align="center" width="90%">
+     <table width="40%"  border="0" cellspacing="3" cellpadding="6">
+         <tr>
+		     <td><%= f.label :name %></td>	
+             <td><%= f.text_field :name, :size =>"20"%></td>
+         </tr>
+         <tr>
+	         <td><%= f.label :code %></td>
+             <td><%= f.text_field :code,:size =>"20" %></td>
+         </tr>
+         <tr>
+	         <td><%= f.label :branch %></td>
+             <td><%= f.text_field :branch,:size =>"20" %></td>
+         </tr>
+         <tr>
+	         <td><%= f.label :address %></td>
+             <td><%= f.text_field :address,:size =>"20" %></td>
+         </tr>
+         <tr>
+	         <td><%= f.label :city %></td>
+             <td><%= select "bankmaster", "city", Citymaster.find(:all).collect {|p| [ p.name ] }, {:include_blank => false}, {:id => "city", :onchange => "selection_process(id)"} %></td>
+         </tr>
+         <tr>
+             <td><%= f.label :state %><br /></td>
+             <td><%= f.text_field:state, :id => "state",:size =>"20" %></td>
+         </tr>
+         <tr>
+	         <td><%= f.label :country %></td>
+             <td><%= f.text_field:country, :id => "country",:size =>"20" %></td>
+         </tr>
+         <tr>
+	         <td><%= f.label :phone_no %></td>
+             <td><%= f.text_field :phno,:size =>"20" %></td>
+         </tr>
+         <tr>
+	         <td><%= f.label :mail %></td>
+             <td><%= f.text_field :mail , :size =>"20"%></td>
+         </tr>
+       </table>
+       <br/>
+	  <%= image_submit_tag("Button_images/update.png", :width => "60px", :height =>"25px", :border=>"0") %>
+   </div>
+  <% end %>
+  <br/>
+<%= link_to image_tag("Button_Images/back.png", :size => "60x25", :border=>"0"), bankmasters_path  %>

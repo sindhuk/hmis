@@ -1,0 +1,43 @@
+<br/>
+<center><h3><font color="#015a84">Listing Records</font></h3>
+
+<div align="center" width="90%">
+     <table width="90%"  border="0" cellspacing="3" cellpadding="6">
+         <tr  bgcolor="#378bf8" style="color:white">
+             <th>Name</th>
+             <th>Code</th>
+             <th>Branch</th>
+             <th>Address</th>
+             <th>City</th>
+             <th>State</th>
+             <th>Country</th>
+             <th>Phoneno</th>
+             <th>Mail</th>
+	         <th colspan=3>Permissions</th>
+         </tr>
+        
+		 <% @bankmasters.each do |bankmaster| %>
+         <% if((bankmaster.id % 2)==0) 
+	    	id="datacellone"
+	      else
+		 id="datacelltwo"
+         end %>
+         <tr>
+             <td class='<%= id %>'><%=h bankmaster.name %></td>
+             <td class='<%= id %>'><%=h bankmaster.code %></td>
+             <td class='<%= id %>'><%=h bankmaster.branch %></td>
+             <td class='<%= id %>'><%=h bankmaster.address %></td>
+             <td class='<%= id %>'><%=h bankmaster.city %></td>
+             <td class='<%= id %>'><%=h bankmaster.state %></td>
+             <td class='<%= id %>'><%=h bankmaster.country %></td>
+             <td class='<%= id %>'><%=h bankmaster.phno %></td>
+             <td class='<%= id %>'><%=h bankmaster.mail %></td>
+             <td  class='<%= id %>' align="center"><%= link_to image_tag("Button_Images/display1.png", :size => "60x25", :border =>"0"), bankmaster %></td>
+	      	 <td class='<%= id %>' align="center"><%= link_to image_tag("Button_Images/modify.png", :size => "60x25", :border =>"0" ), edit_bankmaster_path(bankmaster) %>
+             <td class='<%= id %>' align="center"><%= link_to image_tag("Button_Images/delete.png", :size => "60x25", :border =>"0"),  bankmaster,:confirm => 'Are you sure?', :method => :delete %></td>
+		  </tr>
+         <%end %>
+       </table> 
+      <br/>	  
+     <%= link_to image_tag("Button_Images/new.png", :size => "70x30", :border =>"0"), new_bankmaster_path  %>
+   </div>
