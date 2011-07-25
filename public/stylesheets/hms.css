@@ -1,0 +1,28 @@
+/* CSS Document */
+
+body{margin:0px;}
+body{margin:0;background:#E6EEF0;}
+.border{border:solid 1px #E6EEF0;
+-moz-border-radius: 15px;
+border-radius: 15px;
+}
+#bg{color:#FF0000;}
+.border1{border:solid 1px #0033CC;
+-moz-border-radius: 15px;
+border-radius: 15px;}
+.border2{border:solid 3px #464A7D;
+-moz-border-radius: 15px;
+border-radius: 15px;}
+.header{background:url(images/images/images/images/header1_03.jpg) repeat-x;}
+.borderhead{border:solid 1px #E6EEF0;
+-moz-border-radius: 15px;
+border-radius: 15px;
+}
+.footer{background:url(images/images/images/images/footer_03.jpg) repeat-x;}
+.borderfoot{border:solid 1px #E6EEF0;
+-moz-border-radius: 15px;
+border-radius: 15px;
+}
+.borderlogin{ width:88px; height:30px;border:solid 1px #0033CC;
+-moz-border-radius: 15px;
+border-radius: 15px;}

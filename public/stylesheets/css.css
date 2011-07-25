@@ -1,0 +1,372 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* ######### CSS for Shade Tabs. Remove if not using ######### */
+
+.shadetabs{
+padding: 3px 0;
+margin-left: 0;
+margin-top: 1px;
+margin-bottom: 0;
+font: bold 12px Verdana;
+list-style-type: none;
+text-align: left; /*set to left, center, or right to align the menu as desired*/
+}
+
+.shadetabs li{
+display: inline;
+margin: 0;
+}
+
+.shadetabs li a{
+text-decoration: none;
+position: relative;
+z-index: 1;
+padding: 3px 7px;
+margin-right: 3px;
+border: 1px solid #778;
+color: #2d2b2b;
+background: white url(red.gif) top left repeat-x;
+}
+
+.shadetabs li a:visited{
+color: #2d2b3b;
+}
+
+.shadetabs li a:hover{
+text-decoration: underline;
+color: #2d2b2b;
+}
+
+.shadetabs li a.selected{ /*selected main tab style */
+position: relative;
+top: 1px;
+}
+
+.shadetabs li a.selected{ /*selected main tab style */
+background-image: url(shadeactive.gif);
+border-bottom-color: white;
+}
+
+.shadetabs li a.selected:hover{ /*selected main tab style */
+text-decoration: none;
+}
+
+
+/* ######### CSS for Inverted Modern Bricks II Tabs. Remove if not using ######### */
+
+.modernbricksmenu2{
+padding: 0;
+width: 362px;
+border-top: 5px solid #D25A0B; /*Brown color theme*/ 
+background: transparent;
+voice-family: "\"}\"";
+voice-family: inherit;
+}
+
+.modernbricksmenu2 ul{
+margin:2;
+margin-left: 8px; /*margin between first menu item and left browser edge*/
+padding: 0;
+list-style: none;
+}
+
+.modernbricksmenu2 li{
+display: inline;
+margin: 0 2px 0 0;
+padding: 0;
+text-transform:uppercase;
+}
+
+.modernbricksmenu2 a{
+float: left;
+display: block;
+font: bold 11px Arial;
+color: white;
+text-decoration: none;
+margin: 0 1px 0 0; /*Margin between each menu item*/
+padding: 5px 10px;
+background-color: black; /*Brown color theme*/ 
+border-top: 1px solid white;
+}
+
+.modernbricksmenu2 a:hover{
+background-color: #D25A0B; /*Brown color theme*/ 
+color: white;
+}
+
+.modernbricksmenu2 a.selected{ /*currently selected tab*/
+background-color: #D25A0B; /*Brown color theme*/ 
+color: white;
+border-color: #D25A0B; /*Brown color theme*/ 
+}
+
+/* ######### CSS for Indented CSS Tabs. Remove if not using ######### */
+
+
+.indentmenu{
+font: bold 13px Arial;
+width: 100%; /*leave this value as is in most cases*/
+}
+
+.indentmenu ul{
+margin: 0;
+padding: 0;
+float: left;
+/* width: 80%; width of menu*/
+border-top: 1px solid darkred; /*darkred border*/
+background: black url(indentbg.gif) center center repeat-x;
+}
+
+.indentmenu ul li{
+display: inline;
+}
+
+.indentmenu ul li a{
+float: left;
+color: red; /*text color*/
+padding: 3px 11px;
+text-decoration: none;
+border-right: 1px solid darkred; /*darkred divider between menu items*/
+}
+
+.indentmenu ul li a:visited{
+color: black;
+}
+
+.indentmenu ul li a.selected{
+color: black !important;
+padding-top: 4px; /*shift text down 1px*/
+padding-bottom: 2px;
+background: black url(indentbg2.gif) center center repeat-x;
+}
+
+#header
+{
+	width:999px;
+	float:left;
+	height:250px;
+	background-color:#FFF;
+	
+}
+
+#menu
+{
+	width:999px;
+	float:left;
+	background-color:#FFF;
+}
+#menu1
+{
+	width:999px;
+	float:left;
+	background-color:#CCC;
+	height:20px;
+}
+#main
+{
+	width:999px;
+	height:700px;
+	background-color:#FFF;
+	margin-left:auto;
+	margin-right:auto;
+}
+#content
+{
+	width:90%;
+	height:500px;
+	float:left;
+	background-color:#ecf3f7;
+	margin:10px;
+}
+body
+{
+	background-color:#ecf3f7;
+	margin:0 auto;
+}
+input.text{
+	color :red;
+}
+sup{
+	color :red;
+}
+#footer 
+{
+	width:999px;
+	background-color:#CCC;
+	padding-top:10px;
+	float:left;s
+}
+a
+{
+	text-decoration:none;
+	color:#963;
+}
+#EZcalendar {
+	display: none;
+	position: absolute;
+	margin: 0;
+	z-index: 99;
+	background: #005083;
+	color: white;
+	/* safer to use fixed font sizes */
+	font: 11px Arial, Helvetica, sans-serif;
+	border: 1px solid #E1E0E2;
+}
+#EZcalendar form {
+	margin: 0;
+	padding: 0;
+}
+#EZcalendar table {
+	background: #E1E0E2;
+	border: none;
+	font-size: 100%;
+	margin: 0;
+	padding: 0;
+}
+#EZcalendar table td, #EZcalendar table th {
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+}
+/*tds*/
+#EZcalendar table td a.outsideMonth {
+	background: #B5C9C9;
+	color: white;
+}
+#EZcalendar table td a.today{
+	background: black;
+	color: #fff;
+}
+#EZcalendar table td a {
+	background: white;
+	color: #333;
+	display: block;
+	color: #333;
+	margin: 0;
+	padding: 0;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-decoration: none;
+}
+#EZcalendar table td a:hover {
+	color: black;
+	background: #A5FFFF;
+}
+
+#EZcalendar table td#EZcalendar_text {
+	background: #0E649B;
+	text-align: center;
+	width: 80px;
+	height: 20px;
+}
+
+#EZcalendar input {
+	border: none;
+	background: #1C78B2;
+	color: white;
+	cursor: pointer;
+	width: 20px;
+	height: 20px;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+#EZcalendar input.left {
+	float: left;
+}
+#EZcalendar input.right {
+	float: right;
+}
+#EZcalendar_table {
+	clear: both;
+}
+table
+{
+	font-family: Calibri;
+}
+table.helpT
+{ text-align: center;
+font-family: Verdana;
+font-weight: normal;
+font-size: 15px;
+color: #404040;
+width: 500px;
+background-color: RED;
+border: 1px #6699CC solid;
+border-collapse: collapse;
+border-spacing: 0px; 
+} 
+tr.info
+{
+background-color: #378bf8;
+
+}
+td.helpBod
+{ border-bottom: 1px solid #9CF;
+border-top: 0px;
+border-left: 1px solid #9CF;
+border-right: 0px;
+text-align: left;
+text-indent: 10px;
+font-family: Verdana, sans-serif, Arial;
+font-weight: normal;
+font-size: 11px;
+color: #404040;
+background-color: #fafafa; }
+
+table.sofT
+{
+text-align: left;
+font-family: Calibri;
+font-weight: normal;
+font-size: 15px;
+color: White;
+
+border-collapse: 4px;
+border-spacing: 2px; 
+} 
+tr.datacellone
+{
+background-color: #c6dfff; color: black;
+
+}
+tr.datacelltwo 
+{
+background-color: #d9e8f0; color: black;
+}
+td.datacellone
+{
+background-color: #c6dfff; color: black;
+font-weight:bold;
+}
+td.datacelltwo 
+{
+background-color: #d9e8f0; color: black;
+}
+td
+{
+	padding:5px;
+}
+tr
+{
+	height:30x;
+}
+.info
+{
+	width:55px;
+	height:25px;
+	margin-left: auto;
+    margin-right: auto;
+}
+th
+{
+  text-align:center;
+}
+td.abc
+{
+text-align:center;
+
+}
