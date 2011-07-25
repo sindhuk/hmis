@@ -38,8 +38,8 @@ class AdditionalBedAllocationsController < ApplicationController
     @additional_bed_allocation = AdditionalBedAllocation.find(params[:id])
   end
 
-  # POST /additional_bed_allocations
-  # POST /additional_bed_allocations.xml
+  #  POST /additional_bed_allocations
+  #  POST /additional_bed_allocations.xml
   def create
     @additional_bed_allocation = AdditionalBedAllocation.new(params[:additional_bed_allocation])
 
@@ -54,8 +54,8 @@ class AdditionalBedAllocationsController < ApplicationController
     end
   end
 
-  # PUT /additional_bed_allocations/1
-  # PUT /additional_bed_allocations/1.xml
+  #  PUT /additional_bed_allocations/1
+  #  PUT /additional_bed_allocations/1.xml
   def update
     @additional_bed_allocation = AdditionalBedAllocation.find(params[:id])
 
